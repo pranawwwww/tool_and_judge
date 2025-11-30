@@ -1,0 +1,28 @@
+{"message": [
+        {"role": "developer", "content": "You are an expert in composing functions.You are given a question and a set of possible functions. Based on the question, you will need to make one or more function/tool calls to achieve the purpose. If none of the functions can be used, point it out. If the given question lacks the parameters required by the function, also point it out.\n\nYou should only return the function calls in your response.\n\nIf you decide to invoke any of the function(s), you MUST put it in the format of [func_name1(params_name1=params_value1, params_name2=params_value2...), func_name2(params)
+            ].  You SHOULD NOT include any other text in the response. Pass in all parameters in function calls in English.\n\nAt each turn, you should try your best to complete the tasks requested by the user within the current turn. Continue to output functions to call until you have fulfilled the user\"s request to the best of your ability. Once you have no more functions to call, the system will consider the current turn complete and proceed to the next turn or task.\n\nHere is a list of functions in json format that you can invoke.\n[\n    {\n        'name': 'property_valuation.get',\n        'description': 'Get estimated value of a property based on location, specifications and age Note that the provided function is in Python 3 syntax.',\n        'parameters': {\n            'type': 'dict',\n            'properties': {\n                'location': {\n                    'type': 'string',\n                    'description': 'City and state where the property is located, e.g. San Diego, CA.'\n
+                            },\n                'propertyType': {\n                    'type': 'string',\n                    'description': 'Type of property such as villa, condo, apartment, etc.'\n
+                            },\n                'bedrooms': {\n                    'type': 'integer',\n                    'description': 'Number of bedrooms required in the property.'\n
+                            },\n                'age': {\n                    'type': 'integer',\n                    'description': 'Age of the property in years.'\n
+                            }\n
+                        },\n            'required': [\n                'location',\n                'propertyType',\n                'bedrooms',\n                'age'\n
+                        ]\n
+                    }\n
+                },\n    {\n        'name': 'realestate.find_properties',\n        'description': 'Find properties based on location, budget, and specifications Note that the provided function is in Python 3 syntax.',\n        'parameters': {\n            'type': 'dict',\n            'properties': {\n                'location': {\n                    'type': 'string',\n                    'description': 'City and state where the property is located, e.g. San Diego, CA.'\n
+                            },\n                'propertyType': {\n                    'type': 'string',\n                    'description': 'Type of property such as villa, condo, apartment, etc.'\n
+                            },\n                'bedrooms': {\n                    'type': 'integer',\n                    'description': 'Number of bedrooms required in the property.'\n
+                            },\n                'budget': {\n                    'type': 'dict',\n                    'properties': {\n                        'min': {\n                            'type': 'float',\n                            'description': 'Minimum budget limit.'\n
+                                    },\n                        'max': {\n                            'type': 'float',\n                            'description': 'Maximum budget limit.'\n
+                                    }\n
+                                },\n                    'description': 'Budget range for the property.'\n
+                            }\n
+                        },\n            'required': [\n                'location',\n                'propertyType',\n                'bedrooms',\n                'budget'\n
+                        ]\n
+                    }\n
+                }\n
+            ]\n"
+        },
+        {"role": "user", "content": "在圣地亚哥寻找预算在30万至40万美元之间的三卧室别墅出售。"
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+datasets
+openai
+python-dotenv
+numpy
+scipy
+transformers
+torch

@@ -1,0 +1,14 @@
+1. Directly passing in tanslated question: most models do not have the strict convention of passing in arguments in English
+2. Partially translated: good for large models like gpt-4o-mini, decent gap for small models (granite) or "creative" models (sonnet).
+3. Fully translated + prompt to pass arguments in English: Not as effective as partially translated, especially for small models.
+4. Adding noise: generally more gap when not translated; less gap when partially translated (partially because keywords get replaced and do not match ground truth)
+5. Some logical twist problem: Expected one of [4]. (not more significant when noise added, but this can be added as noise)
+
+Discussion: whether stick to partial translation or apply answering in English prompt / preprocessing question / post-processing answer
+or both?
+
+
+Possible trivial fixes:
+1. Prompt model to pass in arguments in English (already done, not super effective)
+2. Translate the question using another pass before processing
+3. After processing, translate parameters to English

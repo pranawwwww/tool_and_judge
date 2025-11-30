@@ -1,0 +1,4 @@
+              , original_not_noisy, partially_translated_not_noisy, original_noisy, partially_translated_noisy
+gpt-4o-mini   ,    0.86           ,         0.75                  ,   0.84        ,           0.77
+claude-sonnet ,    0.795          ,         0.67                  ,   0.77        ,           0.685
+claude-haiku  ,    0.81           ,         0.655                 ,   0.78        ,           0.635
