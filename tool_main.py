@@ -273,8 +273,8 @@ def get_or_create_model_interface(model: Model):
 
 # Global caches for post-processing parameter matching (shared across all configs)
 # Separate caches for different language handling options
-post_processing_cache_different_path = "post_processing_match_cache_different.json"
-post_processing_cache_same_path = "post_processing_match_cache_same.json"
+post_processing_cache_different_path = "tool/post_processing_match_cache_different.json"
+post_processing_cache_same_path = "tool/post_processing_match_cache_same.json"
 post_processing_cache_different = load_or_create_cache(post_processing_cache_different_path)
 post_processing_cache_same = load_or_create_cache(post_processing_cache_same_path)
 post_processing_cache_stats_different = {'hits': 0, 'misses': 0}
@@ -347,13 +347,13 @@ for config in configs:
     inference_filename = get_result_filename(language_postfix, translate_postfix, noise_postfix)
     processing_filename = get_result_filename(language_postfix, translate_mode_postfix, noise_postfix)
 
-    dataset_path = f"dataset/BFCL_v4_multiple{language_postfix}{translate_dataset_postfix}{noise_postfix}.json"
-    ground_truth_path = f"dataset/possible_answer/BFCL_v4_multiple.json"
-    inference_raw_result_path = f"result/inference_raw/{model_dir_name}/{inference_filename}"
-    inference_json_result_path = f"result/inference_json/{model_dir_name}/{inference_filename}"
-    post_processing_result_path = f"result/post_processing/{model_dir_name}/{processing_filename}"
-    evaluation_result_path = f"result/evaluation/{model_dir_name}/{processing_filename}"
-    score_path = f"result/score/{model_dir_name}/{processing_filename}"
+    dataset_path = f"tool/dataset/BFCL_v4_multiple{language_postfix}{translate_dataset_postfix}{noise_postfix}.json"
+    ground_truth_path = f"tool/dataset/possible_answer/BFCL_v4_multiple.json"
+    inference_raw_result_path = f"tool/result/inference_raw/{model_dir_name}/{inference_filename}"
+    inference_json_result_path = f"tool/result/inference_json/{model_dir_name}/{inference_filename}"
+    post_processing_result_path = f"tool/result/post_processing/{model_dir_name}/{processing_filename}"
+    evaluation_result_path = f"tool/result/evaluation/{model_dir_name}/{processing_filename}"
+    score_path = f"tool/result/score/{model_dir_name}/{processing_filename}"
 
     test_cases, _ = load_json_lines_from_file(dataset_path)
     ground_truths, _ = load_json_lines_from_file(ground_truth_path)

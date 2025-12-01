@@ -278,7 +278,7 @@ if __name__ == "__main__":
     print(f"Using {args.num_gpus} GPU(s)")
 
     # Create result directory if it doesn't exist
-    os.makedirs("result", exist_ok=True)
+    os.makedirs("judge/result", exist_ok=True)
 
     for config in configs:
         print("Processing configuration: ", config)
@@ -289,15 +289,15 @@ if __name__ == "__main__":
         second_lang = sorted_langs[1]
 
         # Load individual entry datasets
-        entries_lang1_correct = load_entries(f"datasets/{first_lang}_correct.jsonl")
-        entries_lang1_incorrect = load_entries(f"datasets/{first_lang}_incorrect.jsonl")
-        entries_lang2_correct = load_entries(f"datasets/{second_lang}_correct.jsonl")
-        entries_lang2_incorrect = load_entries(f"datasets/{second_lang}_incorrect.jsonl")
+        entries_lang1_correct = load_entries(f"judge/datasets/{first_lang}_correct.jsonl")
+        entries_lang1_incorrect = load_entries(f"judge/datasets/{first_lang}_incorrect.jsonl")
+        entries_lang2_correct = load_entries(f"judge/datasets/{second_lang}_correct.jsonl")
+        entries_lang2_incorrect = load_entries(f"judge/datasets/{second_lang}_incorrect.jsonl")
 
-        print(f"Loaded {len(entries_lang1_correct)} entries from datasets/{first_lang}_correct.jsonl")
-        print(f"Loaded {len(entries_lang1_incorrect)} entries from datasets/{first_lang}_incorrect.jsonl")
-        print(f"Loaded {len(entries_lang2_correct)} entries from datasets/{second_lang}_correct.jsonl")
-        print(f"Loaded {len(entries_lang2_incorrect)} entries from datasets/{second_lang}_incorrect.jsonl")
+        print(f"Loaded {len(entries_lang1_correct)} entries from judge/datasets/{first_lang}_correct.jsonl")
+        print(f"Loaded {len(entries_lang1_incorrect)} entries from judge/datasets/{first_lang}_incorrect.jsonl")
+        print(f"Loaded {len(entries_lang2_correct)} entries from judge/datasets/{second_lang}_correct.jsonl")
+        print(f"Loaded {len(entries_lang2_incorrect)} entries from judge/datasets/{second_lang}_incorrect.jsonl")
 
         # Combine entries into pairs for preference methods
         # 4 pair combinations:
@@ -360,7 +360,7 @@ if __name__ == "__main__":
                     (pairs_both_correct, f"{first_lang}_correct_{second_lang}_correct"),
                     (pairs_both_incorrect, f"{first_lang}_incorrect_{second_lang}_incorrect")
                 ]:
-                    output_dir = f"result/{display_model_name}/preferences_local_direct"
+                    output_dir = f"judge/result/{display_model_name}/preferences_local_direct"
                     os.makedirs(output_dir, exist_ok=True)
                     collect_preference_local_direct(
                         pairs=pairs,
@@ -377,7 +377,7 @@ if __name__ == "__main__":
                     (pairs_both_correct, f"{first_lang}_correct_{second_lang}_correct"),
                     (pairs_both_incorrect, f"{first_lang}_incorrect_{second_lang}_incorrect")
                 ]:
-                    output_dir = f"result/{display_model_name}/preferences_local_cot"
+                    output_dir = f"judge/result/{display_model_name}/preferences_local_cot"
                     os.makedirs(output_dir, exist_ok=True)
                     collect_preference_local_cot(
                         pairs=pairs,
@@ -395,7 +395,7 @@ if __name__ == "__main__":
                     (entries_lang2_correct, f"{second_lang}_correct"),
                     (entries_lang2_incorrect, f"{second_lang}_incorrect")
                 ]:
-                    output_dir = f"result/{display_model_name}/perplexities_local"
+                    output_dir = f"judge/result/{display_model_name}/perplexities_local"
                     os.makedirs(output_dir, exist_ok=True)
                     collect_perplexity_local(
                         entries=entries,
