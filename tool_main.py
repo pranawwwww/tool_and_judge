@@ -1,21 +1,21 @@
-from parse_dataset import load_json_lines
+from tool.parse_dataset import load_json_lines
 import json
 import os
 import sys
 import argparse
 import asyncio
 import importlib.util
-from config import *
-from parse_ast import *
+from tool.config import *
+from tool.parse_ast import *
 import re
-from call_llm import make_chat_pipeline
+from tool.call_llm import make_chat_pipeline
 from models import create_backend, create_interface
-from post_processing import (
+from tool.post_processing import (
     load_or_create_cache,
     save_cache,
     process_post_processing_sample
 )
-from utils.name_mapping import get_global_name_mapper
+from tool.utils.name_mapping import get_global_name_mapper
 
 # ============================================================================
 # LOCAL MODEL INFERENCE BACKEND CONFIGURATION
@@ -494,11 +494,11 @@ for config in configs:
             backend = get_or_create_generator(config.model, use_vllm=USE_VLLM_BACKEND, num_gpus=args.num_gpus)
             model_interface = get_or_create_model_interface(config.model)
 
-            # Process requests asynchronously and write results incrementally
+            # Process requests asynchronously
             print(f"\nSubmitting {len(cases_to_process)} requests concurrently...")
 
-            async def process_batch_with_incremental_writes():
-                """Process batch requests and write results incrementally as they complete."""
+            async def process_batch_async():
+                """Process batch requests asynchronously."""
 
                 async def process_single_case(case):
                     """Process a single case and return the result with case info."""
@@ -530,13 +530,17 @@ for config in configs:
                     }
                     inference_raw_results.append(result_to_write)
 
-                    # Write immediately to file (sorted)
-                    append_and_rewrite_json_lines(inference_raw_result_path, inference_raw_results)
+                    # Write to file immediately (unsorted)
+                    write_json_lines_to_file(inference_raw_result_path, inference_raw_results)
 
             # Run the async batch processing
-            asyncio.run(process_batch_with_incremental_writes())
+            asyncio.run(process_batch_async())
 
             print(f"All {len(cases_to_process)} requests completed.")
+
+            # Final sort and write
+            if len(inference_raw_results) > 0:
+                append_and_rewrite_json_lines(inference_raw_result_path, inference_raw_results)
 
     # Populate global name mapper if this model requires name sanitization
     # This is done once per model, independent of whether we have a model_interface
