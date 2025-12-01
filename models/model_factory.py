@@ -18,6 +18,8 @@ from dataclasses import dataclass
 
 from .base import ModelBackend, ModelInterface
 
+from models.vllm_backend import VLLMBackend
+
 
 # =============================================================================
 # Backend Configuration Data Classes
@@ -342,14 +344,6 @@ def _create_vllm_backend(config: BackendConfig) -> ModelBackend:
             "Install with: pip install transformers"
         )
 
-    # Import the vLLM backend implementation
-    try:
-        from .vllm_backend import VLLMBackend
-    except ImportError:
-        raise ImportError(
-            "vLLM backend not available. Please create models/vllm_backend.py "
-            "implementing the VLLMBackend class."
-        )
 
     print(f"Loading tokenizer for: {config.model_name}")
 
@@ -432,6 +426,8 @@ def create_backend(
         ...     num_gpus=1
         ... )
     """
+
+    print("Creating backend...")
     backend_type = backend_type.lower()
 
     # Create configuration

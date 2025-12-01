@@ -24,7 +24,7 @@ from config import (
 # Example configurations
 configs = [    
     ToolConfig(
-        model=LocalModel.QWEN3_14B,
+        model=LocalModel.QWEN3_8B,
         translate_mode=Translated(
             language=Language.CHINESE,
             option=TranslateOption.FULLY_TRANSLATED

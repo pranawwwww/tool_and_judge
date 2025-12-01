@@ -35,7 +35,7 @@ configs = [
 ]
 
 # Uncomment to generate all combinations programmatically
-for model in [LocalModel.QWEN3_NEXT_80B]:
+for model in [LocalModel.QWEN3_30B_A3B]:
     for translate_mode in [
         NotTranslated(),
         Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED),
