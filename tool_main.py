@@ -255,90 +255,6 @@ _global_model = None
 _global_backend = None  # Only relevant for local models (vLLM vs HuggingFace)
 
 
-def create_api_client(api_model: ApiModel):
-    """
-    Factory function to create API clients for API models.
-
-    Args:
-        api_model: ApiModel enum value
-
-    Returns:
-        API client object (e.g., OpenAI client, Anthropic client, etc.)
-
-    Raises:
-        EnvironmentError: If required API keys are missing
-        ValueError: If model is not supported
-    """
-    from dotenv import load_dotenv
-    load_dotenv(dotenv_path=".env")
-
-    # OpenAI-based models (GPT-5, GPT-5-mini, GPT-5-nano, GPT-4o-mini)
-    if api_model in [ApiModel.GPT_5, ApiModel.GPT_5_MINI, ApiModel.GPT_5_NANO, ApiModel.GPT_4O_MINI]:
-        api_key = os.getenv("OPENAI_API_KEY")
-        if not api_key:
-            raise EnvironmentError("OPENAI_API_KEY not found in .env")
-        from openai import OpenAI
-        return OpenAI(api_key=api_key)
-
-    # DeepSeek (OpenAI-compatible endpoint)
-    elif api_model == ApiModel.DEEPSEEK_CHAT:
-        api_key = os.getenv("DEEPSEEK_API_KEY")
-        if not api_key:
-            raise EnvironmentError("DEEPSEEK_API_KEY not found in .env")
-        from openai import OpenAI
-        return OpenAI(api_key=api_key, base_url="https://api.deepseek.com")
-
-    # AWS Bedrock models (Llama)
-    elif api_model in [ApiModel.LLAMA_3_1_8B, ApiModel.LLAMA_3_1_70B]:
-        # Bedrock client creation
-        import boto3
-        return boto3.client(
-            service_name='bedrock-runtime',
-            region_name=os.getenv('AWS_REGION', 'us-west-2')
-        )
-
-    else:
-        raise ValueError(f"Unsupported API model: {api_model}")
-
-
-def get_or_create_generator(model: Model, use_vllm: bool = False, num_gpus: int = 1):
-    """
-    Get or create a backend for the given model using the new unified factory.
-
-    The backend is cached automatically by the factory and reused if possible.
-
-    Args:
-        model: ApiModel or LocalModel enum value
-        use_vllm: Only relevant for LocalModel - if True, use vLLM backend; if False, use HuggingFace backend
-        num_gpus: Number of GPUs to use for local models
-
-    Returns:
-        ModelBackend instance
-    """
-    model_name = model.value if hasattr(model, 'value') else model
-
-    # Determine backend type
-    if isinstance(model, ApiModel):
-        backend_type = "api"
-        # For API models, we may need to get API key from environment
-        # The factory will handle this based on the model name
-    backend = create_backend(
-            backend_type=backend_type,
-            model_name=model_name
-        )
-    elif isinstance(model, LocalModel):
-        backend_type = "vllm" if use_vllm else "huggingface"
-        backend = create_backend(
-            backend_type=backend_type,
-            model_name=model_name,
-            device="cuda",
-            num_gpus=num_gpus
-        )
-    else:
-        raise ValueError(f"Unsupported model type: {type(model)}")
-
-    return backend
-
 
 def get_or_create_model_interface(model: Model):
     """
@@ -491,7 +407,20 @@ for config in configs:
                 print(f"  Concurrent requests: {max_concurrent} (vLLM handles internal batching)")
 
             # Get or create backend for the model (unified for both API and local models)
-            backend = get_or_create_generator(config.model, use_vllm=USE_VLLM_BACKEND, num_gpus=args.num_gpus)
+            model_name = config.model.value
+            if isinstance(config.model, ApiModel):
+                backend_type = "api"
+            elif isinstance(config.model, LocalModel):
+                backend_type = "vllm" if USE_VLLM_BACKEND else "huggingface"
+            else:
+                raise ValueError(f"Unsupported model type: {type(config.model)}")
+
+            backend = create_backend(
+                backend_type=backend_type,
+                model_name=model_name,
+                device="cuda",
+                num_gpus=args.num_gpus
+            )
             model_interface = get_or_create_model_interface(config.model)
 
             # Process requests asynchronously
