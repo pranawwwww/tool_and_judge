@@ -8,7 +8,6 @@ import importlib.util
 from config import *
 from tool.parse_ast import *
 import re
-from tool.call_llm import make_chat_pipeline
 from models import create_backend, create_interface
 from tool.post_processing import (
     load_or_create_cache,

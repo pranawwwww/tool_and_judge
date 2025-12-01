@@ -25,38 +25,6 @@ configs = [
         lang2="en",
         result_type=ResultType.PREFERENCE_DIRECT
     ),
-
-    # Example 2: Qwen 3 30B comparing Chinese vs English - Perplexity
-    JudgeConfig(
-        model=LocalModel.QWEN3_30B_A3B,
-        lang1="zh_cn",
-        lang2="en",
-        result_type=ResultType.PERPLEXITY
-    ),
-
-    # Example 3: Qwen 3 30B comparing Chinese vs English - Chain of Thought preference
-    JudgeConfig(
-        model=LocalModel.QWEN3_30B_A3B,
-        lang1="zh_cn",
-        lang2="en",
-        result_type=ResultType.PREFERENCE_COT
-    ),
-
-    # Example 4: Granite 3.1 8B comparing Hindi vs English - Direct preference
-    JudgeConfig(
-        model=LocalModel.GRANITE_3_1_8B_INSTRUCT,
-        lang1="hi",
-        lang2="en",
-        result_type=ResultType.PREFERENCE_DIRECT
-    ),
-
-    # Example 5: Granite 3.1 8B comparing Hindi vs English - Perplexity
-    JudgeConfig(
-        model=LocalModel.GRANITE_3_1_8B_INSTRUCT,
-        lang1="hi",
-        lang2="en",
-        result_type=ResultType.PERPLEXITY
-    ),
 ]
 
 # Uncomment to generate all combinations programmatically
