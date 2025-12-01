@@ -755,43 +755,52 @@ async def process_all_configs():
                 async def translate_answers_async():
                     """Translate function call parameters asynchronously."""
                     async def translate_dict_values(arguments: dict) -> dict:
-                        """Recursively translate string values in a dictionary."""
+                        """
+                        Recursively translate only the VALUES in a dictionary, preserving all KEYS unchanged.
+
+                        For example:
+                        {"location": "北京"} -> {"location": "Beijing"}  # Key preserved, value translated
+                        """
                         translated = {}
 
-                        # Create translation tasks for all string values
+                        # First pass: collect all string values that need translation
+                        # IMPORTANT: We only translate VALUES, never KEYS (parameter names)
                         translation_tasks = []
-                        keys_to_translate = []
+                        keys_for_string_values = []  # Store parameter names (not translated)
 
-                        for key, value in arguments.items():
-                            if isinstance(value, str):
-                                # Translate string values
+                        for param_name, param_value in arguments.items():
+                            if isinstance(param_value, str):
+                                # Translate this string VALUE
+                                # The parameter NAME (param_name) is preserved as-is
                                 translation_tasks.append(
                                     translation_interface.translate_tool_answer_async(
                                         backend=translation_backend,
-                                        parameter_value=value
+                                        parameter_value=param_value
                                     )
                                 )
-                                keys_to_translate.append(key)
-                            elif isinstance(value, dict):
-                                # Recursively handle nested dictionaries (not async to keep it simple)
-                                translated[key] = value  # Will be handled in second pass
-                            elif isinstance(value, list):
-                                # Handle lists (not translating for now, can be extended)
-                                translated[key] = value
+                                keys_for_string_values.append(param_name)
+                            elif isinstance(param_value, dict):
+                                # Mark for recursive translation (handled in second pass)
+                                translated[param_name] = param_value
+                            elif isinstance(param_value, list):
+                                # TODO: Could extend to translate strings within lists
+                                translated[param_name] = param_value
                             else:
-                                # Keep non-string values as is
-                                translated[key] = value
+                                # Keep non-string values as-is (numbers, booleans, etc.)
+                                translated[param_name] = param_value
 
-                        # Wait for all translations to complete
+                        # Wait for all string value translations to complete
                         if translation_tasks:
                             translated_values = await asyncio.gather(*translation_tasks)
-                            for key, translated_value in zip(keys_to_translate, translated_values):
-                                translated[key] = translated_value
+                            # Map translated values back to their ORIGINAL parameter names
+                            for param_name, translated_value in zip(keys_for_string_values, translated_values):
+                                translated[param_name] = translated_value
 
                         # Second pass: recursively translate nested dictionaries
-                        for key, value in arguments.items():
-                            if isinstance(value, dict) and key not in translated:
-                                translated[key] = await translate_dict_values(value)
+                        # Again, only the values in nested dicts are translated, not the keys
+                        for param_name, param_value in arguments.items():
+                            if isinstance(param_value, dict) and param_name not in translated:
+                                translated[param_name] = await translate_dict_values(param_value)
 
                         return translated
 
