@@ -1,7 +1,7 @@
 import json
 import re
-from parse_dataset import load_json_lines
-from call_llm import api_inference
+from tool.parse_dataset import load_json_lines
+from tool.call_llm import api_inference
 from config import ApiModel
 
 

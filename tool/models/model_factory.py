@@ -6,17 +6,17 @@ Provides a unified way to instantiate the correct model handler based on model t
 
 from typing import Union, Optional, List, Dict, Any
 from config import ApiModel, LocalModel
-from models.base import ModelInterface
-from models.gpt_4o_mini_interface import GPT4oMiniInterface
-from models.gpt_5_interface import GPT5Interface
-from models.claude_sonnet_interface import ClaudeSonnetInterface
-from models.claude_haiku_interface import ClaudeHaikuInterface
-from models.deepseek_chat_interface import DeepseekChatInterface
-from models.llama_3_1_interface import Llama31Interface
-from models.granite_3_1_8b_instruct_interface import Granite3_1_8BInstructInterface
-from models.granite_4_interface import Granite4Interface
-from models.qwen2_5_interface import Qwen25InstructInterface
-from models.qwen3_interface import Qwen3Interface
+from tool.models.base import ModelInterface
+from tool.models.gpt_4o_mini_interface import GPT4oMiniInterface
+from tool.models.gpt_5_interface import GPT5Interface
+from tool.models.claude_sonnet_interface import ClaudeSonnetInterface
+from tool.models.claude_haiku_interface import ClaudeHaikuInterface
+from tool.models.deepseek_chat_interface import DeepseekChatInterface
+from tool.models.llama_3_1_interface import Llama31Interface
+from tool.models.granite_3_1_8b_instruct_interface import Granite3_1_8BInstructInterface
+from tool.models.granite_4_interface import Granite4Interface
+from tool.models.qwen2_5_interface import Qwen25InstructInterface
+from tool.models.qwen3_interface import Qwen3Interface
 
 
 def create_model_interface(model: Union[ApiModel, LocalModel]) -> ModelInterface:

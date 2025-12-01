@@ -5,7 +5,7 @@ import os
 from enum import Enum, auto
 from config import Language
 import re
-from parse_dataset import load_json_lines
+from tool.parse_dataset import load_json_lines
 # Load API keys from .env file
 load_dotenv(dotenv_path=".env")
 

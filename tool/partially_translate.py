@@ -11,7 +11,7 @@ import os
 import re
 from dotenv import load_dotenv
 from openai import OpenAI
-from parse_dataset import load_json_lines
+from tool.parse_dataset import load_json_lines
 
 # Load API keys from .env file
 load_dotenv(dotenv_path=".env")

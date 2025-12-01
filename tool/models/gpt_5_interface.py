@@ -17,7 +17,7 @@ Key differences from GPT-4:
 import json
 import re
 from typing import List, Dict, Any, Union
-from models.base import ModelInterface
+from tool.models.base import ModelInterface
 
 
 class GPT5Interface(ModelInterface):

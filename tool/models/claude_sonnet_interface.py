@@ -12,7 +12,7 @@ import ast
 import json
 from typing import List, Dict, Any, Union
 from dotenv import load_dotenv
-from models.base import ModelInterface
+from tool.models.base import ModelInterface
 
 
 class ClaudeSonnetInterface(ModelInterface):

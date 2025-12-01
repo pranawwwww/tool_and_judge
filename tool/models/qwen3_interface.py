@@ -10,7 +10,7 @@ Handles:
 
 import json
 from typing import List, Dict, Any, Union
-from models.base import ModelInterface
+from tool.models.base import ModelInterface
 
 try:
     from config import LocalModel

@@ -2,9 +2,9 @@
 import json
 
 import re
-from call_llm import api_inference
+from tool.call_llm import api_inference
 from config import ApiModel
-from parse_dataset import load_json_lines
+from tool.parse_dataset import load_json_lines
 
 
 # translated = True
