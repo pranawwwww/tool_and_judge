@@ -25,10 +25,10 @@ from config import (
 configs = [
     # Example 1: GPT-5 with no translation, no noise (vanilla/baseline)
     ToolConfig(
-        model=ApiModel.GPT_5,
+        model=ApiModel.GPT_5_NANO,
         translate_mode=Translated(
             language=Language.CHINESE,
-            option=TranslateOption.FULLY_TRANSLATED_PRE_TRANSLATE
+            option=TranslateOption.FULLY_TRANSLATED_POST_TRANSLATE
         ),
         # translate_mode=NotTranslated(),
         add_noise_mode=AddNoiseMode.NO_NOISE

@@ -725,6 +725,47 @@ async def process_all_configs():
 
                 async def translate_answers_async():
                     """Translate function call parameters asynchronously."""
+                    async def translate_list_values(items: list) -> list:
+                        """
+                        Recursively translate string values within a list.
+
+                        For example:
+                        ["鸡肉", "蘑菇"] -> ["chicken", "mushroom"]
+                        """
+                        # Collect all items that need translation
+                        translation_tasks = []
+                        indices_for_strings = []
+
+                        for i, item in enumerate(items):
+                            if isinstance(item, str):
+                                # Translate string items
+                                translation_tasks.append(
+                                    translation_interface.translate_tool_answer_async(
+                                        backend=translation_backend,
+                                        parameter_value=item
+                                    )
+                                )
+                                indices_for_strings.append(i)
+
+                        # Create result list with original items
+                        translated_list = list(items)
+
+                        # Wait for all string translations to complete
+                        if translation_tasks:
+                            translated_values = await asyncio.gather(*translation_tasks)
+                            # Replace translated strings at their original indices
+                            for idx, translated_value in zip(indices_for_strings, translated_values):
+                                translated_list[idx] = translated_value
+
+                        # Second pass: recursively translate nested dicts and lists
+                        for i, item in enumerate(translated_list):
+                            if isinstance(item, dict):
+                                translated_list[i] = await translate_dict_values(item)
+                            elif isinstance(item, list):
+                                translated_list[i] = await translate_list_values(item)
+
+                        return translated_list
+
                     async def translate_dict_values(arguments: dict) -> dict:
                         """
                         Recursively translate only the VALUES in a dictionary, preserving all KEYS unchanged.
@@ -750,12 +791,9 @@ async def process_all_configs():
                                     )
                                 )
                                 keys_for_string_values.append(param_name)
-                            elif isinstance(param_value, dict):
-                                # Mark for recursive translation (handled in second pass)
-                                translated[param_name] = param_value
-                            elif isinstance(param_value, list):
-                                # TODO: Could extend to translate strings within lists
-                                translated[param_name] = param_value
+                            elif isinstance(param_value, (dict, list)):
+                                # Skip for now - will handle in second pass
+                                pass
                             else:
                                 # Keep non-string values as-is (numbers, booleans, etc.)
                                 translated[param_name] = param_value
@@ -767,11 +805,13 @@ async def process_all_configs():
                             for param_name, translated_value in zip(keys_for_string_values, translated_values):
                                 translated[param_name] = translated_value
 
-                        # Second pass: recursively translate nested dictionaries
-                        # Again, only the values in nested dicts are translated, not the keys
+                        # Second pass: recursively translate nested dictionaries and lists
+                        # Again, only the values in nested dicts/lists are translated, not the keys
                         for param_name, param_value in arguments.items():
-                            if isinstance(param_value, dict) and param_name not in translated:
+                            if isinstance(param_value, dict):
                                 translated[param_name] = await translate_dict_values(param_value)
+                            elif isinstance(param_value, list):
+                                translated[param_name] = await translate_list_values(param_value)
 
                         return translated
 
