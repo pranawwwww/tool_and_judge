@@ -92,13 +92,7 @@ class ToolConfig:
     translate_mode: TranslateMode
     add_noise_mode: AddNoiseMode
 
-# Tool processing flags
-requires_inference_raw = True
-requires_inference_json = True
-requires_post_processing = True # rephrase parameter values if the raw output has a similar meaning as the ground truth but is not an exact match
-requires_evaluation = True
-requires_score = True
-
+# Tool processing configuration
 evaluation_caching = False
 
 

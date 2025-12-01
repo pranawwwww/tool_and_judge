@@ -407,9 +407,17 @@ async def process_all_configs():
         test_cases, _ = load_json_lines_from_file(dataset_path)
         ground_truths, _ = load_json_lines_from_file(ground_truth_path)
 
-        # Translated questions pass: Extract questions and translate to English
-        if requires_pre_translate:
-            
+        # ═══════════════════════════════════════════════════════════════════════
+        # PASS 1: Translated Questions (Pre-Translation)
+        # ═══════════════════════════════════════════════════════════════════════
+        # Translates questions from the source language to English before inference.
+        # This pass runs when FULLY_TRANSLATED_PRE_TRANSLATE option is enabled.
+        # Output: tool/result/translated_questions/{model}/{language}.json
+        # ═══════════════════════════════════════════════════════════════════════
+        if not requires_pre_translate:
+            # Skip translation - pass through original test cases
+            print(f"Skipping question translation (pre-translate not enabled)")
+        else:
             translated_questions_results = []
             existing_translated_questions_ids = set()
 
@@ -472,34 +480,40 @@ async def process_all_configs():
                 if len(translated_questions_results) > 0:
                     append_and_rewrite_json_lines(translated_questions_path, translated_questions_results)
 
-            # Update test_cases to use translated questions
-            test_cases = translated_questions_results
+                # Update test_cases to use translated questions
+                test_cases = translated_questions_results
 
-        if requires_inference_raw:
-            try:
-                inference_raw_results, existing_inference_ids = load_json_lines_from_file(inference_raw_result_path)
-                # Filter out entries with error results
-                inference_raw_results = [
-                    entry for entry in inference_raw_results
-                    if not (isinstance(entry.get("result"), str) and "Error: An error occurred" in entry.get("result", ""))
-                ]
-                existing_inference_ids = {entry["id"] for entry in inference_raw_results}
-            except FileNotFoundError:
-                print(f"File {inference_raw_result_path} not found. It will be created.")
-                inference_raw_results = []
-                existing_inference_ids = set()
-        
-            printed_warning = False
-            # Filter cases that haven't been processed yet
-            cases_to_process = [case for case in test_cases if case['id'] not in existing_inference_ids]
-            if not printed_warning and len(cases_to_process) < len(test_cases):
-                print(f"Warning: some test cases already exist in inference result file. Skipping {len(test_cases) - len(cases_to_process)} cases.")
-                printed_warning = True
-    
-            # Skip model loading if no cases to process
-            if len(cases_to_process) == 0:
-                print(f"All test cases for {config.model.value} have already been processed. Skipping model loading and inference.")
-            else:
+        # ═══════════════════════════════════════════════════════════════════════
+        # PASS 2: Inference Raw
+        # ═══════════════════════════════════════════════════════════════════════
+        # Generates raw model outputs for each test case using function calling.
+        # Input: test_cases (from translated_questions if pre-translate enabled, else dataset)
+        # Output: tool/result/inference_raw/{model}/{filename}.json
+        # ═══════════════════════════════════════════════════════════════════════
+        try:
+            inference_raw_results, existing_inference_ids = load_json_lines_from_file(inference_raw_result_path)
+            # Filter out entries with error results
+            inference_raw_results = [
+                entry for entry in inference_raw_results
+                if not (isinstance(entry.get("result"), str) and "Error: An error occurred" in entry.get("result", ""))
+            ]
+            existing_inference_ids = {entry["id"] for entry in inference_raw_results}
+        except FileNotFoundError:
+            print(f"File {inference_raw_result_path} not found. It will be created.")
+            inference_raw_results = []
+            existing_inference_ids = set()
+
+        printed_warning = False
+        # Filter cases that haven't been processed yet
+        cases_to_process = [case for case in test_cases if case['id'] not in existing_inference_ids]
+        if not printed_warning and len(cases_to_process) < len(test_cases):
+            print(f"Warning: some test cases already exist in inference result file. Skipping {len(test_cases) - len(cases_to_process)} cases.")
+            printed_warning = True
+
+        # Skip model loading if no cases to process
+        if len(cases_to_process) == 0:
+            print(f"All test cases for {config.model.value} have already been processed. Skipping model loading and inference.")
+        else:
                 print("Entering inference phase...")
                 # Determine model type and create interface once
                 is_api_model = isinstance(config.model, ApiModel)
@@ -603,141 +617,74 @@ async def process_all_configs():
         # Ensure model_interface is created before inference_json or other passes
         model_interface = get_or_create_model_interface(config.model)
 
-        if requires_inference_json:
+        # ═══════════════════════════════════════════════════════════════════════
+        # PASS 3: Inference JSON
+        # ═══════════════════════════════════════════════════════════════════════
+        # Parses and postprocesses raw model outputs into structured JSON format.
+        # Converts model-specific output format to standardized function call format.
+        # Output: tool/result/inference_json/{model}/{filename}.json
+        # ═══════════════════════════════════════════════════════════════════════
         # reload inference raw results
+        try:
+            inference_raw_results, _ = load_json_lines_from_file(inference_raw_result_path)
+        except FileNotFoundError:
+            print(f"File {inference_raw_result_path} not found. Skipping inference json generation.")
+            continue
+
+        inference_json_results = []
+        existing_inference_json_ids = set()
+        printed_warning = False
+        # Filter samples that haven't been processed yet
+        samples_to_process = [sample for sample in inference_raw_results if sample['id'] not in existing_inference_json_ids]
+        if not printed_warning and len(samples_to_process) < len(inference_raw_results):
+            print(f"Warning: some test cases already exist in inference json result file. Skipping {len(inference_raw_results) - len(samples_to_process)} cases.")
+            printed_warning = True
+
+        for inference_raw in samples_to_process:
+            id = inference_raw['id']
+            # convert raw result to json format
+            # decoded_output = raw_to_json(config.model, id, inference_raw['result'])
+            # Pass name_mapper to parse_output for models that need name sanitization
+            decoded_output = model_interface.postprocess_tool_calls(inference_raw['result'], name_mapper=name_mapper)
+            inference_json_entry = {
+                "id": id,
+                "result": decoded_output
+            }
+            inference_json_results.append(inference_json_entry)
+
+            # Write batch results to file
+            write_json_lines_to_file(inference_json_result_path, inference_json_results)
+
+        # Final sort and write
+        if len(inference_json_results) > 0:
+            append_and_rewrite_json_lines(inference_json_result_path, inference_json_results)
+
+        # ═══════════════════════════════════════════════════════════════════════
+        # PASS 4: Translated Answers (Post-Translation)
+        # ═══════════════════════════════════════════════════════════════════════
+        # Translates function call parameter values from source language to English.
+        # This pass runs BEFORE post_processing so that post-processing works with English parameters.
+        # This pass runs when FULLY_TRANSLATED_POST_TRANSLATE option is enabled.
+        # Input: tool/result/inference_json/{model}/{filename}.json
+        # Output: tool/result/translated_answers/{model}/{language}.json
+        # ═══════════════════════════════════════════════════════════════════════
+        if not requires_post_translate:
+            # Skip translation - pass through original inference json results
+            print(f"Skipping answer translation (post-translate not enabled)")
+        else:
+            # Load inference json results
             try:
-                inference_raw_results, _ = load_json_lines_from_file(inference_raw_result_path)
+                inference_json_results, _ = load_json_lines_from_file(inference_json_result_path)
             except FileNotFoundError:
-                print(f"File {inference_raw_result_path} not found. Skipping inference json generation.")
-                continue
-            
-            inference_json_results = []
-            existing_inference_json_ids = set()
-            printed_warning = False
-            # Filter samples that haven't been processed yet
-            samples_to_process = [sample for sample in inference_raw_results if sample['id'] not in existing_inference_json_ids]
-            if not printed_warning and len(samples_to_process) < len(inference_raw_results):
-                print(f"Warning: some test cases already exist in inference json result file. Skipping {len(inference_raw_results) - len(samples_to_process)} cases.")
-                printed_warning = True
-    
-            for inference_raw in samples_to_process:
-                id = inference_raw['id']
-                # convert raw result to json format
-                # decoded_output = raw_to_json(config.model, id, inference_raw['result'])
-                # Pass name_mapper to parse_output for models that need name sanitization
-                decoded_output = model_interface.postprocess_tool_calls(inference_raw['result'], name_mapper=name_mapper)
-                inference_json_entry = {
-                    "id": id,
-                    "result": decoded_output
-                }
-                inference_json_results.append(inference_json_entry)
-    
-                # Write batch results to file
-                write_json_lines_to_file(inference_json_result_path, inference_json_results)
-    
-            # Final sort and write
-            if len(inference_json_results) > 0:
-                append_and_rewrite_json_lines(inference_json_result_path, inference_json_results)
-
-        if requires_post_processing:
-            if post_process_option == PostProcessOption.DONT_POST_PROCESS:
-                # Simply copy inference_json results to post_processing results without modification
-                try:
-                    inference_json_results, _ = load_json_lines_from_file(inference_json_result_path)
-                except FileNotFoundError:
-                    print(f"File {inference_json_result_path} not found. Skipping post processing.")
-                    continue
-    
-                
-                post_processing_results = []
-                existing_post_processing_ids = set()
-
-                # Copy unprocessed results
-                for inference_json_line in inference_json_results:
-                    if inference_json_line['id'] not in existing_post_processing_ids:
-                        post_processing_results.append(inference_json_line)
-    
-                # Final sort and write
-                if len(post_processing_results) > 0:
-                    append_and_rewrite_json_lines(post_processing_result_path, post_processing_results)
-    
-                print(f"Post-processing: Copied {len(inference_json_results)} results without modification (DONT_POST_PROCESS)")
-    
-            else:
-                # POST_PROCESS_DIFFERENT or POST_PROCESS_SAME: use LLM-based parameter matching
-                # Select appropriate cache based on post_process_option
-                if post_process_option == PostProcessOption.POST_PROCESS_SAME:
-                    post_processing_cache = post_processing_cache_same
-                    post_processing_cache_stats = post_processing_cache_stats_same
-                    cache_path = post_processing_cache_same_path
-                elif post_process_option == PostProcessOption.POST_PROCESS_DIFFERENT:  # POST_PROCESS_DIFFERENT
-                    post_processing_cache = post_processing_cache_different
-                    post_processing_cache_stats = post_processing_cache_stats_different
-                    cache_path = post_processing_cache_different_path
-                else:
-                    raise ValueError(f"Unsupported post process option: {post_process_option}")
-    
-                # reload inference json results
-                try:
-                    inference_json_results, _ = load_json_lines_from_file(inference_json_result_path)
-                except FileNotFoundError:
-                    print(f"File {inference_json_result_path} not found. Skipping post processing.")
-                    continue
-    
-               
-                post_processing_results = []
-                existing_post_processing_ids = set()
-    
-                printed_warning = False
-                # Filter samples that haven't been processed yet
-                samples_to_process = [sample for sample in inference_json_results if sample['id'] not in existing_post_processing_ids]
-                if not printed_warning and len(samples_to_process) < len(inference_json_results):
-                    print(f"Warning: some test cases already exist in post processing result file. Skipping {len(inference_json_results) - len(samples_to_process)} cases.")
-                    printed_warning = True
-    
-                for inference_json_line in samples_to_process:
-                    id = inference_json_line['id']
-                    # print(f"Post-processing case id {id}...")
-                    # Find matching ground truth
-                    ground_truth_line = next((gt for gt in ground_truths if gt['id'] == id), None)
-                    if ground_truth_line is None:
-                        raise ValueError(f"Ground truth not found for id: {id}")
-                    # Process with LLM-based parameter matching
-                    post_processing_entry = process_post_processing_sample(
-                        inference_json_line,
-                        ground_truth_line,
-                        ApiModel.GPT_5_MINI,  # Use a powerful model for post-processing
-                        post_process_option,
-                        post_processing_cache,
-                        cache_path,
-                        post_processing_cache_stats
-                    )
-                    post_processing_results.append(post_processing_entry)
-    
-                    # Write batch results to file
-                    write_json_lines_to_file(post_processing_result_path, post_processing_results)
-    
-                # Final sort and write
-                if len(post_processing_results) > 0:
-                    append_and_rewrite_json_lines(post_processing_result_path, post_processing_results)
-    
-                print(f"Post-processing ({post_process_option.name}) completed - Hits: {post_processing_cache_stats['hits']}, Misses: {post_processing_cache_stats['misses']}")
-
-        # Translated answers pass: Translate function call parameters to English
-        if requires_post_translate:
-            # Load post-processed results
-            try:
-                post_processing_results, _ = load_json_lines_from_file(post_processing_result_path)
-            except FileNotFoundError:
-                print(f"File {post_processing_result_path} not found. Skipping answer translation.")
+                print(f"File {inference_json_result_path} not found. Skipping answer translation.")
                 continue
 
-            
+
             translated_answers_results = []
             existing_translated_answers_ids = set()
 
             # Filter samples that haven't been translated yet
-            samples_to_translate = [sample for sample in post_processing_results if sample['id'] not in existing_translated_answers_ids]
+            samples_to_translate = [sample for sample in inference_json_results if sample['id'] not in existing_translated_answers_ids]
 
             if len(samples_to_translate) == 0:
                 print(f"All answers have already been translated. Skipping translation.")
@@ -839,7 +786,7 @@ async def process_all_configs():
                                 modified_result.append({func_name: translated_arguments})
                             except Exception as e:
                                 print(f"Warning: Failed to translate parameters for sample {sample['id']}: {e}")
-                                exit(1)                                
+                                exit(1)
                                 # # Keep original if translation fails
                                 # modified_result.append(func_call)
 
@@ -874,91 +821,206 @@ async def process_all_configs():
                 if len(translated_answers_results) > 0:
                     append_and_rewrite_json_lines(translated_answers_path, translated_answers_results)
 
-            # Update post_processing_results to use translated answers for evaluation
-            post_processing_results = translated_answers_results
-
-        if requires_evaluation:
-            # reload post processing results only if we didn't just translate them
-            if not requires_post_translate:
+        # ═══════════════════════════════════════════════════════════════════════
+        # PASS 5: Post-Processing
+        # ═══════════════════════════════════════════════════════════════════════
+        # Optionally rephrases parameter values using LLM to match ground truth format.
+        # Can handle different language modes (same language or different language).
+        # Input: tool/result/translated_answers if post-translate enabled, else inference_json
+        # Output: tool/result/post_processing/{model}/{filename}.json
+        # ═══════════════════════════════════════════════════════════════════════
+        if post_process_option == PostProcessOption.DONT_POST_PROCESS:
+            # Simply copy results to post_processing results without modification
+            # Read from translated_answers if that pass ran, otherwise from inference_json
+            if requires_post_translate:
                 try:
-                    post_processing_results, _ = load_json_lines_from_file(post_processing_result_path)
+                    source_results, _ = load_json_lines_from_file(translated_answers_path)
                 except FileNotFoundError:
-                    print(f"File {post_processing_result_path} not found. Skipping evaluation.")
+                    print(f"File {translated_answers_path} not found. Skipping post processing.")
                     continue
-            if evaluation_caching:
-                try:
-                    evaluation_results, existing_evaluation_ids = load_json_lines_from_file(evaluation_result_path)
-                except FileNotFoundError:
-                    print(f"File {evaluation_result_path} not found. Skipping evaluation caching.")
-                    evaluation_results = []
-                    existing_evaluation_ids = set()
             else:
-                evaluation_results = []
-                existing_evaluation_ids = set()
+                try:
+                    source_results, _ = load_json_lines_from_file(inference_json_result_path)
+                except FileNotFoundError:
+                    print(f"File {inference_json_result_path} not found. Skipping post processing.")
+                    continue
+
+            post_processing_results = []
+            existing_post_processing_ids = set()
+
+            # Copy unprocessed results
+            for source_line in source_results:
+                if source_line['id'] not in existing_post_processing_ids:
+                    post_processing_results.append(source_line)
+
+            # Final sort and write
+            if len(post_processing_results) > 0:
+                append_and_rewrite_json_lines(post_processing_result_path, post_processing_results)
+
+            print(f"Post-processing: Copied {len(source_results)} results without modification (DONT_POST_PROCESS)")
+
+        else:
+            # POST_PROCESS_DIFFERENT or POST_PROCESS_SAME: use LLM-based parameter matching
+            # Select appropriate cache based on post_process_option
+            if post_process_option == PostProcessOption.POST_PROCESS_SAME:
+                post_processing_cache = post_processing_cache_same
+                post_processing_cache_stats = post_processing_cache_stats_same
+                cache_path = post_processing_cache_same_path
+            elif post_process_option == PostProcessOption.POST_PROCESS_DIFFERENT:  # POST_PROCESS_DIFFERENT
+                post_processing_cache = post_processing_cache_different
+                post_processing_cache_stats = post_processing_cache_stats_different
+                cache_path = post_processing_cache_different_path
+            else:
+                raise ValueError(f"Unsupported post process option: {post_process_option}")
+
+            # Load source results (from translated_answers if that pass ran, otherwise from inference_json)
+            if requires_post_translate:
+                try:
+                    source_results, _ = load_json_lines_from_file(translated_answers_path)
+                except FileNotFoundError:
+                    print(f"File {translated_answers_path} not found. Skipping post processing.")
+                    continue
+            else:
+                try:
+                    source_results, _ = load_json_lines_from_file(inference_json_result_path)
+                except FileNotFoundError:
+                    print(f"File {inference_json_result_path} not found. Skipping post processing.")
+                    continue
+
+
+            post_processing_results = []
+            existing_post_processing_ids = set()
+
             printed_warning = False
             # Filter samples that haven't been processed yet
-            samples_to_process = [
-                (post_processing_line, ground_truth_line, test_case)
-                for post_processing_line, ground_truth_line, test_case in zip(post_processing_results, ground_truths, test_cases)
-                if post_processing_line["id"] not in existing_evaluation_ids
-            ]
-            if not printed_warning and len(samples_to_process) < len(post_processing_results):
-                print(f"Warning: some test cases already exist in evaluation result file. Skipping {len(post_processing_results) - len(samples_to_process)} cases.")
+            samples_to_process = [sample for sample in source_results if sample['id'] not in existing_post_processing_ids]
+            if not printed_warning and len(samples_to_process) < len(source_results):
+                print(f"Warning: some test cases already exist in post processing result file. Skipping {len(source_results) - len(samples_to_process)} cases.")
                 printed_warning = True
-    
-            for (post_processing_line, ground_truth_line, test_case) in samples_to_process:
-                id = post_processing_line["id"]
-                assert id == ground_truth_line["id"], f"Mismatch in IDs: {id} vs {ground_truth_line['id']}"
-                assert id == test_case["id"], f"Mismatch in IDs: {id} vs {test_case['id']}"
-                post_processing_result = post_processing_line["result"]
-                ground_truth = ground_truth_line["ground_truth"]
-                func_description = test_case['function']
-    
-                evaluation_result = evaluate_json(id, post_processing_result, ground_truth, func_description)
-                evaluation_result["id"] = id
-                evaluation_results.append(evaluation_result)
-    
+
+            for source_line in samples_to_process:
+                id = source_line['id']
+                # print(f"Post-processing case id {id}...")
+                # Find matching ground truth
+                ground_truth_line = next((gt for gt in ground_truths if gt['id'] == id), None)
+                if ground_truth_line is None:
+                    raise ValueError(f"Ground truth not found for id: {id}")
+                # Process with LLM-based parameter matching
+                post_processing_entry = process_post_processing_sample(
+                    source_line,
+                    ground_truth_line,
+                    ApiModel.GPT_5_MINI,  # Use a powerful model for post-processing
+                    post_process_option,
+                    post_processing_cache,
+                    cache_path,
+                    post_processing_cache_stats
+                )
+                post_processing_results.append(post_processing_entry)
+
                 # Write batch results to file
-                write_json_lines_to_file(evaluation_result_path, evaluation_results)
-    
+                write_json_lines_to_file(post_processing_result_path, post_processing_results)
+
             # Final sort and write
-            if len(evaluation_results) > 0:
-                append_and_rewrite_json_lines(evaluation_result_path, evaluation_results)
-        if requires_score:
-            # reload evaluation results
+            if len(post_processing_results) > 0:
+                append_and_rewrite_json_lines(post_processing_result_path, post_processing_results)
+
+            print(f"Post-processing ({post_process_option.name}) completed - Hits: {post_processing_cache_stats['hits']}, Misses: {post_processing_cache_stats['misses']}")
+
+        # ═══════════════════════════════════════════════════════════════════════
+        # PASS 6: Evaluation
+        # ═══════════════════════════════════════════════════════════════════════
+        # Evaluates model outputs against ground truth to determine correctness.
+        # Checks function names, parameter names, and parameter values.
+        # Input: tool/result/post_processing/{model}/{filename}.json
+        # Output: tool/result/evaluation/{model}/{filename}.json
+        # ═══════════════════════════════════════════════════════════════════════
+        # reload post processing results
+        try:
+            post_processing_results, _ = load_json_lines_from_file(post_processing_result_path)
+        except FileNotFoundError:
+            print(f"File {post_processing_result_path} not found. Skipping evaluation.")
+            continue
+        if evaluation_caching:
             try:
-                evaluation_entries, _ = load_json_lines_from_file(evaluation_result_path)
+                evaluation_results, existing_evaluation_ids = load_json_lines_from_file(evaluation_result_path)
             except FileNotFoundError:
-                print(f"File {evaluation_result_path} not found. Skipping scoring.")
-                continue
-            # Calculate and write score results
-            total_cases = 0
-            correct_cases = 0
-            wrong_cases = []
-            score_results = []
-    
-            for evaluation_entry in evaluation_entries:
-                total_cases += 1
-                if evaluation_entry['valid']:
-                    correct_cases += 1
-                else:
-                    wrong_cases.append(evaluation_entry)
-    
-            accuracy = correct_cases / total_cases if total_cases > 0 else 0.0
-            # Add summary score
-            score_result = {
-                "accuracy": accuracy,
-                "total_cases": total_cases,
-                "correct_cases": correct_cases,
-            }
-            score_results.append(score_result)
-    
-            # Add wrong cases
-            score_results.extend(wrong_cases)
-    
-            # Write all results to file
-            write_json_lines_to_file(score_path, score_results)
-            print(f"Score result written to {score_path}: {score_result}")
-            print(f"Completed processing for config: {config}")
+                print(f"File {evaluation_result_path} not found. Skipping evaluation caching.")
+                evaluation_results = []
+                existing_evaluation_ids = set()
+        else:
+            evaluation_results = []
+            existing_evaluation_ids = set()
+        printed_warning = False
+        # Filter samples that haven't been processed yet
+        samples_to_process = [
+            (post_processing_line, ground_truth_line, test_case)
+            for post_processing_line, ground_truth_line, test_case in zip(post_processing_results, ground_truths, test_cases)
+            if post_processing_line["id"] not in existing_evaluation_ids
+        ]
+        if not printed_warning and len(samples_to_process) < len(post_processing_results):
+            print(f"Warning: some test cases already exist in evaluation result file. Skipping {len(post_processing_results) - len(samples_to_process)} cases.")
+            printed_warning = True
+
+        for (post_processing_line, ground_truth_line, test_case) in samples_to_process:
+            id = post_processing_line["id"]
+            assert id == ground_truth_line["id"], f"Mismatch in IDs: {id} vs {ground_truth_line['id']}"
+            assert id == test_case["id"], f"Mismatch in IDs: {id} vs {test_case['id']}"
+            post_processing_result = post_processing_line["result"]
+            ground_truth = ground_truth_line["ground_truth"]
+            func_description = test_case['function']
+
+            evaluation_result = evaluate_json(id, post_processing_result, ground_truth, func_description)
+            evaluation_result["id"] = id
+            evaluation_results.append(evaluation_result)
+
+            # Write batch results to file
+            write_json_lines_to_file(evaluation_result_path, evaluation_results)
+
+        # Final sort and write
+        if len(evaluation_results) > 0:
+            append_and_rewrite_json_lines(evaluation_result_path, evaluation_results)
+
+        # ═══════════════════════════════════════════════════════════════════════
+        # PASS 7: Score
+        # ═══════════════════════════════════════════════════════════════════════
+        # Calculates accuracy and aggregates wrong cases for analysis.
+        # Input: tool/result/evaluation/{model}/{filename}.json
+        # Output: tool/result/score/{model}/{filename}.json
+        # ═══════════════════════════════════════════════════════════════════════
+        # reload evaluation results
+        try:
+            evaluation_entries, _ = load_json_lines_from_file(evaluation_result_path)
+        except FileNotFoundError:
+            print(f"File {evaluation_result_path} not found. Skipping scoring.")
+            continue
+        # Calculate and write score results
+        total_cases = 0
+        correct_cases = 0
+        wrong_cases = []
+        score_results = []
+
+        for evaluation_entry in evaluation_entries:
+            total_cases += 1
+            if evaluation_entry['valid']:
+                correct_cases += 1
+            else:
+                wrong_cases.append(evaluation_entry)
+
+        accuracy = correct_cases / total_cases if total_cases > 0 else 0.0
+        # Add summary score
+        score_result = {
+            "accuracy": accuracy,
+            "total_cases": total_cases,
+            "correct_cases": correct_cases,
+        }
+        score_results.append(score_result)
+
+        # Add wrong cases
+        score_results.extend(wrong_cases)
+
+        # Write all results to file
+        write_json_lines_to_file(score_path, score_results)
+        print(f"Score result written to {score_path}: {score_result}")
+        print(f"Completed processing for config: {config}")
             # Run all configs in a single event loop
 asyncio.run(process_all_configs())
