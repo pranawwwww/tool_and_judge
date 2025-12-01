@@ -9,6 +9,7 @@ from judge.collect_preference_local_cot import collect_preference_local_cot
 from judge.generate_dataset import generate_answer_datasets
 os.environ["HF_HOME"] = "/work/nvme/bfdz/zluo8/huggingface"
 import sys
+import importlib.util
 from datasets import load_dataset
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -18,7 +19,7 @@ import math
 import argparse
 from judge.parse_dataset import parse_dataset, prepare_answer_pairs_bilingual
 
-from judge.config import *
+from config import JudgeModel as Model, judge_configs as configs, ResultType
 from models import create_backend, create_interface
 
 # Set UTF-8 encoding for console output (Windows fix)
@@ -225,12 +226,54 @@ def compare_results(preferences, perplexities_lang1, perplexities_lang2, lang1, 
             print(f"  Match: {'✓' if preferences[i] == perplexity_preferences[i] else '✗'}")
 
 
+def load_configs_from_file(config_file_path: str):
+    """
+    Load the 'configs' list from a specified Python file.
+
+    Args:
+        config_file_path: Path to the Python file containing configs
+
+    Returns:
+        The configs list from the specified file
+    """
+    # Convert to absolute path if relative
+    config_file_path = os.path.abspath(config_file_path)
+
+    if not os.path.exists(config_file_path):
+        raise FileNotFoundError(f"Config file not found: {config_file_path}")
+
+    # Load the module dynamically
+    spec = importlib.util.spec_from_file_location("custom_configs", config_file_path)
+    config_module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(config_module)
+
+    if not hasattr(config_module, 'configs'):
+        raise AttributeError(f"Config file {config_file_path} does not contain a 'configs' variable")
+
+    return config_module.configs
+
+
 if __name__ == "__main__":
     # Parse command line arguments
     parser = argparse.ArgumentParser(description='LLM as Judge: Exploring the relationship between perplexity and preference')
+    parser.add_argument(
+        "--config",
+        type=str,
+        default=None,
+        help="Path to a Python file containing the 'configs' list (default: use configs from config.py)"
+    )
     parser.add_argument('--num-gpus', type=int, default=1,
                         help='Number of GPUs to use for model inference (default: 1)')
     args = parser.parse_args()
+
+    # Load configs from specified file or use default from config.py
+    if args.config:
+        print(f"Loading configs from: {args.config}")
+        configs = load_configs_from_file(args.config)
+    else:
+        # configs is already imported from config.py
+        print("Error: Please specify a config file using --config argument. For example, --config judge_config1.py")
+        exit(1)
 
     print(f"Using {args.num_gpus} GPU(s)")
 

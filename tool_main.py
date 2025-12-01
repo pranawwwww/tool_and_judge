@@ -5,7 +5,7 @@ import sys
 import argparse
 import asyncio
 import importlib.util
-from tool.config import *
+from config import *
 from tool.parse_ast import *
 import re
 from tool.call_llm import make_chat_pipeline
@@ -272,8 +272,8 @@ def create_api_client(api_model: ApiModel):
     from dotenv import load_dotenv
     load_dotenv(dotenv_path=".env")
 
-    # OpenAI-based models (GPT-5, GPT-5-mini, GPT-5-nano)
-    if api_model in [ApiModel.GPT_5, ApiModel.GPT_5_MINI, ApiModel.GPT_5_NANO]:
+    # OpenAI-based models (GPT-5, GPT-5-mini, GPT-5-nano, GPT-4o-mini)
+    if api_model in [ApiModel.GPT_5, ApiModel.GPT_5_MINI, ApiModel.GPT_5_NANO, ApiModel.GPT_4O_MINI]:
         api_key = os.getenv("OPENAI_API_KEY")
         if not api_key:
             raise EnvironmentError("OPENAI_API_KEY not found in .env")
