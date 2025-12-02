@@ -227,6 +227,94 @@ At each turn, you should try your best to complete the tasks requested by the us
 
         return extracted
 
+    async def translate_tool_question_async(
+        self,
+        backend: ModelBackend,
+        question: str,
+        max_new_tokens: int = 512,
+        temperature: float = 0.0,
+    ) -> str:
+        """
+        Translate a user question to English using Qwen3.
+
+        Args:
+            backend: The backend to use for inference
+            question: The question text to translate
+            max_new_tokens: Maximum number of tokens to generate
+            temperature: Sampling temperature
+
+        Returns:
+            Translated question as a string
+        """
+        # Build translation prompt
+        prompt_text = (
+            "You are a professional translator. Translate the given text to English accurately. "
+            "If the given text is already in English or is language agnostic, return it unchanged.\n\n"
+            f"Translate the following question to English. Only output the translated question, nothing else:\n\n{question}"
+        )
+
+        # Format with ChatML
+        formatted_prompt = f"<|im_start|>system\nYou are a professional translator.<|im_end|>\n"
+        formatted_prompt += f"<|im_start|>user\n{prompt_text}<|im_end|>\n"
+        formatted_prompt += "<|im_start|>assistant\n"
+
+        # Disable thinking mode for translation
+        formatted_prompt += "<think>\n\n</think>\n\n"
+
+        # Call backend
+        result = await backend.generate_async(
+            prompt=formatted_prompt,
+            max_new_tokens=max_new_tokens,
+            temperature=temperature,
+            do_sample=(temperature > 0),
+        )
+
+        return result.generated_text.strip()
+
+    async def translate_tool_answer_async(
+        self,
+        backend: ModelBackend,
+        parameter_value: str,
+        max_new_tokens: int = 256,
+        temperature: float = 0.0,
+    ) -> str:
+        """
+        Translate a single function parameter value to English using Qwen3.
+
+        Args:
+            backend: The backend to use for inference
+            parameter_value: The parameter value to translate
+            max_new_tokens: Maximum number of tokens to generate
+            temperature: Sampling temperature
+
+        Returns:
+            Translated parameter value as a string
+        """
+        # Build translation prompt
+        prompt_text = (
+            "You are a professional translator. Translate the given text to English accurately. "
+            "If the given text is already in English or is language agnostic, return it unchanged.\n\n"
+            f"Translate the following text to English. Only output the translated text, nothing else:\n\n{parameter_value}"
+        )
+
+        # Format with ChatML
+        formatted_prompt = f"<|im_start|>system\nYou are a professional translator.<|im_end|>\n"
+        formatted_prompt += f"<|im_start|>user\n{prompt_text}<|im_end|>\n"
+        formatted_prompt += "<|im_start|>assistant\n"
+
+        # Disable thinking mode for translation
+        formatted_prompt += "<think>\n\n</think>\n\n"
+
+        # Call backend
+        result = await backend.generate_async(
+            prompt=formatted_prompt,
+            max_new_tokens=max_new_tokens,
+            temperature=temperature,
+            do_sample=(temperature > 0),
+        )
+
+        return result.generated_text.strip()
+
     # =========================================================================
     # JudgeModelInterface Methods
     # =========================================================================
