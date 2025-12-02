@@ -67,76 +67,82 @@ class Qwen3Interface(JudgeModelInterface, ToolModelInterface):
         name_mapper: FunctionNameMapper,
         prompt_passing_in_english: bool,
         max_new_tokens: int = 512,
-        temperature: float = 0.0,        
+        temperature: float = 0.0,
     ) -> str:
         """
         Generate tool/function calls from a user query.
 
         This method:
-        1. Builds system prompt with function definitions
-        2. Formats the full prompt with ChatML + <tools> section
-        3. Calls backend to generate
-        4. Returns raw output (with <tool_call> tags)
+        1. Gets tokenizer from backend
+        2. Formats tools in Qwen's expected format
+        3. Uses apply_chat_template to generate the prompt
+        4. Calls backend to generate
+        5. Returns raw output (with <tool_call> tags)
 
         Args:
             backend: The backend to use for inference
-            functions: List of available function definitions
+            raw_functions: List of available function definitions
             user_query: User query as a string
+            name_mapper: Function name mapper (unused for Qwen)
             prompt_passing_in_english: Whether to request English parameter passing
             max_new_tokens: Maximum number of tokens to generate
             temperature: Sampling temperature
-            **kwargs: Additional model-specific parameters
 
         Returns:
             Raw model output as a string
         """
-        # Build system prompt
+        # Get tokenizer from backend
+        tokenizer = backend.get_tokenizer()
+
+        # Convert raw_functions to Qwen's tools format
+        # The dataset uses flat format with "type": "dict" in parameters
+        # We need to wrap them in {"type": "function", "function": {...}}
+        # and convert "type": "dict" to "type": "object"
+        tools = []
+        for func in raw_functions:
+            if "type" in func and func["type"] == "function":
+                # Already in wrapped format
+                tools.append(func)
+            else:
+                # Need to wrap and potentially convert dict to object
+                func_copy = func.copy()
+
+                # Convert "type": "dict" to "type": "object" in parameters
+                if "parameters" in func_copy and isinstance(func_copy["parameters"], dict):
+                    params = func_copy["parameters"]
+                    if params.get("type") == "dict":
+                        params["type"] = "object"
+
+                # Wrap in the expected format
+                tools.append({
+                    "type": "function",
+                    "function": func_copy
+                })
+
+        # Build messages
+        # Add system message with English passing instruction if needed
         passing_in_english_prompt = (
             " IMPORTANT: Pass in all parameters in function calls in English."
             if prompt_passing_in_english
             else ""
         )
 
-        system_prompt = f'''You are an expert in composing functions. You are given a question and a set of possible functions. Based on the question, you will need to make one or more function/tool calls to achieve the purpose. If none of the functions can be used, point it out. If the given question lacks the parameters required by the function, also point it out.
+        system_content = f"You are a helpful assistant.{passing_in_english_prompt}" if passing_in_english_prompt else None
 
-You should ONLY return function calls in your response. You MUST NOT include any other text, explanations, or direct answers. If you decide to invoke any function(s), you MUST use the provided tools. Do NOT attempt to answer the question directly without using the available functions.{passing_in_english_prompt}
+        messages = []
+        if system_content:
+            messages.append({"role": "system", "content": system_content})
 
-You should only return the function calls in your response, in JSON format as a list where each element has the format {{"name": "function_name", "arguments": {{param1: value1, param2: value2, ...}}}}.
+        messages.append({"role": "user", "content": user_query})
 
-At each turn, you should try your best to complete the tasks requested by the user within the current turn. Continue to output functions to call until you have fulfilled the user's request to the best of your ability. Once you have no more functions to call, the system will consider the current turn complete and proceed to the next turn or task.'''
-
-        # Build full prompt with tools section
-        formatted_prompt = ""
-
-        # Add system message with tools
-        formatted_prompt += "<|im_start|>system\n"
-        formatted_prompt += system_prompt + "\n\n"
-        formatted_prompt += (
-            "# Tools\n\n"
-            "You may call one or more functions to assist with the user query.\n\n"
-            "You are provided with function signatures within <tools></tools> XML tags:\n"
-            "<tools>"
+        # Use apply_chat_template to generate the prompt
+        formatted_prompt = tokenizer.apply_chat_template(
+            messages,
+            tools=tools,
+            add_generation_prompt=True,
+            tokenize=False,
+            enable_thinking=self.enable_thinking
         )
-        for func in raw_functions:
-            formatted_prompt += "\n" + json.dumps(func, ensure_ascii=False)
-        formatted_prompt += (
-            "\n</tools>\n\n"
-            "For each function call, return a json object with function name and arguments "
-            "within <tool_call></tool_call> XML tags:\n"
-            "<tool_call>\n"
-            '{"name": <function-name>, "arguments": <args-json-object>}\n'
-            "</tool_call><|im_end|>\n"
-        )
-
-        # Add user message
-        formatted_prompt += f"<|im_start|>user\n{user_query}<|im_end|>\n"
-
-        # Add generation prompt
-        formatted_prompt += "<|im_start|>assistant\n"
-
-        # Disable thinking mode by default unless enabled
-        if not self.enable_thinking:
-            formatted_prompt += "<think>\n\n</think>\n\n"
 
         # Call backend
         result = await backend.generate_async(
