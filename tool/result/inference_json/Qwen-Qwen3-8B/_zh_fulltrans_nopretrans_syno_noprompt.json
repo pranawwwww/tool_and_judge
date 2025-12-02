@@ -65,7 +65,7 @@
 {"id": "multiple_64", "result": [{"uv_index.get_future": {"location": "东京", "date": "06-01-2023"}}]}
 {"id": "multiple_65", "result": [{"geodistance.find": {"origin": "纽约市", "destination": "洛杉矶", "unit": "miles"}}]}
 {"id": "multiple_66", "result": [{"traffic_estimate": {"start_location": "拉斯维加斯", "end_location": "洛杉矶", "time_period": "weekend"}}]}
-{"id": "multiple_67", "result": [{"translate": {"text": "Hello, how are you?", "source_language": "en", "target_language": "fr"}}]}
+{"id": "multiple_67", "result": [{"translate": {"text": "Hello, how are you?", "source_language": "English", "target_language": "French"}}]}
 {"id": "multiple_68", "result": [{"library.search_books": {"location": "纽约", "genre": "历史小说"}}]}
 {"id": "multiple_69", "result": [{"five_factor_model.analyse": {"talkative": true, "nervous": true, "artistic_interests": false, "lazy": true, "forgiving": true}}]}
 {"id": "multiple_70", "result": [{"european_history.get_monarchs": {"country": "法兰西", "century": 18}}]}

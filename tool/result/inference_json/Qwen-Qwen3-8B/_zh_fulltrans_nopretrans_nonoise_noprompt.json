@@ -65,7 +65,7 @@
 {"id": "multiple_64", "result": [{"uv_index.get_future": {"location": "东京", "date": "06-01-2023"}}]}
 {"id": "multiple_65", "result": [{"geodistance.find": {"origin": "纽约市", "destination": "洛杉矶", "unit": "miles"}}]}
 {"id": "multiple_66", "result": [{"traffic_estimate": {"start_location": "拉斯维加斯", "end_location": "洛杉矶", "time_period": "weekend"}}]}
-{"id": "multiple_67", "result": [{"translate": {"text": "Hello, how are you?", "source_language": "English", "target_language": "French"}}]}
+{"id": "multiple_67", "result": [{"translate": {"text": "Hello, how are you?", "source_language": "en", "target_language": "fr"}}]}
 {"id": "multiple_68", "result": [{"library.search_books": {"location": "纽约", "genre": "历史小说"}}]}
 {"id": "multiple_69", "result": [{"five_factor_model.analyse": {"talkative": true, "nervous": true, "artistic_interests": false, "lazy": true, "forgiving": true}}]}
 {"id": "multiple_70", "result": [{"european_history.get_monarchs": {"country": "France", "century": 18}}]}
@@ -73,7 +73,7 @@
 {"id": "multiple_72", "result": [{"us_history.population_by_state_year": {"state": "California", "year": 1970}}]}
 {"id": "multiple_73", "result": [{"religion.get_origin": {"religion": "佛教"}}]}
 {"id": "multiple_74", "result": [{"art_auction.fetch_artwork_price": {"artwork_name": "星夜", "artist": "梵高", "platform": "all"}}]}
-{"id": "multiple_75", "result": [{"paint_color.trends": {"room": "客厅", "period": "Monthly"}}]}
+{"id": "multiple_75", "result": [{"paint_color.trends": {"room": "客厅", "period": "Yearly"}}]}
 {"id": "multiple_76", "result": [{"sculpture.create_custom": {"item": "horse", "material": "Bronze"}}]}
 {"id": "multiple_77", "result": [{"artwork_search.find": {"type": "sculpture", "location": "New York", "era": "contemporary"}}]}
 {"id": "multiple_78", "result": [{"museum_info": {"museum": "伦敦自然历史博物馆", "city": "伦敦", "features": ["timings", "exhibitions", "accessibility"]}}]}
@@ -180,7 +180,7 @@
 {"id": "multiple_179", "result": [{"poker_probability.full_house": {"deck_size": 52, "hand_size": 5}}]}
 {"id": "multiple_180", "result": [{"game_stats.fetch_player_statistics": {"game": "Zelda", "username": "Sam", "platform": "Switch"}}]}
 {"id": "multiple_181", "result": [{"soccer.get_last_match": {"team_name": "利物浦足球俱乐部", "include_stats": true}}]}
-{"id": "multiple_182", "result": [{"multiplayer_game_finder": {"platform": "Windows 10", "rating": 4.5}}]}
+{"id": "multiple_182", "result": [{"multiplayer_game_finder": {"platform": "Windows 10", "rating": 4.5, "genre": "Action"}}]}
 {"id": "multiple_183", "result": [{"recipe_info.get_calories": {"website": "foodnetwork.com", "recipe": "牛肉千层面"}}]}
 {"id": "multiple_184", "result": [{"recipe_search": {"dietary_restriction": "Vegetarian", "ingredients": ["pasta", "cheese", "tomato sauce", "garlic", "onion", "olive oil", "herbs"], "servings": 2}}]}
 {"id": "multiple_185", "result": [{"restaurant_search.find_closest": {"location": "波士顿", "cuisine": "寿司", "amenities": ["Patio"]}}]}

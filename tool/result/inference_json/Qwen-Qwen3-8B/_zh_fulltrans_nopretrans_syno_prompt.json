@@ -2,7 +2,7 @@
 {"id": "multiple_1", "result": [{"math.triangle_area_heron": {"side1": 3, "side2": 4, "side3": 5}}]}
 {"id": "multiple_2", "result": [{"country_info.capital": {"country": "巴西"}}]}
 {"id": "multiple_3", "result": [{"EuclideanDistance.calculate": {"pointA": [3, 4], "pointB": [1, 2]}}]}
-{"id": "multiple_4", "result": [{"kinematics.calculate_displacement": {"initial_speed": 20, "acceleration": 10, "time": 5, "rounding": 2}}]}
+{"id": "multiple_4", "result": [{"kinematics.calculate_displacement": {"initial_speed": 20, "acceleration": 10, "time": 5}}]}
 {"id": "multiple_5", "result": [{"weather.get_by_coordinates_date": {"coordinates": [46.603354, 1.888334], "date": "2019-12-13"}}]}
 {"id": "multiple_6", "result": [{"capacitance_calculator.calculate": {"A": 10, "d": 0.01, "K": 1.0}}]}
 {"id": "multiple_7", "result": [{"wildlife_population.assess_growth": {"species": "鹿", "location": "华盛顿州", "duration": 10}}]}
@@ -92,7 +92,7 @@
 {"id": "multiple_91", "result": [{"recipe.find": {"mainIngredient": "苹果", "ingredientLimit": 5}}]}
 {"id": "multiple_92", "result": [{"walmart.vegan_products": {"location": "Denver, CO", "categories": ["vegan", "gluten-free"]}}]}
 {"id": "multiple_93", "result": [{"hotel.book": {"location": "纽约", "roomType": "豪华客房", "nights": 2, "additional_services": ["breakfast"]}}]}
-{"id": "multiple_94", "result": [{"hotel_room_pricing.get": {"hotelName": "纽约希尔顿酒店", "roomType": "套间", "nights": 3}}]}
+{"id": "multiple_94", "result": [{"hotel_room_pricing.get": {"hotelName": "Hilton New York", "roomType": "suite with double bed", "nights": 3}}]}
 {"id": "multiple_95", "result": [{"currency_exchange.convert": {"amount": 200, "from_currency": "EUR", "to_currency": "USD", "live_conversion": true}}]}
 {"id": "multiple_96", "result": [{"solve_quadratic_equation": {"a": 2, "b": 6, "c": 5}}]}
 {"id": "multiple_97", "result": [{"geometry.area_circle": {"radius": 10}}]}
@@ -159,7 +159,7 @@
 {"id": "multiple_158", "result": [{"religious_history.get_papal_biography": {"papal_name": "英诺森三世", "include_contributions": true}}]}
 {"id": "multiple_159", "result": [{"calculate_paint_needed": {"coverage_rate": 400, "length": 30, "height": 12}}]}
 {"id": "multiple_160", "result": [{"get_sculpture_info": {"artist_name": "詹姆斯·普伦萨", "detail": true}}]}
-{"id": "multiple_161", "result": [{"find_exhibition": {"location": "New York", "art_form": "sculpture", "month": "next", "user_ratings": "high"}}]}
+{"id": "multiple_161", "result": [{"find_exhibition": {"location": "New York, NY", "art_form": "sculpture", "month": "next", "user_ratings": "high"}}]}
 {"id": "multiple_162", "result": [{"analyze_structure": {"building_id": "B1004", "floors": [2, 3, 4], "mode": "dynamic"}}]}
 {"id": "multiple_163", "result": [{"metropolitan_museum.get_top_artworks": {"number": 5, "sort_by": "popularity"}}]}
 {"id": "multiple_164", "result": [{"instrument_price.get": {"brand": "Fender", "model": "American Professional II Stratocaster", "finish": "紫檀木装饰款"}}]}

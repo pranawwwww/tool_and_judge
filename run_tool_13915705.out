@@ -1,0 +1,12 @@
+Loading configs from: tool_config_slurm.py
+Processing config: ToolConfig(model=<LocalModel.QWEN3_30B_A3B: 'Qwen/Qwen3-30B-A3B'>, translate_mode=NotTranslated(), add_noise_mode=<AddNoiseMode.NO_NOISE: 1>)
+Skipping question translation (pre-translate not enabled)
+File tool/result/inference_raw/Qwen-Qwen3-30B-A3B/_en_na_nopretrans_nonoise_noprompt.json not found. It will be created.
+Entering inference phase...
+
+Submitting 200 requests concurrently...
+Creating backend...
+Creating new backend [experiment]: vllm:Qwen/Qwen3-30B-A3B:4
+Loading tokenizer for: Qwen/Qwen3-30B-A3B
+INFO 12-01 21:28:27 [importing.py:53] Triton module has been replaced with a placeholder.
+INFO 12-01 21:28:28 [__init__.py:239] Automatically detected platform cuda.

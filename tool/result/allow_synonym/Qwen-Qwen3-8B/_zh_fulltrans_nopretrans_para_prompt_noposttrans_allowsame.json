@@ -68,7 +68,7 @@
 {"id": "multiple_67", "result": [{"translate": {"text": "Hello, how are you?", "source_language": "English", "target_language": "French"}}]}
 {"id": "multiple_68", "result": [{"library.search_books": {"location": "纽约", "genre": "历史小说"}}]}
 {"id": "multiple_69", "result": [{"five_factor_model.analyse": {"talkative": true, "nervous": true, "artistic_interests": false, "lazy": true, "forgiving": true}}]}
-{"id": "multiple_70", "result": [{"european_history.get_monarchs": {"country": "法国", "century": 18}}]}
+{"id": "multiple_70", "result": [{"european_history.get_monarchs": {"country": "France", "century": 18}}]}
 {"id": "multiple_71", "result": [{"get_population": {"year": 1954, "category": "veterans"}}]}
 {"id": "multiple_72", "result": [{"us_history.population_by_state_year": {"state": "California", "year": 1970}}]}
 {"id": "multiple_73", "result": [{"religion.get_origin": {"religion": "佛教"}}]}
@@ -174,7 +174,7 @@
 {"id": "multiple_173", "result": [{"get_defense_ranking": {"season": 2021, "top": 5}}]}
 {"id": "multiple_174", "result": [{"sports_ranking": {"team": "曼联", "league": "英超联赛"}}]}
 {"id": "multiple_175", "result": [{"sports_ranking.get_top_player": {"sport": "tennis", "gender": "women"}}]}
-{"id": "multiple_176", "result": [{"sports_team.get_schedule": {"team_name": "曼联", "num_of_games": 6, "league": "PL"}}]}
+{"id": "multiple_176", "result": [{"sports_team.get_schedule": {"team_name": "曼联", "num_of_games": 6, "league": "英超联赛"}}]}
 {"id": "multiple_177", "result": [{"board_game.chess.get_top_players": {"location": "纽约市", "minimum_rating": 2300}}]}
 {"id": "multiple_178", "result": [{"find_card_in_deck": {"rank": "皇后", "suit": "红心"}}]}
 {"id": "multiple_179", "result": [{"poker_probability.full_house": {"deck_size": 52, "hand_size": 5}}]}
@@ -182,7 +182,7 @@
 {"id": "multiple_181", "result": [{"soccer.get_last_match": {"team_name": "Liverpool", "include_stats": true}}]}
 {"id": "multiple_182", "result": [{"multiplayer_game_finder": {"platform": "Windows 10", "rating": 4.5, "genre": "Action"}}]}
 {"id": "multiple_183", "result": [{"recipe_info.get_calories": {"website": "Foodnetwork.com", "recipe": "牛肉千层面"}}]}
-{"id": "multiple_184", "result": [{"recipe_search": {"dietary_restriction": "Vegetarian", "ingredients": ["spaghetti", "vegetable broth", "nutritional yeast", "garlic", "olive oil", "onion", "carrots", "celery", "mushrooms", "salt", "pepper"], "servings": 2}}]}
+{"id": "multiple_184", "result": [{"recipe_search": {"dietary_restriction": "Vegetarian", "ingredients": ["pasta", "cheese", "tomato sauce", "garlic", "onion", "olive oil", "herbs"], "servings": 2}}]}
 {"id": "multiple_185", "result": [{"restaurant_search.find_closest": {"location": "波士顿", "cuisine": "寿司", "amenities": ["Patio"]}}]}
 {"id": "multiple_186", "result": [{"find_recipe": {"dietary_restrictions": "vegan", "recipe_type": "dessert", "time": 30}}]}
 {"id": "multiple_187", "result": [{"whole_foods.check_price": {"location": "洛杉矶", "items": ["西红柿", "生菜"]}}]}

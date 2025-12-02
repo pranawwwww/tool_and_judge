@@ -65,7 +65,7 @@
 {"id": "multiple_64", "result": "<tool_call>\n{\"name\": \"uv_index.get_future\", \"arguments\": {\"location\": \"东京\", \"date\": \"06-01-2023\"}}\n</tool_call>"}
 {"id": "multiple_65", "result": "<tool_call>\n{\"name\": \"geodistance.find\", \"arguments\": {\"origin\": \"纽约市\", \"destination\": \"洛杉矶\", \"unit\": \"miles\"}}\n</tool_call>"}
 {"id": "multiple_66", "result": "<tool_call>\n{\"name\": \"traffic_estimate\", \"arguments\": {\"start_location\": \"拉斯维加斯\", \"end_location\": \"洛杉矶\", \"time_period\": \"weekend\"}}\n</tool_call>"}
-{"id": "multiple_67", "result": "<tool_call>\n{\"name\": \"translate\", \"arguments\": {\"text\": \"Hello, how are you?\", \"source_language\": \"English\", \"target_language\": \"French\"}}\n</tool_call>"}
+{"id": "multiple_67", "result": "<tool_call>\n{\"name\": \"translate\", \"arguments\": {\"text\": \"Hello, how are you?\", \"source_language\": \"en\", \"target_language\": \"fr\"}}\n</tool_call>"}
 {"id": "multiple_68", "result": "<tool_call>\n{\"name\": \"library.search_books\", \"arguments\": {\"location\": \"纽约\", \"genre\": \"历史小说\"}}\n</tool_call>"}
 {"id": "multiple_69", "result": "<tool_call>\n{\"name\": \"five_factor_model.analyse\", \"arguments\": {\"talkative\": true, \"nervous\": true, \"artistic_interests\": false, \"lazy\": true, \"forgiving\": true}}\n</tool_call>"}
 {"id": "multiple_70", "result": "<tool_call>\n{\"name\": \"european_history.get_monarchs\", \"arguments\": {\"country\": \"France\", \"century\": 18}}\n</tool_call>"}
@@ -73,7 +73,7 @@
 {"id": "multiple_72", "result": "<tool_call>\n{\"name\": \"us_history.population_by_state_year\", \"arguments\": {\"state\": \"California\", \"year\": 1970}}\n</tool_call>"}
 {"id": "multiple_73", "result": "<tool_call>\n{\"name\": \"religion.get_origin\", \"arguments\": {\"religion\": \"佛教\"}}\n</tool_call>"}
 {"id": "multiple_74", "result": "<tool_call>\n{\"name\": \"art_auction.fetch_artwork_price\", \"arguments\": {\"artwork_name\": \"星夜\", \"artist\": \"梵高\", \"platform\": \"all\"}}\n</tool_call>"}
-{"id": "multiple_75", "result": "<tool_call>\n{\"name\": \"paint_color.trends\", \"arguments\": {\"room\": \"客厅\", \"period\": \"Monthly\"}}\n</tool_call>"}
+{"id": "multiple_75", "result": "<tool_call>\n{\"name\": \"paint_color.trends\", \"arguments\": {\"room\": \"客厅\", \"period\": \"Yearly\"}}\n</tool_call>"}
 {"id": "multiple_76", "result": "<tool_call>\n{\"name\": \"sculpture.create_custom\", \"arguments\": {\"item\": \"horse\", \"material\": \"Bronze\"}}\n</tool_call>"}
 {"id": "multiple_77", "result": "<tool_call>\n{\"name\": \"artwork_search.find\", \"arguments\": {\"type\": \"sculpture\", \"location\": \"New York\", \"era\": \"contemporary\"}}\n</tool_call>"}
 {"id": "multiple_78", "result": "<tool_call>\n{\"name\": \"museum_info\", \"arguments\": {\"museum\": \"伦敦自然历史博物馆\", \"city\": \"伦敦\", \"features\": [\"timings\", \"exhibitions\", \"accessibility\"]}}\n</tool_call>"}
@@ -180,7 +180,7 @@
 {"id": "multiple_179", "result": "<tool_call>\n{\"name\": \"poker_probability.full_house\", \"arguments\": {\"deck_size\": 52, \"hand_size\": 5}}\n</tool_call>"}
 {"id": "multiple_180", "result": "<tool_call>\n{\"name\": \"game_stats.fetch_player_statistics\", \"arguments\": {\"game\": \"Zelda\", \"username\": \"Sam\", \"platform\": \"Switch\"}}\n</tool_call>"}
 {"id": "multiple_181", "result": "<tool_call>\n{\"name\": \"soccer.get_last_match\", \"arguments\": {\"team_name\": \"利物浦足球俱乐部\", \"include_stats\": true}}\n</tool_call>"}
-{"id": "multiple_182", "result": "<tool_call>\n{\"name\": \"multiplayer_game_finder\", \"arguments\": {\"platform\": \"Windows 10\", \"rating\": 4.5}}\n</tool_call>"}
+{"id": "multiple_182", "result": "<tool_call>\n{\"name\": \"multiplayer_game_finder\", \"arguments\": {\"platform\": \"Windows 10\", \"rating\": 4.5, \"genre\": \"Action\"}}\n</tool_call>"}
 {"id": "multiple_183", "result": "<tool_call>\n{\"name\": \"recipe_info.get_calories\", \"arguments\": {\"website\": \"foodnetwork.com\", \"recipe\": \"牛肉千层面\"}}\n</tool_call>"}
 {"id": "multiple_184", "result": "<tool_call>\n{\"name\": \"recipe_search\", \"arguments\": {\"dietary_restriction\": \"Vegetarian\", \"ingredients\": [\"pasta\", \"cheese\", \"tomato sauce\", \"garlic\", \"onion\", \"olive oil\", \"herbs\"], \"servings\": 2}}\n</tool_call>"}
 {"id": "multiple_185", "result": "<tool_call>\n{\"name\": \"restaurant_search.find_closest\", \"arguments\": {\"location\": \"波士顿\", \"cuisine\": \"寿司\", \"amenities\": [\"Patio\"]}}\n</tool_call>"}

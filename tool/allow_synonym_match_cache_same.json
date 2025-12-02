@@ -956,6 +956,7 @@
     "\"Santiago\"|||\"San Diego County\"": false,
     "\"Surrounding areas of New York\"|||\"NY\"": false,
     "\"Surrounding areas of New York\"|||\"New York City\"": false,
-    "\"Surrounding areas of New York\"|||\"NYC\"": false
+    "\"Surrounding areas of New York\"|||\"NYC\"": false,
+    "\"Fiction\"|||\"\"": false
   }
 }

@@ -6,7 +6,7 @@
 {"id": "multiple_5", "result": [{"weather.get_by_coordinates_date": {"coordinates": [46.603354, 1.888334], "date": "2019-12-13"}}]}
 {"id": "multiple_6", "result": [{"capacitance_calculator.calculate": {"A": 10, "d": 0.01, "K": 1.0}}]}
 {"id": "multiple_7", "result": [{"wildlife_population.assess_growth": {"species": "deer", "location": "Washington state", "duration": 10}}]}
-{"id": "multiple_8", "result": [{"realestate.find_properties": {"location": "San Diego", "propertyType": "villa", "bedrooms": 3, "budget": {"min": 300000, "max": 400000}}}]}
+{"id": "multiple_8", "result": [{"realestate.find_properties": {"location": "San Diego", "propertyType": "villa", "bedrooms": 3, "budget": {"min": 300000.0, "max": 400000.0}}}]}
 {"id": "multiple_9", "result": [{"calculate_average": {"gradeDict": {"math": 90, "science": 75, "history": 82, "music": 89}}}]}
 {"id": "multiple_10", "result": [{"database.create_backup": {"db_name": "employees", "backup_location": "/backups/employees_backup", "timestamp": true}}]}
 {"id": "multiple_11", "result": [{"math_roots.quadratic": {"a": 5, "b": 20, "c": -25}}]}
@@ -175,7 +175,7 @@
 {"id": "multiple_174", "result": [{"sports_ranking": {"team": "Manchester United", "league": "Premier League"}}]}
 {"id": "multiple_175", "result": [{"sports_ranking.get_top_player": {"sport": "tennis", "gender": "female"}}]}
 {"id": "multiple_176", "result": [{"sports_team.get_schedule": {"team_name": "Manchester United", "num_of_games": 6, "league": "Premier League"}}]}
-{"id": "multiple_177", "result": [{"board_game.chess.get_top_players": {"location": "New York", "minimum_rating": 2300, "number_of_players": 10}}]}
+{"id": "multiple_177", "result": [{"board_game.chess.get_top_players": {"location": "New York", "minimum_rating": 2300}}]}
 {"id": "multiple_178", "result": [{"find_card_in_deck": {"rank": "Queen", "suit": "Hearts"}}]}
 {"id": "multiple_179", "result": [{"poker_probability.full_house": {"deck_size": 52, "hand_size": 5}}]}
 {"id": "multiple_180", "result": [{"game_stats.fetch_player_statistics": {"game": "Zelda", "username": "Sam", "platform": "Switch"}}]}

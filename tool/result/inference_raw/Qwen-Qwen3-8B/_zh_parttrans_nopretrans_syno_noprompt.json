@@ -6,7 +6,7 @@
 {"id": "multiple_5", "result": "<tool_call>\n{\"name\": \"weather.get_by_coordinates_date\", \"arguments\": {\"coordinates\": [46.603354, 1.8883340], \"date\": \"2019-12-13\"}}\n</tool_call>"}
 {"id": "multiple_6", "result": "<tool_call>\n{\"name\": \"capacitance_calculator.calculate\", \"arguments\": {\"A\": 10, \"d\": 0.01, \"K\": 1.0}}\n</tool_call>"}
 {"id": "multiple_7", "result": "<tool_call>\n{\"name\": \"wildlife_population.assess_growth\", \"arguments\": {\"species\": \"deer\", \"location\": \"Washington state\", \"duration\": 10}}\n</tool_call>\n<tool_call>\n{\"name\": \"ecological_impact.analyze\", \"arguments\": {\"species\": \"deer\", \"ecosystem\": \"forest\", \"location\": \"Washington state\", \"timeframe\": 10}}\n</tool_call>"}
-{"id": "multiple_8", "result": "<tool_call>\n{\"name\": \"realestate.find_properties\", \"arguments\": {\"location\": \"San Diego\", \"propertyType\": \"villa\", \"bedrooms\": 3, \"budget\": {\"min\": 300000, \"max\": 400000}}}\n</tool_call>"}
+{"id": "multiple_8", "result": "<tool_call>\n{\"name\": \"realestate.find_properties\", \"arguments\": {\"location\": \"San Diego\", \"propertyType\": \"villa\", \"bedrooms\": 3, \"budget\": {\"min\": 300000.0, \"max\": 400000.0}}}\n</tool_call>"}
 {"id": "multiple_9", "result": "<tool_call>\n{\"name\": \"calculate_average\", \"arguments\": {\"gradeDict\": {\"math\": 90, \"science\": 75, \"history\": 82, \"music\": 89}}}\n</tool_call>"}
 {"id": "multiple_10", "result": "<tool_call>\n{\"name\": \"database.create_backup\", \"arguments\": {\"db_name\": \"employees\", \"backup_location\": \"/backups/employees_backup\", \"timestamp\": true}}\n</tool_call>\n<tool_call>\n{\"name\": \"database.modify_columns\", \"arguments\": {\"db_name\": \"employees\", \"table\": \"personal_data\", \"operation\": \"delete\", \"columns\": [\"email\", \"ssn\", \"social_security_number\"]}}\n</tool_call>"}
 {"id": "multiple_11", "result": "<tool_call>\n{\"name\": \"math_roots.quadratic\", \"arguments\": {\"a\": 5, \"b\": 20, \"c\": -25}}\n</tool_call>"}
@@ -175,7 +175,7 @@
 {"id": "multiple_174", "result": "<tool_call>\n{\"name\": \"sports_ranking\", \"arguments\": {\"team\": \"Manchester United\", \"league\": \"Premier League\"}}\n</tool_call>"}
 {"id": "multiple_175", "result": "<tool_call>\n{\"name\": \"sports_ranking.get_top_player\", \"arguments\": {\"sport\": \"tennis\", \"gender\": \"female\"}}\n</tool_call>"}
 {"id": "multiple_176", "result": "<tool_call>\n{\"name\": \"sports_team.get_schedule\", \"arguments\": {\"team_name\": \"Manchester United\", \"num_of_games\": 6, \"league\": \"Premier League\"}}\n</tool_call>"}
-{"id": "multiple_177", "result": "<tool_call>\n{\"name\": \"board_game.chess.get_top_players\", \"arguments\": {\"location\": \"New York\", \"minimum_rating\": 2300, \"number_of_players\": 10}}\n</tool_call>"}
+{"id": "multiple_177", "result": "<tool_call>\n{\"name\": \"board_game.chess.get_top_players\", \"arguments\": {\"location\": \"New York\", \"minimum_rating\": 2300}}\n</tool_call>"}
 {"id": "multiple_178", "result": "<tool_call>\n{\"name\": \"find_card_in_deck\", \"arguments\": {\"rank\": \"Queen\", \"suit\": \"Hearts\"}}\n</tool_call>"}
 {"id": "multiple_179", "result": "<tool_call>\n{\"name\": \"poker_probability.full_house\", \"arguments\": {\"deck_size\": 52, \"hand_size\": 5}}\n</tool_call>"}
 {"id": "multiple_180", "result": "<tool_call>\n{\"name\": \"game_stats.fetch_player_statistics\", \"arguments\": {\"game\": \"Zelda\", \"username\": \"Sam\", \"platform\": \"Switch\"}}\n</tool_call>"}

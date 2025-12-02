@@ -2,7 +2,7 @@
 {"id": "multiple_1", "result": "<tool_call>\n{\"name\": \"math.triangle_area_heron\", \"arguments\": {\"side1\": 3, \"side2\": 4, \"side3\": 5}}\n</tool_call>"}
 {"id": "multiple_2", "result": "<tool_call>\n{\"name\": \"country_info.capital\", \"arguments\": {\"country\": \"巴西\"}}\n</tool_call>"}
 {"id": "multiple_3", "result": "<tool_call>\n{\"name\": \"EuclideanDistance.calculate\", \"arguments\": {\"pointA\": [3, 4], \"pointB\": [1, 2]}}\n</tool_call>"}
-{"id": "multiple_4", "result": "<tool_call>\n{\"name\": \"kinematics.calculate_displacement\", \"arguments\": {\"initial_speed\": 20, \"acceleration\": 10, \"time\": 5, \"rounding\": 2}}\n</tool_call>"}
+{"id": "multiple_4", "result": "<tool_call>\n{\"name\": \"kinematics.calculate_displacement\", \"arguments\": {\"initial_speed\": 20, \"acceleration\": 10, \"time\": 5}}\n</tool_call>"}
 {"id": "multiple_5", "result": "<tool_call>\n{\"name\": \"weather.get_by_coordinates_date\", \"arguments\": {\"coordinates\": [46.603354, 1.8883340], \"date\": \"2019-12-13\"}}\n</tool_call>"}
 {"id": "multiple_6", "result": "<tool_call>\n{\"name\": \"capacitance_calculator.calculate\", \"arguments\": {\"A\": 10, \"d\": 0.01, \"K\": 1.0}}\n</tool_call>"}
 {"id": "multiple_7", "result": "<tool_call>\n{\"name\": \"wildlife_population.assess_growth\", \"arguments\": {\"species\": \"鹿\", \"location\": \"华盛顿州\", \"duration\": 10}}\n</tool_call>\n<tool_call>\n{\"name\": \"ecological_impact.analyze\", \"arguments\": {\"species\": \"鹿\", \"ecosystem\": \"林地\", \"location\": \"华盛顿州\", \"timeframe\": 10}}\n</tool_call>"}
@@ -92,7 +92,7 @@
 {"id": "multiple_91", "result": "<tool_call>\n{\"name\": \"recipe.find\", \"arguments\": {\"mainIngredient\": \"苹果\", \"ingredientLimit\": 5}}\n</tool_call>"}
 {"id": "multiple_92", "result": "<tool_call>\n{\"name\": \"walmart.vegan_products\", \"arguments\": {\"location\": \"Denver, CO\", \"categories\": [\"vegan\", \"gluten-free\"]}}\n</tool_call>"}
 {"id": "multiple_93", "result": "<tool_call>\n{\"name\": \"hotel.book\", \"arguments\": {\"location\": \"纽约\", \"roomType\": \"豪华客房\", \"nights\": 2, \"additional_services\": [\"breakfast\"]}}\n</tool_call>"}
-{"id": "multiple_94", "result": "<tool_call>\n{\"name\": \"hotel_room_pricing.get\", \"arguments\": {\"hotelName\": \"纽约希尔顿酒店\", \"roomType\": \"套间\", \"nights\": 3}}\n</tool_call>"}
+{"id": "multiple_94", "result": "<tool_call>\n{\"name\": \"hotel_room_pricing.get\", \"arguments\": {\"hotelName\": \"Hilton New York\", \"roomType\": \"suite with double bed\", \"nights\": 3}}\n</tool_call>"}
 {"id": "multiple_95", "result": "<tool_call>\n{\"name\": \"currency_exchange.convert\", \"arguments\": {\"amount\": 200, \"from_currency\": \"EUR\", \"to_currency\": \"USD\", \"live_conversion\": true}}\n</tool_call>"}
 {"id": "multiple_96", "result": "<tool_call>\n{\"name\": \"solve_quadratic_equation\", \"arguments\": {\"a\": 2, \"b\": 6, \"c\": 5}}\n</tool_call>"}
 {"id": "multiple_97", "result": "<tool_call>\n{\"name\": \"geometry.area_circle\", \"arguments\": {\"radius\": 10}}\n</tool_call>"}
@@ -159,7 +159,7 @@
 {"id": "multiple_158", "result": "<tool_call>\n{\"name\": \"religious_history.get_papal_biography\", \"arguments\": {\"papal_name\": \"英诺森三世\", \"include_contributions\": true}}\n</tool_call>"}
 {"id": "multiple_159", "result": "<tool_call>\n{\"name\": \"calculate_paint_needed\", \"arguments\": {\"coverage_rate\": 400, \"length\": 30, \"height\": 12}}\n</tool_call>"}
 {"id": "multiple_160", "result": "<tool_call>\n{\"name\": \"get_sculpture_info\", \"arguments\": {\"artist_name\": \"詹姆斯·普伦萨\", \"detail\": true}}\n</tool_call>"}
-{"id": "multiple_161", "result": "<tool_call>\n{\"name\": \"find_exhibition\", \"arguments\": {\"location\": \"New York\", \"art_form\": \"sculpture\", \"month\": \"next\", \"user_ratings\": \"high\"}}\n</tool_call>"}
+{"id": "multiple_161", "result": "<tool_call>\n{\"name\": \"find_exhibition\", \"arguments\": {\"location\": \"New York, NY\", \"art_form\": \"sculpture\", \"month\": \"next\", \"user_ratings\": \"high\"}}\n</tool_call>"}
 {"id": "multiple_162", "result": "<tool_call>\n{\"name\": \"analyze_structure\", \"arguments\": {\"building_id\": \"B1004\", \"floors\": [2, 3, 4], \"mode\": \"dynamic\"}}\n</tool_call>"}
 {"id": "multiple_163", "result": "<tool_call>\n{\"name\": \"metropolitan_museum.get_top_artworks\", \"arguments\": {\"number\": 5, \"sort_by\": \"popularity\"}}\n</tool_call>"}
 {"id": "multiple_164", "result": "<tool_call>\n{\"name\": \"instrument_price.get\", \"arguments\": {\"brand\": \"Fender\", \"model\": \"American Professional II Stratocaster\", \"finish\": \"紫檀木装饰款\"}}\n</tool_call>"}

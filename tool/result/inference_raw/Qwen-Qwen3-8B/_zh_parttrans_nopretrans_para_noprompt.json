@@ -181,7 +181,7 @@
 {"id": "multiple_180", "result": "<tool_call>\n{\"name\": \"game_stats.fetch_player_statistics\", \"arguments\": {\"game\": \"Zelda\", \"username\": \"Sam\", \"platform\": \"Switch\"}}\n</tool_call>"}
 {"id": "multiple_181", "result": "<tool_call>\n{\"name\": \"soccer.get_last_match\", \"arguments\": {\"team_name\": \"Liverpool F.C.\", \"include_stats\": true}}\n</tool_call>"}
 {"id": "multiple_182", "result": "<tool_call>\n{\"name\": \"multiplayer_game_finder\", \"arguments\": {\"platform\": \"Windows 10\", \"rating\": 4.5, \"genre\": \"Action\"}}\n</tool_call>"}
-{"id": "multiple_183", "result": "<tool_call>\n{\"name\": \"recipe_info.get_calories\", \"arguments\": {\"website\": \"foodnetwork.com\", \"recipe\": \"Beef Lasagna\"}}\n</tool_call>"}
+{"id": "multiple_183", "result": "<tool_call>\n{\"name\": \"recipe_info.get_calories\", \"arguments\": {\"website\": \"Foodnetwork.com\", \"recipe\": \"Beef Lasagna\"}}\n</tool_call>"}
 {"id": "multiple_184", "result": "<tool_call>\n{\"name\": \"recipe_search\", \"arguments\": {\"dietary_restriction\": \"Vegetarian\", \"ingredients\": [\"pasta\", \"cheese\"], \"servings\": 2}}\n</tool_call>"}
 {"id": "multiple_185", "result": "<tool_call>\n{\"name\": \"restaurant_search.find_closest\", \"arguments\": {\"location\": \"Boston\", \"cuisine\": \"Sushi\", \"amenities\": [\"Patio\"]}}\n</tool_call>"}
 {"id": "multiple_186", "result": "<tool_call>\n{\"name\": \"find_recipe\", \"arguments\": {\"dietary_restrictions\": \"vegan\", \"recipe_type\": \"brownies\", \"time\": 30}}\n</tool_call>"}

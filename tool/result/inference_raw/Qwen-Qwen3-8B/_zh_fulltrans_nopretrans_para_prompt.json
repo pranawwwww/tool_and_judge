@@ -68,7 +68,7 @@
 {"id": "multiple_67", "result": "<tool_call>\n{\"name\": \"translate\", \"arguments\": {\"text\": \"Hello, how are you?\", \"source_language\": \"English\", \"target_language\": \"French\"}}\n</tool_call>"}
 {"id": "multiple_68", "result": "<tool_call>\n{\"name\": \"library.search_books\", \"arguments\": {\"location\": \"纽约\", \"genre\": \"历史小说\"}}\n</tool_call>"}
 {"id": "multiple_69", "result": "<tool_call>\n{\"name\": \"five_factor_model.analyse\", \"arguments\": {\"talkative\": true, \"nervous\": true, \"artistic_interests\": false, \"lazy\": true, \"forgiving\": true}}\n</tool_call>"}
-{"id": "multiple_70", "result": "<tool_call>\n{\"name\": \"european_history.get_monarchs\", \"arguments\": {\"country\": \"法国\", \"century\": 18}}\n</tool_call>"}
+{"id": "multiple_70", "result": "<tool_call>\n{\"name\": \"european_history.get_monarchs\", \"arguments\": {\"country\": \"France\", \"century\": 18}}\n</tool_call>"}
 {"id": "multiple_71", "result": "<tool_call>\n{\"name\": \"get_population\", \"arguments\": {\"year\": 1954, \"category\": \"veterans\"}}\n</tool_call>"}
 {"id": "multiple_72", "result": "<tool_call>\n{\"name\": \"us_history.population_by_state_year\", \"arguments\": {\"state\": \"California\", \"year\": 1970}}\n</tool_call>"}
 {"id": "multiple_73", "result": "<tool_call>\n{\"name\": \"religion.get_origin\", \"arguments\": {\"religion\": \"佛教\"}}\n</tool_call>"}
@@ -174,7 +174,7 @@
 {"id": "multiple_173", "result": "<tool_call>\n{\"name\": \"get_defense_ranking\", \"arguments\": {\"season\": 2021, \"top\": 5}}\n</tool_call>"}
 {"id": "multiple_174", "result": "<tool_call>\n{\"name\": \"sports_ranking\", \"arguments\": {\"team\": \"曼联\", \"league\": \"英超联赛\"}}\n</tool_call>"}
 {"id": "multiple_175", "result": "<tool_call>\n{\"name\": \"sports_ranking.get_top_player\", \"arguments\": {\"sport\": \"tennis\", \"gender\": \"women\"}}\n</tool_call>"}
-{"id": "multiple_176", "result": "<tool_call>\n{\"name\": \"sports_team.get_schedule\", \"arguments\": {\"team_name\": \"曼联\", \"num_of_games\": 6, \"league\": \"英超\"}}\n</tool_call>"}
+{"id": "multiple_176", "result": "<tool_call>\n{\"name\": \"sports_team.get_schedule\", \"arguments\": {\"team_name\": \"曼联\", \"num_of_games\": 6, \"league\": \"英超联赛\"}}\n</tool_call>"}
 {"id": "multiple_177", "result": "<tool_call>\n{\"name\": \"board_game.chess.get_top_players\", \"arguments\": {\"location\": \"纽约市\", \"minimum_rating\": 2300}}\n</tool_call>"}
 {"id": "multiple_178", "result": "<tool_call>\n{\"name\": \"find_card_in_deck\", \"arguments\": {\"rank\": \"皇后\", \"suit\": \"红心\"}}\n</tool_call>"}
 {"id": "multiple_179", "result": "<tool_call>\n{\"name\": \"poker_probability.full_house\", \"arguments\": {\"deck_size\": 52, \"hand_size\": 5}}\n</tool_call>"}
@@ -182,7 +182,7 @@
 {"id": "multiple_181", "result": "<tool_call>\n{\"name\": \"soccer.get_last_match\", \"arguments\": {\"team_name\": \"Liverpool\", \"include_stats\": true}}\n</tool_call>"}
 {"id": "multiple_182", "result": "<tool_call>\n{\"name\": \"multiplayer_game_finder\", \"arguments\": {\"platform\": \"Windows 10\", \"rating\": 4.5, \"genre\": \"Action\"}}\n</tool_call>"}
 {"id": "multiple_183", "result": "<tool_call>\n{\"name\": \"recipe_info.get_calories\", \"arguments\": {\"website\": \"Foodnetwork.com\", \"recipe\": \"牛肉千层面\"}}\n</tool_call>"}
-{"id": "multiple_184", "result": "<tool_call>\n{\"name\": \"recipe_search\", \"arguments\": {\"dietary_restriction\": \"Vegetarian\", \"ingredients\": [\"spaghetti\", \"vegetable broth\", \"nutritional yeast\", \"garlic\", \"olive oil\", \"onion\", \"carrots\", \"celery\", \"mushrooms\", \"salt\", \"pepper\"], \"servings\": 2}}\n</tool_call>"}
+{"id": "multiple_184", "result": "<tool_call>\n{\"name\": \"recipe_search\", \"arguments\": {\"dietary_restriction\": \"Vegetarian\", \"ingredients\": [\"pasta\", \"cheese\", \"tomato sauce\", \"garlic\", \"onion\", \"olive oil\", \"herbs\"], \"servings\": 2}}\n</tool_call>"}
 {"id": "multiple_185", "result": "<tool_call>\n{\"name\": \"restaurant_search.find_closest\", \"arguments\": {\"location\": \"波士顿\", \"cuisine\": \"寿司\", \"amenities\": [\"Patio\"]}}\n</tool_call>"}
 {"id": "multiple_186", "result": "<tool_call>\n{\"name\": \"find_recipe\", \"arguments\": {\"dietary_restrictions\": \"vegetarian\", \"recipe_type\": \"dessert\", \"time\": 30}}\n</tool_call>"}
 {"id": "multiple_187", "result": "<tool_call>\n{\"name\": \"whole_foods.check_price\", \"arguments\": {\"location\": \"洛杉矶\", \"items\": [\"西红柿\", \"生菜\"]}}\n</tool_call>"}

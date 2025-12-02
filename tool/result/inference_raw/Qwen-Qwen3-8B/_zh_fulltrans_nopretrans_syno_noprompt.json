@@ -65,7 +65,7 @@
 {"id": "multiple_64", "result": "<tool_call>\n{\"name\": \"uv_index.get_future\", \"arguments\": {\"location\": \"东京\", \"date\": \"06-01-2023\"}}\n</tool_call>"}
 {"id": "multiple_65", "result": "<tool_call>\n{\"name\": \"geodistance.find\", \"arguments\": {\"origin\": \"纽约市\", \"destination\": \"洛杉矶\", \"unit\": \"miles\"}}\n</tool_call>"}
 {"id": "multiple_66", "result": "<tool_call>\n{\"name\": \"traffic_estimate\", \"arguments\": {\"start_location\": \"拉斯维加斯\", \"end_location\": \"洛杉矶\", \"time_period\": \"weekend\"}}\n</tool_call>"}
-{"id": "multiple_67", "result": "<tool_call>\n{\"name\": \"translate\", \"arguments\": {\"text\": \"Hello, how are you?\", \"source_language\": \"en\", \"target_language\": \"fr\"}}\n</tool_call>"}
+{"id": "multiple_67", "result": "<tool_call>\n{\"name\": \"translate\", \"arguments\": {\"text\": \"Hello, how are you?\", \"source_language\": \"English\", \"target_language\": \"French\"}}\n</tool_call>"}
 {"id": "multiple_68", "result": "<tool_call>\n{\"name\": \"library.search_books\", \"arguments\": {\"location\": \"纽约\", \"genre\": \"历史小说\"}}\n</tool_call>"}
 {"id": "multiple_69", "result": "<tool_call>\n{\"name\": \"five_factor_model.analyse\", \"arguments\": {\"talkative\": true, \"nervous\": true, \"artistic_interests\": false, \"lazy\": true, \"forgiving\": true}}\n</tool_call>"}
 {"id": "multiple_70", "result": "<tool_call>\n{\"name\": \"european_history.get_monarchs\", \"arguments\": {\"country\": \"法兰西\", \"century\": 18}}\n</tool_call>"}

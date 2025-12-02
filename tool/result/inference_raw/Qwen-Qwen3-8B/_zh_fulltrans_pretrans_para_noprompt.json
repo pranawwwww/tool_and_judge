@@ -36,7 +36,7 @@
 {"id": "multiple_35", "result": "<tool_call>\n{\"name\": \"calculate_gcd\", \"arguments\": {\"num1\": 128, \"num2\": 256, \"algorithm\": \"euclidean\"}}\n</tool_call>"}
 {"id": "multiple_36", "result": "<tool_call>\n{\"name\": \"kinematics.calculate_speed_from_rest\", \"arguments\": {\"distance\": 20, \"time\": 4}}\n</tool_call>"}
 {"id": "multiple_37", "result": "<tool_call>\n{\"name\": \"kinematics.final_velocity\", \"arguments\": {\"initial_velocity\": 40, \"time\": 6, \"acceleration\": -9.81}}\n</tool_call>"}
-{"id": "multiple_38", "result": "<tool_call>\n{\"name\": \"library.search_book\", \"arguments\": {\"book_name\": \"The Alchemist\", \"city\": \"New York\", \"availability\": false, \"genre\": \"\"}}\n</tool_call>"}
+{"id": "multiple_38", "result": "<tool_call>\n{\"name\": \"library.search_book\", \"arguments\": {\"book_name\": \"The Alchemist\", \"city\": \"New York\", \"availability\": false, \"genre\": \"Fiction\"}}\n</tool_call>"}
 {"id": "multiple_39", "result": "<tool_call>\n{\"name\": \"ride_hailing.get_rides\", \"arguments\": {\"source\": \"New York\", \"destination\": \"Philadelphia\", \"max_cost\": 50}}\n</tool_call>"}
 {"id": "multiple_40", "result": "<tool_call>\n{\"name\": \"electromagnetism.biot_savart_law\", \"arguments\": {\"current\": 12, \"distance\": 8}}\n</tool_call>"}
 {"id": "multiple_41", "result": "<tool_call>\n{\"name\": \"magnetic_field.calculate\", \"arguments\": {\"I\": 10, \"r\": 0.01}}\n</tool_call>"}

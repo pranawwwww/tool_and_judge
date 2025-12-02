@@ -122,16 +122,14 @@ class Qwen3Interface(JudgeModelInterface, ToolModelInterface):
         # Build messages
         # Add system message with English passing instruction if needed
         passing_in_english_prompt = (
-            " IMPORTANT: Pass in all parameters in function calls in English."
+            " IMPORTANT: When calling the tools, pass in all arguments in English."
             if prompt_passing_in_english
             else ""
         )
 
-        system_content = f"You are a helpful assistant.{passing_in_english_prompt}" if passing_in_english_prompt else None
-
         messages = []
-        if system_content:
-            messages.append({"role": "system", "content": system_content})
+        # if system_content:
+        #     messages.append({"role": "system", "content": system_content})
         user_content = (f"Please use the available tools to answer the following question. Please only call the tools provided and DO NOT say anything else.{passing_in_english_prompt}\n\n{user_query}")
         messages.append({"role": "user", "content": user_content})
 
