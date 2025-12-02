@@ -132,8 +132,8 @@ class Qwen3Interface(JudgeModelInterface, ToolModelInterface):
         messages = []
         if system_content:
             messages.append({"role": "system", "content": system_content})
-
-        messages.append({"role": "user", "content": user_query})
+        user_content = (f"Please use the available tools to answer the following question. Please only call the tools provided and DO NOT say anything else.{passing_in_english_prompt}\n\n{user_query}")
+        messages.append({"role": "user", "content": user_content})
 
         # Use apply_chat_template to generate the prompt
         formatted_prompt = tokenizer.apply_chat_template(
