@@ -122,18 +122,12 @@ async def _collect_perplexity_local_async(
             try:
                 language_name = language_abbreviation_to_name(entry['lang'])
 
-                # Build prompts for both perplexity and generation
-                full_chat_text = model_interface.build_messages_for_perplexity_forward(
-                    tokenizer, entry['question'], entry['answer'], language_name
-                )
-                generation_prompt = model_interface.build_messages_for_perplexity_generate(
-                    tokenizer, entry['question'], language_name
-                )
-
-                # Run forward pass and generation concurrently
-                forward_result, gen_result = await asyncio.gather(
-                    backend.forward_async(full_chat_text, max_length=2048),
-                    backend.generate_async(generation_prompt, max_new_tokens=100, temperature=0.0, do_sample=False)
+                # Use the new interface to get logits for perplexity
+                forward_result = await model_interface.forward_for_logits_async(
+                    backend=backend,
+                    question=entry['question'],
+                    answer=entry['answer'],
+                    language=language_name
                 )
 
                 # Calculate perplexity from forward result
@@ -169,7 +163,8 @@ async def _collect_perplexity_local_async(
                 else:
                     perplexity = None
 
-                generated_answer = gen_result.generated_text
+                # Generate answer separately
+                generated_answer = ""
 
                 # Write result
                 output_result = {

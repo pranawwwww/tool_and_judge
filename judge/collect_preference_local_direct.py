@@ -92,10 +92,6 @@ async def _collect_preference_local_direct_async(
     total_to_process = len(unprocessed_samples)
     print(f"Samples to process: {total_to_process}")
 
-    # Get token IDs for "1" and "2"
-    token_1 = tokenizer.encode("1", add_special_tokens=False)[0]
-    token_2 = tokenizer.encode("2", add_special_tokens=False)[0]
-
     # Process samples with concurrency control
     semaphore = asyncio.Semaphore(batch_size)
     lock = asyncio.Lock()
@@ -107,87 +103,20 @@ async def _collect_preference_local_direct_async(
 
         async with semaphore:
             try:
-                # Build formatted prompt
-                formatted_prompt = model_interface.build_messages_for_compare_directly(
-                    tokenizer,
-                    pair['question'],
-                    pair['answer1'],
-                    pair['answer2']
+                # Use the new interface to compare answers directly
+                comparison_result = await model_interface.compare_directly_async(
+                    backend=backend,
+                    question=pair['question'],
+                    answer1=pair['answer1'],
+                    answer2=pair['answer2']
                 )
 
-                # Generate response from model
-                result = await backend.generate_async(
-                    formatted_prompt,
-                    max_new_tokens=10,
-                    temperature=0.0,
-                    do_sample=False
-                )
-
-                generated_text = result.generated_text.strip()
-
-                # Initialize variables
+                preference = comparison_result.preference
                 error = None
-                preference = None
                 log_prob_1 = None
                 log_prob_2 = None
                 log_prob_diff = None
-
-                # Determine preference directly from logits
-                try:
-                    # Tokenize the prefix "\boxed{" to find its length
-                    prefix_tokens = tokenizer.encode('\\boxed{', add_special_tokens=False)
-                    prefix_length = len(prefix_tokens)
-
-                    # Check what token was actually generated at the answer position
-                    if prefix_length < len(result.generated_ids):
-                        generated_token = result.generated_ids[prefix_length]
-                        if generated_token != token_1 and generated_token != token_2:
-                            error = "The model generates preference other than 1 or 2"
-
-                    # The answer token should be at position prefix_length in the generated sequence
-                    # result.logits is a tuple of tensors (HuggingFace) or list of dicts (vLLM)
-                    if isinstance(result.logits, tuple):
-                        # HuggingFace backend: tuple of tensors, one per generated token
-                        if prefix_length < len(result.logits):
-                            answer_logits = result.logits[prefix_length]  # [vocab_size]
-
-                            # Compute log probabilities
-                            log_probs = torch.nn.functional.log_softmax(answer_logits, dim=-1)
-
-                            # Extract log probabilities for tokens "1" and "2"
-                            log_prob_1 = log_probs[token_1].item()
-                            log_prob_2 = log_probs[token_2].item()
-                            log_prob_diff = log_prob_1 - log_prob_2
-
-                            # Determine preference based on logits (only if no error)
-                            if not error:
-                                preference = 1 if log_prob_1 > log_prob_2 else 2
-                        else:
-                            error = f"Prefix length {prefix_length} exceeds generated tokens {len(result.logits)}"
-                    elif isinstance(result.logits, list):
-                        # vLLM backend: list of dicts with logprob information
-                        # Each element is {token_id: Logprob object}
-                        if prefix_length < len(result.logits):
-                            answer_logprobs_dict = result.logits[prefix_length]
-                            if token_1 in answer_logprobs_dict and token_2 in answer_logprobs_dict:
-                                # Extract logprob value from Logprob object
-                                # Logprob object has a 'logprob' attribute
-                                logprob_obj_1 = answer_logprobs_dict[token_1]
-                                logprob_obj_2 = answer_logprobs_dict[token_2]
-                                log_prob_1 = logprob_obj_1.logprob if hasattr(logprob_obj_1, 'logprob') else float(logprob_obj_1)
-                                log_prob_2 = logprob_obj_2.logprob if hasattr(logprob_obj_2, 'logprob') else float(logprob_obj_2)
-                                log_prob_diff = log_prob_1 - log_prob_2
-
-                                # Determine preference based on logits (only if no error)
-                                if not error:
-                                    preference = 1 if log_prob_1 > log_prob_2 else 2
-                            else:
-                                error = f"Tokens 1 or 2 not found in logprobs dict at position {prefix_length}"
-                        else:
-                            error = f"Prefix length {prefix_length} exceeds generated tokens {len(result.logits)}"
-                except Exception as e:
-                    error = f"Could not extract logits: {e}"
-                    print(f"Warning: Could not extract logits for sample {i}: {e}")
+                generated_text = ""
 
                 # Write result
                 output_result = {

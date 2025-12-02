@@ -1,9 +1,6 @@
 import json
 import os
-import re
 import asyncio
-
-from config import ResultType
 
 
 def collect_preference_local_cot(
@@ -93,37 +90,17 @@ async def _collect_preference_local_cot_async(
 
         async with semaphore:
             try:
-                # Build formatted prompt
-                formatted_prompt = model_interface.build_messages_for_compare_cot(
-                    tokenizer,
-                    pair['question'],
-                    pair['answer1'],
-                    pair['answer2']
+                # Use the new interface to compare answers with reasoning
+                comparison_result = await model_interface.compare_thinking_async(
+                    backend=backend,
+                    question=pair['question'],
+                    answer1=pair['answer1'],
+                    answer2=pair['answer2']
                 )
 
-                # Generate response
-                result = await backend.generate_async(
-                    formatted_prompt,
-                    max_new_tokens=500,
-                    temperature=0.0,
-                    do_sample=False
-                )
-
-                raw_answer = result.generated_text
-
-                # Extract the boxed answer
-                match = re.search(r'\\boxed\{(\d+)\}', raw_answer)
+                preference = comparison_result.preference
+                raw_answer = comparison_result.reasoning or comparison_result.raw_output or ""
                 error_msg = None
-
-                if match:
-                    preference = int(match.group(1))
-                    if preference not in [1, 2]:
-                        error_msg = f"Invalid preference value in boxed answer: {preference}"
-                        preference = 0
-                else:
-                    error_msg = "LLM did not include decision in \\boxed{} format"
-                    preference = 0
-                    print(f"  Warning: Could not parse answer for sample {i}, setting preference to 0")
 
                 # Write result
                 output_result = {
