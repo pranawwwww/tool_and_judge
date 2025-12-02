@@ -26,16 +26,12 @@ def language_abbreviation_to_name(abbreviation):
     return lang_map.get(abbreviation, abbreviation)
 
 
-def collect_perplexity_local(entries, backend, model_interface, output_file="perplexities_local.jsonl", batch_size=8):
+async def collect_perplexity_local_async(entries, backend, model_interface, batch_size=8):
     """
     Calculate the perplexity of each answer entry using concurrent async requests.
 
     Perplexity is calculated by getting the average log probability of tokens in the answer
     given the question context. Lower perplexity indicates the model finds the answer more likely.
-    Also generates an answer for comparison.
-
-    IMPORTANT: This function ONLY supports HuggingFace backend because it requires
-    forward pass operations to compute perplexity, which vLLM does not support.
 
     Args:
         entries: List of individual answer entries, each containing:
@@ -47,71 +43,22 @@ def collect_perplexity_local(entries, backend, model_interface, output_file="per
             - 'subject': str
         backend: AsyncModelBackend instance (must be HuggingFace backend)
         model_interface: ModelInterface instance for model-specific behavior
-        output_file: Output file for results
         batch_size: Number of concurrent requests (default: 8)
 
     Returns:
-        None (results are written to output_file)
+        List of results to be written to file
     """
-
-    # Run async implementation
-    asyncio.run(_collect_perplexity_local_async(
-        entries=entries,
-        backend=backend,
-        model_interface=model_interface,
-        output_file=output_file,
-        batch_size=batch_size
-    ))
-
-
-async def _collect_perplexity_local_async(
-        entries,
-        backend,
-        model_interface,
-        output_file,
-        batch_size):
-    """Async implementation of collect_perplexity_local."""
 
     tokenizer = backend.tokenizer
     model_name = getattr(backend, 'model_name', 'unknown')
 
-    # Load already processed samples if file exists
-    processed_indices = set()
-    results_dict = {}
-
-    if os.path.exists(output_file):
-        print(f"Loading existing results from {output_file}...")
-        with open(output_file, 'r', encoding='utf-8') as f:
-            for line in f:
-                if line.strip():
-                    result = json.loads(line)
-                    idx = result['index']
-                    processed_indices.add(idx)
-                    results_dict[idx] = {
-                        'perplexity': result.get('perplexity'),
-                        'generated_answer': result.get('generated_answer')
-                    }
-        print(f"Found {len(processed_indices)} already processed samples")
-    if len(processed_indices) == len(entries):
-        print("All samples already processed. Exiting.")
-        return
-
     print(f"\nCalculating perplexities using local LLM")
-    print(f"Results will be written to {output_file}")
     print(f"Concurrent requests: {batch_size}")
-
-    # Collect unprocessed samples
-    unprocessed_samples = []
-    for entry in entries:
-        if entry['index'] not in processed_indices:
-            unprocessed_samples.append(entry)
-
-    total_to_process = len(unprocessed_samples)
-    print(f"Samples to process: {total_to_process}")
+    print(f"Samples to process: {len(entries)}")
 
     # Process samples with concurrency control
     semaphore = asyncio.Semaphore(batch_size)
-    lock = asyncio.Lock()
+    results = []
     processed_count = 0
 
     async def process_single_entry(entry):
@@ -163,42 +110,33 @@ async def _collect_perplexity_local_async(
                 else:
                     perplexity = None
 
-                # Generate answer separately
-                generated_answer = ""
-
-                # Write result
                 output_result = {
                     'index': entry['index'],
                     'perplexity': perplexity,
                     'question': entry['question'],
                     'answer': entry['answer'],
-                    'generated_answer': generated_answer,
                     'lang': entry['lang'],
                     'is_correct': entry['is_correct'],
                     'subject': entry.get('subject', ''),
                     'model': model_name,
                 }
 
-                async with lock:
-                    with open(output_file, 'a', encoding='utf-8') as f:
-                        f.write(json.dumps(output_result, ensure_ascii=False) + '\n')
-                        f.flush()
-
-                    results_dict[entry['index']] = {
-                        'perplexity': perplexity,
-                        'generated_answer': generated_answer
-                    }
-                    processed_count += 1
-
-                    if processed_count % 10 == 0 or processed_count == total_to_process:
-                        print(f"  Processed {processed_count}/{total_to_process} samples")
+                return output_result
 
             except Exception as e:
                 print(f"Error processing entry {entry['index']}: {e}")
                 raise
 
-    # Process all unprocessed samples concurrently
-    tasks = [process_single_entry(entry) for entry in unprocessed_samples]
-    await asyncio.gather(*tasks)
+    # Create all tasks
+    tasks = [process_single_entry(entry) for entry in entries]
 
-    print("\nPerplexity calculation completed.")
+    # Process results as they complete
+    for coro in asyncio.as_completed(tasks):
+        result = await coro
+        processed_count += 1
+        results.append(result)
+
+        if processed_count % 10 == 0 or processed_count == len(entries):
+            print(f"  Processed {processed_count}/{len(entries)} samples")
+
+    return results

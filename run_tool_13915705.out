@@ -9499,3 +9499,2890 @@ Skipping allow synonym processing (DONT_ALLOW_SYNONYM)
 Score result written to tool/result/score/Qwen-Qwen3-30B-A3B/_zh_fulltrans_pretrans_para_noprompt_noposttrans_noallow.json: {'accuracy': 0.77, 'total_cases': 200, 'correct_cases': 154}
 Completed processing for config: ToolConfig(model=<LocalModel.QWEN3_30B_A3B: 'Qwen/Qwen3-30B-A3B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED_PRE_TRANSLATE: 7>), add_noise_mode=<AddNoiseMode.PARAPHRASE: 3>)
 Processing config: ToolConfig(model=<LocalModel.QWEN3_30B_A3B: 'Qwen/Qwen3-30B-A3B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED_POST_TRANSLATE: 8>), add_noise_mode=<AddNoiseMode.NO_NOISE: 1>)
+Skipping question translation (pre-translate not enabled)
+Warning: some test cases already exist in inference result file. Skipping 200 cases.
+All test cases for Qwen/Qwen3-30B-A3B have already been processed. Skipping model loading and inference.
+File tool/result/post_translate/Qwen-Qwen3-30B-A3B/_zh_fulltrans_nopretrans_nonoise_noprompt_posttrans.json not found. It will be created.
+Translating 200 answers to English...
+Creating backend...
+Reusing cached backend [experiment]: vllm:Qwen/Qwen3-30B-A3B:4
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3600.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3601.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3602.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3603.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3604.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3605.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3606.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3607.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3608.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3609.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3610.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3611.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3612.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3613.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3614.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3615.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3616.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3617.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3618.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3619.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3620.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3621.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3622.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3623.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3624.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3625.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3626.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3627.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3628.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3629.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3630.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3631.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3632.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3633.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3634.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3635.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3636.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3637.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3638.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3639.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3640.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3641.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3642.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3643.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3644.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3645.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3646.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3647.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3648.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3649.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3650.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3651.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3652.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3653.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3654.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3655.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3656.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3657.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3658.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3659.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3660.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3661.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3662.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3663.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3664.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3665.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3666.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3667.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3668.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3669.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3670.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3671.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3672.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3673.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3674.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3675.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3676.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3677.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3678.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3679.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3680.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3681.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3682.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3683.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3684.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3685.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3686.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3687.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3688.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3689.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3690.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3691.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3692.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3693.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3694.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3695.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3696.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3697.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3698.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3699.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3700.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3701.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3702.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3703.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3704.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3705.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3706.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3707.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3708.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3709.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3710.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3711.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3712.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3713.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3714.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3715.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3716.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3717.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3718.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3719.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3720.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3721.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3722.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3723.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3724.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3725.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3726.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3727.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3728.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3729.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3730.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3731.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3732.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3733.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3734.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3735.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3736.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3737.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3738.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3739.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3740.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3741.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3742.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3743.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3744.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3745.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3746.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3747.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3748.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3749.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3750.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3751.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3752.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3753.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3754.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3755.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3756.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3757.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3758.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3759.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3760.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3761.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3762.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3763.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3764.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3765.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3766.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3767.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3768.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3769.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3770.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3771.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3772.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3773.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3774.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3775.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3776.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3777.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3778.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3779.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3780.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3781.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3782.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3783.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3784.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3785.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3786.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3787.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3788.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3789.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3790.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3791.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3792.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3793.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3794.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3795.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3796.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3797.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3798.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3799.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3800.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3801.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3802.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3803.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3804.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3805.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3806.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3807.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3808.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3809.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3810.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3811.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3812.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3813.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3814.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3815.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3816.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3817.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3818.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3819.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3820.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3821.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3822.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3823.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3824.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3825.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3826.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3827.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3828.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3829.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3830.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3831.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3832.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3833.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3834.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3835.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3836.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3837.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3838.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3839.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3840.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3841.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3842.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3843.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3844.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3845.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3846.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3847.
+[1/200] Translated answer parameters for sample multiple_31
+[2/200] Translated answer parameters for sample multiple_42
+[3/200] Translated answer parameters for sample multiple_21
+[4/200] Translated answer parameters for sample multiple_69
+[5/200] Translated answer parameters for sample multiple_0
+[6/200] Translated answer parameters for sample multiple_30
+[7/200] Translated answer parameters for sample multiple_113
+[8/200] Translated answer parameters for sample multiple_49
+[9/200] Translated answer parameters for sample multiple_141
+[10/200] Translated answer parameters for sample multiple_116
+[11/200] Translated answer parameters for sample multiple_195
+[12/200] Translated answer parameters for sample multiple_40
+[13/200] Translated answer parameters for sample multiple_117
+[14/200] Translated answer parameters for sample multiple_51
+[15/200] Translated answer parameters for sample multiple_28
+[16/200] Translated answer parameters for sample multiple_120
+[17/200] Translated answer parameters for sample multiple_173
+[18/200] Translated answer parameters for sample multiple_36
+[19/200] Translated answer parameters for sample multiple_121
+[20/200] Translated answer parameters for sample multiple_3
+[21/200] Translated answer parameters for sample multiple_4
+[22/200] Translated answer parameters for sample multiple_41
+[23/200] Translated answer parameters for sample multiple_96
+[24/200] Translated answer parameters for sample multiple_123
+[25/200] Translated answer parameters for sample multiple_97
+[26/200] Translated answer parameters for sample multiple_124
+[27/200] Translated answer parameters for sample multiple_150
+[28/200] Translated answer parameters for sample multiple_98
+[29/200] Translated answer parameters for sample multiple_125
+[30/200] Translated answer parameters for sample multiple_126
+[31/200] Translated answer parameters for sample multiple_179
+[32/200] Translated answer parameters for sample multiple_100
+[33/200] Translated answer parameters for sample multiple_127
+[34/200] Translated answer parameters for sample multiple_9
+[35/200] Translated answer parameters for sample multiple_1
+[36/200] Translated answer parameters for sample multiple_34
+[37/200] Translated answer parameters for sample multiple_101
+[38/200] Translated answer parameters for sample multiple_128
+[39/200] Translated answer parameters for sample multiple_154
+[40/200] Translated answer parameters for sample multiple_14
+[41/200] Translated answer parameters for sample multiple_57
+[42/200] Translated answer parameters for sample multiple_102
+[43/200] Translated answer parameters for sample multiple_11
+[44/200] Translated answer parameters for sample multiple_103
+[45/200] Translated answer parameters for sample multiple_130
+[46/200] Translated answer parameters for sample multiple_105
+[47/200] Translated answer parameters for sample multiple_132
+[48/200] Translated answer parameters for sample multiple_32
+[49/200] Translated answer parameters for sample multiple_106
+[50/200] Translated answer parameters for sample multiple_133
+[51/200] Translated answer parameters for sample multiple_159
+[52/200] Translated answer parameters for sample multiple_47
+[53/200] Translated answer parameters for sample multiple_107
+[54/200] Translated answer parameters for sample multiple_108
+[55/200] Translated answer parameters for sample multiple_6
+[56/200] Translated answer parameters for sample multiple_37
+[57/200] Translated answer parameters for sample multiple_136
+[58/200] Translated answer parameters for sample multiple_163
+[59/200] Translated answer parameters for sample multiple_111
+[60/200] Translated answer parameters for sample multiple_86
+[61/200] Translated answer parameters for sample multiple_77
+[62/200] Translated answer parameters for sample multiple_76
+[63/200] Translated answer parameters for sample multiple_85
+[64/200] Translated answer parameters for sample multiple_82
+[65/200] Translated answer parameters for sample multiple_192
+[66/200] Translated answer parameters for sample multiple_15
+[67/200] Translated answer parameters for sample multiple_55
+[68/200] Translated answer parameters for sample multiple_70
+[69/200] Translated answer parameters for sample multiple_169
+[70/200] Translated answer parameters for sample multiple_143
+[71/200] Translated answer parameters for sample multiple_91
+[72/200] Translated answer parameters for sample multiple_198
+[73/200] Translated answer parameters for sample multiple_95
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3848.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3849.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3850.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3851.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3852.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3853.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3854.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3855.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3856.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3857.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3858.
+[74/200] Translated answer parameters for sample multiple_83
+[75/200] Translated answer parameters for sample multiple_189
+[76/200] Translated answer parameters for sample multiple_84
+[77/200] Translated answer parameters for sample multiple_138
+[78/200] Translated answer parameters for sample multiple_54
+[79/200] Translated answer parameters for sample multiple_139
+[80/200] Translated answer parameters for sample multiple_166
+[81/200] Translated answer parameters for sample multiple_114
+[82/200] Translated answer parameters for sample multiple_167
+[83/200] Translated answer parameters for sample multiple_75
+[84/200] Translated answer parameters for sample multiple_20
+[85/200] Translated answer parameters for sample multiple_66
+[86/200] Translated answer parameters for sample multiple_145
+[87/200] Translated answer parameters for sample multiple_24
+[88/200] Translated answer parameters for sample multiple_50
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3859.
+[89/200] Translated answer parameters for sample multiple_2
+[90/200] Translated answer parameters for sample multiple_129
+[91/200] Translated answer parameters for sample multiple_13
+[92/200] Translated answer parameters for sample multiple_56
+[93/200] Translated answer parameters for sample multiple_52
+[94/200] Translated answer parameters for sample multiple_72
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3860.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3861.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3862.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3863.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3864.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3865.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3866.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3867.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3868.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3869.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3870.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3871.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3872.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3873.
+[95/200] Translated answer parameters for sample multiple_112
+[96/200] Translated answer parameters for sample multiple_140
+[97/200] Translated answer parameters for sample multiple_88
+[98/200] Translated answer parameters for sample multiple_142
+[99/200] Translated answer parameters for sample multiple_196
+[100/200] Translated answer parameters for sample multiple_65
+[101/200] Translated answer parameters for sample multiple_172
+[102/200] Translated answer parameters for sample multiple_61
+[103/200] Translated answer parameters for sample multiple_146
+[104/200] Translated answer parameters for sample multiple_199
+[105/200] Translated answer parameters for sample multiple_174
+[106/200] Translated answer parameters for sample multiple_148
+[107/200] Translated answer parameters for sample multiple_175
+[108/200] Translated answer parameters for sample multiple_35
+[109/200] Translated answer parameters for sample multiple_12
+[110/200] Translated answer parameters for sample multiple_45
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3874.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3875.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3876.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3877.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3878.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3879.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3880.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3881.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3882.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3883.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3884.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3885.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3886.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3887.
+INFO 12-01 21:38:26 [async_llm.py:252] Added request request_3888.
+[111/200] Translated answer parameters for sample multiple_178
+[112/200] Translated answer parameters for sample multiple_19
+[113/200] Translated answer parameters for sample multiple_22
+[114/200] Translated answer parameters for sample multiple_44
+[115/200] Translated answer parameters for sample multiple_63
+[116/200] Translated answer parameters for sample multiple_74
+[117/200] Translated answer parameters for sample multiple_180
+[118/200] Translated answer parameters for sample multiple_181
+[119/200] Translated answer parameters for sample multiple_155
+[120/200] Translated answer parameters for sample multiple_38
+[121/200] Translated answer parameters for sample multiple_157
+[122/200] Translated answer parameters for sample multiple_39
+[123/200] Translated answer parameters for sample multiple_186
+[124/200] Translated answer parameters for sample multiple_16
+[125/200] Translated answer parameters for sample multiple_26
+[126/200] Translated answer parameters for sample multiple_165
+[127/200] Translated answer parameters for sample multiple_193
+[128/200] Translated answer parameters for sample multiple_68
+[129/200] Translated answer parameters for sample multiple_8
+[130/200] Translated answer parameters for sample multiple_27
+[131/200] Translated answer parameters for sample multiple_176
+[132/200] Translated answer parameters for sample multiple_71
+[133/200] Translated answer parameters for sample multiple_7
+[134/200] Translated answer parameters for sample multiple_60
+[135/200] Translated answer parameters for sample multiple_177
+INFO 12-01 21:38:27 [async_llm.py:252] Added request request_3889.
+INFO 12-01 21:38:27 [async_llm.py:252] Added request request_3890.
+INFO 12-01 21:38:27 [async_llm.py:252] Added request request_3891.
+INFO 12-01 21:38:27 [async_llm.py:252] Added request request_3892.
+INFO 12-01 21:38:27 [async_llm.py:252] Added request request_3893.
+INFO 12-01 21:38:27 [async_llm.py:252] Added request request_3894.
+[136/200] Translated answer parameters for sample multiple_110
+[137/200] Translated answer parameters for sample multiple_137
+[138/200] Translated answer parameters for sample multiple_164
+[139/200] Translated answer parameters for sample multiple_190
+[140/200] Translated answer parameters for sample multiple_17
+[141/200] Translated answer parameters for sample multiple_191
+[142/200] Translated answer parameters for sample multiple_87
+[143/200] Translated answer parameters for sample multiple_79
+[144/200] Translated answer parameters for sample multiple_168
+[145/200] Translated answer parameters for sample multiple_194
+[146/200] Translated answer parameters for sample multiple_67
+[147/200] Translated answer parameters for sample multiple_5
+[148/200] Translated answer parameters for sample multiple_170
+[149/200] Translated answer parameters for sample multiple_118
+[150/200] Translated answer parameters for sample multiple_144
+[151/200] Translated answer parameters for sample multiple_197
+[152/200] Translated answer parameters for sample multiple_94
+[153/200] Translated answer parameters for sample multiple_99
+[154/200] Translated answer parameters for sample multiple_25
+[155/200] Translated answer parameters for sample multiple_153
+[156/200] Translated answer parameters for sample multiple_10
+[157/200] Translated answer parameters for sample multiple_58
+[158/200] Translated answer parameters for sample multiple_18
+[159/200] Translated answer parameters for sample multiple_73
+[160/200] Translated answer parameters for sample multiple_182
+[161/200] Translated answer parameters for sample multiple_29
+[162/200] Translated answer parameters for sample multiple_33
+[163/200] Translated answer parameters for sample multiple_183
+[164/200] Translated answer parameters for sample multiple_104
+[165/200] Translated answer parameters for sample multiple_131
+[166/200] Translated answer parameters for sample multiple_158
+[167/200] Translated answer parameters for sample multiple_43
+[168/200] Translated answer parameters for sample multiple_134
+[169/200] Translated answer parameters for sample multiple_160
+[170/200] Translated answer parameters for sample multiple_161
+[171/200] Translated answer parameters for sample multiple_109
+[172/200] Translated answer parameters for sample multiple_162
+[173/200] Translated answer parameters for sample multiple_78
+[174/200] Translated answer parameters for sample multiple_115
+[175/200] Translated answer parameters for sample multiple_89
+[176/200] Translated answer parameters for sample multiple_147
+[177/200] Translated answer parameters for sample multiple_152
+[178/200] Translated answer parameters for sample multiple_81
+[179/200] Translated answer parameters for sample multiple_90
+[180/200] Translated answer parameters for sample multiple_48
+[181/200] Translated answer parameters for sample multiple_92
+[182/200] Translated answer parameters for sample multiple_93
+[183/200] Translated answer parameters for sample multiple_53
+[184/200] Translated answer parameters for sample multiple_122
+[185/200] Translated answer parameters for sample multiple_59
+[186/200] Translated answer parameters for sample multiple_46
+INFO 12-01 21:38:27 [async_llm.py:252] Added request request_3895.
+[187/200] Translated answer parameters for sample multiple_149
+[188/200] Translated answer parameters for sample multiple_156
+[189/200] Translated answer parameters for sample multiple_64
+[190/200] Translated answer parameters for sample multiple_135
+[191/200] Translated answer parameters for sample multiple_151
+[192/200] Translated answer parameters for sample multiple_62
+[193/200] Translated answer parameters for sample multiple_184
+[194/200] Translated answer parameters for sample multiple_185
+[195/200] Translated answer parameters for sample multiple_187
+[196/200] Translated answer parameters for sample multiple_188
+[197/200] Translated answer parameters for sample multiple_23
+[198/200] Translated answer parameters for sample multiple_171
+[199/200] Translated answer parameters for sample multiple_119
+[200/200] Translated answer parameters for sample multiple_80
+All 200 answers translated.
+Skipping allow synonym processing (DONT_ALLOW_SYNONYM)
+Score result written to tool/result/score/Qwen-Qwen3-30B-A3B/_zh_fulltrans_nopretrans_nonoise_noprompt_posttrans_noallow.json: {'accuracy': 0.715, 'total_cases': 200, 'correct_cases': 143}
+Completed processing for config: ToolConfig(model=<LocalModel.QWEN3_30B_A3B: 'Qwen/Qwen3-30B-A3B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED_POST_TRANSLATE: 8>), add_noise_mode=<AddNoiseMode.NO_NOISE: 1>)
+Processing config: ToolConfig(model=<LocalModel.QWEN3_30B_A3B: 'Qwen/Qwen3-30B-A3B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED_POST_TRANSLATE: 8>), add_noise_mode=<AddNoiseMode.SYNONYM: 2>)
+Skipping question translation (pre-translate not enabled)
+Warning: some test cases already exist in inference result file. Skipping 200 cases.
+All test cases for Qwen/Qwen3-30B-A3B have already been processed. Skipping model loading and inference.
+File tool/result/post_translate/Qwen-Qwen3-30B-A3B/_zh_fulltrans_nopretrans_syno_noprompt_posttrans.json not found. It will be created.
+Translating 200 answers to English...
+Creating backend...
+Reusing cached backend [experiment]: vllm:Qwen/Qwen3-30B-A3B:4
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3896.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3897.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3898.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3899.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3900.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3901.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3902.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3903.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3904.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3905.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3906.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3907.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3908.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3909.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3910.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3911.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3912.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3913.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3914.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3915.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3916.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3917.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3918.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3919.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3920.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3921.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3922.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3923.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3924.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3925.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3926.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3927.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3928.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3929.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3930.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3931.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3932.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3933.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3934.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3935.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3936.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3937.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3938.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3939.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3940.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3941.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3942.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3943.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3944.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3945.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3946.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3947.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3948.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3949.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3950.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3951.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3952.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3953.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3954.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3955.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3956.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3957.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3958.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3959.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3960.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3961.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3962.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3963.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3964.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3965.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3966.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3967.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3968.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3969.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3970.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3971.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3972.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3973.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3974.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3975.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3976.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3977.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3978.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3979.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3980.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3981.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3982.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3983.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3984.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3985.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3986.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3987.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3988.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3989.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3990.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3991.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3992.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3993.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3994.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3995.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3996.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3997.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3998.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_3999.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4000.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4001.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4002.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4003.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4004.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4005.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4006.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4007.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4008.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4009.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4010.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4011.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4012.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4013.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4014.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4015.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4016.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4017.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4018.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4019.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4020.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4021.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4022.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4023.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4024.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4025.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4026.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4027.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4028.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4029.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4030.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4031.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4032.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4033.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4034.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4035.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4036.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4037.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4038.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4039.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4040.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4041.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4042.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4043.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4044.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4045.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4046.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4047.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4048.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4049.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4050.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4051.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4052.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4053.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4054.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4055.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4056.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4057.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4058.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4059.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4060.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4061.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4062.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4063.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4064.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4065.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4066.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4067.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4068.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4069.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4070.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4071.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4072.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4073.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4074.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4075.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4076.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4077.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4078.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4079.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4080.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4081.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4082.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4083.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4084.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4085.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4086.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4087.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4088.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4089.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4090.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4091.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4092.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4093.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4094.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4095.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4096.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4097.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4098.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4099.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4100.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4101.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4102.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4103.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4104.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4105.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4106.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4107.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4108.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4109.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4110.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4111.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4112.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4113.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4114.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4115.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4116.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4117.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4118.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4119.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4120.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4121.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4122.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4123.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4124.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4125.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4126.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4127.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4128.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4129.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4130.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4131.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4132.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4133.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4134.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4135.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4136.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4137.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4138.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4139.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4140.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4141.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4142.
+[1/200] Translated answer parameters for sample multiple_32
+[2/200] Translated answer parameters for sample multiple_31
+[3/200] Translated answer parameters for sample multiple_113
+[4/200] Translated answer parameters for sample multiple_141
+[5/200] Translated answer parameters for sample multiple_76
+[6/200] Translated answer parameters for sample multiple_116
+[7/200] Translated answer parameters for sample multiple_195
+[8/200] Translated answer parameters for sample multiple_117
+[9/200] Translated answer parameters for sample multiple_41
+[10/200] Translated answer parameters for sample multiple_9
+[11/200] Translated answer parameters for sample multiple_49
+[12/200] Translated answer parameters for sample multiple_11
+[13/200] Translated answer parameters for sample multiple_69
+[14/200] Translated answer parameters for sample multiple_120
+[15/200] Translated answer parameters for sample multiple_173
+[16/200] Translated answer parameters for sample multiple_3
+[17/200] Translated answer parameters for sample multiple_121
+[18/200] Translated answer parameters for sample multiple_37
+[19/200] Translated answer parameters for sample multiple_51
+[20/200] Translated answer parameters for sample multiple_14
+[21/200] Translated answer parameters for sample multiple_28
+[22/200] Translated answer parameters for sample multiple_96
+[23/200] Translated answer parameters for sample multiple_123
+[24/200] Translated answer parameters for sample multiple_36
+[25/200] Translated answer parameters for sample multiple_42
+[26/200] Translated answer parameters for sample multiple_97
+[27/200] Translated answer parameters for sample multiple_124
+[28/200] Translated answer parameters for sample multiple_150
+[29/200] Translated answer parameters for sample multiple_98
+[30/200] Translated answer parameters for sample multiple_125
+[31/200] Translated answer parameters for sample multiple_126
+[32/200] Translated answer parameters for sample multiple_179
+[33/200] Translated answer parameters for sample multiple_100
+[34/200] Translated answer parameters for sample multiple_127
+[35/200] Translated answer parameters for sample multiple_0
+[36/200] Translated answer parameters for sample multiple_101
+[37/200] Translated answer parameters for sample multiple_128
+[38/200] Translated answer parameters for sample multiple_154
+[39/200] Translated answer parameters for sample multiple_1
+[40/200] Translated answer parameters for sample multiple_102
+[41/200] Translated answer parameters for sample multiple_103
+[42/200] Translated answer parameters for sample multiple_130
+[43/200] Translated answer parameters for sample multiple_34
+[44/200] Translated answer parameters for sample multiple_30
+[45/200] Translated answer parameters for sample multiple_57
+[46/200] Translated answer parameters for sample multiple_105
+[47/200] Translated answer parameters for sample multiple_132
+[48/200] Translated answer parameters for sample multiple_4
+[49/200] Translated answer parameters for sample multiple_106
+[50/200] Translated answer parameters for sample multiple_133
+[51/200] Translated answer parameters for sample multiple_159
+[52/200] Translated answer parameters for sample multiple_40
+[53/200] Translated answer parameters for sample multiple_107
+[54/200] Translated answer parameters for sample multiple_6
+[55/200] Translated answer parameters for sample multiple_108
+[56/200] Translated answer parameters for sample multiple_47
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4143.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4144.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4145.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4146.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4147.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4148.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4149.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4150.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4151.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4152.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4153.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4154.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4155.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4156.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4157.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4158.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4159.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4160.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4161.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4162.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4163.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4164.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4165.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4166.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4167.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4168.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4169.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4170.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4171.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4172.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4173.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4174.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4175.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4176.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4177.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4178.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4179.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4180.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4181.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4182.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4183.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4184.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4185.
+INFO 12-01 21:38:31 [async_llm.py:252] Added request request_4186.
+[57/200] Translated answer parameters for sample multiple_79
+[58/200] Translated answer parameters for sample multiple_84
+[59/200] Translated answer parameters for sample multiple_111
+[60/200] Translated answer parameters for sample multiple_137
+[61/200] Translated answer parameters for sample multiple_164
+[62/200] Translated answer parameters for sample multiple_190
+[63/200] Translated answer parameters for sample multiple_43
+[64/200] Translated answer parameters for sample multiple_22
+[65/200] Translated answer parameters for sample multiple_70
+[66/200] Translated answer parameters for sample multiple_85
+[67/200] Translated answer parameters for sample multiple_112
+[68/200] Translated answer parameters for sample multiple_138
+[69/200] Translated answer parameters for sample multiple_165
+[70/200] Translated answer parameters for sample multiple_191
+[71/200] Translated answer parameters for sample multiple_77
+[72/200] Translated answer parameters for sample multiple_2
+[73/200] Translated answer parameters for sample multiple_86
+[74/200] Translated answer parameters for sample multiple_139
+[75/200] Translated answer parameters for sample multiple_166
+[76/200] Translated answer parameters for sample multiple_192
+[77/200] Translated answer parameters for sample multiple_83
+[78/200] Translated answer parameters for sample multiple_55
+[79/200] Translated answer parameters for sample multiple_87
+[80/200] Translated answer parameters for sample multiple_114
+[81/200] Translated answer parameters for sample multiple_140
+[82/200] Translated answer parameters for sample multiple_167
+[83/200] Translated answer parameters for sample multiple_193
+[84/200] Translated answer parameters for sample multiple_82
+[85/200] Translated answer parameters for sample multiple_56
+[86/200] Translated answer parameters for sample multiple_88
+[87/200] Translated answer parameters for sample multiple_168
+[88/200] Translated answer parameters for sample multiple_194
+[89/200] Translated answer parameters for sample multiple_50
+[90/200] Translated answer parameters for sample multiple_142
+[91/200] Translated answer parameters for sample multiple_169
+[92/200] Translated answer parameters for sample multiple_68
+[93/200] Translated answer parameters for sample multiple_71
+[94/200] Translated answer parameters for sample multiple_21
+[95/200] Translated answer parameters for sample multiple_143
+[96/200] Translated answer parameters for sample multiple_170
+[97/200] Translated answer parameters for sample multiple_196
+[98/200] Translated answer parameters for sample multiple_67
+[99/200] Translated answer parameters for sample multiple_15
+[100/200] Translated answer parameters for sample multiple_91
+[101/200] Translated answer parameters for sample multiple_118
+[102/200] Translated answer parameters for sample multiple_144
+[103/200] Translated answer parameters for sample multiple_197
+[104/200] Translated answer parameters for sample multiple_66
+[105/200] Translated answer parameters for sample multiple_145
+[106/200] Translated answer parameters for sample multiple_172
+[107/200] Translated answer parameters for sample multiple_198
+[108/200] Translated answer parameters for sample multiple_52
+[109/200] Translated answer parameters for sample multiple_146
+[110/200] Translated answer parameters for sample multiple_199
+[111/200] Translated answer parameters for sample multiple_25
+[112/200] Translated answer parameters for sample multiple_29
+[113/200] Translated answer parameters for sample multiple_94
+[114/200] Translated answer parameters for sample multiple_174
+[115/200] Translated answer parameters for sample multiple_18
+[116/200] Translated answer parameters for sample multiple_95
+[117/200] Translated answer parameters for sample multiple_148
+[118/200] Translated answer parameters for sample multiple_175
+[119/200] Translated answer parameters for sample multiple_13
+[120/200] Translated answer parameters for sample multiple_54
+[121/200] Translated answer parameters for sample multiple_176
+[122/200] Translated answer parameters for sample multiple_24
+[123/200] Translated answer parameters for sample multiple_177
+[124/200] Translated answer parameters for sample multiple_10
+[125/200] Translated answer parameters for sample multiple_61
+[126/200] Translated answer parameters for sample multiple_72
+[127/200] Translated answer parameters for sample multiple_178
+[128/200] Translated answer parameters for sample multiple_8
+[129/200] Translated answer parameters for sample multiple_60
+[130/200] Translated answer parameters for sample multiple_99
+[131/200] Translated answer parameters for sample multiple_20
+[132/200] Translated answer parameters for sample multiple_45
+[133/200] Translated answer parameters for sample multiple_63
+[134/200] Translated answer parameters for sample multiple_153
+[135/200] Translated answer parameters for sample multiple_180
+[136/200] Translated answer parameters for sample multiple_26
+[137/200] Translated answer parameters for sample multiple_75
+[138/200] Translated answer parameters for sample multiple_181
+[139/200] Translated answer parameters for sample multiple_35
+[140/200] Translated answer parameters for sample multiple_129
+[141/200] Translated answer parameters for sample multiple_155
+[142/200] Translated answer parameters for sample multiple_182
+[143/200] Translated answer parameters for sample multiple_19
+[144/200] Translated answer parameters for sample multiple_58
+[145/200] Translated answer parameters for sample multiple_74
+[146/200] Translated answer parameters for sample multiple_183
+[147/200] Translated answer parameters for sample multiple_104
+[148/200] Translated answer parameters for sample multiple_131
+[149/200] Translated answer parameters for sample multiple_157
+[150/200] Translated answer parameters for sample multiple_39
+[151/200] Translated answer parameters for sample multiple_158
+[152/200] Translated answer parameters for sample multiple_73
+[153/200] Translated answer parameters for sample multiple_186
+[154/200] Translated answer parameters for sample multiple_33
+[155/200] Translated answer parameters for sample multiple_7
+[156/200] Translated answer parameters for sample multiple_134
+[157/200] Translated answer parameters for sample multiple_160
+[158/200] Translated answer parameters for sample multiple_12
+[159/200] Translated answer parameters for sample multiple_44
+[160/200] Translated answer parameters for sample multiple_161
+[161/200] Translated answer parameters for sample multiple_65
+[162/200] Translated answer parameters for sample multiple_27
+[163/200] Translated answer parameters for sample multiple_109
+[164/200] Translated answer parameters for sample multiple_136
+[165/200] Translated answer parameters for sample multiple_162
+[166/200] Translated answer parameters for sample multiple_189
+[167/200] Translated answer parameters for sample multiple_16
+[168/200] Translated answer parameters for sample multiple_38
+[169/200] Translated answer parameters for sample multiple_163
+[170/200] Translated answer parameters for sample multiple_17
+[171/200] Translated answer parameters for sample multiple_5
+[172/200] Translated answer parameters for sample multiple_64
+[173/200] Translated answer parameters for sample multiple_156
+[174/200] Translated answer parameters for sample multiple_110
+INFO 12-01 21:38:32 [async_llm.py:252] Added request request_4187.
+INFO 12-01 21:38:32 [async_llm.py:252] Added request request_4188.
+INFO 12-01 21:38:32 [async_llm.py:252] Added request request_4189.
+INFO 12-01 21:38:32 [async_llm.py:252] Added request request_4190.
+[175/200] Translated answer parameters for sample multiple_149
+[176/200] Translated answer parameters for sample multiple_135
+[177/200] Translated answer parameters for sample multiple_78
+[178/200] Translated answer parameters for sample multiple_115
+[179/200] Translated answer parameters for sample multiple_89
+[180/200] Translated answer parameters for sample multiple_81
+[181/200] Translated answer parameters for sample multiple_90
+[182/200] Translated answer parameters for sample multiple_171
+[183/200] Translated answer parameters for sample multiple_92
+[184/200] Translated answer parameters for sample multiple_93
+[185/200] Translated answer parameters for sample multiple_62
+[186/200] Translated answer parameters for sample multiple_147
+[187/200] Translated answer parameters for sample multiple_122
+[188/200] Translated answer parameters for sample multiple_151
+[189/200] Translated answer parameters for sample multiple_46
+[190/200] Translated answer parameters for sample multiple_152
+[191/200] Translated answer parameters for sample multiple_23
+[192/200] Translated answer parameters for sample multiple_59
+[193/200] Translated answer parameters for sample multiple_184
+[194/200] Translated answer parameters for sample multiple_185
+[195/200] Translated answer parameters for sample multiple_53
+[196/200] Translated answer parameters for sample multiple_187
+[197/200] Translated answer parameters for sample multiple_48
+[198/200] Translated answer parameters for sample multiple_188
+[199/200] Translated answer parameters for sample multiple_80
+[200/200] Translated answer parameters for sample multiple_119
+All 200 answers translated.
+Skipping allow synonym processing (DONT_ALLOW_SYNONYM)
+Score result written to tool/result/score/Qwen-Qwen3-30B-A3B/_zh_fulltrans_nopretrans_syno_noprompt_posttrans_noallow.json: {'accuracy': 0.705, 'total_cases': 200, 'correct_cases': 141}
+Completed processing for config: ToolConfig(model=<LocalModel.QWEN3_30B_A3B: 'Qwen/Qwen3-30B-A3B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED_POST_TRANSLATE: 8>), add_noise_mode=<AddNoiseMode.SYNONYM: 2>)
+Processing config: ToolConfig(model=<LocalModel.QWEN3_30B_A3B: 'Qwen/Qwen3-30B-A3B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED_POST_TRANSLATE: 8>), add_noise_mode=<AddNoiseMode.PARAPHRASE: 3>)
+Skipping question translation (pre-translate not enabled)
+Warning: some test cases already exist in inference result file. Skipping 200 cases.
+All test cases for Qwen/Qwen3-30B-A3B have already been processed. Skipping model loading and inference.
+File tool/result/post_translate/Qwen-Qwen3-30B-A3B/_zh_fulltrans_nopretrans_para_noprompt_posttrans.json not found. It will be created.
+Translating 200 answers to English...
+Creating backend...
+Reusing cached backend [experiment]: vllm:Qwen/Qwen3-30B-A3B:4
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4191.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4192.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4193.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4194.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4195.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4196.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4197.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4198.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4199.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4200.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4201.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4202.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4203.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4204.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4205.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4206.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4207.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4208.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4209.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4210.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4211.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4212.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4213.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4214.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4215.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4216.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4217.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4218.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4219.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4220.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4221.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4222.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4223.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4224.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4225.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4226.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4227.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4228.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4229.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4230.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4231.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4232.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4233.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4234.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4235.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4236.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4237.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4238.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4239.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4240.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4241.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4242.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4243.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4244.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4245.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4246.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4247.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4248.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4249.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4250.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4251.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4252.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4253.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4254.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4255.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4256.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4257.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4258.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4259.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4260.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4261.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4262.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4263.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4264.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4265.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4266.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4267.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4268.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4269.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4270.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4271.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4272.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4273.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4274.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4275.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4276.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4277.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4278.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4279.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4280.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4281.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4282.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4283.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4284.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4285.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4286.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4287.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4288.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4289.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4290.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4291.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4292.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4293.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4294.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4295.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4296.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4297.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4298.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4299.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4300.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4301.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4302.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4303.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4304.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4305.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4306.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4307.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4308.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4309.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4310.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4311.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4312.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4313.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4314.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4315.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4316.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4317.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4318.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4319.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4320.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4321.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4322.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4323.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4324.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4325.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4326.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4327.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4328.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4329.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4330.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4331.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4332.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4333.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4334.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4335.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4336.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4337.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4338.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4339.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4340.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4341.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4342.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4343.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4344.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4345.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4346.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4347.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4348.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4349.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4350.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4351.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4352.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4353.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4354.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4355.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4356.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4357.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4358.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4359.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4360.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4361.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4362.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4363.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4364.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4365.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4366.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4367.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4368.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4369.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4370.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4371.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4372.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4373.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4374.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4375.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4376.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4377.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4378.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4379.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4380.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4381.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4382.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4383.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4384.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4385.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4386.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4387.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4388.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4389.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4390.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4391.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4392.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4393.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4394.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4395.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4396.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4397.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4398.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4399.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4400.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4401.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4402.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4403.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4404.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4405.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4406.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4407.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4408.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4409.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4410.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4411.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4412.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4413.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4414.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4415.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4416.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4417.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4418.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4419.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4420.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4421.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4422.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4423.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4424.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4425.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4426.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4427.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4428.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4429.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4430.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4431.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4432.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4433.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4434.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4435.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4436.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4437.
+INFO 12-01 21:38:37 [async_llm.py:252] Added request request_4438.
+[1/200] Translated answer parameters for sample multiple_31
+[2/200] Translated answer parameters for sample multiple_42
+[3/200] Translated answer parameters for sample multiple_69
+[4/200] Translated answer parameters for sample multiple_0
+[5/200] Translated answer parameters for sample multiple_11
+[6/200] Translated answer parameters for sample multiple_30
+[7/200] Translated answer parameters for sample multiple_113
+[8/200] Translated answer parameters for sample multiple_9
+[9/200] Translated answer parameters for sample multiple_49
+[10/200] Translated answer parameters for sample multiple_141
+[11/200] Translated answer parameters for sample multiple_116
+[12/200] Translated answer parameters for sample multiple_195
+[13/200] Translated answer parameters for sample multiple_40
+[14/200] Translated answer parameters for sample multiple_117
+[15/200] Translated answer parameters for sample multiple_51
+[16/200] Translated answer parameters for sample multiple_28
+[17/200] Translated answer parameters for sample multiple_120
+[18/200] Translated answer parameters for sample multiple_173
+[19/200] Translated answer parameters for sample multiple_36
+[20/200] Translated answer parameters for sample multiple_121
+[21/200] Translated answer parameters for sample multiple_41
+[22/200] Translated answer parameters for sample multiple_6
+[23/200] Translated answer parameters for sample multiple_96
+[24/200] Translated answer parameters for sample multiple_123
+[25/200] Translated answer parameters for sample multiple_97
+[26/200] Translated answer parameters for sample multiple_124
+[27/200] Translated answer parameters for sample multiple_150
+[28/200] Translated answer parameters for sample multiple_98
+[29/200] Translated answer parameters for sample multiple_125
+[30/200] Translated answer parameters for sample multiple_126
+[31/200] Translated answer parameters for sample multiple_179
+[32/200] Translated answer parameters for sample multiple_14
+[33/200] Translated answer parameters for sample multiple_100
+[34/200] Translated answer parameters for sample multiple_127
+[35/200] Translated answer parameters for sample multiple_4
+[36/200] Translated answer parameters for sample multiple_1
+[37/200] Translated answer parameters for sample multiple_3
+[38/200] Translated answer parameters for sample multiple_34
+[39/200] Translated answer parameters for sample multiple_101
+[40/200] Translated answer parameters for sample multiple_128
+[41/200] Translated answer parameters for sample multiple_154
+[42/200] Translated answer parameters for sample multiple_57
+[43/200] Translated answer parameters for sample multiple_102
+[44/200] Translated answer parameters for sample multiple_103
+[45/200] Translated answer parameters for sample multiple_130
+[46/200] Translated answer parameters for sample multiple_105
+[47/200] Translated answer parameters for sample multiple_132
+[48/200] Translated answer parameters for sample multiple_32
+[49/200] Translated answer parameters for sample multiple_106
+[50/200] Translated answer parameters for sample multiple_133
+[51/200] Translated answer parameters for sample multiple_159
+[52/200] Translated answer parameters for sample multiple_47
+[53/200] Translated answer parameters for sample multiple_107
+[54/200] Translated answer parameters for sample multiple_108
+[55/200] Translated answer parameters for sample multiple_37
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4439.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4440.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4441.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4442.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4443.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4444.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4445.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4446.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4447.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4448.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4449.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4450.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4451.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4452.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4453.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4454.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4455.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4456.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4457.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4458.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4459.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4460.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4461.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4462.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4463.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4464.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4465.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4466.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4467.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4468.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4469.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4470.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4471.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4472.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4473.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4474.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4475.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4476.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4477.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4478.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4479.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4480.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4481.
+[56/200] Translated answer parameters for sample multiple_83
+[57/200] Translated answer parameters for sample multiple_110
+[58/200] Translated answer parameters for sample multiple_136
+[59/200] Translated answer parameters for sample multiple_163
+[60/200] Translated answer parameters for sample multiple_189
+[61/200] Translated answer parameters for sample multiple_21
+[62/200] Translated answer parameters for sample multiple_77
+[63/200] Translated answer parameters for sample multiple_84
+[64/200] Translated answer parameters for sample multiple_111
+[65/200] Translated answer parameters for sample multiple_137
+[66/200] Translated answer parameters for sample multiple_164
+[67/200] Translated answer parameters for sample multiple_190
+[68/200] Translated answer parameters for sample multiple_76
+[69/200] Translated answer parameters for sample multiple_85
+[70/200] Translated answer parameters for sample multiple_112
+[71/200] Translated answer parameters for sample multiple_138
+[72/200] Translated answer parameters for sample multiple_165
+[73/200] Translated answer parameters for sample multiple_191
+[74/200] Translated answer parameters for sample multiple_82
+[75/200] Translated answer parameters for sample multiple_54
+[76/200] Translated answer parameters for sample multiple_86
+[77/200] Translated answer parameters for sample multiple_139
+[78/200] Translated answer parameters for sample multiple_166
+[79/200] Translated answer parameters for sample multiple_192
+[80/200] Translated answer parameters for sample multiple_55
+[81/200] Translated answer parameters for sample multiple_87
+[82/200] Translated answer parameters for sample multiple_114
+[83/200] Translated answer parameters for sample multiple_140
+[84/200] Translated answer parameters for sample multiple_167
+[85/200] Translated answer parameters for sample multiple_193
+[86/200] Translated answer parameters for sample multiple_75
+[87/200] Translated answer parameters for sample multiple_79
+[88/200] Translated answer parameters for sample multiple_88
+[89/200] Translated answer parameters for sample multiple_168
+[90/200] Translated answer parameters for sample multiple_194
+[91/200] Translated answer parameters for sample multiple_67
+[92/200] Translated answer parameters for sample multiple_70
+[93/200] Translated answer parameters for sample multiple_20
+[94/200] Translated answer parameters for sample multiple_142
+[95/200] Translated answer parameters for sample multiple_169
+[96/200] Translated answer parameters for sample multiple_66
+[97/200] Translated answer parameters for sample multiple_143
+[98/200] Translated answer parameters for sample multiple_170
+[99/200] Translated answer parameters for sample multiple_196
+[100/200] Translated answer parameters for sample multiple_65
+[101/200] Translated answer parameters for sample multiple_18
+[102/200] Translated answer parameters for sample multiple_91
+[103/200] Translated answer parameters for sample multiple_118
+[104/200] Translated answer parameters for sample multiple_144
+[105/200] Translated answer parameters for sample multiple_197
+[106/200] Translated answer parameters for sample multiple_68
+[107/200] Translated answer parameters for sample multiple_145
+[108/200] Translated answer parameters for sample multiple_172
+[109/200] Translated answer parameters for sample multiple_198
+[110/200] Translated answer parameters for sample multiple_24
+[111/200] Translated answer parameters for sample multiple_12
+[112/200] Translated answer parameters for sample multiple_61
+[113/200] Translated answer parameters for sample multiple_146
+[114/200] Translated answer parameters for sample multiple_199
+[115/200] Translated answer parameters for sample multiple_50
+[116/200] Translated answer parameters for sample multiple_94
+[117/200] Translated answer parameters for sample multiple_174
+[118/200] Translated answer parameters for sample multiple_27
+[119/200] Translated answer parameters for sample multiple_95
+[120/200] Translated answer parameters for sample multiple_148
+[121/200] Translated answer parameters for sample multiple_175
+[122/200] Translated answer parameters for sample multiple_35
+[123/200] Translated answer parameters for sample multiple_176
+[124/200] Translated answer parameters for sample multiple_71
+[125/200] Translated answer parameters for sample multiple_60
+[126/200] Translated answer parameters for sample multiple_177
+[127/200] Translated answer parameters for sample multiple_45
+[128/200] Translated answer parameters for sample multiple_151
+[129/200] Translated answer parameters for sample multiple_178
+[130/200] Translated answer parameters for sample multiple_19
+[131/200] Translated answer parameters for sample multiple_22
+[132/200] Translated answer parameters for sample multiple_44
+[133/200] Translated answer parameters for sample multiple_99
+[134/200] Translated answer parameters for sample multiple_25
+[135/200] Translated answer parameters for sample multiple_2
+[136/200] Translated answer parameters for sample multiple_63
+[137/200] Translated answer parameters for sample multiple_74
+[138/200] Translated answer parameters for sample multiple_153
+[139/200] Translated answer parameters for sample multiple_180
+[140/200] Translated answer parameters for sample multiple_58
+[141/200] Translated answer parameters for sample multiple_181
+[142/200] Translated answer parameters for sample multiple_8
+[143/200] Translated answer parameters for sample multiple_73
+[144/200] Translated answer parameters for sample multiple_129
+[145/200] Translated answer parameters for sample multiple_155
+[146/200] Translated answer parameters for sample multiple_182
+[147/200] Translated answer parameters for sample multiple_29
+[148/200] Translated answer parameters for sample multiple_33
+[149/200] Translated answer parameters for sample multiple_183
+[150/200] Translated answer parameters for sample multiple_38
+[151/200] Translated answer parameters for sample multiple_7
+[152/200] Translated answer parameters for sample multiple_56
+[153/200] Translated answer parameters for sample multiple_104
+[154/200] Translated answer parameters for sample multiple_131
+[155/200] Translated answer parameters for sample multiple_157
+[156/200] Translated answer parameters for sample multiple_13
+[157/200] Translated answer parameters for sample multiple_52
+[158/200] Translated answer parameters for sample multiple_72
+[159/200] Translated answer parameters for sample multiple_158
+[160/200] Translated answer parameters for sample multiple_16
+[161/200] Translated answer parameters for sample multiple_39
+[162/200] Translated answer parameters for sample multiple_186
+[163/200] Translated answer parameters for sample multiple_15
+[164/200] Translated answer parameters for sample multiple_160
+[165/200] Translated answer parameters for sample multiple_26
+[166/200] Translated answer parameters for sample multiple_161
+[167/200] Translated answer parameters for sample multiple_109
+[168/200] Translated answer parameters for sample multiple_162
+[169/200] Translated answer parameters for sample multiple_43
+[170/200] Translated answer parameters for sample multiple_134
+[171/200] Translated answer parameters for sample multiple_10
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4482.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4483.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4484.
+INFO 12-01 21:38:38 [async_llm.py:252] Added request request_4485.
+[172/200] Translated answer parameters for sample multiple_149
+[173/200] Translated answer parameters for sample multiple_17
+[174/200] Translated answer parameters for sample multiple_5
+[175/200] Translated answer parameters for sample multiple_156
+[176/200] Translated answer parameters for sample multiple_64
+[177/200] Translated answer parameters for sample multiple_135
+[178/200] Translated answer parameters for sample multiple_78
+[179/200] Translated answer parameters for sample multiple_81
+[180/200] Translated answer parameters for sample multiple_115
+[181/200] Translated answer parameters for sample multiple_89
+[182/200] Translated answer parameters for sample multiple_90
+[183/200] Translated answer parameters for sample multiple_48
+[184/200] Translated answer parameters for sample multiple_171
+[185/200] Translated answer parameters for sample multiple_92
+[186/200] Translated answer parameters for sample multiple_93
+[187/200] Translated answer parameters for sample multiple_147
+[188/200] Translated answer parameters for sample multiple_53
+[189/200] Translated answer parameters for sample multiple_122
+[190/200] Translated answer parameters for sample multiple_23
+[191/200] Translated answer parameters for sample multiple_59
+[192/200] Translated answer parameters for sample multiple_62
+[193/200] Translated answer parameters for sample multiple_152
+[194/200] Translated answer parameters for sample multiple_184
+[195/200] Translated answer parameters for sample multiple_185
+[196/200] Translated answer parameters for sample multiple_187
+[197/200] Translated answer parameters for sample multiple_46
+[198/200] Translated answer parameters for sample multiple_188
+[199/200] Translated answer parameters for sample multiple_80
+[200/200] Translated answer parameters for sample multiple_119
+All 200 answers translated.
+Skipping allow synonym processing (DONT_ALLOW_SYNONYM)
+Score result written to tool/result/score/Qwen-Qwen3-30B-A3B/_zh_fulltrans_nopretrans_para_noprompt_posttrans_noallow.json: {'accuracy': 0.71, 'total_cases': 200, 'correct_cases': 142}
+Completed processing for config: ToolConfig(model=<LocalModel.QWEN3_30B_A3B: 'Qwen/Qwen3-30B-A3B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED_POST_TRANSLATE: 8>), add_noise_mode=<AddNoiseMode.PARAPHRASE: 3>)
+Processing config: ToolConfig(model=<LocalModel.QWEN3_30B_A3B: 'Qwen/Qwen3-30B-A3B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED_PRE_TRANSLATE_ALLOW_SYNONYM_SAME_LANGUAGE: 9>), add_noise_mode=<AddNoiseMode.NO_NOISE: 1>)
+All test cases have already been translated. Skipping translation.
+Warning: some test cases already exist in inference result file. Skipping 200 cases.
+All test cases for Qwen/Qwen3-30B-A3B have already been processed. Skipping model loading and inference.
+Skipping answer translation (post-translate not enabled)
+Processing 200 samples with allow_synonym in parallel...
+[1/200] Processed allow_synonym for sample multiple_76
+[2/200] Processed allow_synonym for sample multiple_138
+[3/200] Processed allow_synonym for sample multiple_49
+[4/200] Processed allow_synonym for sample multiple_70
+[5/200] Processed allow_synonym for sample multiple_108
+[6/200] Processed allow_synonym for sample multiple_167
+[7/200] Processed allow_synonym for sample multiple_13
+[8/200] Processed allow_synonym for sample multiple_77
+[9/200] Processed allow_synonym for sample multiple_88
+[10/200] Processed allow_synonym for sample multiple_182
+[11/200] Processed allow_synonym for sample multiple_19
+[12/200] Processed allow_synonym for sample multiple_80
+[13/200] Processed allow_synonym for sample multiple_155
+[14/200] Processed allow_synonym for sample multiple_50
+[15/200] Processed allow_synonym for sample multiple_169
+[16/200] Processed allow_synonym for sample multiple_17
+[17/200] Processed allow_synonym for sample multiple_71
+[18/200] Processed allow_synonym for sample multiple_111
+[19/200] Processed allow_synonym for sample multiple_172
+[20/200] Processed allow_synonym for sample multiple_18
+[21/200] Processed allow_synonym for sample multiple_55
+[22/200] Processed allow_synonym for sample multiple_110
+[23/200] Processed allow_synonym for sample multiple_149
+[24/200] Processed allow_synonym for sample multiple_63
+[25/200] Processed allow_synonym for sample multiple_130
+[26/200] Processed allow_synonym for sample multiple_179
+[27/200] Processed allow_synonym for sample multiple_46
+[28/200] Processed allow_synonym for sample multiple_16
+[29/200] Processed allow_synonym for sample multiple_163
+[30/200] Processed allow_synonym for sample multiple_28
+[31/200] Processed allow_synonym for sample multiple_136
+[32/200] Processed allow_synonym for sample multiple_189
+[33/200] Processed allow_synonym for sample multiple_5
+[34/200] Processed allow_synonym for sample multiple_64
+[35/200] Processed allow_synonym for sample multiple_135
+[36/200] Processed allow_synonym for sample multiple_31
+[37/200] Processed allow_synonym for sample multiple_132
+[38/200] Processed allow_synonym for sample multiple_21
+[39/200] Processed allow_synonym for sample multiple_83
+[40/200] Processed allow_synonym for sample multiple_127
+[41/200] Processed allow_synonym for sample multiple_2
+[42/200] Processed allow_synonym for sample multiple_100
+[43/200] Processed allow_synonym for sample multiple_190
+[44/200] Processed allow_synonym for sample multiple_52
+[45/200] Processed allow_synonym for sample multiple_36
+[46/200] Processed allow_synonym for sample multiple_133
+[47/200] Processed allow_synonym for sample multiple_154
+[48/200] Processed allow_synonym for sample multiple_22
+[49/200] Processed allow_synonym for sample multiple_156
+[50/200] Processed allow_synonym for sample multiple_4
+[51/200] Processed allow_synonym for sample multiple_60
+[52/200] Processed allow_synonym for sample multiple_109
+[53/200] Processed allow_synonym for sample multiple_170
+[54/200] Processed allow_synonym for sample multiple_14
+[55/200] Processed allow_synonym for sample multiple_114
+[56/200] Processed allow_synonym for sample multiple_177
+[57/200] Processed allow_synonym for sample multiple_34
+[58/200] Processed allow_synonym for sample multiple_54
+[59/200] Processed allow_synonym for sample multiple_124
+[60/200] Processed allow_synonym for sample multiple_47
+[61/200] Processed allow_synonym for sample multiple_129
+[62/200] Processed allow_synonym for sample multiple_178
+[63/200] Processed allow_synonym for sample multiple_15
+[64/200] Processed allow_synonym for sample multiple_59
+[65/200] Processed allow_synonym for sample multiple_126
+[66/200] Processed allow_synonym for sample multiple_43
+[67/200] Processed allow_synonym for sample multiple_107
+[68/200] Processed allow_synonym for sample multiple_20
+[69/200] Processed allow_synonym for sample multiple_75
+[70/200] Processed allow_synonym for sample multiple_134
+[71/200] Processed allow_synonym for sample multiple_176
+[72/200] Processed allow_synonym for sample multiple_37
+[73/200] Processed allow_synonym for sample multiple_96
+[74/200] Processed allow_synonym for sample multiple_143
+[75/200] Processed allow_synonym for sample multiple_32
+[76/200] Processed allow_synonym for sample multiple_68
+[77/200] Processed allow_synonym for sample multiple_105
+[78/200] Processed allow_synonym for sample multiple_173
+[79/200] Processed allow_synonym for sample multiple_40
+[80/200] Processed allow_synonym for sample multiple_95
+[81/200] Processed allow_synonym for sample multiple_183
+[82/200] Processed allow_synonym for sample multiple_23
+[83/200] Processed allow_synonym for sample multiple_72
+[84/200] Processed allow_synonym for sample multiple_192
+[85/200] Processed allow_synonym for sample multiple_104
+[86/200] Processed allow_synonym for sample multiple_144
+[87/200] Processed allow_synonym for sample multiple_42
+[88/200] Processed allow_synonym for sample multiple_58
+[89/200] Processed allow_synonym for sample multiple_106
+[90/200] Processed allow_synonym for sample multiple_186
+[91/200] Processed allow_synonym for sample multiple_27
+[92/200] Processed allow_synonym for sample multiple_117
+[93/200] Processed allow_synonym for sample multiple_191
+[94/200] Processed allow_synonym for sample multiple_199
+[95/200] Processed allow_synonym for sample multiple_6
+[96/200] Processed allow_synonym for sample multiple_69
+[97/200] Processed allow_synonym for sample multiple_128
+[98/200] Processed allow_synonym for sample multiple_153
+[99/200] Processed allow_synonym for sample multiple_26
+[100/200] Processed allow_synonym for sample multiple_84
+[101/200] Processed allow_synonym for sample multiple_158
+[102/200] Processed allow_synonym for sample multiple_67
+[103/200] Processed allow_synonym for sample multiple_102
+[104/200] Processed allow_synonym for sample multiple_180
+[105/200] Processed allow_synonym for sample multiple_103
+[106/200] Processed allow_synonym for sample multiple_139
+[107/200] Processed allow_synonym for sample multiple_11
+[108/200] Processed allow_synonym for sample multiple_82
+[109/200] Processed allow_synonym for sample multiple_98
+[110/200] Processed allow_synonym for sample multiple_10
+[111/200] Processed allow_synonym for sample multiple_120
+[112/200] Processed allow_synonym for sample multiple_150
+[113/200] Processed allow_synonym for sample multiple_29
+[114/200] Processed allow_synonym for sample multiple_65
+[115/200] Processed allow_synonym for sample multiple_174
+[116/200] Processed allow_synonym for sample multiple_41
+[117/200] Processed allow_synonym for sample multiple_99
+[118/200] Processed allow_synonym for sample multiple_159
+[119/200] Processed allow_synonym for sample multiple_195
+[120/200] Processed allow_synonym for sample multiple_79
+[121/200] Processed allow_synonym for sample multiple_97
+[122/200] Processed allow_synonym for sample multiple_161
+[123/200] Processed allow_synonym for sample multiple_38
+[124/200] Processed allow_synonym for sample multiple_125
+[125/200] Processed allow_synonym for sample multiple_140
+[126/200] Processed allow_synonym for sample multiple_198
+[127/200] Processed allow_synonym for sample multiple_3
+[128/200] Processed allow_synonym for sample multiple_66
+[129/200] Processed allow_synonym for sample multiple_101
+[130/200] Processed allow_synonym for sample multiple_175
+[131/200] Processed allow_synonym for sample multiple_44
+[132/200] Processed allow_synonym for sample multiple_112
+[133/200] Processed allow_synonym for sample multiple_197
+[134/200] Processed allow_synonym for sample multiple_0
+[135/200] Processed allow_synonym for sample multiple_78
+[136/200] Processed allow_synonym for sample multiple_137
+[137/200] Processed allow_synonym for sample multiple_162
+[138/200] Processed allow_synonym for sample multiple_33
+[139/200] Processed allow_synonym for sample multiple_86
+[140/200] Processed allow_synonym for sample multiple_146
+[141/200] Processed allow_synonym for sample multiple_196
+[142/200] Processed allow_synonym for sample multiple_12
+[143/200] Processed allow_synonym for sample multiple_73
+[144/200] Processed allow_synonym for sample multiple_119
+[145/200] Processed allow_synonym for sample multiple_165
+[146/200] Processed allow_synonym for sample multiple_35
+[147/200] Processed allow_synonym for sample multiple_116
+[148/200] Processed allow_synonym for sample multiple_181
+[149/200] Processed allow_synonym for sample multiple_9
+[150/200] Processed allow_synonym for sample multiple_61
+[151/200] Processed allow_synonym for sample multiple_87
+[152/200] Processed allow_synonym for sample multiple_168
+[153/200] Processed allow_synonym for sample multiple_25
+[154/200] Processed allow_synonym for sample multiple_118
+[155/200] Processed allow_synonym for sample multiple_157
+[156/200] Processed allow_synonym for sample multiple_39
+[157/200] Processed allow_synonym for sample multiple_51
+[158/200] Processed allow_synonym for sample multiple_123
+[159/200] Processed allow_synonym for sample multiple_142
+[160/200] Processed allow_synonym for sample multiple_91
+[161/200] Processed allow_synonym for sample multiple_145
+[162/200] Processed allow_synonym for sample multiple_194
+[163/200] Processed allow_synonym for sample multiple_1
+[164/200] Processed allow_synonym for sample multiple_74
+[165/200] Processed allow_synonym for sample multiple_188
+[166/200] Processed allow_synonym for sample multiple_24
+[167/200] Processed allow_synonym for sample multiple_113
+[168/200] Processed allow_synonym for sample multiple_141
+[169/200] Processed allow_synonym for sample multiple_193
+[170/200] Processed allow_synonym for sample multiple_57
+[171/200] Processed allow_synonym for sample multiple_85
+[172/200] Processed allow_synonym for sample multiple_148
+[173/200] Processed allow_synonym for sample multiple_131
+[174/200] Processed allow_synonym for sample multiple_7
+[175/200] Processed allow_synonym for sample multiple_122
+[176/200] Processed allow_synonym for sample multiple_56
+[177/200] Processed allow_synonym for sample multiple_121
+[178/200] Processed allow_synonym for sample multiple_30
+[179/200] Processed allow_synonym for sample multiple_92
+[180/200] Processed allow_synonym for sample multiple_90
+[181/200] Processed allow_synonym for sample multiple_185
+[182/200] Processed allow_synonym for sample multiple_93
+[183/200] Processed allow_synonym for sample multiple_81
+[184/200] Processed allow_synonym for sample multiple_187
+[185/200] Processed allow_synonym for sample multiple_152
+[186/200] Processed allow_synonym for sample multiple_89
+[187/200] Processed allow_synonym for sample multiple_184
+[188/200] Processed allow_synonym for sample multiple_115
+[189/200] Processed allow_synonym for sample multiple_171
+[190/200] Processed allow_synonym for sample multiple_48
+[191/200] Processed allow_synonym for sample multiple_147
+[192/200] Processed allow_synonym for sample multiple_151
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "ice age"|||"Ice age"... → decision=True, raw_output='yes'
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Camping"|||"Scenic View"... → decision=False, raw_output='no'
+[193/200] Processed allow_synonym for sample multiple_45
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Scenic View"|||"Camping"... → decision=False, raw_output='no'
+[194/200] Processed allow_synonym for sample multiple_62
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Hilton Hotel"|||"Hilton New York"... → decision=False, raw_output='no'
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "James Princes"|||"James Plensa"... → decision=False, raw_output='no'
+[195/200] Processed allow_synonym for sample multiple_160
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "housing prices"|||"house_price"... → decision=True, raw_output='yes'
+[196/200] Processed allow_synonym for sample multiple_53
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "affordable"|||"cheap"... → decision=True, raw_output='yes'
+[197/200] Processed allow_synonym for sample multiple_166
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "suite with a king-size bed"|||"suite with queen size bed"... → decision=False, raw_output='no'
+[198/200] Processed allow_synonym for sample multiple_94
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "rosewood fretboard"|||"Rosewood"... → decision=True, raw_output='yes'
+[199/200] Processed allow_synonym for sample multiple_164
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "San Diego"|||"SD"... → decision=True, raw_output='yes'
+[200/200] Processed allow_synonym for sample multiple_8
+All 200 allow_synonym samples completed.
+Allow synonym (_allowsame) completed - Hits: 1709, Misses: 40
+Score result written to tool/result/score/Qwen-Qwen3-30B-A3B/_zh_fulltrans_pretrans_nonoise_noprompt_noposttrans_allowsame.json: {'accuracy': 0.92, 'total_cases': 200, 'correct_cases': 184}
+Completed processing for config: ToolConfig(model=<LocalModel.QWEN3_30B_A3B: 'Qwen/Qwen3-30B-A3B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED_PRE_TRANSLATE_ALLOW_SYNONYM_SAME_LANGUAGE: 9>), add_noise_mode=<AddNoiseMode.NO_NOISE: 1>)
+Processing config: ToolConfig(model=<LocalModel.QWEN3_30B_A3B: 'Qwen/Qwen3-30B-A3B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED_PRE_TRANSLATE_ALLOW_SYNONYM_SAME_LANGUAGE: 9>), add_noise_mode=<AddNoiseMode.SYNONYM: 2>)
+All test cases have already been translated. Skipping translation.
+Warning: some test cases already exist in inference result file. Skipping 200 cases.
+All test cases for Qwen/Qwen3-30B-A3B have already been processed. Skipping model loading and inference.
+Skipping answer translation (post-translate not enabled)
+Processing 200 samples with allow_synonym in parallel...
+[1/200] Processed allow_synonym for sample multiple_76
+[2/200] Processed allow_synonym for sample multiple_21
+[3/200] Processed allow_synonym for sample multiple_138
+[4/200] Processed allow_synonym for sample multiple_10
+[5/200] Processed allow_synonym for sample multiple_150
+[6/200] Processed allow_synonym for sample multiple_153
+[7/200] Processed allow_synonym for sample multiple_17
+[8/200] Processed allow_synonym for sample multiple_28
+[9/200] Processed allow_synonym for sample multiple_114
+[10/200] Processed allow_synonym for sample multiple_182
+[11/200] Processed allow_synonym for sample multiple_20
+[12/200] Processed allow_synonym for sample multiple_120
+[13/200] Processed allow_synonym for sample multiple_154
+[14/200] Processed allow_synonym for sample multiple_2
+[15/200] Processed allow_synonym for sample multiple_32
+[16/200] Processed allow_synonym for sample multiple_183
+[17/200] Processed allow_synonym for sample multiple_11
+[18/200] Processed allow_synonym for sample multiple_51
+[19/200] Processed allow_synonym for sample multiple_118
+[20/200] Processed allow_synonym for sample multiple_155
+[21/200] Processed allow_synonym for sample multiple_50
+[22/200] Processed allow_synonym for sample multiple_119
+[23/200] Processed allow_synonym for sample multiple_3
+[24/200] Processed allow_synonym for sample multiple_70
+[25/200] Processed allow_synonym for sample multiple_156
+[26/200] Processed allow_synonym for sample multiple_16
+[27/200] Processed allow_synonym for sample multiple_30
+[28/200] Processed allow_synonym for sample multiple_33
+[29/200] Processed allow_synonym for sample multiple_117
+[30/200] Processed allow_synonym for sample multiple_157
+[31/200] Processed allow_synonym for sample multiple_129
+[32/200] Processed allow_synonym for sample multiple_186
+[33/200] Processed allow_synonym for sample multiple_4
+[34/200] Processed allow_synonym for sample multiple_75
+[35/200] Processed allow_synonym for sample multiple_106
+[36/200] Processed allow_synonym for sample multiple_158
+[37/200] Processed allow_synonym for sample multiple_72
+[38/200] Processed allow_synonym for sample multiple_132
+[39/200] Processed allow_synonym for sample multiple_23
+[40/200] Processed allow_synonym for sample multiple_67
+[41/200] Processed allow_synonym for sample multiple_122
+[42/200] Processed allow_synonym for sample multiple_159
+[43/200] Processed allow_synonym for sample multiple_40
+[44/200] Processed allow_synonym for sample multiple_103
+[45/200] Processed allow_synonym for sample multiple_188
+[46/200] Processed allow_synonym for sample multiple_73
+[47/200] Processed allow_synonym for sample multiple_137
+[48/200] Processed allow_synonym for sample multiple_78
+[49/200] Processed allow_synonym for sample multiple_80
+[50/200] Processed allow_synonym for sample multiple_123
+[51/200] Processed allow_synonym for sample multiple_189
+[52/200] Processed allow_synonym for sample multiple_49
+[53/200] Processed allow_synonym for sample multiple_105
+[54/200] Processed allow_synonym for sample multiple_161
+[55/200] Processed allow_synonym for sample multiple_54
+[56/200] Processed allow_synonym for sample multiple_190
+[57/200] Processed allow_synonym for sample multiple_64
+[58/200] Processed allow_synonym for sample multiple_135
+[59/200] Processed allow_synonym for sample multiple_162
+[60/200] Processed allow_synonym for sample multiple_69
+[61/200] Processed allow_synonym for sample multiple_148
+[62/200] Processed allow_synonym for sample multiple_191
+[63/200] Processed allow_synonym for sample multiple_66
+[64/200] Processed allow_synonym for sample multiple_116
+[65/200] Processed allow_synonym for sample multiple_163
+[66/200] Processed allow_synonym for sample multiple_131
+[67/200] Processed allow_synonym for sample multiple_47
+[68/200] Processed allow_synonym for sample multiple_144
+[69/200] Processed allow_synonym for sample multiple_192
+[70/200] Processed allow_synonym for sample multiple_15
+[71/200] Processed allow_synonym for sample multiple_74
+[72/200] Processed allow_synonym for sample multiple_121
+[73/200] Processed allow_synonym for sample multiple_164
+[74/200] Processed allow_synonym for sample multiple_36
+[75/200] Processed allow_synonym for sample multiple_193
+[76/200] Processed allow_synonym for sample multiple_8
+[77/200] Processed allow_synonym for sample multiple_45
+[78/200] Processed allow_synonym for sample multiple_133
+[79/200] Processed allow_synonym for sample multiple_165
+[80/200] Processed allow_synonym for sample multiple_35
+[81/200] Processed allow_synonym for sample multiple_141
+[82/200] Processed allow_synonym for sample multiple_194
+[83/200] Processed allow_synonym for sample multiple_12
+[84/200] Processed allow_synonym for sample multiple_29
+[85/200] Processed allow_synonym for sample multiple_124
+[86/200] Processed allow_synonym for sample multiple_166
+[87/200] Processed allow_synonym for sample multiple_44
+[88/200] Processed allow_synonym for sample multiple_109
+[89/200] Processed allow_synonym for sample multiple_195
+[90/200] Processed allow_synonym for sample multiple_46
+[91/200] Processed allow_synonym for sample multiple_143
+[92/200] Processed allow_synonym for sample multiple_167
+[93/200] Processed allow_synonym for sample multiple_57
+[94/200] Processed allow_synonym for sample multiple_91
+[95/200] Processed allow_synonym for sample multiple_128
+[96/200] Processed allow_synonym for sample multiple_196
+[97/200] Processed allow_synonym for sample multiple_9
+[98/200] Processed allow_synonym for sample multiple_68
+[99/200] Processed allow_synonym for sample multiple_107
+[100/200] Processed allow_synonym for sample multiple_168
+[101/200] Processed allow_synonym for sample multiple_24
+[102/200] Processed allow_synonym for sample multiple_127
+[103/200] Processed allow_synonym for sample multiple_197
+[104/200] Processed allow_synonym for sample multiple_7
+[105/200] Processed allow_synonym for sample multiple_42
+[106/200] Processed allow_synonym for sample multiple_146
+[107/200] Processed allow_synonym for sample multiple_169
+[108/200] Processed allow_synonym for sample multiple_43
+[109/200] Processed allow_synonym for sample multiple_96
+[110/200] Processed allow_synonym for sample multiple_97
+[111/200] Processed allow_synonym for sample multiple_198
+[112/200] Processed allow_synonym for sample multiple_22
+[113/200] Processed allow_synonym for sample multiple_38
+[114/200] Processed allow_synonym for sample multiple_112
+[115/200] Processed allow_synonym for sample multiple_170
+[116/200] Processed allow_synonym for sample multiple_60
+[117/200] Processed allow_synonym for sample multiple_83
+[118/200] Processed allow_synonym for sample multiple_111
+[119/200] Processed allow_synonym for sample multiple_199
+[120/200] Processed allow_synonym for sample multiple_5
+[121/200] Processed allow_synonym for sample multiple_55
+[122/200] Processed allow_synonym for sample multiple_130
+[123/200] Processed allow_synonym for sample multiple_39
+[124/200] Processed allow_synonym for sample multiple_87
+[125/200] Processed allow_synonym for sample multiple_142
+[126/200] Processed allow_synonym for sample multiple_19
+[127/200] Processed allow_synonym for sample multiple_37
+[128/200] Processed allow_synonym for sample multiple_99
+[129/200] Processed allow_synonym for sample multiple_172
+[130/200] Processed allow_synonym for sample multiple_65
+[131/200] Processed allow_synonym for sample multiple_139
+[132/200] Processed allow_synonym for sample multiple_6
+[133/200] Processed allow_synonym for sample multiple_41
+[134/200] Processed allow_synonym for sample multiple_104
+[135/200] Processed allow_synonym for sample multiple_173
+[136/200] Processed allow_synonym for sample multiple_52
+[137/200] Processed allow_synonym for sample multiple_79
+[138/200] Processed allow_synonym for sample multiple_89
+[139/200] Processed allow_synonym for sample multiple_145
+[140/200] Processed allow_synonym for sample multiple_18
+[141/200] Processed allow_synonym for sample multiple_77
+[142/200] Processed allow_synonym for sample multiple_101
+[143/200] Processed allow_synonym for sample multiple_174
+[144/200] Processed allow_synonym for sample multiple_26
+[145/200] Processed allow_synonym for sample multiple_88
+[146/200] Processed allow_synonym for sample multiple_134
+[147/200] Processed allow_synonym for sample multiple_13
+[148/200] Processed allow_synonym for sample multiple_59
+[149/200] Processed allow_synonym for sample multiple_113
+[150/200] Processed allow_synonym for sample multiple_175
+[151/200] Processed allow_synonym for sample multiple_56
+[152/200] Processed allow_synonym for sample multiple_84
+[153/200] Processed allow_synonym for sample multiple_94
+[154/200] Processed allow_synonym for sample multiple_136
+[155/200] Processed allow_synonym for sample multiple_1
+[156/200] Processed allow_synonym for sample multiple_27
+[157/200] Processed allow_synonym for sample multiple_110
+[158/200] Processed allow_synonym for sample multiple_176
+[159/200] Processed allow_synonym for sample multiple_58
+[160/200] Processed allow_synonym for sample multiple_95
+[161/200] Processed allow_synonym for sample multiple_126
+[162/200] Processed allow_synonym for sample multiple_63
+[163/200] Processed allow_synonym for sample multiple_140
+[164/200] Processed allow_synonym for sample multiple_177
+[165/200] Processed allow_synonym for sample multiple_31
+[166/200] Processed allow_synonym for sample multiple_86
+[167/200] Processed allow_synonym for sample multiple_98
+[168/200] Processed allow_synonym for sample multiple_14
+[169/200] Processed allow_synonym for sample multiple_34
+[170/200] Processed allow_synonym for sample multiple_102
+[171/200] Processed allow_synonym for sample multiple_178
+[172/200] Processed allow_synonym for sample multiple_53
+[173/200] Processed allow_synonym for sample multiple_82
+[174/200] Processed allow_synonym for sample multiple_85
+[175/200] Processed allow_synonym for sample multiple_125
+[176/200] Processed allow_synonym for sample multiple_25
+[177/200] Processed allow_synonym for sample multiple_149
+[178/200] Processed allow_synonym for sample multiple_179
+[179/200] Processed allow_synonym for sample multiple_181
+[180/200] Processed allow_synonym for sample multiple_108
+[181/200] Processed allow_synonym for sample multiple_0
+[182/200] Processed allow_synonym for sample multiple_61
+[183/200] Processed allow_synonym for sample multiple_100
+[184/200] Processed allow_synonym for sample multiple_180
+[185/200] Processed allow_synonym for sample multiple_71
+[186/200] Processed allow_synonym for sample multiple_48
+[187/200] Processed allow_synonym for sample multiple_151
+[188/200] Processed allow_synonym for sample multiple_184
+[189/200] Processed allow_synonym for sample multiple_152
+[190/200] Processed allow_synonym for sample multiple_147
+[191/200] Processed allow_synonym for sample multiple_185
+[192/200] Processed allow_synonym for sample multiple_187
+[193/200] Processed allow_synonym for sample multiple_115
+[194/200] Processed allow_synonym for sample multiple_81
+[195/200] Processed allow_synonym for sample multiple_92
+[196/200] Processed allow_synonym for sample multiple_171
+[197/200] Processed allow_synonym for sample multiple_90
+[198/200] Processed allow_synonym for sample multiple_62
+[199/200] Processed allow_synonym for sample multiple_93
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "James Prinzhorn"|||"James Plensa"... → decision=False, raw_output='no'
+[200/200] Processed allow_synonym for sample multiple_160
+All 200 allow_synonym samples completed.
+Allow synonym (_allowsame) completed - Hits: 1798, Misses: 41
+Score result written to tool/result/score/Qwen-Qwen3-30B-A3B/_zh_fulltrans_pretrans_syno_noprompt_noposttrans_allowsame.json: {'accuracy': 0.9, 'total_cases': 200, 'correct_cases': 180}
+Completed processing for config: ToolConfig(model=<LocalModel.QWEN3_30B_A3B: 'Qwen/Qwen3-30B-A3B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED_PRE_TRANSLATE_ALLOW_SYNONYM_SAME_LANGUAGE: 9>), add_noise_mode=<AddNoiseMode.SYNONYM: 2>)
+Processing config: ToolConfig(model=<LocalModel.QWEN3_30B_A3B: 'Qwen/Qwen3-30B-A3B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED_PRE_TRANSLATE_ALLOW_SYNONYM_SAME_LANGUAGE: 9>), add_noise_mode=<AddNoiseMode.PARAPHRASE: 3>)
+All test cases have already been translated. Skipping translation.
+Warning: some test cases already exist in inference result file. Skipping 200 cases.
+All test cases for Qwen/Qwen3-30B-A3B have already been processed. Skipping model loading and inference.
+Skipping answer translation (post-translate not enabled)
+Processing 200 samples with allow_synonym in parallel...
+[1/200] Processed allow_synonym for sample multiple_76
+[2/200] Processed allow_synonym for sample multiple_14
+[3/200] Processed allow_synonym for sample multiple_52
+[4/200] Processed allow_synonym for sample multiple_101
+[5/200] Processed allow_synonym for sample multiple_157
+[6/200] Processed allow_synonym for sample multiple_21
+[7/200] Processed allow_synonym for sample multiple_32
+[8/200] Processed allow_synonym for sample multiple_130
+[9/200] Processed allow_synonym for sample multiple_186
+[10/200] Processed allow_synonym for sample multiple_24
+[11/200] Processed allow_synonym for sample multiple_102
+[12/200] Processed allow_synonym for sample multiple_158
+[13/200] Processed allow_synonym for sample multiple_36
+[14/200] Processed allow_synonym for sample multiple_131
+[15/200] Processed allow_synonym for sample multiple_15
+[16/200] Processed allow_synonym for sample multiple_55
+[17/200] Processed allow_synonym for sample multiple_103
+[18/200] Processed allow_synonym for sample multiple_159
+[19/200] Processed allow_synonym for sample multiple_6
+[20/200] Processed allow_synonym for sample multiple_54
+[21/200] Processed allow_synonym for sample multiple_132
+[22/200] Processed allow_synonym for sample multiple_188
+[23/200] Processed allow_synonym for sample multiple_7
+[24/200] Processed allow_synonym for sample multiple_104
+[25/200] Processed allow_synonym for sample multiple_160
+[26/200] Processed allow_synonym for sample multiple_20
+[27/200] Processed allow_synonym for sample multiple_34
+[28/200] Processed allow_synonym for sample multiple_133
+[29/200] Processed allow_synonym for sample multiple_189
+[30/200] Processed allow_synonym for sample multiple_37
+[31/200] Processed allow_synonym for sample multiple_105
+[32/200] Processed allow_synonym for sample multiple_161
+[33/200] Processed allow_synonym for sample multiple_134
+[34/200] Processed allow_synonym for sample multiple_190
+[35/200] Processed allow_synonym for sample multiple_8
+[36/200] Processed allow_synonym for sample multiple_79
+[37/200] Processed allow_synonym for sample multiple_106
+[38/200] Processed allow_synonym for sample multiple_162
+[39/200] Processed allow_synonym for sample multiple_135
+[40/200] Processed allow_synonym for sample multiple_27
+[41/200] Processed allow_synonym for sample multiple_71
+[42/200] Processed allow_synonym for sample multiple_107
+[43/200] Processed allow_synonym for sample multiple_163
+[44/200] Processed allow_synonym for sample multiple_44
+[45/200] Processed allow_synonym for sample multiple_136
+[46/200] Processed allow_synonym for sample multiple_192
+[47/200] Processed allow_synonym for sample multiple_25
+[48/200] Processed allow_synonym for sample multiple_77
+[49/200] Processed allow_synonym for sample multiple_108
+[50/200] Processed allow_synonym for sample multiple_164
+[51/200] Processed allow_synonym for sample multiple_0
+[52/200] Processed allow_synonym for sample multiple_82
+[53/200] Processed allow_synonym for sample multiple_84
+[54/200] Processed allow_synonym for sample multiple_137
+[55/200] Processed allow_synonym for sample multiple_193
+[56/200] Processed allow_synonym for sample multiple_3
+[57/200] Processed allow_synonym for sample multiple_53
+[58/200] Processed allow_synonym for sample multiple_109
+[59/200] Processed allow_synonym for sample multiple_165
+[60/200] Processed allow_synonym for sample multiple_129
+[61/200] Processed allow_synonym for sample multiple_58
+[62/200] Processed allow_synonym for sample multiple_138
+[63/200] Processed allow_synonym for sample multiple_194
+[64/200] Processed allow_synonym for sample multiple_5
+[65/200] Processed allow_synonym for sample multiple_68
+[66/200] Processed allow_synonym for sample multiple_110
+[67/200] Processed allow_synonym for sample multiple_166
+[68/200] Processed allow_synonym for sample multiple_73
+[69/200] Processed allow_synonym for sample multiple_139
+[70/200] Processed allow_synonym for sample multiple_195
+[71/200] Processed allow_synonym for sample multiple_1
+[72/200] Processed allow_synonym for sample multiple_70
+[73/200] Processed allow_synonym for sample multiple_111
+[74/200] Processed allow_synonym for sample multiple_167
+[75/200] Processed allow_synonym for sample multiple_51
+[76/200] Processed allow_synonym for sample multiple_140
+[77/200] Processed allow_synonym for sample multiple_196
+[78/200] Processed allow_synonym for sample multiple_19
+[79/200] Processed allow_synonym for sample multiple_78
+[80/200] Processed allow_synonym for sample multiple_112
+[81/200] Processed allow_synonym for sample multiple_168
+[82/200] Processed allow_synonym for sample multiple_40
+[83/200] Processed allow_synonym for sample multiple_85
+[84/200] Processed allow_synonym for sample multiple_141
+[85/200] Processed allow_synonym for sample multiple_197
+[86/200] Processed allow_synonym for sample multiple_12
+[87/200] Processed allow_synonym for sample multiple_49
+[88/200] Processed allow_synonym for sample multiple_113
+[89/200] Processed allow_synonym for sample multiple_169
+[90/200] Processed allow_synonym for sample multiple_39
+[91/200] Processed allow_synonym for sample multiple_142
+[92/200] Processed allow_synonym for sample multiple_198
+[93/200] Processed allow_synonym for sample multiple_16
+[94/200] Processed allow_synonym for sample multiple_33
+[95/200] Processed allow_synonym for sample multiple_114
+[96/200] Processed allow_synonym for sample multiple_170
+[97/200] Processed allow_synonym for sample multiple_143
+[98/200] Processed allow_synonym for sample multiple_199
+[99/200] Processed allow_synonym for sample multiple_2
+[100/200] Processed allow_synonym for sample multiple_50
+[101/200] Processed allow_synonym for sample multiple_61
+[102/200] Processed allow_synonym for sample multiple_95
+[103/200] Processed allow_synonym for sample multiple_144
+[104/200] Processed allow_synonym for sample multiple_13
+[105/200] Processed allow_synonym for sample multiple_72
+[106/200] Processed allow_synonym for sample multiple_116
+[107/200] Processed allow_synonym for sample multiple_172
+[108/200] Processed allow_synonym for sample multiple_28
+[109/200] Processed allow_synonym for sample multiple_145
+[110/200] Processed allow_synonym for sample multiple_10
+[111/200] Processed allow_synonym for sample multiple_46
+[112/200] Processed allow_synonym for sample multiple_117
+[113/200] Processed allow_synonym for sample multiple_173
+[114/200] Processed allow_synonym for sample multiple_47
+[115/200] Processed allow_synonym for sample multiple_100
+[116/200] Processed allow_synonym for sample multiple_146
+[117/200] Processed allow_synonym for sample multiple_26
+[118/200] Processed allow_synonym for sample multiple_42
+[119/200] Processed allow_synonym for sample multiple_118
+[120/200] Processed allow_synonym for sample multiple_174
+[121/200] Processed allow_synonym for sample multiple_64
+[122/200] Processed allow_synonym for sample multiple_87
+[123/200] Processed allow_synonym for sample multiple_96
+[124/200] Processed allow_synonym for sample multiple_9
+[125/200] Processed allow_synonym for sample multiple_59
+[126/200] Processed allow_synonym for sample multiple_119
+[127/200] Processed allow_synonym for sample multiple_175
+[128/200] Processed allow_synonym for sample multiple_43
+[129/200] Processed allow_synonym for sample multiple_91
+[130/200] Processed allow_synonym for sample multiple_148
+[131/200] Processed allow_synonym for sample multiple_23
+[132/200] Processed allow_synonym for sample multiple_41
+[133/200] Processed allow_synonym for sample multiple_120
+[134/200] Processed allow_synonym for sample multiple_176
+[135/200] Processed allow_synonym for sample multiple_69
+[136/200] Processed allow_synonym for sample multiple_149
+[137/200] Processed allow_synonym for sample multiple_11
+[138/200] Processed allow_synonym for sample multiple_45
+[139/200] Processed allow_synonym for sample multiple_121
+[140/200] Processed allow_synonym for sample multiple_177
+[141/200] Processed allow_synonym for sample multiple_56
+[142/200] Processed allow_synonym for sample multiple_83
+[143/200] Processed allow_synonym for sample multiple_150
+[144/200] Processed allow_synonym for sample multiple_22
+[145/200] Processed allow_synonym for sample multiple_122
+[146/200] Processed allow_synonym for sample multiple_178
+[147/200] Processed allow_synonym for sample multiple_30
+[148/200] Processed allow_synonym for sample multiple_151
+[149/200] Processed allow_synonym for sample multiple_17
+[150/200] Processed allow_synonym for sample multiple_63
+[151/200] Processed allow_synonym for sample multiple_123
+[152/200] Processed allow_synonym for sample multiple_179
+[153/200] Processed allow_synonym for sample multiple_60
+[154/200] Processed allow_synonym for sample multiple_88
+[155/200] Processed allow_synonym for sample multiple_98
+[156/200] Processed allow_synonym for sample multiple_31
+[157/200] Processed allow_synonym for sample multiple_124
+[158/200] Processed allow_synonym for sample multiple_180
+[159/200] Processed allow_synonym for sample multiple_99
+[160/200] Processed allow_synonym for sample multiple_153
+[161/200] Processed allow_synonym for sample multiple_67
+[162/200] Processed allow_synonym for sample multiple_125
+[163/200] Processed allow_synonym for sample multiple_181
+[164/200] Processed allow_synonym for sample multiple_35
+[165/200] Processed allow_synonym for sample multiple_154
+[166/200] Processed allow_synonym for sample multiple_18
+[167/200] Processed allow_synonym for sample multiple_38
+[168/200] Processed allow_synonym for sample multiple_126
+[169/200] Processed allow_synonym for sample multiple_182
+[170/200] Processed allow_synonym for sample multiple_57
+[171/200] Processed allow_synonym for sample multiple_86
+[172/200] Processed allow_synonym for sample multiple_155
+[173/200] Processed allow_synonym for sample multiple_4
+[174/200] Processed allow_synonym for sample multiple_29
+[175/200] Processed allow_synonym for sample multiple_127
+[176/200] Processed allow_synonym for sample multiple_183
+[177/200] Processed allow_synonym for sample multiple_66
+[178/200] Processed allow_synonym for sample multiple_97
+[179/200] Processed allow_synonym for sample multiple_156
+[180/200] Processed allow_synonym for sample multiple_65
+[181/200] Processed allow_synonym for sample multiple_128
+[182/200] Processed allow_synonym for sample multiple_75
+[183/200] Processed allow_synonym for sample multiple_187
+[184/200] Processed allow_synonym for sample multiple_48
+[185/200] Processed allow_synonym for sample multiple_115
+[186/200] Processed allow_synonym for sample multiple_171
+[187/200] Processed allow_synonym for sample multiple_147
+[188/200] Processed allow_synonym for sample multiple_93
+[189/200] Processed allow_synonym for sample multiple_81
+[190/200] Processed allow_synonym for sample multiple_92
+[191/200] Processed allow_synonym for sample multiple_185
+[192/200] Processed allow_synonym for sample multiple_152
+[193/200] Processed allow_synonym for sample multiple_62
+[194/200] Processed allow_synonym for sample multiple_90
+[195/200] Processed allow_synonym for sample multiple_89
+[196/200] Processed allow_synonym for sample multiple_184
+[197/200] Processed allow_synonym for sample multiple_80
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "major"|||"all"... → decision=False, raw_output='no'
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "The Palms Hotel"|||"Hotel Paradise"... → decision=False, raw_output='no'
+[198/200] Processed allow_synonym for sample multiple_191
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "king suite"|||"suite with queen size bed"... → decision=False, raw_output='no'
+[199/200] Processed allow_synonym for sample multiple_94
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "major"|||""... → decision=False, raw_output='no'
+[200/200] Processed allow_synonym for sample multiple_74
+All 200 allow_synonym samples completed.
+Allow synonym (_allowsame) completed - Hits: 1896, Misses: 45
+Score result written to tool/result/score/Qwen-Qwen3-30B-A3B/_zh_fulltrans_pretrans_para_noprompt_noposttrans_allowsame.json: {'accuracy': 0.91, 'total_cases': 200, 'correct_cases': 182}
+Completed processing for config: ToolConfig(model=<LocalModel.QWEN3_30B_A3B: 'Qwen/Qwen3-30B-A3B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED_PRE_TRANSLATE_ALLOW_SYNONYM_SAME_LANGUAGE: 9>), add_noise_mode=<AddNoiseMode.PARAPHRASE: 3>)
+Processing config: ToolConfig(model=<LocalModel.QWEN3_30B_A3B: 'Qwen/Qwen3-30B-A3B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED_POST_TRANSLATE_ALLOW_SYNONYM_SAME_LANGUAGE: 10>), add_noise_mode=<AddNoiseMode.NO_NOISE: 1>)
+Skipping question translation (pre-translate not enabled)
+Warning: some test cases already exist in inference result file. Skipping 200 cases.
+All test cases for Qwen/Qwen3-30B-A3B have already been processed. Skipping model loading and inference.
+All answers have already been translated. Skipping translation.
+Processing 200 samples with allow_synonym in parallel...
+[1/200] Processed allow_synonym for sample multiple_12
+[2/200] Processed allow_synonym for sample multiple_50
+[3/200] Processed allow_synonym for sample multiple_99
+[4/200] Processed allow_synonym for sample multiple_155
+[5/200] Processed allow_synonym for sample multiple_19
+[6/200] Processed allow_synonym for sample multiple_30
+[7/200] Processed allow_synonym for sample multiple_128
+[8/200] Processed allow_synonym for sample multiple_22
+[9/200] Processed allow_synonym for sample multiple_100
+[10/200] Processed allow_synonym for sample multiple_156
+[11/200] Processed allow_synonym for sample multiple_3
+[12/200] Processed allow_synonym for sample multiple_34
+[13/200] Processed allow_synonym for sample multiple_129
+[14/200] Processed allow_synonym for sample multiple_13
+[15/200] Processed allow_synonym for sample multiple_101
+[16/200] Processed allow_synonym for sample multiple_157
+[17/200] Processed allow_synonym for sample multiple_52
+[18/200] Processed allow_synonym for sample multiple_130
+[19/200] Processed allow_synonym for sample multiple_186
+[20/200] Processed allow_synonym for sample multiple_72
+[21/200] Processed allow_synonym for sample multiple_102
+[22/200] Processed allow_synonym for sample multiple_158
+[23/200] Processed allow_synonym for sample multiple_18
+[24/200] Processed allow_synonym for sample multiple_32
+[25/200] Processed allow_synonym for sample multiple_131
+[26/200] Processed allow_synonym for sample multiple_35
+[27/200] Processed allow_synonym for sample multiple_103
+[28/200] Processed allow_synonym for sample multiple_159
+[29/200] Processed allow_synonym for sample multiple_132
+[30/200] Processed allow_synonym for sample multiple_188
+[31/200] Processed allow_synonym for sample multiple_6
+[32/200] Processed allow_synonym for sample multiple_77
+[33/200] Processed allow_synonym for sample multiple_104
+[34/200] Processed allow_synonym for sample multiple_74
+[35/200] Processed allow_synonym for sample multiple_133
+[36/200] Processed allow_synonym for sample multiple_189
+[37/200] Processed allow_synonym for sample multiple_25
+[38/200] Processed allow_synonym for sample multiple_69
+[39/200] Processed allow_synonym for sample multiple_105
+[40/200] Processed allow_synonym for sample multiple_161
+[41/200] Processed allow_synonym for sample multiple_42
+[42/200] Processed allow_synonym for sample multiple_134
+[43/200] Processed allow_synonym for sample multiple_2
+[44/200] Processed allow_synonym for sample multiple_23
+[45/200] Processed allow_synonym for sample multiple_75
+[46/200] Processed allow_synonym for sample multiple_106
+[47/200] Processed allow_synonym for sample multiple_162
+[48/200] Processed allow_synonym for sample multiple_82
+[49/200] Processed allow_synonym for sample multiple_51
+[50/200] Processed allow_synonym for sample multiple_107
+[51/200] Processed allow_synonym for sample multiple_163
+[52/200] Processed allow_synonym for sample multiple_127
+[53/200] Processed allow_synonym for sample multiple_56
+[54/200] Processed allow_synonym for sample multiple_136
+[55/200] Processed allow_synonym for sample multiple_192
+[56/200] Processed allow_synonym for sample multiple_66
+[57/200] Processed allow_synonym for sample multiple_108
+[58/200] Processed allow_synonym for sample multiple_164
+[59/200] Processed allow_synonym for sample multiple_71
+[60/200] Processed allow_synonym for sample multiple_137
+[61/200] Processed allow_synonym for sample multiple_193
+[62/200] Processed allow_synonym for sample multiple_4
+[63/200] Processed allow_synonym for sample multiple_68
+[64/200] Processed allow_synonym for sample multiple_109
+[65/200] Processed allow_synonym for sample multiple_165
+[66/200] Processed allow_synonym for sample multiple_49
+[67/200] Processed allow_synonym for sample multiple_138
+[68/200] Processed allow_synonym for sample multiple_194
+[69/200] Processed allow_synonym for sample multiple_17
+[70/200] Processed allow_synonym for sample multiple_76
+[71/200] Processed allow_synonym for sample multiple_110
+[72/200] Processed allow_synonym for sample multiple_166
+[73/200] Processed allow_synonym for sample multiple_38
+[74/200] Processed allow_synonym for sample multiple_139
+[75/200] Processed allow_synonym for sample multiple_195
+[76/200] Processed allow_synonym for sample multiple_10
+[77/200] Processed allow_synonym for sample multiple_47
+[78/200] Processed allow_synonym for sample multiple_111
+[79/200] Processed allow_synonym for sample multiple_167
+[80/200] Processed allow_synonym for sample multiple_37
+[81/200] Processed allow_synonym for sample multiple_140
+[82/200] Processed allow_synonym for sample multiple_196
+[83/200] Processed allow_synonym for sample multiple_14
+[84/200] Processed allow_synonym for sample multiple_31
+[85/200] Processed allow_synonym for sample multiple_112
+[86/200] Processed allow_synonym for sample multiple_168
+[87/200] Processed allow_synonym for sample multiple_46
+[88/200] Processed allow_synonym for sample multiple_141
+[89/200] Processed allow_synonym for sample multiple_197
+[90/200] Processed allow_synonym for sample multiple_5
+[91/200] Processed allow_synonym for sample multiple_113
+[92/200] Processed allow_synonym for sample multiple_169
+[93/200] Processed allow_synonym for sample multiple_59
+[94/200] Processed allow_synonym for sample multiple_142
+[95/200] Processed allow_synonym for sample multiple_198
+[96/200] Processed allow_synonym for sample multiple_11
+[97/200] Processed allow_synonym for sample multiple_70
+[98/200] Processed allow_synonym for sample multiple_114
+[99/200] Processed allow_synonym for sample multiple_170
+[100/200] Processed allow_synonym for sample multiple_26
+[101/200] Processed allow_synonym for sample multiple_143
+[102/200] Processed allow_synonym for sample multiple_199
+[103/200] Processed allow_synonym for sample multiple_44
+[104/200] Processed allow_synonym for sample multiple_45
+[105/200] Processed allow_synonym for sample multiple_98
+[106/200] Processed allow_synonym for sample multiple_24
+[107/200] Processed allow_synonym for sample multiple_40
+[108/200] Processed allow_synonym for sample multiple_116
+[109/200] Processed allow_synonym for sample multiple_172
+[110/200] Processed allow_synonym for sample multiple_85
+[111/200] Processed allow_synonym for sample multiple_145
+[112/200] Processed allow_synonym for sample multiple_57
+[113/200] Processed allow_synonym for sample multiple_117
+[114/200] Processed allow_synonym for sample multiple_173
+[115/200] Processed allow_synonym for sample multiple_41
+[116/200] Processed allow_synonym for sample multiple_21
+[117/200] Processed allow_synonym for sample multiple_39
+[118/200] Processed allow_synonym for sample multiple_118
+[119/200] Processed allow_synonym for sample multiple_174
+[120/200] Processed allow_synonym for sample multiple_183
+[121/200] Processed allow_synonym for sample multiple_67
+[122/200] Processed allow_synonym for sample multiple_9
+[123/200] Processed allow_synonym for sample multiple_43
+[124/200] Processed allow_synonym for sample multiple_175
+[125/200] Processed allow_synonym for sample multiple_54
+[126/200] Processed allow_synonym for sample multiple_91
+[127/200] Processed allow_synonym for sample multiple_148
+[128/200] Processed allow_synonym for sample multiple_20
+[129/200] Processed allow_synonym for sample multiple_120
+[130/200] Processed allow_synonym for sample multiple_176
+[131/200] Processed allow_synonym for sample multiple_28
+[132/200] Processed allow_synonym for sample multiple_149
+[133/200] Processed allow_synonym for sample multiple_15
+[134/200] Processed allow_synonym for sample multiple_121
+[135/200] Processed allow_synonym for sample multiple_177
+[136/200] Processed allow_synonym for sample multiple_58
+[137/200] Processed allow_synonym for sample multiple_86
+[138/200] Processed allow_synonym for sample multiple_96
+[139/200] Processed allow_synonym for sample multiple_150
+[140/200] Processed allow_synonym for sample multiple_29
+[141/200] Processed allow_synonym for sample multiple_178
+[142/200] Processed allow_synonym for sample multiple_60
+[143/200] Processed allow_synonym for sample multiple_97
+[144/200] Processed allow_synonym for sample multiple_151
+[145/200] Processed allow_synonym for sample multiple_0
+[146/200] Processed allow_synonym for sample multiple_65
+[147/200] Processed allow_synonym for sample multiple_123
+[148/200] Processed allow_synonym for sample multiple_179
+[149/200] Processed allow_synonym for sample multiple_33
+[150/200] Processed allow_synonym for sample multiple_88
+[151/200] Processed allow_synonym for sample multiple_16
+[152/200] Processed allow_synonym for sample multiple_36
+[153/200] Processed allow_synonym for sample multiple_124
+[154/200] Processed allow_synonym for sample multiple_180
+[155/200] Processed allow_synonym for sample multiple_55
+[156/200] Processed allow_synonym for sample multiple_84
+[157/200] Processed allow_synonym for sample multiple_87
+[158/200] Processed allow_synonym for sample multiple_153
+[159/200] Processed allow_synonym for sample multiple_27
+[160/200] Processed allow_synonym for sample multiple_125
+[161/200] Processed allow_synonym for sample multiple_181
+[162/200] Processed allow_synonym for sample multiple_64
+[163/200] Processed allow_synonym for sample multiple_95
+[164/200] Processed allow_synonym for sample multiple_154
+[165/200] Processed allow_synonym for sample multiple_1
+[166/200] Processed allow_synonym for sample multiple_63
+[167/200] Processed allow_synonym for sample multiple_126
+[168/200] Processed allow_synonym for sample multiple_182
+[169/200] Processed allow_synonym for sample multiple_73
+[170/200] Processed allow_synonym for sample multiple_184
+[171/200] Processed allow_synonym for sample multiple_185
+[172/200] Processed allow_synonym for sample multiple_187
+[173/200] Processed allow_synonym for sample multiple_48
+[174/200] Processed allow_synonym for sample multiple_62
+[175/200] Processed allow_synonym for sample multiple_92
+[176/200] Processed allow_synonym for sample multiple_147
+[177/200] Processed allow_synonym for sample multiple_81
+[178/200] Processed allow_synonym for sample multiple_90
+[179/200] Processed allow_synonym for sample multiple_152
+[180/200] Processed allow_synonym for sample multiple_80
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Breakfast"|||"breakfast"... → decision=True, raw_output='yes'
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Victim"|||"victim"... → decision=True, raw_output='yes'
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Vegetarian"|||"vegan"... → decision=False, raw_output='no'
+[181/200] Processed allow_synonym for sample multiple_93
+[182/200] Processed allow_synonym for sample multiple_135
+[183/200] Processed allow_synonym for sample multiple_115
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Lakers team"|||"Lakers"... → decision=True, raw_output='yes'
+[184/200] Processed allow_synonym for sample multiple_171
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "James Prentice"|||"James Plensa"... → decision=False, raw_output='no'
+[185/200] Processed allow_synonym for sample multiple_160
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Amount to purchase"|||"Purchase_Amount"... → decision=True, raw_output='yes'
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Villa"|||"villa"... → decision=True, raw_output='yes'
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Small space design"|||"small space garden design"... → decision=False, raw_output='no'
+[186/200] Processed allow_synonym for sample multiple_122
+[187/200] Processed allow_synonym for sample multiple_8
+[188/200] Processed allow_synonym for sample multiple_61
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Housing prices"|||"house_price"... → decision=True, raw_output='yes'
+[189/200] Processed allow_synonym for sample multiple_53
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "New York Hilton Hotel"|||"Hilton New York"... → decision=True, raw_output='yes'
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Barcelona team"|||"Barcelona"... → decision=False, raw_output='no'
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Deer herd"|||"deer"... → decision=False, raw_output='no'
+[190/200] Processed allow_synonym for sample multiple_83
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "August 16, 2022"|||"2022-08-16"... → decision=False, raw_output='no'
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "User Table"|||"user"... → decision=False, raw_output='no'
+[191/200] Processed allow_synonym for sample multiple_119
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Natural History Museum, London"|||"Natural History Museum"... → decision=True, raw_output='yes'
+[192/200] Processed allow_synonym for sample multiple_78
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Museum of Modern Art in New York"|||"Museum of Modern Art"... → decision=True, raw_output='yes'
+[193/200] Processed allow_synonym for sample multiple_79
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Chinese cuisine"|||"Chinese"... → decision=True, raw_output='yes'
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Deer herd"|||"Deer"... → decision=False, raw_output='no'
+[194/200] Processed allow_synonym for sample multiple_146
+[195/200] Processed allow_synonym for sample multiple_7
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Chicken meat"|||"chicken"... → decision=True, raw_output='yes'
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Suite with a large bed"|||"suite with queen size bed"... → decision=False, raw_output='no'
+[196/200] Processed allow_synonym for sample multiple_89
+[197/200] Processed allow_synonym for sample multiple_94
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Heaven Hotel"|||"Hotel Paradise"... → decision=False, raw_output='no'
+[198/200] Processed allow_synonym for sample multiple_191
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "August 16, 2022"|||"16/08/2022"... → decision=False, raw_output='no'
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "August 16, 2022"|||"Aug.16,2022"... → decision=True, raw_output='yes'
+[199/200] Processed allow_synonym for sample multiple_144
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "December 10, 2022"|||"2022-12-10"... → decision=False, raw_output='no'
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "December 10, 2022"|||"10/12/2022"... → decision=False, raw_output='no'
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "December 10, 2022"|||"Dec.10,2022"... → decision=True, raw_output='yes'
+[200/200] Processed allow_synonym for sample multiple_190
+All 200 allow_synonym samples completed.
+Allow synonym (_allowsame) completed - Hits: 1986, Misses: 71
+Score result written to tool/result/score/Qwen-Qwen3-30B-A3B/_zh_fulltrans_nopretrans_nonoise_noprompt_posttrans_allowsame.json: {'accuracy': 0.9, 'total_cases': 200, 'correct_cases': 180}
+Completed processing for config: ToolConfig(model=<LocalModel.QWEN3_30B_A3B: 'Qwen/Qwen3-30B-A3B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED_POST_TRANSLATE_ALLOW_SYNONYM_SAME_LANGUAGE: 10>), add_noise_mode=<AddNoiseMode.NO_NOISE: 1>)
+Processing config: ToolConfig(model=<LocalModel.QWEN3_30B_A3B: 'Qwen/Qwen3-30B-A3B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED_POST_TRANSLATE_ALLOW_SYNONYM_SAME_LANGUAGE: 10>), add_noise_mode=<AddNoiseMode.SYNONYM: 2>)
+Skipping question translation (pre-translate not enabled)
+Warning: some test cases already exist in inference result file. Skipping 200 cases.
+All test cases for Qwen/Qwen3-30B-A3B have already been processed. Skipping model loading and inference.
+All answers have already been translated. Skipping translation.
+Processing 200 samples with allow_synonym in parallel...
+[1/200] Processed allow_synonym for sample multiple_76
+[2/200] Processed allow_synonym for sample multiple_12
+[3/200] Processed allow_synonym for sample multiple_45
+[4/200] Processed allow_synonym for sample multiple_101
+[5/200] Processed allow_synonym for sample multiple_157
+[6/200] Processed allow_synonym for sample multiple_19
+[7/200] Processed allow_synonym for sample multiple_74
+[8/200] Processed allow_synonym for sample multiple_130
+[9/200] Processed allow_synonym for sample multiple_186
+[10/200] Processed allow_synonym for sample multiple_22
+[11/200] Processed allow_synonym for sample multiple_46
+[12/200] Processed allow_synonym for sample multiple_102
+[13/200] Processed allow_synonym for sample multiple_158
+[14/200] Processed allow_synonym for sample multiple_75
+[15/200] Processed allow_synonym for sample multiple_131
+[16/200] Processed allow_synonym for sample multiple_13
+[17/200] Processed allow_synonym for sample multiple_47
+[18/200] Processed allow_synonym for sample multiple_103
+[19/200] Processed allow_synonym for sample multiple_159
+[20/200] Processed allow_synonym for sample multiple_4
+[21/200] Processed allow_synonym for sample multiple_132
+[22/200] Processed allow_synonym for sample multiple_188
+[23/200] Processed allow_synonym for sample multiple_6
+[24/200] Processed allow_synonym for sample multiple_104
+[25/200] Processed allow_synonym for sample multiple_160
+[26/200] Processed allow_synonym for sample multiple_18
+[27/200] Processed allow_synonym for sample multiple_77
+[28/200] Processed allow_synonym for sample multiple_133
+[29/200] Processed allow_synonym for sample multiple_189
+[30/200] Processed allow_synonym for sample multiple_49
+[31/200] Processed allow_synonym for sample multiple_105
+[32/200] Processed allow_synonym for sample multiple_161
+[33/200] Processed allow_synonym for sample multiple_78
+[34/200] Processed allow_synonym for sample multiple_134
+[35/200] Processed allow_synonym for sample multiple_190
+[36/200] Processed allow_synonym for sample multiple_11
+[37/200] Processed allow_synonym for sample multiple_50
+[38/200] Processed allow_synonym for sample multiple_106
+[39/200] Processed allow_synonym for sample multiple_162
+[40/200] Processed allow_synonym for sample multiple_79
+[41/200] Processed allow_synonym for sample multiple_135
+[42/200] Processed allow_synonym for sample multiple_191
+[43/200] Processed allow_synonym for sample multiple_25
+[44/200] Processed allow_synonym for sample multiple_51
+[45/200] Processed allow_synonym for sample multiple_107
+[46/200] Processed allow_synonym for sample multiple_163
+[47/200] Processed allow_synonym for sample multiple_0
+[48/200] Processed allow_synonym for sample multiple_136
+[49/200] Processed allow_synonym for sample multiple_7
+[50/200] Processed allow_synonym for sample multiple_192
+[51/200] Processed allow_synonym for sample multiple_23
+[52/200] Processed allow_synonym for sample multiple_52
+[53/200] Processed allow_synonym for sample multiple_108
+[54/200] Processed allow_synonym for sample multiple_1
+[55/200] Processed allow_synonym for sample multiple_39
+[56/200] Processed allow_synonym for sample multiple_137
+[57/200] Processed allow_synonym for sample multiple_193
+[58/200] Processed allow_synonym for sample multiple_2
+[59/200] Processed allow_synonym for sample multiple_53
+[60/200] Processed allow_synonym for sample multiple_109
+[61/200] Processed allow_synonym for sample multiple_165
+[62/200] Processed allow_synonym for sample multiple_82
+[63/200] Processed allow_synonym for sample multiple_138
+[64/200] Processed allow_synonym for sample multiple_194
+[65/200] Processed allow_synonym for sample multiple_5
+[66/200] Processed allow_synonym for sample multiple_54
+[67/200] Processed allow_synonym for sample multiple_110
+[68/200] Processed allow_synonym for sample multiple_83
+[69/200] Processed allow_synonym for sample multiple_139
+[70/200] Processed allow_synonym for sample multiple_195
+[71/200] Processed allow_synonym for sample multiple_10
+[72/200] Processed allow_synonym for sample multiple_55
+[73/200] Processed allow_synonym for sample multiple_111
+[74/200] Processed allow_synonym for sample multiple_167
+[75/200] Processed allow_synonym for sample multiple_129
+[76/200] Processed allow_synonym for sample multiple_84
+[77/200] Processed allow_synonym for sample multiple_196
+[78/200] Processed allow_synonym for sample multiple_17
+[79/200] Processed allow_synonym for sample multiple_56
+[80/200] Processed allow_synonym for sample multiple_112
+[81/200] Processed allow_synonym for sample multiple_168
+[82/200] Processed allow_synonym for sample multiple_40
+[83/200] Processed allow_synonym for sample multiple_85
+[84/200] Processed allow_synonym for sample multiple_141
+[85/200] Processed allow_synonym for sample multiple_197
+[86/200] Processed allow_synonym for sample multiple_57
+[87/200] Processed allow_synonym for sample multiple_113
+[88/200] Processed allow_synonym for sample multiple_169
+[89/200] Processed allow_synonym for sample multiple_86
+[90/200] Processed allow_synonym for sample multiple_142
+[91/200] Processed allow_synonym for sample multiple_198
+[92/200] Processed allow_synonym for sample multiple_14
+[93/200] Processed allow_synonym for sample multiple_58
+[94/200] Processed allow_synonym for sample multiple_114
+[95/200] Processed allow_synonym for sample multiple_170
+[96/200] Processed allow_synonym for sample multiple_87
+[97/200] Processed allow_synonym for sample multiple_143
+[98/200] Processed allow_synonym for sample multiple_199
+[99/200] Processed allow_synonym for sample multiple_59
+[100/200] Processed allow_synonym for sample multiple_32
+[101/200] Processed allow_synonym for sample multiple_88
+[102/200] Processed allow_synonym for sample multiple_144
+[103/200] Processed allow_synonym for sample multiple_60
+[104/200] Processed allow_synonym for sample multiple_116
+[105/200] Processed allow_synonym for sample multiple_172
+[106/200] Processed allow_synonym for sample multiple_89
+[107/200] Processed allow_synonym for sample multiple_145
+[108/200] Processed allow_synonym for sample multiple_117
+[109/200] Processed allow_synonym for sample multiple_173
+[110/200] Processed allow_synonym for sample multiple_37
+[111/200] Processed allow_synonym for sample multiple_146
+[112/200] Processed allow_synonym for sample multiple_24
+[113/200] Processed allow_synonym for sample multiple_118
+[114/200] Processed allow_synonym for sample multiple_174
+[115/200] Processed allow_synonym for sample multiple_33
+[116/200] Processed allow_synonym for sample multiple_42
+[117/200] Processed allow_synonym for sample multiple_91
+[118/200] Processed allow_synonym for sample multiple_63
+[119/200] Processed allow_synonym for sample multiple_119
+[120/200] Processed allow_synonym for sample multiple_175
+[121/200] Processed allow_synonym for sample multiple_28
+[122/200] Processed allow_synonym for sample multiple_148
+[123/200] Processed allow_synonym for sample multiple_21
+[124/200] Processed allow_synonym for sample multiple_64
+[125/200] Processed allow_synonym for sample multiple_120
+[126/200] Processed allow_synonym for sample multiple_176
+[127/200] Processed allow_synonym for sample multiple_31
+[128/200] Processed allow_synonym for sample multiple_149
+[129/200] Processed allow_synonym for sample multiple_65
+[130/200] Processed allow_synonym for sample multiple_121
+[131/200] Processed allow_synonym for sample multiple_177
+[132/200] Processed allow_synonym for sample multiple_30
+[133/200] Processed allow_synonym for sample multiple_38
+[134/200] Processed allow_synonym for sample multiple_150
+[135/200] Processed allow_synonym for sample multiple_66
+[136/200] Processed allow_synonym for sample multiple_20
+[137/200] Processed allow_synonym for sample multiple_122
+[138/200] Processed allow_synonym for sample multiple_178
+[139/200] Processed allow_synonym for sample multiple_29
+[140/200] Processed allow_synonym for sample multiple_95
+[141/200] Processed allow_synonym for sample multiple_151
+[142/200] Processed allow_synonym for sample multiple_15
+[143/200] Processed allow_synonym for sample multiple_67
+[144/200] Processed allow_synonym for sample multiple_123
+[145/200] Processed allow_synonym for sample multiple_179
+[146/200] Processed allow_synonym for sample multiple_35
+[147/200] Processed allow_synonym for sample multiple_43
+[148/200] Processed allow_synonym for sample multiple_96
+[149/200] Processed allow_synonym for sample multiple_68
+[150/200] Processed allow_synonym for sample multiple_124
+[151/200] Processed allow_synonym for sample multiple_180
+[152/200] Processed allow_synonym for sample multiple_36
+[153/200] Processed allow_synonym for sample multiple_97
+[154/200] Processed allow_synonym for sample multiple_153
+[155/200] Processed allow_synonym for sample multiple_9
+[156/200] Processed allow_synonym for sample multiple_69
+[157/200] Processed allow_synonym for sample multiple_125
+[158/200] Processed allow_synonym for sample multiple_181
+[159/200] Processed allow_synonym for sample multiple_27
+[160/200] Processed allow_synonym for sample multiple_98
+[161/200] Processed allow_synonym for sample multiple_154
+[162/200] Processed allow_synonym for sample multiple_16
+[163/200] Processed allow_synonym for sample multiple_70
+[164/200] Processed allow_synonym for sample multiple_126
+[165/200] Processed allow_synonym for sample multiple_182
+[166/200] Processed allow_synonym for sample multiple_26
+[167/200] Processed allow_synonym for sample multiple_41
+[168/200] Processed allow_synonym for sample multiple_99
+[169/200] Processed allow_synonym for sample multiple_155
+[170/200] Processed allow_synonym for sample multiple_3
+[171/200] Processed allow_synonym for sample multiple_71
+[172/200] Processed allow_synonym for sample multiple_127
+[173/200] Processed allow_synonym for sample multiple_183
+[174/200] Processed allow_synonym for sample multiple_34
+[175/200] Processed allow_synonym for sample multiple_44
+[176/200] Processed allow_synonym for sample multiple_100
+[177/200] Processed allow_synonym for sample multiple_156
+[178/200] Processed allow_synonym for sample multiple_72
+[179/200] Processed allow_synonym for sample multiple_128
+[180/200] Processed allow_synonym for sample multiple_73
+[181/200] Processed allow_synonym for sample multiple_187
+[182/200] Processed allow_synonym for sample multiple_48
+[183/200] Processed allow_synonym for sample multiple_81
+[184/200] Processed allow_synonym for sample multiple_171
+[185/200] Processed allow_synonym for sample multiple_90
+[186/200] Processed allow_synonym for sample multiple_62
+[187/200] Processed allow_synonym for sample multiple_147
+[188/200] Processed allow_synonym for sample multiple_92
+[189/200] Processed allow_synonym for sample multiple_93
+[190/200] Processed allow_synonym for sample multiple_152
+[191/200] Processed allow_synonym for sample multiple_185
+[192/200] Processed allow_synonym for sample multiple_184
+[193/200] Processed allow_synonym for sample multiple_80
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Classical style"|||"classical"... → decision=True, raw_output='yes'
+[194/200] Processed allow_synonym for sample multiple_166
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Residence"|||"villa"... → decision=False, raw_output='no'
+[195/200] Processed allow_synonym for sample multiple_8
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Double Suite"|||"suite with queen size bed"... → decision=False, raw_output='no'
+[196/200] Processed allow_synonym for sample multiple_94
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Google Enterprise"|||"Google"... → decision=False, raw_output='no'
+[197/200] Processed allow_synonym for sample multiple_140
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Thai Cuisine"|||"Thai"... → decision=True, raw_output='yes'
+[198/200] Processed allow_synonym for sample multiple_115
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Padau wood decoration"|||"Rosewood"... → decision=False, raw_output='no'
+[199/200] Processed allow_synonym for sample multiple_164
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Small area gardening"|||"small space garden design"... → decision=False, raw_output='no'
+[200/200] Processed allow_synonym for sample multiple_61
+All 200 allow_synonym samples completed.
+Allow synonym (_allowsame) completed - Hits: 2090, Misses: 78
+Score result written to tool/result/score/Qwen-Qwen3-30B-A3B/_zh_fulltrans_nopretrans_syno_noprompt_posttrans_allowsame.json: {'accuracy': 0.865, 'total_cases': 200, 'correct_cases': 173}
+Completed processing for config: ToolConfig(model=<LocalModel.QWEN3_30B_A3B: 'Qwen/Qwen3-30B-A3B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED_POST_TRANSLATE_ALLOW_SYNONYM_SAME_LANGUAGE: 10>), add_noise_mode=<AddNoiseMode.SYNONYM: 2>)
+Processing config: ToolConfig(model=<LocalModel.QWEN3_30B_A3B: 'Qwen/Qwen3-30B-A3B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED_POST_TRANSLATE_ALLOW_SYNONYM_SAME_LANGUAGE: 10>), add_noise_mode=<AddNoiseMode.PARAPHRASE: 3>)
+Skipping question translation (pre-translate not enabled)
+Warning: some test cases already exist in inference result file. Skipping 200 cases.
+All test cases for Qwen/Qwen3-30B-A3B have already been processed. Skipping model loading and inference.
+All answers have already been translated. Skipping translation.
+Processing 200 samples with allow_synonym in parallel...
+[1/200] Processed allow_synonym for sample multiple_12
+[2/200] Processed allow_synonym for sample multiple_45
+[3/200] Processed allow_synonym for sample multiple_101
+[4/200] Processed allow_synonym for sample multiple_157
+[5/200] Processed allow_synonym for sample multiple_19
+[6/200] Processed allow_synonym for sample multiple_74
+[7/200] Processed allow_synonym for sample multiple_130
+[8/200] Processed allow_synonym for sample multiple_186
+[9/200] Processed allow_synonym for sample multiple_22
+[10/200] Processed allow_synonym for sample multiple_46
+[11/200] Processed allow_synonym for sample multiple_102
+[12/200] Processed allow_synonym for sample multiple_158
+[13/200] Processed allow_synonym for sample multiple_75
+[14/200] Processed allow_synonym for sample multiple_131
+[15/200] Processed allow_synonym for sample multiple_13
+[16/200] Processed allow_synonym for sample multiple_47
+[17/200] Processed allow_synonym for sample multiple_103
+[18/200] Processed allow_synonym for sample multiple_159
+[19/200] Processed allow_synonym for sample multiple_9
+[20/200] Processed allow_synonym for sample multiple_76
+[21/200] Processed allow_synonym for sample multiple_132
+[22/200] Processed allow_synonym for sample multiple_188
+[23/200] Processed allow_synonym for sample multiple_104
+[24/200] Processed allow_synonym for sample multiple_160
+[25/200] Processed allow_synonym for sample multiple_18
+[26/200] Processed allow_synonym for sample multiple_77
+[27/200] Processed allow_synonym for sample multiple_133
+[28/200] Processed allow_synonym for sample multiple_189
+[29/200] Processed allow_synonym for sample multiple_49
+[30/200] Processed allow_synonym for sample multiple_105
+[31/200] Processed allow_synonym for sample multiple_161
+[32/200] Processed allow_synonym for sample multiple_78
+[33/200] Processed allow_synonym for sample multiple_134
+[34/200] Processed allow_synonym for sample multiple_190
+[35/200] Processed allow_synonym for sample multiple_50
+[36/200] Processed allow_synonym for sample multiple_106
+[37/200] Processed allow_synonym for sample multiple_162
+[38/200] Processed allow_synonym for sample multiple_79
+[39/200] Processed allow_synonym for sample multiple_135
+[40/200] Processed allow_synonym for sample multiple_191
+[41/200] Processed allow_synonym for sample multiple_25
+[42/200] Processed allow_synonym for sample multiple_51
+[43/200] Processed allow_synonym for sample multiple_107
+[44/200] Processed allow_synonym for sample multiple_163
+[45/200] Processed allow_synonym for sample multiple_0
+[46/200] Processed allow_synonym for sample multiple_136
+[47/200] Processed allow_synonym for sample multiple_192
+[48/200] Processed allow_synonym for sample multiple_23
+[49/200] Processed allow_synonym for sample multiple_52
+[50/200] Processed allow_synonym for sample multiple_108
+[51/200] Processed allow_synonym for sample multiple_164
+[52/200] Processed allow_synonym for sample multiple_39
+[53/200] Processed allow_synonym for sample multiple_137
+[54/200] Processed allow_synonym for sample multiple_193
+[55/200] Processed allow_synonym for sample multiple_10
+[56/200] Processed allow_synonym for sample multiple_53
+[57/200] Processed allow_synonym for sample multiple_109
+[58/200] Processed allow_synonym for sample multiple_165
+[59/200] Processed allow_synonym for sample multiple_82
+[60/200] Processed allow_synonym for sample multiple_138
+[61/200] Processed allow_synonym for sample multiple_194
+[62/200] Processed allow_synonym for sample multiple_11
+[63/200] Processed allow_synonym for sample multiple_54
+[64/200] Processed allow_synonym for sample multiple_110
+[65/200] Processed allow_synonym for sample multiple_166
+[66/200] Processed allow_synonym for sample multiple_83
+[67/200] Processed allow_synonym for sample multiple_139
+[68/200] Processed allow_synonym for sample multiple_195
+[69/200] Processed allow_synonym for sample multiple_55
+[70/200] Processed allow_synonym for sample multiple_111
+[71/200] Processed allow_synonym for sample multiple_167
+[72/200] Processed allow_synonym for sample multiple_84
+[73/200] Processed allow_synonym for sample multiple_140
+[74/200] Processed allow_synonym for sample multiple_196
+[75/200] Processed allow_synonym for sample multiple_17
+[76/200] Processed allow_synonym for sample multiple_56
+[77/200] Processed allow_synonym for sample multiple_112
+[78/200] Processed allow_synonym for sample multiple_168
+[79/200] Processed allow_synonym for sample multiple_40
+[80/200] Processed allow_synonym for sample multiple_85
+[81/200] Processed allow_synonym for sample multiple_141
+[82/200] Processed allow_synonym for sample multiple_197
+[83/200] Processed allow_synonym for sample multiple_5
+[84/200] Processed allow_synonym for sample multiple_57
+[85/200] Processed allow_synonym for sample multiple_113
+[86/200] Processed allow_synonym for sample multiple_169
+[87/200] Processed allow_synonym for sample multiple_86
+[88/200] Processed allow_synonym for sample multiple_142
+[89/200] Processed allow_synonym for sample multiple_198
+[90/200] Processed allow_synonym for sample multiple_14
+[91/200] Processed allow_synonym for sample multiple_58
+[92/200] Processed allow_synonym for sample multiple_114
+[93/200] Processed allow_synonym for sample multiple_170
+[94/200] Processed allow_synonym for sample multiple_87
+[95/200] Processed allow_synonym for sample multiple_143
+[96/200] Processed allow_synonym for sample multiple_199
+[97/200] Processed allow_synonym for sample multiple_59
+[98/200] Processed allow_synonym for sample multiple_32
+[99/200] Processed allow_synonym for sample multiple_88
+[100/200] Processed allow_synonym for sample multiple_144
+[101/200] Processed allow_synonym for sample multiple_6
+[102/200] Processed allow_synonym for sample multiple_60
+[103/200] Processed allow_synonym for sample multiple_116
+[104/200] Processed allow_synonym for sample multiple_172
+[105/200] Processed allow_synonym for sample multiple_129
+[106/200] Processed allow_synonym for sample multiple_145
+[107/200] Processed allow_synonym for sample multiple_3
+[108/200] Processed allow_synonym for sample multiple_117
+[109/200] Processed allow_synonym for sample multiple_173
+[110/200] Processed allow_synonym for sample multiple_37
+[111/200] Processed allow_synonym for sample multiple_146
+[112/200] Processed allow_synonym for sample multiple_24
+[113/200] Processed allow_synonym for sample multiple_118
+[114/200] Processed allow_synonym for sample multiple_174
+[115/200] Processed allow_synonym for sample multiple_33
+[116/200] Processed allow_synonym for sample multiple_42
+[117/200] Processed allow_synonym for sample multiple_91
+[118/200] Processed allow_synonym for sample multiple_1
+[119/200] Processed allow_synonym for sample multiple_63
+[120/200] Processed allow_synonym for sample multiple_119
+[121/200] Processed allow_synonym for sample multiple_175
+[122/200] Processed allow_synonym for sample multiple_28
+[123/200] Processed allow_synonym for sample multiple_148
+[124/200] Processed allow_synonym for sample multiple_21
+[125/200] Processed allow_synonym for sample multiple_64
+[126/200] Processed allow_synonym for sample multiple_120
+[127/200] Processed allow_synonym for sample multiple_176
+[128/200] Processed allow_synonym for sample multiple_31
+[129/200] Processed allow_synonym for sample multiple_149
+[130/200] Processed allow_synonym for sample multiple_4
+[131/200] Processed allow_synonym for sample multiple_65
+[132/200] Processed allow_synonym for sample multiple_121
+[133/200] Processed allow_synonym for sample multiple_177
+[134/200] Processed allow_synonym for sample multiple_30
+[135/200] Processed allow_synonym for sample multiple_38
+[136/200] Processed allow_synonym for sample multiple_150
+[137/200] Processed allow_synonym for sample multiple_66
+[138/200] Processed allow_synonym for sample multiple_20
+[139/200] Processed allow_synonym for sample multiple_122
+[140/200] Processed allow_synonym for sample multiple_178
+[141/200] Processed allow_synonym for sample multiple_29
+[142/200] Processed allow_synonym for sample multiple_95
+[143/200] Processed allow_synonym for sample multiple_15
+[144/200] Processed allow_synonym for sample multiple_67
+[145/200] Processed allow_synonym for sample multiple_123
+[146/200] Processed allow_synonym for sample multiple_179
+[147/200] Processed allow_synonym for sample multiple_35
+[148/200] Processed allow_synonym for sample multiple_43
+[149/200] Processed allow_synonym for sample multiple_96
+[150/200] Processed allow_synonym for sample multiple_2
+[151/200] Processed allow_synonym for sample multiple_68
+[152/200] Processed allow_synonym for sample multiple_124
+[153/200] Processed allow_synonym for sample multiple_180
+[154/200] Processed allow_synonym for sample multiple_36
+[155/200] Processed allow_synonym for sample multiple_97
+[156/200] Processed allow_synonym for sample multiple_69
+[157/200] Processed allow_synonym for sample multiple_125
+[158/200] Processed allow_synonym for sample multiple_181
+[159/200] Processed allow_synonym for sample multiple_27
+[160/200] Processed allow_synonym for sample multiple_98
+[161/200] Processed allow_synonym for sample multiple_154
+[162/200] Processed allow_synonym for sample multiple_16
+[163/200] Processed allow_synonym for sample multiple_70
+[164/200] Processed allow_synonym for sample multiple_126
+[165/200] Processed allow_synonym for sample multiple_182
+[166/200] Processed allow_synonym for sample multiple_26
+[167/200] Processed allow_synonym for sample multiple_41
+[168/200] Processed allow_synonym for sample multiple_99
+[169/200] Processed allow_synonym for sample multiple_155
+[170/200] Processed allow_synonym for sample multiple_8
+[171/200] Processed allow_synonym for sample multiple_71
+[172/200] Processed allow_synonym for sample multiple_127
+[173/200] Processed allow_synonym for sample multiple_183
+[174/200] Processed allow_synonym for sample multiple_34
+[175/200] Processed allow_synonym for sample multiple_44
+[176/200] Processed allow_synonym for sample multiple_100
+[177/200] Processed allow_synonym for sample multiple_156
+[178/200] Processed allow_synonym for sample multiple_7
+[179/200] Processed allow_synonym for sample multiple_72
+[180/200] Processed allow_synonym for sample multiple_128
+[181/200] Processed allow_synonym for sample multiple_73
+[182/200] Processed allow_synonym for sample multiple_187
+[183/200] Processed allow_synonym for sample multiple_48
+[184/200] Processed allow_synonym for sample multiple_81
+[185/200] Processed allow_synonym for sample multiple_115
+[186/200] Processed allow_synonym for sample multiple_171
+[187/200] Processed allow_synonym for sample multiple_89
+[188/200] Processed allow_synonym for sample multiple_90
+[189/200] Processed allow_synonym for sample multiple_62
+[190/200] Processed allow_synonym for sample multiple_147
+[191/200] Processed allow_synonym for sample multiple_92
+[192/200] Processed allow_synonym for sample multiple_93
+[193/200] Processed allow_synonym for sample multiple_152
+[194/200] Processed allow_synonym for sample multiple_185
+[195/200] Processed allow_synonym for sample multiple_184
+[196/200] Processed allow_synonym for sample multiple_80
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Small space garden design"|||"small space garden design"... → decision=True, raw_output='yes'
+[197/200] Processed allow_synonym for sample multiple_61
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "The Lisbon Treaty"|||"Treaty of Lisbon"... → decision=True, raw_output='yes'
+[198/200] Processed allow_synonym for sample multiple_153
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Large Bed Suite"|||"suite with queen size bed"... → decision=False, raw_output='no'
+[199/200] Processed allow_synonym for sample multiple_94
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Behavioral Psychology and Group Dynamics"|||"psychology"... → decision=False, raw_output='no'
+Saving match cache to tool/allow_synonym_match_cache_same.json...
+[Cache] New entry: "Behavioral Psychology and Group Dynamics"|||"Psychology"... → decision=False, raw_output='no'
+[200/200] Processed allow_synonym for sample multiple_151
+All 200 allow_synonym samples completed.
+Allow synonym (_allowsame) completed - Hits: 2207, Misses: 83
+Score result written to tool/result/score/Qwen-Qwen3-30B-A3B/_zh_fulltrans_nopretrans_para_noprompt_posttrans_allowsame.json: {'accuracy': 0.89, 'total_cases': 200, 'correct_cases': 178}
+Completed processing for config: ToolConfig(model=<LocalModel.QWEN3_30B_A3B: 'Qwen/Qwen3-30B-A3B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED_POST_TRANSLATE_ALLOW_SYNONYM_SAME_LANGUAGE: 10>), add_noise_mode=<AddNoiseMode.PARAPHRASE: 3>)

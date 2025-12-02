@@ -1,0 +1,42 @@
+Loading configs from: tool_config_slurm.py
+Processing config: ToolConfig(model=<LocalModel.QWEN3_8B: 'Qwen/Qwen3-8B'>, translate_mode=NotTranslated(), add_noise_mode=<AddNoiseMode.NO_NOISE: 1>)
+Skipping question translation (pre-translate not enabled)
+Warning: some test cases already exist in inference result file. Skipping 200 cases.
+All test cases for Qwen/Qwen3-8B have already been processed. Skipping model loading and inference.
+Skipping answer translation (post-translate not enabled)
+Skipping allow synonym processing (DONT_ALLOW_SYNONYM)
+Score result written to tool/result/score/Qwen-Qwen3-8B/_en_na_nopretrans_nonoise_noprompt_noposttrans_noallow.json: {'accuracy': 0.94, 'total_cases': 200, 'correct_cases': 188}
+Completed processing for config: ToolConfig(model=<LocalModel.QWEN3_8B: 'Qwen/Qwen3-8B'>, translate_mode=NotTranslated(), add_noise_mode=<AddNoiseMode.NO_NOISE: 1>)
+Processing config: ToolConfig(model=<LocalModel.QWEN3_8B: 'Qwen/Qwen3-8B'>, translate_mode=NotTranslated(), add_noise_mode=<AddNoiseMode.SYNONYM: 2>)
+Skipping question translation (pre-translate not enabled)
+Warning: some test cases already exist in inference result file. Skipping 200 cases.
+All test cases for Qwen/Qwen3-8B have already been processed. Skipping model loading and inference.
+Skipping answer translation (post-translate not enabled)
+Skipping allow synonym processing (DONT_ALLOW_SYNONYM)
+Score result written to tool/result/score/Qwen-Qwen3-8B/_en_na_nopretrans_syno_noprompt_noposttrans_noallow.json: {'accuracy': 0.89, 'total_cases': 200, 'correct_cases': 178}
+Completed processing for config: ToolConfig(model=<LocalModel.QWEN3_8B: 'Qwen/Qwen3-8B'>, translate_mode=NotTranslated(), add_noise_mode=<AddNoiseMode.SYNONYM: 2>)
+Processing config: ToolConfig(model=<LocalModel.QWEN3_8B: 'Qwen/Qwen3-8B'>, translate_mode=NotTranslated(), add_noise_mode=<AddNoiseMode.PARAPHRASE: 3>)
+Skipping question translation (pre-translate not enabled)
+Warning: some test cases already exist in inference result file. Skipping 200 cases.
+All test cases for Qwen/Qwen3-8B have already been processed. Skipping model loading and inference.
+Skipping answer translation (post-translate not enabled)
+Skipping allow synonym processing (DONT_ALLOW_SYNONYM)
+Score result written to tool/result/score/Qwen-Qwen3-8B/_en_na_nopretrans_para_noprompt_noposttrans_noallow.json: {'accuracy': 0.91, 'total_cases': 200, 'correct_cases': 182}
+Completed processing for config: ToolConfig(model=<LocalModel.QWEN3_8B: 'Qwen/Qwen3-8B'>, translate_mode=NotTranslated(), add_noise_mode=<AddNoiseMode.PARAPHRASE: 3>)
+Processing config: ToolConfig(model=<LocalModel.QWEN3_8B: 'Qwen/Qwen3-8B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED: 1>), add_noise_mode=<AddNoiseMode.NO_NOISE: 1>)
+Skipping question translation (pre-translate not enabled)
+Warning: some test cases already exist in inference result file. Skipping 200 cases.
+All test cases for Qwen/Qwen3-8B have already been processed. Skipping model loading and inference.
+Skipping answer translation (post-translate not enabled)
+Skipping allow synonym processing (DONT_ALLOW_SYNONYM)
+Score result written to tool/result/score/Qwen-Qwen3-8B/_zh_fulltrans_nopretrans_nonoise_noprompt_noposttrans_noallow.json: {'accuracy': 0.535, 'total_cases': 200, 'correct_cases': 107}
+Completed processing for config: ToolConfig(model=<LocalModel.QWEN3_8B: 'Qwen/Qwen3-8B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED: 1>), add_noise_mode=<AddNoiseMode.NO_NOISE: 1>)
+Processing config: ToolConfig(model=<LocalModel.QWEN3_8B: 'Qwen/Qwen3-8B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED: 1>), add_noise_mode=<AddNoiseMode.SYNONYM: 2>)
+Skipping question translation (pre-translate not enabled)
+Warning: some test cases already exist in inference result file. Skipping 200 cases.
+All test cases for Qwen/Qwen3-8B have already been processed. Skipping model loading and inference.
+Skipping answer translation (post-translate not enabled)
+Skipping allow synonym processing (DONT_ALLOW_SYNONYM)
+Score result written to tool/result/score/Qwen-Qwen3-8B/_zh_fulltrans_nopretrans_syno_noprompt_noposttrans_noallow.json: {'accuracy': 0.525, 'total_cases': 200, 'correct_cases': 105}
+Completed processing for config: ToolConfig(model=<LocalModel.QWEN3_8B: 'Qwen/Qwen3-8B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED: 1>), add_noise_mode=<AddNoiseMode.SYNONYM: 2>)
+Processing config: ToolConfig(model=<LocalModel.QWEN3_8B: 'Qwen/Qwen3-8B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED: 1>), add_noise_mode=<AddNoiseMode.PARAPHRASE: 3>)

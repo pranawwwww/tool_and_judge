@@ -3,14 +3,15 @@ LLM as Judge: Exploring the relationship between perplexity and preference
 """
 import os
 
-from judge.collect_perplexity_local import collect_perplexity_local
-from judge.collect_preference_local_direct import collect_preference_local_direct
-from judge.collect_preference_local_cot import collect_preference_local_cot
+from judge.collect_perplexity_local import collect_perplexity_local_async
+from judge.collect_preference_local_direct import collect_preference_local_direct_async
+from judge.collect_preference_local_cot import collect_preference_local_cot_async
 from judge.generate_dataset import generate_answer_datasets
 from util import get_model_directory_name
 os.environ["HF_HOME"] = "/work/nvme/bfdz/zluo8/huggingface"
 import sys
 import importlib.util
+import asyncio
 from datasets import load_dataset
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -229,6 +230,56 @@ def compare_results(preferences, perplexities_lang1, perplexities_lang2, lang1, 
             print(f"  Match: {'✓' if preferences[i] == perplexity_preferences[i] else '✗'}")
 
 
+def write_json_lines_to_file(file_path: str, results: list) -> None:
+    """
+    Write JSON lines to a file, overwriting existing content.
+    Creates parent directory if it doesn't exist.
+
+    Args:
+        file_path: Path to the output file
+        results: List of dictionaries to write
+    """
+    # Create parent directory if it doesn't exist
+    parent_dir = os.path.dirname(file_path)
+    if parent_dir:
+        os.makedirs(parent_dir, exist_ok=True)
+
+    with open(file_path, 'w', encoding='utf-8') as f:
+        for result in results:
+            f.write(json.dumps(result, ensure_ascii=False) + '\n')
+        f.flush()
+
+
+def sort_results_by_index(results: list) -> list:
+    """
+    Sort results by numeric index field.
+
+    Args:
+        results: List of dictionaries with 'index' field
+
+    Returns:
+        Sorted list of results
+    """
+    return sorted(
+        results,
+        key=lambda x: int(x.get("index", float('inf')))
+        if isinstance(x.get("index"), int)
+        else float('inf')
+    )
+
+
+def append_and_rewrite_json_lines(file_path: str, results: list) -> None:
+    """
+    Sort results by index and rewrite the entire file.
+
+    Args:
+        file_path: Path to the output file
+        results: List of dictionaries to write
+    """
+    sorted_results = sort_results_by_index(results)
+    write_json_lines_to_file(file_path, sorted_results)
+
+
 def load_configs_from_file(config_file_path: str):
     """
     Load the 'configs' list from a specified Python file.
@@ -256,33 +307,8 @@ def load_configs_from_file(config_file_path: str):
     return config_module.configs
 
 
-if __name__ == "__main__":
-    # Parse command line arguments
-    parser = argparse.ArgumentParser(description='LLM as Judge: Exploring the relationship between perplexity and preference')
-    parser.add_argument(
-        "--config",
-        type=str,
-        default=None,
-        help="Path to a Python file containing the 'configs' list (default: use configs from config.py)"
-    )
-    parser.add_argument('--num-gpus', type=int, default=1,
-                        help='Number of GPUs to use for model inference (default: 1)')
-    args = parser.parse_args()
-
-    # Load configs from specified file or use default from config.py
-    if args.config:
-        print(f"Loading configs from: {args.config}")
-        configs = load_configs_from_file(args.config)
-    else:
-        # configs is already imported from config.py
-        print("Error: Please specify a config file using --config argument. For example, --config judge_config1.py")
-        exit(1)
-
-    print(f"Using {args.num_gpus} GPU(s)")
-
-    # Create result directory if it doesn't exist
-    os.makedirs("judge/result", exist_ok=True)
-
+async def process_all_judge_configs():
+    """Process all judge configurations within a single event loop."""
     for config in configs:
         print("Processing configuration: ", config)
 
@@ -351,14 +377,19 @@ if __name__ == "__main__":
                     (pairs_both_correct, f"{first_lang}_correct_{second_lang}_correct"),
                     (pairs_both_incorrect, f"{first_lang}_incorrect_{second_lang}_incorrect")
                 ]:
-                    output_dir = f"judge/result/{display_model_name}/preferences_local_direct"
-                    os.makedirs(output_dir, exist_ok=True)
-                    collect_preference_local_direct(
+                    output_file = f"judge/result/{display_model_name}/preferences_local_direct/{dataset_suffix}.jsonl"
+
+                    # Run async collection
+                    results = await collect_preference_local_direct_async(
                         pairs=pairs,
                         backend=backend,
                         model_interface=model_interface,
-                        output_file=f"{output_dir}/{dataset_suffix}.jsonl"
+                        batch_size=8
                     )
+
+                    # Write and sort results
+                    if results:
+                        append_and_rewrite_json_lines(output_file, results)
 
             case ResultType.PREFERENCE_COT:
                 # Process pairs for preference_cot
@@ -368,15 +399,19 @@ if __name__ == "__main__":
                     (pairs_both_correct, f"{first_lang}_correct_{second_lang}_correct"),
                     (pairs_both_incorrect, f"{first_lang}_incorrect_{second_lang}_incorrect")
                 ]:
-                    output_dir = f"judge/result/{display_model_name}/preferences_local_cot"
-                    os.makedirs(output_dir, exist_ok=True)
-                    collect_preference_local_cot(
+                    output_file = f"judge/result/{display_model_name}/preferences_local_cot/{dataset_suffix}.jsonl"
+
+                    # Run async collection
+                    results = await collect_preference_local_cot_async(
                         pairs=pairs,
                         backend=backend,
                         model_interface=model_interface,
-                        output_file=f"{output_dir}/{dataset_suffix}.jsonl",
                         batch_size=1
                     )
+
+                    # Write and sort results
+                    if results:
+                        append_and_rewrite_json_lines(output_file, results)
 
             case ResultType.PERPLEXITY:
                 # Process individual entries for perplexity
@@ -386,15 +421,52 @@ if __name__ == "__main__":
                     (entries_lang2_correct, f"{second_lang}_correct"),
                     (entries_lang2_incorrect, f"{second_lang}_incorrect")
                 ]:
-                    output_dir = f"judge/result/{display_model_name}/perplexities_local"
-                    os.makedirs(output_dir, exist_ok=True)
-                    collect_perplexity_local(
+                    output_file = f"judge/result/{display_model_name}/perplexities_local/{entry_suffix}.jsonl"
+
+                    # Run async collection
+                    results = await collect_perplexity_local_async(
                         entries=entries,
                         backend=backend,
                         model_interface=model_interface,
-                        output_file=f"{output_dir}/{entry_suffix}.jsonl"
+                        batch_size=8
                     )
+
+                    # Write and sort results
+                    if results:
+                        append_and_rewrite_json_lines(output_file, results)
+
             case _:
                 print(f"Unknown result type: {config.result_type}")
                 raise ValueError(f"Unknown result type: {config.result_type}")
         print("Collected results for configuration: ", config)
+
+
+if __name__ == "__main__":
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description='LLM as Judge: Exploring the relationship between perplexity and preference')
+    parser.add_argument(
+        "--config",
+        type=str,
+        default=None,
+        help="Path to a Python file containing the 'configs' list (default: use configs from config.py)"
+    )
+    parser.add_argument('--num-gpus', type=int, default=1,
+                        help='Number of GPUs to use for model inference (default: 1)')
+    args = parser.parse_args()
+
+    # Load configs from specified file or use default from config.py
+    if args.config:
+        print(f"Loading configs from: {args.config}")
+        configs = load_configs_from_file(args.config)
+    else:
+        # configs is already imported from config.py
+        print("Error: Please specify a config file using --config argument. For example, --config judge_config1.py")
+        exit(1)
+
+    print(f"Using {args.num_gpus} GPU(s)")
+
+    # Create result directory if it doesn't exist
+    os.makedirs("judge/result", exist_ok=True)
+
+    # Run all configs in a single event loop
+    asyncio.run(process_all_judge_configs())

@@ -286,7 +286,6 @@ async def process_all_configs():
     for config in configs:
         print(f"Processing config: {config}", flush=True)
 
-        prompt_translate = False
         # map translate_info to language_postfix, translate_dataset_prefix, translate_mode_prefix
         match config.translate_mode:
             case Translated(language, option):
@@ -565,6 +564,11 @@ async def process_all_configs():
     
                 # Process requests asynchronously
                 print(f"\nSubmitting {len(cases_to_process)} requests concurrently...")
+                if prompt_translate_tag == "_prompt":
+                    prompt_translate = True
+                else:
+                    assert prompt_translate_tag == "_noprompt"
+                    prompt_translate = False
     
                 async def process_batch_async():
                     """Process batch requests asynchronously."""
