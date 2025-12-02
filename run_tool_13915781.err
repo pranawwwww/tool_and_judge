@@ -10,3 +10,98 @@ Also make sure that all modulefiles written in TCL start with the string
 
 
 
+`torch_dtype` is deprecated! Use `dtype` instead!
+[1;36m(VllmWorker rank=0 pid=82349)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+[1;36m(VllmWorker rank=0 pid=82349)[0;0m Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:01,  2.45it/s]
+[1;36m(VllmWorker rank=0 pid=82349)[0;0m Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:02<00:04,  1.45s/it]
+[1;36m(VllmWorker rank=0 pid=82349)[0;0m Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:05<00:04,  2.26s/it]
+[1;36m(VllmWorker rank=0 pid=82349)[0;0m Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:08<00:02,  2.63s/it]
+[1;36m(VllmWorker rank=0 pid=82349)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:11<00:00,  2.69s/it]
+[1;36m(VllmWorker rank=0 pid=82349)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:11<00:00,  2.36s/it]
+[1;36m(VllmWorker rank=0 pid=82349)[0;0m 
+[2025-12-01 21:55:47] INFO _client.py:1740: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-12-01 21:55:56] INFO _client.py:1740: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-12-01 21:56:09] INFO _client.py:1740: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-12-01 21:56:13] INFO _client.py:1740: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+/projects/bfdz/zluo8/tool_and_judge/models/model_factory.py:178: RuntimeWarning: coroutine 'VLLMBackend.shutdown' was never awaited
+  print(f"Warning: Error during backend cleanup [{instance_name}]: {e}")
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Process EngineCore_0:
+Traceback (most recent call last):
+  File "/sw/spack/deltas11-2023-03/apps/linux-rhel8-zen3/gcc-11.4.0/python-3.12.1-ahcgi2c/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/sw/spack/deltas11-2023-03/apps/linux-rhel8-zen3/gcc-11.4.0/python-3.12.1-ahcgi2c/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 400, in run_engine_core
+    raise e
+  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 387, in run_engine_core
+    engine_core = EngineCoreProc(*args, **kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 329, in __init__
+    super().__init__(vllm_config, executor_class, log_stats,
+  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 64, in __init__
+    self.model_executor = executor_class(vllm_config)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/executor/executor_base.py", line 52, in __init__
+    self._init_executor()
+  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 91, in _init_executor
+    self.workers = WorkerProc.wait_for_ready(unready_workers)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 370, in wait_for_ready
+    raise e from None
+Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+/sw/spack/deltas11-2023-03/apps/linux-rhel8-zen3/gcc-11.4.0/python-3.12.1-ahcgi2c/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 2 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+Traceback (most recent call last):
+  File "/projects/bfdz/zluo8/tool_and_judge/tool_main.py", line 1070, in <module>
+    print(f"Completed processing for config: {config}")
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sw/spack/deltas11-2023-03/apps/linux-rhel8-zen3/gcc-11.4.0/python-3.12.1-ahcgi2c/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/sw/spack/deltas11-2023-03/apps/linux-rhel8-zen3/gcc-11.4.0/python-3.12.1-ahcgi2c/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sw/spack/deltas11-2023-03/apps/linux-rhel8-zen3/gcc-11.4.0/python-3.12.1-ahcgi2c/lib/python3.12/asyncio/base_events.py", line 684, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/projects/bfdz/zluo8/tool_and_judge/tool_main.py", line 617, in process_all_configs
+    await process_batch_async()
+  File "/projects/bfdz/zluo8/tool_and_judge/tool_main.py", line 576, in process_batch_async
+    backend = get_or_create_backend(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/bfdz/zluo8/tool_and_judge/tool_main.py", line 249, in get_or_create_backend
+    return create_backend(
+           ^^^^^^^^^^^^^^^
+  File "/projects/bfdz/zluo8/tool_and_judge/models/model_factory.py", line 497, in create_backend
+    return _global_backend_cache.get_or_create(config, creator_func, instance_name=instance_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/bfdz/zluo8/tool_and_judge/models/model_factory.py", line 144, in get_or_create
+    new_backend = creator_func(config)
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/projects/bfdz/zluo8/tool_and_judge/models/model_factory.py", line 382, in _create_vllm_backend
+    return VLLMBackend(
+           ^^^^^^^^^^^^
+  File "/projects/bfdz/zluo8/tool_and_judge/models/vllm_backend.py", line 57, in __init__
+    self.engine = AsyncLLMEngine.from_engine_args(engine_args)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/engine/async_llm_engine.py", line 684, in from_engine_args
+    return async_engine_cls.from_vllm_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/v1/engine/async_llm.py", line 150, in from_vllm_config
+    return cls(
+           ^^^^
+  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/v1/engine/async_llm.py", line 118, in __init__
+    self.engine_core = core_client_class(
+                       ^^^^^^^^^^^^^^^^^^
+  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 642, in __init__
+    super().__init__(
+  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 398, in __init__
+    self._wait_for_engine_startup()
+  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 430, in _wait_for_engine_startup
+    raise RuntimeError("Engine core initialization failed. "
+RuntimeError: Engine core initialization failed. See root cause above.

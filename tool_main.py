@@ -966,16 +966,18 @@ async def process_all_configs():
                 # Process results as they complete
                 allow_synonym_results = []
                 completed_count = 0
+                print(f"\nSubmitting {len(source_results)} allow_synonym requests concurrently...")
                 for coro in asyncio.as_completed(tasks):
                     allow_synonym_entry = await coro
                     completed_count += 1
 
-                    print(f"[{completed_count}/{len(source_results)}] Processed allow_synonym for sample {allow_synonym_entry['id']}")
+                    # print(f"[{completed_count}/{len(source_results)}] Processed allow_synonym for sample {allow_synonym_entry['id']}")
 
                     allow_synonym_results.append(allow_synonym_entry)
 
                     # Write to file immediately (unsorted)
                     write_json_lines_to_file(allow_synonym_output_path, allow_synonym_results)
+                print(f"All {len(source_results)} allow_synonym samples processed.")
 
                 return allow_synonym_results
 
