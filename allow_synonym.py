@@ -109,7 +109,7 @@ def _get_allow_synonym_backend():
 
 
 async def _llm_match_async(param_value: Any, ground_truth_value: Any,
-                           post_process_option: AllowSynonymOption) -> bool:
+                           post_process_option: AllowSynonymOption) -> Tuple[bool, str]:
     """
     Asynchronously determine if parameters match using LLM.
 
@@ -119,25 +119,37 @@ async def _llm_match_async(param_value: Any, ground_truth_value: Any,
         post_process_option: Determines matching strictness (language handling)
 
     Returns:
-        True if values match in meaning, False otherwise
+        Tuple of (decision: bool, raw_output: str)
+        - decision: True if values match in meaning, False otherwise
+        - raw_output: The raw response from the LLM
     """
     system_prompt = """You are a semantic similarity checker. Given two parameter values (which may be in different formats or languages), determine if they meet the matching criteria.
 
-Respond with only "yes" if they match, or "no" if they don't. Do not include any other text."""
+CRITICAL: You must respond with EXACTLY one word: either "yes" or "no" (lowercase, no punctuation, no explanation).
+
+Examples:
+- If they match: respond with exactly "yes"
+- If they don't match: respond with exactly "no"
+
+Do not include any other text, explanation, or punctuation."""
 
     # Conditional user prompt based on post_process_option
-    if post_process_option == AllowSynonymOption.POST_PROCESS_SAME:
+    if post_process_option == AllowSynonymOption.ALLOW_SYNONYM_SAME_LANGUAGE:
         # Strict: require same language AND same meaning
         user_prompt = f"""Parameter value from model: {json.dumps(param_value, ensure_ascii=False)}
 Ground truth value: {json.dumps(ground_truth_value, ensure_ascii=False)}
 
-Do these values match in meaning AND are they in the same language?"""
+Do these values match in meaning AND are they in the same language?
+Answer with exactly "yes" or "no"."""
     else:
+        assert post_process_option == AllowSynonymOption.ALLOW_SYNONYM_DIFFERENT_LANGUAGE, \
+            f"Unexpected post_process_option: {post_process_option}"
         # POST_PROCESS_DIFFERENT: accept different languages as long as meaning matches
         user_prompt = f"""Parameter value from model: {json.dumps(param_value, ensure_ascii=False)}
 Ground truth value: {json.dumps(ground_truth_value, ensure_ascii=False)}
 
-Do these values match in meaning (ignoring language differences)?"""
+Do these values match in meaning (ignoring language differences)?
+Answer with exactly "yes" or "no"."""
 
     # Get backend
     backend = _get_allow_synonym_backend()
@@ -158,12 +170,40 @@ Do these values match in meaning (ignoring language differences)?"""
     response = await client.chat.completions.create(
         model=_allow_synonym_model_name,
         messages=messages,
-        temperature=0.0,
-        max_tokens=10
     )
 
-    response_text = response.choices[0].message.content.strip()
-    return response_text.lower().startswith('yes')
+    # Extract and validate response content
+    if not response.choices or len(response.choices) == 0:
+        raise ValueError(f"LLM returned no choices. Full response: {response}")
+
+    content = response.choices[0].message.content
+    if content is None:
+        raise ValueError(f"LLM returned None content. Response: {response.choices[0]}")
+
+    raw_output = content.strip()
+
+    if not raw_output:
+        # Debug: show what was in content before stripping
+        raise ValueError(
+            f"LLM returned empty response after strip. "
+            f"Finish reason: {response.choices[0].finish_reason}, "
+            f"Original content: {repr(content)}, "
+            f"Content length: {len(content)}"
+        )
+
+    # Rigorous output parsing: accept only "yes" or "no" (case-insensitive)
+    normalized_output = raw_output.lower()
+
+    if normalized_output == "yes":
+        decision = True
+    elif normalized_output == "no":
+        decision = False
+    else:
+        # Invalid response - print warning and default to False
+        print(f"Warning: LLM returned invalid response '{raw_output}' (expected 'yes' or 'no'). Defaulting to 'no'.")
+        decision = False
+
+    return decision, raw_output
 
 
 async def llm_match_parameters_async(param_value: Any, ground_truth_value: Any,
@@ -212,14 +252,14 @@ async def llm_match_parameters_async(param_value: Any, ground_truth_value: Any,
     cache_stats['misses'] += 1
 
     try:
-        match = await _llm_match_async(param_value, ground_truth_value, post_process_option)
-        cache[cache_key] = match
+        decision, raw_output = await _llm_match_async(param_value, ground_truth_value, post_process_option)
+        cache[cache_key] = decision
 
-        # Save cache immediately and print new entry
+        # Save cache immediately and print new entry with both decision and raw output
         save_cache(cache_path, cache)
-        print(f"[Cache] New entry: {cache_key[:80]}... → {match}")
+        print(f"[Cache] New entry: {cache_key[:80]}... → decision={decision}, raw_output='{raw_output}'")
 
-        return match
+        return decision
     except Exception as e:
         print(f"Warning: LLM matching failed for {param_value} vs {ground_truth_value}: {e}")
         exit(1)

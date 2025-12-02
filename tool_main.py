@@ -286,7 +286,6 @@ async def process_all_configs():
     for config in configs:
         print(f"Processing config: {config}", flush=True)
 
-        allow_synonym_option = AllowSynonymOption.DONT_ALLOW_SYNONYM
         prompt_translate = False
         # map translate_info to language_postfix, translate_dataset_prefix, translate_mode_prefix
         match config.translate_mode:
@@ -743,7 +742,7 @@ async def process_all_configs():
                         indices_for_strings = []
 
                         for i, item in enumerate(items):
-                            if isinstance(item, str):
+                            if isinstance(item, str) and item.strip():
                                 # Translate string items
                                 translation_tasks.append(
                                     translation_interface.translate_tool_answer_async(
@@ -787,7 +786,7 @@ async def process_all_configs():
                         keys_for_string_values = []  # Store parameter names (not translated)
 
                         for param_name, param_value in arguments.items():
-                            if isinstance(param_value, str):
+                            if isinstance(param_value, str) and param_value.strip():
                                 # Translate this string VALUE
                                 # The parameter NAME (param_name) is preserved as-is
                                 translation_tasks.append(
@@ -924,10 +923,12 @@ async def process_all_configs():
                 allow_synonym_cache = allow_synonym_cache_same
                 allow_synonym_cache_stats = allow_synonym_cache_stats_same
                 cache_path = allow_synonym_cache_same_path
+                allow_synonym_option = AllowSynonymOption.ALLOW_SYNONYM_SAME_LANGUAGE
             elif allow_synonym_tag == "_allowdiff":  # POST_PROCESS_DIFFERENT
                 allow_synonym_cache = allow_synonym_cache_different
                 allow_synonym_cache_stats = allow_synonym_cache_stats_different
                 cache_path = allow_synonym_cache_different_path
+                allow_synonym_option = AllowSynonymOption.ALLOW_SYNONYM_DIFFERENT_LANGUAGE
             else:
                 raise ValueError(f"Unsupported allow synonym tag: {allow_synonym_tag}")
             source_results, _ = load_json_lines_from_file(allow_synonym_input_path)
