@@ -6,8 +6,26 @@ for efficient processing on GPU.
 """
 
 import asyncio
-from typing import Any, List
+from typing import Any, List, NamedTuple
+
+from transformers import AutoModelForCausalLM
 from .base import ModelBackend, ForwardResult, GenerationResult
+
+
+class ForwardRequest(NamedTuple):
+    """Request for forward pass inference."""
+    prompt: str
+    max_length: int
+    future: asyncio.Future
+
+
+class GenerationRequest(NamedTuple):
+    """Request for text generation inference."""
+    prompt: str
+    max_new_tokens: int
+    temperature: float
+    return_logprobs: bool
+    future: asyncio.Future
 
 
 class HuggingFaceBackend(ModelBackend):
@@ -21,7 +39,7 @@ class HuggingFaceBackend(ModelBackend):
 
     def __init__(
         self,
-        model: Any,
+        model: AutoModelForCausalLM,
         tokenizer: Any,
         device: str = "cuda",
         max_batch_size: int = 8,
@@ -44,8 +62,8 @@ class HuggingFaceBackend(ModelBackend):
         self.max_batch_wait = max_batch_wait
 
         # Queues for batching requests
-        self.forward_queue: List[tuple] = []
-        self.generation_queue: List[tuple] = []
+        self.forward_queue: List[ForwardRequest] = []
+        self.generation_queue: List[GenerationRequest] = []
 
         # Locks for thread-safe queue operations
         self.forward_lock = asyncio.Lock()
@@ -85,9 +103,9 @@ class HuggingFaceBackend(ModelBackend):
                 continue
 
             # Extract requests from batch
-            prompts = [item[0] for item in batch]
-            max_lengths = [item[1] for item in batch]
-            futures = [item[2] for item in batch]
+            prompts = [req.prompt for req in batch]
+            max_lengths = [req.max_length for req in batch]
+            futures = [req.future for req in batch]
 
             try:
                 # Use the maximum max_length from the batch
@@ -148,19 +166,19 @@ class HuggingFaceBackend(ModelBackend):
                 continue
 
             # Extract requests from batch
-            prompts = [item[0] for item in batch]
-            max_new_tokens_list = [item[1] for item in batch]
-            temperatures = [item[2] for item in batch]
-            do_samples = [item[3] for item in batch]
-            return_logprobs_list = [item[4] for item in batch]
-            futures = [item[5] for item in batch]
+            prompts = [req.prompt for req in batch]
+            max_new_tokens_list = [req.max_new_tokens for req in batch]
+            temperatures = [req.temperature for req in batch]
+            return_logprobs_list = [req.return_logprobs for req in batch]
+            futures = [req.future for req in batch]
 
             try:
                 # Use max values from batch
                 max_new_tokens = max(max_new_tokens_list)
-                # For temperature and do_sample, use the most common value or first value
+                # For temperature, use the first value
                 temperature = temperatures[0]
-                do_sample = do_samples[0]
+                # Derive do_sample from temperature
+                do_sample = (temperature > 0)
                 # Check if any request needs logprobs
                 any_return_logprobs = any(return_logprobs_list)
 
@@ -288,7 +306,11 @@ class HuggingFaceBackend(ModelBackend):
 
         # Add request to queue
         async with self.forward_lock:
-            self.forward_queue.append((prompt, max_length, future))
+            self.forward_queue.append(ForwardRequest(
+                prompt=prompt,
+                max_length=max_length,
+                future=future
+            ))
 
         # Wait for result
         return await future
@@ -298,7 +320,6 @@ class HuggingFaceBackend(ModelBackend):
         prompt: str,
         max_new_tokens: int = 100,
         temperature: float = 0.0,
-        do_sample: bool = False,
         return_logprobs: bool = False,
         **kwargs
     ) -> GenerationResult:
@@ -310,8 +331,7 @@ class HuggingFaceBackend(ModelBackend):
         Args:
             prompt: The input prompt text
             max_new_tokens: Maximum number of tokens to generate
-            temperature: Sampling temperature
-            do_sample: Whether to use sampling
+            temperature: Sampling temperature (0.0 for greedy, >0 for sampling)
             return_logprobs: If True, return log probabilities in unified format
 
         Returns:
@@ -329,13 +349,12 @@ class HuggingFaceBackend(ModelBackend):
 
         # Add request to queue
         async with self.generation_lock:
-            self.generation_queue.append((
-                prompt,
-                max_new_tokens,
-                temperature,
-                do_sample,
-                return_logprobs,
-                future
+            self.generation_queue.append(GenerationRequest(
+                prompt=prompt,
+                max_new_tokens=max_new_tokens,
+                temperature=temperature,
+                return_logprobs=return_logprobs,
+                future=future
             ))
 
         # Wait for result
@@ -346,7 +365,6 @@ class HuggingFaceBackend(ModelBackend):
         prompt: str,
         max_new_tokens: int = 100,
         temperature: float = 0.0,
-        do_sample: bool = False,
         return_logprobs: bool = False,
         **kwargs
     ) -> GenerationResult:
@@ -356,7 +374,6 @@ class HuggingFaceBackend(ModelBackend):
                 prompt=prompt,
                 max_new_tokens=max_new_tokens,
                 temperature=temperature,
-                do_sample=do_sample,
                 return_logprobs=return_logprobs,
                 **kwargs
             )

@@ -85,7 +85,6 @@ class APIBackend(ModelBackend):
         prompt: str,
         max_new_tokens: int = 100,
         temperature: float = 0.0,
-        do_sample: bool = False,
         **kwargs
     ) -> GenerationResult:
         """
@@ -94,8 +93,7 @@ class APIBackend(ModelBackend):
         Args:
             prompt: The input prompt text
             max_new_tokens: Maximum number of tokens to generate
-            temperature: Sampling temperature (0.0 for greedy decoding)
-            do_sample: Whether to use sampling (affects temperature usage)
+            temperature: Sampling temperature (0.0 for greedy, >0 for sampling)
             **kwargs: Additional API-specific parameters
 
         Returns:
@@ -106,7 +104,7 @@ class APIBackend(ModelBackend):
             "model": self.model_name,
             "messages": [{"role": "user", "content": prompt}],
             "max_tokens": max_new_tokens,
-            "temperature": temperature if do_sample else 0.0,
+            "temperature": temperature,
         }
 
         # Add any additional kwargs
@@ -139,7 +137,6 @@ class APIBackend(ModelBackend):
         prompt: str,
         max_new_tokens: int = 100,
         temperature: float = 0.0,
-        do_sample: bool = False,
         **kwargs
     ) -> GenerationResult:
         """Synchronous version of generate_async."""
@@ -148,7 +145,6 @@ class APIBackend(ModelBackend):
                 prompt=prompt,
                 max_new_tokens=max_new_tokens,
                 temperature=temperature,
-                do_sample=do_sample,
                 **kwargs
             )
         )

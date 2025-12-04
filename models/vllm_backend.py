@@ -95,7 +95,6 @@ class VLLMBackend(ModelBackend):
         prompt: str,
         max_new_tokens: int = 100,
         temperature: float = 0.0,
-        do_sample: bool = False,
         return_logprobs: bool = False,
         **kwargs
     ) -> GenerationResult:
@@ -107,8 +106,7 @@ class VLLMBackend(ModelBackend):
         Args:
             prompt: The input prompt text
             max_new_tokens: Maximum number of tokens to generate
-            temperature: Sampling temperature
-            do_sample: Whether to use sampling
+            temperature: Sampling temperature (0.0 for greedy, >0 for sampling)
             return_logprobs: If True, return log probabilities in unified format
 
         Returns:
@@ -121,10 +119,11 @@ class VLLMBackend(ModelBackend):
 
         # Create sampling params - only request logprobs if needed
         # vLLM's logprobs parameter specifies how many top logprobs to return per token
+        # Note: top_p=0.95 has no effect when temperature=0 (greedy decoding)
         sampling_params = self.SamplingParams(
             max_tokens=max_new_tokens,
-            temperature=temperature if do_sample else 0.0,
-            top_p=1.0 if not do_sample else 0.95,
+            temperature=temperature,
+            top_p=0.95,  # Fixed value; no effect when temperature=0
             logprobs=20 if return_logprobs else None  # Request top 20 logprobs if needed
         )
 
@@ -212,7 +211,6 @@ class VLLMBackend(ModelBackend):
         prompt: str,
         max_new_tokens: int = 100,
         temperature: float = 0.0,
-        do_sample: bool = False,
         return_logprobs: bool = False,
         **kwargs
     ) -> GenerationResult:
@@ -222,7 +220,6 @@ class VLLMBackend(ModelBackend):
                 prompt=prompt,
                 max_new_tokens=max_new_tokens,
                 temperature=temperature,
-                do_sample=do_sample,
                 return_logprobs=return_logprobs,
                 **kwargs
             )

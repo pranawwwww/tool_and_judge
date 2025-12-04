@@ -38,16 +38,26 @@ class Qwen3Interface(JudgeModelInterface, ToolModelInterface):
     - Preference comparison (judge project)
     """
 
-    def __init__(self, model_name: str = "Qwen/Qwen3-8B", enable_thinking: bool = False):
+    def __init__(
+        self,
+        model_name: str = "Qwen/Qwen3-8B",
+        enable_thinking: bool = False,
+        direct_temperature: float = 0.0,
+        reason_temperature: float = 0.0
+    ):
         """
         Initialize the Qwen3 interface.
 
         Args:
             model_name: Model identifier (e.g., "Qwen/Qwen3-8B", "Qwen/Qwen3-14B")
             enable_thinking: Whether to enable chain-of-thought reasoning mode
+            direct_temperature: Temperature for direct comparison (without reasoning)
+            reason_temperature: Temperature for reasoning-based comparison (with CoT)
         """
         self.model_name = model_name
         self.enable_thinking = enable_thinking
+        self.direct_temperature = direct_temperature
+        self.reason_temperature = reason_temperature
 
     # =========================================================================
     # ModelInterface Methods
@@ -149,7 +159,6 @@ class Qwen3Interface(JudgeModelInterface, ToolModelInterface):
             prompt=formatted_prompt,
             max_new_tokens=max_new_tokens,
             temperature=temperature,
-            do_sample=(temperature > 0),
         )
 
         return result.generated_text
@@ -272,7 +281,6 @@ class Qwen3Interface(JudgeModelInterface, ToolModelInterface):
             prompt=formatted_prompt,
             max_new_tokens=max_new_tokens,
             temperature=temperature,
-            do_sample=(temperature > 0),
         )
 
         return result.generated_text.strip()
@@ -316,7 +324,6 @@ class Qwen3Interface(JudgeModelInterface, ToolModelInterface):
             prompt=formatted_prompt,
             max_new_tokens=max_new_tokens,
             temperature=temperature,
-            do_sample=(temperature > 0),
         )
 
         return result.generated_text.strip()
@@ -374,9 +381,8 @@ Provide your judgment IMMEDIATELY without reasoning or explanation. Provide your
         result = await backend.generate_async(
             prompt=formatted_prompt,
             max_new_tokens=100,
-            temperature=0.0,
-            do_sample=False,
-            return_logprobs=True,  # Request logprobs in unified format
+            temperature=self.direct_temperature,
+            return_logprobs=True,  # Request logprobs for probability extraction
             **kwargs
         )
 
@@ -451,8 +457,8 @@ Please briefly explain your reasoning, and then provide your final decision in t
         result = await backend.generate_async(
             prompt=formatted_prompt,
             max_new_tokens=512,
-            temperature=0.0,
-            do_sample=False,
+            temperature=self.reason_temperature,
+            return_logprobs=False,  # No logprobs needed for reasoning
             **kwargs
         )
 

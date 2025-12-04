@@ -189,7 +189,6 @@ class ModelBackend(ABC):
         prompt: str,
         max_new_tokens: int = 100,
         temperature: float = 0.0,
-        do_sample: bool = False,
         return_logprobs: bool = False,
         **kwargs
     ) -> GenerationResult:
@@ -199,8 +198,7 @@ class ModelBackend(ABC):
         Args:
             prompt: The input prompt text (already formatted by interface)
             max_new_tokens: Maximum number of new tokens to generate
-            temperature: Sampling temperature (0.0 for greedy decoding)
-            do_sample: Whether to use sampling
+            temperature: Sampling temperature (0.0 for greedy decoding, >0 for sampling)
             return_logprobs: If True, return log probabilities for generated tokens.
                            Backend MUST provide logprobs when this is True, or raise error.
             **kwargs: Additional backend-specific parameters
@@ -221,7 +219,6 @@ class ModelBackend(ABC):
         prompt: str,
         max_new_tokens: int = 100,
         temperature: float = 0.0,
-        do_sample: bool = False,
         return_logprobs: bool = False,
         **kwargs
     ) -> GenerationResult:
@@ -233,8 +230,7 @@ class ModelBackend(ABC):
         Args:
             prompt: The input prompt text (already formatted by interface)
             max_new_tokens: Maximum number of new tokens to generate
-            temperature: Sampling temperature (0.0 for greedy decoding)
-            do_sample: Whether to use sampling
+            temperature: Sampling temperature (0.0 for greedy decoding, >0 for sampling)
             return_logprobs: If True, return log probabilities for generated tokens.
                            Backend MUST provide logprobs when this is True, or raise error.
             **kwargs: Additional backend-specific parameters
