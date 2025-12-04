@@ -4,7 +4,8 @@
       "Bash(cp:*)",
       "Bash(python:*)",
       "Bash(cat:*)",
-      "WebFetch(domain:qwen.readthedocs.io)"
+      "WebFetch(domain:qwen.readthedocs.io)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []

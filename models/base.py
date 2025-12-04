@@ -81,7 +81,7 @@ class GenerationResult:
 
 @dataclass
 class ComparisonResult:
-    """Result from a preference comparison task."""
+    """Result from a preference comparison task (deprecated - use DirectComparisonResult or CoTComparisonResult)."""
 
     preference: int  # Which answer is preferred (1 or 2)
     reasoning: Optional[str] = None  # Optional reasoning text (for CoT)
@@ -102,6 +102,64 @@ class ComparisonResult:
         self.preference = preference
         self.reasoning = reasoning
         self.raw_output = raw_output
+
+
+@dataclass
+class DirectComparisonResult:
+    """Result from a direct preference comparison (without reasoning)."""
+
+    preference: Optional[int]  # Which answer is preferred (1 or 2), None if error
+    raw_output: str  # Full model output (reasoning merged if any)
+    logit_1: float  # Probability/logit for choice "1" (mandatory)
+    logit_2: float  # Probability/logit for choice "2" (mandatory)
+    error: Optional[str] = None  # Error message if model fails to choose
+
+    def __init__(
+        self,
+        preference: Optional[int],
+        raw_output: str,
+        logit_1: float,
+        logit_2: float,
+        error: Optional[str] = None
+    ):
+        """
+        Args:
+            preference: Which answer is preferred (1 or 2), None if error occurred
+            raw_output: Full raw output from the model (reasoning merged if any)
+            logit_1: Probability/logit for choice "1" (mandatory)
+            logit_2: Probability/logit for choice "2" (mandatory)
+            error: Error message if the model failed to choose between 1 and 2
+        """
+        self.preference = preference
+        self.raw_output = raw_output
+        self.logit_1 = logit_1
+        self.logit_2 = logit_2
+        self.error = error
+
+
+@dataclass
+class CoTComparisonResult:
+    """Result from a chain-of-thought preference comparison (with reasoning)."""
+
+    preference: Optional[int] = None  # Which answer is preferred (1 or 2), None if error
+    raw_output: str = ""  # Full model output (reasoning merged with final answer)
+    error: Optional[str] = None  # Error message if model fails to choose
+
+    def __init__(
+        self,
+        preference: Optional[int] = None,
+        raw_output: str = "",
+        error: Optional[str] = None
+    ):
+        """
+        Args:
+            preference: Which answer is preferred (1 or 2), None if error occurred
+            raw_output: Full raw output from the model (reasoning merged with final answer)
+            error: Error message if the model failed to choose between 1 and 2
+        """
+        self.preference = preference
+        self.raw_output = raw_output
+        self.error = error
 
 
 # =============================================================================
@@ -463,15 +521,19 @@ class JudgeModelInterface(ModelInterface):
         answer1: str,
         answer2: str,
         **kwargs
-    ) -> ComparisonResult:
+    ) -> 'DirectComparisonResult':
         """
         Compare two answers directly without reasoning.
 
         This method should:
         1. Format the comparison prompt (with question and both answers)
-        2. Call backend to generate
+        2. Call backend to generate with logprobs enabled
         3. Parse the output to extract preference (1 or 2)
-        4. Return ComparisonResult
+        4. Extract probability logits for choices "1" and "2" (MANDATORY - must raise error if unavailable)
+        5. Return DirectComparisonResult with preference, logit_1, logit_2, and optional error
+
+        IMPORTANT: logit_1 and logit_2 are mandatory fields. If the backend fails to provide
+        logits for both choices, the implementation MUST raise an error and exit immediately.
 
         Args:
             backend: The backend to use for inference
@@ -481,7 +543,10 @@ class JudgeModelInterface(ModelInterface):
             **kwargs: Additional model-specific parameters
 
         Returns:
-            ComparisonResult with preference (1 or 2)
+            DirectComparisonResult with preference (1 or 2), logit_1, logit_2, and optional error
+
+        Raises:
+            RuntimeError: If logits cannot be extracted from backend response
         """
         pass
 
@@ -492,7 +557,7 @@ class JudgeModelInterface(ModelInterface):
         answer1: str,
         answer2: str,
         **kwargs
-    ) -> ComparisonResult:
+    ) -> 'DirectComparisonResult':
         """Synchronous version of compare_directly_async."""
         return asyncio.run(
             self.compare_directly_async(
@@ -512,7 +577,7 @@ class JudgeModelInterface(ModelInterface):
         answer1: str,
         answer2: str,
         **kwargs
-    ) -> ComparisonResult:
+    ) -> 'CoTComparisonResult':
         """
         Compare two answers with chain-of-thought reasoning.
 
@@ -520,7 +585,8 @@ class JudgeModelInterface(ModelInterface):
         1. Format the comparison prompt (encouraging reasoning)
         2. Call backend to generate (with reasoning enabled if applicable)
         3. Parse the output to extract both reasoning and preference
-        4. Return ComparisonResult with reasoning text
+        4. Merge reasoning with raw output
+        5. Return CoTComparisonResult with merged output and optional error
 
         Args:
             backend: The backend to use for inference
@@ -530,7 +596,7 @@ class JudgeModelInterface(ModelInterface):
             **kwargs: Additional model-specific parameters
 
         Returns:
-            ComparisonResult with preference (1 or 2) and reasoning text
+            CoTComparisonResult with preference (1 or 2), merged raw output, and optional error
         """
         pass
 
@@ -541,7 +607,7 @@ class JudgeModelInterface(ModelInterface):
         answer1: str,
         answer2: str,
         **kwargs
-    ) -> ComparisonResult:
+    ) -> 'CoTComparisonResult':
         """Synchronous version of compare_thinking_async."""
         return asyncio.run(
             self.compare_thinking_async(

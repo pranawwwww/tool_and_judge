@@ -19,6 +19,8 @@ from .base import (
     ToolModelInterface,
     ModelBackend,
     ComparisonResult,
+    DirectComparisonResult,
+    CoTComparisonResult,
     ForwardResult,
 )
 
@@ -330,14 +332,15 @@ class Qwen3Interface(JudgeModelInterface, ToolModelInterface):
         answer1: str,
         answer2: str,
         **kwargs
-    ) -> ComparisonResult:
+    ) -> DirectComparisonResult:
         """
         Compare two answers directly without reasoning.
 
         This method:
         1. Formats the comparison prompt
-        2. Calls backend to generate
+        2. Calls backend to generate with logprobs
         3. Parses output to extract preference (1 or 2)
+        4. Extracts probability logits for choices "1" and "2"
 
         Args:
             backend: The backend to use for inference
@@ -347,7 +350,7 @@ class Qwen3Interface(JudgeModelInterface, ToolModelInterface):
             **kwargs: Additional model-specific parameters
 
         Returns:
-            ComparisonResult with preference (1 or 2)
+            DirectComparisonResult with preference, probability logits, and optional error
         """
         # Build comparison prompt
         prompt_text = f"""Given the following question and two answers, which answer is better?
@@ -367,23 +370,36 @@ Provide your judgment IMMEDIATELY without reasoning or explanation. Provide your
         # Disable thinking for direct comparison
         formatted_prompt += "<think>\n\n</think>\n\n"
 
-        # Call backend
+        # Call backend with logprobs enabled
         result = await backend.generate_async(
             prompt=formatted_prompt,
             max_new_tokens=100,
             temperature=0.0,
             do_sample=False,
+            logprobs=20,  # Request top 20 logprobs to ensure we capture "1" and "2"
             **kwargs
         )
 
         # Parse preference from output
         raw_output = result.generated_text
-        preference = self._parse_preference(raw_output)
 
-        return ComparisonResult(
+        # Try to parse preference
+        preference = None
+        error = None
+        try:
+            preference = self._parse_preference(raw_output)
+        except ValueError as e:
+            error = str(e)
+
+        # Extract probability logits for "1" and "2" (MANDATORY)
+        logit_1, logit_2 = self._extract_choice_probabilities(backend, result)
+
+        return DirectComparisonResult(
             preference=preference,
-            reasoning=None,
-            raw_output=raw_output
+            raw_output=raw_output,
+            logit_1=logit_1,
+            logit_2=logit_2,
+            error=error
         )
 
     async def compare_thinking_async(
@@ -393,7 +409,7 @@ Provide your judgment IMMEDIATELY without reasoning or explanation. Provide your
         answer1: str,
         answer2: str,
         **kwargs
-    ) -> ComparisonResult:
+    ) -> CoTComparisonResult:
         """
         Compare two answers with chain-of-thought reasoning.
 
@@ -401,6 +417,7 @@ Provide your judgment IMMEDIATELY without reasoning or explanation. Provide your
         1. Formats the comparison prompt (encouraging reasoning)
         2. Calls backend with thinking enabled
         3. Parses output to extract reasoning and preference
+        4. Returns merged raw output (reasoning already included)
 
         Args:
             backend: The backend to use for inference
@@ -410,7 +427,7 @@ Provide your judgment IMMEDIATELY without reasoning or explanation. Provide your
             **kwargs: Additional model-specific parameters
 
         Returns:
-            ComparisonResult with preference (1 or 2) and reasoning text
+            CoTComparisonResult with preference, merged raw output, and optional error
         """
         # Build comparison prompt with CoT instruction
         prompt_text = f"""Given the following question and two answers, which answer is better?
@@ -441,15 +458,20 @@ Please briefly explain your reasoning, and then provide your final decision in t
 
         # Parse preference and extract reasoning
         raw_output = result.generated_text
-        preference = self._parse_preference(raw_output)
 
-        # Extract reasoning (text before the final \\boxed{} decision)
-        reasoning = self._extract_reasoning(raw_output)
+        # Try to parse preference
+        preference = None
+        error = None
+        try:
+            preference = self._parse_preference(raw_output)
+        except ValueError as e:
+            error = str(e)
 
-        return ComparisonResult(
+        # raw_output already contains both reasoning and final answer merged
+        return CoTComparisonResult(
             preference=preference,
-            reasoning=reasoning,
-            raw_output=raw_output
+            raw_output=raw_output,
+            error=error
         )
 
     async def forward_for_logits_async(
@@ -521,6 +543,93 @@ Please briefly explain your reasoning, and then provide your final decision in t
     # =========================================================================
     # Helper Methods
     # =========================================================================
+
+    def _extract_choice_probabilities(
+        self,
+        backend: ModelBackend,
+        result
+    ) -> tuple[float, float]:
+        """
+        Extract probability logits for choices "1" and "2" from generation result.
+
+        This method extracts the probabilities for tokens "1" and "2" from the
+        logprobs returned by the backend. This is MANDATORY - if logits cannot
+        be extracted, the method raises a RuntimeError.
+
+        Args:
+            backend: The backend used for generation (to access tokenizer)
+            result: GenerationResult from backend.generate_async
+
+        Returns:
+            Tuple of (logit_1, logit_2) containing probabilities for choices "1" and "2"
+
+        Raises:
+            RuntimeError: If logits cannot be extracted from the backend response
+        """
+        import math
+
+        if result.logits is None:
+            raise RuntimeError(
+                "Backend failed to provide logits. "
+                "Direct comparison requires logprobs to be enabled in the backend. "
+                "Please ensure the backend is configured with logprobs support."
+            )
+
+        try:
+            # Get tokenizer to find token IDs for "1" and "2"
+            tokenizer = backend.get_tokenizer()
+            token_1_id = tokenizer.encode("1", add_special_tokens=False)[0]
+            token_2_id = tokenizer.encode("2", add_special_tokens=False)[0]
+
+            # Extract logprobs from the result
+            # The format varies by backend:
+            # - vLLM: list of dicts per token with 'logprobs' key containing dict of token_id -> logprob
+            # - HuggingFace: tuple of tensors
+
+            logprobs_data = result.logits
+
+            # Handle vLLM format (list of dicts)
+            if isinstance(logprobs_data, list) and len(logprobs_data) > 0:
+                # Get the first token's logprobs (the decision token)
+                first_token_logprobs = logprobs_data[0]
+
+                if isinstance(first_token_logprobs, dict) and 'logprobs' in first_token_logprobs:
+                    # vLLM format: {'logprobs': {token_id: logprob, ...}, ...}
+                    token_logprobs = first_token_logprobs['logprobs']
+
+                    # Get logprobs for "1" and "2"
+                    if token_1_id not in token_logprobs:
+                        raise RuntimeError(
+                            f"Token '1' (ID: {token_1_id}) not found in logprobs. "
+                            f"Available tokens: {list(token_logprobs.keys())[:10]}..."
+                        )
+                    if token_2_id not in token_logprobs:
+                        raise RuntimeError(
+                            f"Token '2' (ID: {token_2_id}) not found in logprobs. "
+                            f"Available tokens: {list(token_logprobs.keys())[:10]}..."
+                        )
+
+                    logprob_1 = token_logprobs[token_1_id]
+                    logprob_2 = token_logprobs[token_2_id]
+
+                    # Convert log probabilities to probabilities
+                    prob_1 = math.exp(logprob_1)
+                    prob_2 = math.exp(logprob_2)
+
+                    return (prob_1, prob_2)
+
+            # If we can't extract probabilities, raise error
+            raise RuntimeError(
+                f"Unsupported logprobs format from backend. "
+                f"Expected vLLM format (list of dicts), got: {type(logprobs_data)}"
+            )
+
+        except RuntimeError:
+            # Re-raise RuntimeError as-is
+            raise
+        except Exception as e:
+            # Wrap other exceptions in RuntimeError
+            raise RuntimeError(f"Failed to extract choice probabilities: {e}") from e
 
     def _parse_preference(self, raw_output: str) -> int:
         """

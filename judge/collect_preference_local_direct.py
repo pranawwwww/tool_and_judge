@@ -1,13 +1,14 @@
 import json
 import os
 import asyncio
+from models.base import JudgeModelInterface
 import torch
 
 
 async def collect_preference_local_direct_async(
         pairs,
         backend,
-        model_interface,
+        model_interface: JudgeModelInterface,
         batch_size=8):
     """
     Use a local LLM to judge which answer is better.
@@ -52,10 +53,18 @@ async def collect_preference_local_direct_async(
                 )
 
                 preference = comparison_result.preference
+                raw_output = comparison_result.raw_output
+                logit_1 = comparison_result.logit_1
+                logit_2 = comparison_result.logit_2
+                error = comparison_result.error
 
                 output_result = {
                     'index': i,
                     'preference': preference,
+                    'raw_output': raw_output,
+                    'logit_1': logit_1,
+                    'logit_2': logit_2,
+                    'error': error,
                     'question': pair['question'],
                     'answer1': pair['answer1'],
                     'answer2': pair['answer2'],

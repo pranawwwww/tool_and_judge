@@ -50,12 +50,14 @@ async def collect_preference_local_cot_async(
                 )
 
                 preference = comparison_result.preference
-                reasoning = comparison_result.reasoning or comparison_result.raw_output or ""
+                raw_output = comparison_result.raw_output  # Reasoning is merged with raw output
+                error = comparison_result.error
 
                 output_result = {
                     'index': i,
                     'preference': preference,
-                    'reasoning': reasoning,
+                    'raw_output': raw_output,
+                    'error': error,
                     'question': pair['question'],
                     'answer1': pair['answer1'],
                     'answer2': pair['answer2'],
