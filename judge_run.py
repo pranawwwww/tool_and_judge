@@ -323,6 +323,14 @@ async def process_all_judge_configs():
         entries_lang2_correct = load_entries(f"judge/datasets/{second_lang}_correct.jsonl")
         entries_lang2_incorrect = load_entries(f"judge/datasets/{second_lang}_incorrect.jsonl")
 
+
+        # temp: cap the number of entries for quick testing
+        num_samples = 100
+        entries_lang1_correct = entries_lang1_correct[0:num_samples]
+        entries_lang1_incorrect = entries_lang1_incorrect[0:num_samples]
+        entries_lang2_correct = entries_lang2_correct[0:num_samples]
+        entries_lang2_incorrect = entries_lang2_incorrect[0:num_samples]
+
         print(f"Loaded {len(entries_lang1_correct)} entries from judge/datasets/{first_lang}_correct.jsonl")
         print(f"Loaded {len(entries_lang1_incorrect)} entries from judge/datasets/{first_lang}_incorrect.jsonl")
         print(f"Loaded {len(entries_lang2_correct)} entries from judge/datasets/{second_lang}_correct.jsonl")
