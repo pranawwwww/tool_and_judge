@@ -6,13 +6,12 @@
 # #SBATCH --partition=gpu                  # Partition/queue with GPU
 # #SBATCH --mail-type=BEGIN,END,FAIL
 # #SBATCH --mail-user=luozheng@usc.edu
-#SBATCH --gres=gpu:1                     # Request 1 GPU
+#SBATCH --gres=gpu:1                    # Request 1 GPU
 #SBATCH --cpus-per-task=4                # CPU cores
-#SBATCH --mem=16G                        # RAM
+#SBATCH --mem=32G                        # RAM
 #SBATCH --account=bfdz-delta-gpu    # Your Slurm account/project
 
 # Load modules or activate your environment
-module load python/3.12.1
 
 # Go to your project directory
 # cd /u/zluo8/qwen

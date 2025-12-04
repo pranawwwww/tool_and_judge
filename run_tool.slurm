@@ -12,7 +12,6 @@
 #SBATCH --account=bfdz-delta-gpu    # Your Slurm account/project
 
 # Load modules or activate your environment
-module load python/3.12.1
 
 # Go to your project directory
 # cd /u/zluo8/qwen

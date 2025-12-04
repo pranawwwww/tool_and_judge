@@ -1,37 +1,0 @@
-Lmod has detected the following error: The following module(s) are unknown:
-"python/3.12.1"
-
-Please check the spelling or version number. Also try "module spider ..."
-It is also possible your cache file is out-of-date; it may help to try:
-  $ module --ignore_cache load "python/3.12.1"
-
-Also make sure that all modulefiles written in TCL start with the string
-#%Module
-
-
-
-`torch_dtype` is deprecated! Use `dtype` instead!
-[1;36m(VllmWorker rank=0 pid=73363)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/16 [00:00<?, ?it/s]
-[1;36m(VllmWorker rank=0 pid=73363)[0;0m Loading safetensors checkpoint shards:   6% Completed | 1/16 [00:08<02:00,  8.06s/it]
-[1;36m(VllmWorker rank=0 pid=73363)[0;0m Loading safetensors checkpoint shards:  12% Completed | 2/16 [00:20<02:28, 10.62s/it]
-[1;36m(VllmWorker rank=0 pid=73363)[0;0m Loading safetensors checkpoint shards:  19% Completed | 3/16 [00:28<02:03,  9.52s/it]
-[1;36m(VllmWorker rank=0 pid=73363)[0;0m Loading safetensors checkpoint shards:  25% Completed | 4/16 [00:37<01:52,  9.35s/it]
-[1;36m(VllmWorker rank=0 pid=73363)[0;0m Loading safetensors checkpoint shards:  31% Completed | 5/16 [00:39<01:10,  6.45s/it]
-[1;36m(VllmWorker rank=0 pid=73363)[0;0m Loading safetensors checkpoint shards:  38% Completed | 6/16 [00:48<01:15,  7.54s/it]
-[1;36m(VllmWorker rank=0 pid=73363)[0;0m Loading safetensors checkpoint shards:  44% Completed | 7/16 [00:57<01:12,  8.04s/it]
-[1;36m(VllmWorker rank=0 pid=73363)[0;0m Loading safetensors checkpoint shards:  50% Completed | 8/16 [01:06<01:07,  8.39s/it]
-[1;36m(VllmWorker rank=0 pid=73363)[0;0m Loading safetensors checkpoint shards:  56% Completed | 9/16 [01:16<01:00,  8.64s/it]
-[1;36m(VllmWorker rank=0 pid=73363)[0;0m Loading safetensors checkpoint shards:  62% Completed | 10/16 [01:30<01:03, 10.56s/it]
-[1;36m(VllmWorker rank=0 pid=73363)[0;0m Loading safetensors checkpoint shards:  69% Completed | 11/16 [01:40<00:50, 10.17s/it]
-[1;36m(VllmWorker rank=0 pid=73363)[0;0m Loading safetensors checkpoint shards:  75% Completed | 12/16 [01:49<00:39,  9.88s/it]
-[1;36m(VllmWorker rank=0 pid=73363)[0;0m Loading safetensors checkpoint shards:  81% Completed | 13/16 [01:58<00:29,  9.68s/it]
-[1;36m(VllmWorker rank=0 pid=73363)[0;0m Loading safetensors checkpoint shards:  88% Completed | 14/16 [02:08<00:19,  9.57s/it]
-[1;36m(VllmWorker rank=0 pid=73363)[0;0m Loading safetensors checkpoint shards:  94% Completed | 15/16 [02:17<00:09,  9.51s/it]
-[1;36m(VllmWorker rank=0 pid=73363)[0;0m Loading safetensors checkpoint shards: 100% Completed | 16/16 [02:25<00:00,  9.03s/it]
-[1;36m(VllmWorker rank=0 pid=73363)[0;0m Loading safetensors checkpoint shards: 100% Completed | 16/16 [02:25<00:00,  9.08s/it]
-[1;36m(VllmWorker rank=0 pid=73363)[0;0m 
-[2025-12-01 22:21:17] INFO _client.py:1740: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-[2025-12-01 22:21:31] INFO _client.py:1740: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-[2025-12-01 22:21:34] INFO _client.py:1740: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-[2025-12-01 22:21:38] INFO _client.py:1740: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-[2025-12-01 22:21:39] INFO _client.py:1740: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"

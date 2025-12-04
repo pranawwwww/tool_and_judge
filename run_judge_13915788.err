@@ -1,22 +1,0 @@
-Lmod has detected the following error: The following module(s) are unknown:
-"python/3.12.1"
-
-Please check the spelling or version number. Also try "module spider ..."
-It is also possible your cache file is out-of-date; it may help to try:
-  $ module --ignore_cache load "python/3.12.1"
-
-Also make sure that all modulefiles written in TCL start with the string
-#%Module
-
-
-
-`torch_dtype` is deprecated! Use `dtype` instead!
-Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
-Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:03,  1.10it/s]
-Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:03<00:04,  1.62s/it]
-Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:05<00:04,  2.14s/it]
-Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:08<00:02,  2.37s/it]
-Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:11<00:00,  2.56s/it]
-Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:11<00:00,  2.28s/it]
-
-slurmstepd: error: *** JOB 13915788 ON gpua002 CANCELLED AT 2025-12-01T22:06:49 DUE TO TIME LIMIT ***

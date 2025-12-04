@@ -11,25 +11,6 @@ Also make sure that all modulefiles written in TCL start with the string
 
 
 `torch_dtype` is deprecated! Use `dtype` instead!
-[1;36m(VllmWorker rank=0 pid=82349)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
-[1;36m(VllmWorker rank=0 pid=82349)[0;0m Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:01,  2.45it/s]
-[1;36m(VllmWorker rank=0 pid=82349)[0;0m Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:02<00:04,  1.45s/it]
-[1;36m(VllmWorker rank=0 pid=82349)[0;0m Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:05<00:04,  2.26s/it]
-[1;36m(VllmWorker rank=0 pid=82349)[0;0m Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:08<00:02,  2.63s/it]
-[1;36m(VllmWorker rank=0 pid=82349)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:11<00:00,  2.69s/it]
-[1;36m(VllmWorker rank=0 pid=82349)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:11<00:00,  2.36s/it]
-[1;36m(VllmWorker rank=0 pid=82349)[0;0m 
-[2025-12-01 21:55:47] INFO _client.py:1740: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-[2025-12-01 21:55:56] INFO _client.py:1740: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-[2025-12-01 21:56:09] INFO _client.py:1740: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-[2025-12-01 21:56:13] INFO _client.py:1740: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-/projects/bfdz/zluo8/tool_and_judge/models/model_factory.py:178: RuntimeWarning: coroutine 'VLLMBackend.shutdown' was never awaited
-  print(f"Warning: Error during backend cleanup [{instance_name}]: {e}")
-RuntimeWarning: Enable tracemalloc to get the object allocation traceback
-huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
-To disable this warning, you can either:
-	- Avoid using `tokenizers` before the fork if possible
-	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
 Process EngineCore_0:
 Traceback (most recent call last):
   File "/sw/spack/deltas11-2023-03/apps/linux-rhel8-zen3/gcc-11.4.0/python-3.12.1-ahcgi2c/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
@@ -48,18 +29,31 @@ Traceback (most recent call last):
                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/executor/executor_base.py", line 52, in __init__
     self._init_executor()
-  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 91, in _init_executor
-    self.workers = WorkerProc.wait_for_ready(unready_workers)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 370, in wait_for_ready
-    raise e from None
-Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
-/sw/spack/deltas11-2023-03/apps/linux-rhel8-zen3/gcc-11.4.0/python-3.12.1-ahcgi2c/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 2 leaked shared_memory objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '
+  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/executor/uniproc_executor.py", line 46, in _init_executor
+    self.collective_rpc("init_device")
+  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/executor/uniproc_executor.py", line 56, in collective_rpc
+    answer = run_method(self.driver_worker, method, args, kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/utils.py", line 2456, in run_method
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/worker/worker_base.py", line 604, in init_device
+    self.worker.init_device()  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 130, in init_device
+    self.init_gpu_memory = torch.cuda.mem_get_info()[0]
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/nvme/bfdz/zluo8/translate/.venv/lib/python3.12/site-packages/torch/cuda/memory.py", line 738, in mem_get_info
+    return torch.cuda.cudart().cudaMemGetInfo(device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: CUDA error: CUDA-capable device(s) is/are busy or unavailable
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
 Traceback (most recent call last):
-  File "/projects/bfdz/zluo8/tool_and_judge/tool_main.py", line 1070, in <module>
-    print(f"Completed processing for config: {config}")
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/bfdz/zluo8/tool_and_judge/judge_run.py", line 480, in <module>
+    asyncio.run(process_all_judge_configs())
   File "/sw/spack/deltas11-2023-03/apps/linux-rhel8-zen3/gcc-11.4.0/python-3.12.1-ahcgi2c/lib/python3.12/asyncio/runners.py", line 194, in run
     return runner.run(main)
            ^^^^^^^^^^^^^^^^
@@ -69,14 +63,12 @@ Traceback (most recent call last):
   File "/sw/spack/deltas11-2023-03/apps/linux-rhel8-zen3/gcc-11.4.0/python-3.12.1-ahcgi2c/lib/python3.12/asyncio/base_events.py", line 684, in run_until_complete
     return future.result()
            ^^^^^^^^^^^^^^^
-  File "/projects/bfdz/zluo8/tool_and_judge/tool_main.py", line 617, in process_all_configs
-    await process_batch_async()
-  File "/projects/bfdz/zluo8/tool_and_judge/tool_main.py", line 576, in process_batch_async
+  File "/projects/bfdz/zluo8/tool_and_judge/judge_run.py", line 368, in process_all_judge_configs
     backend = get_or_create_backend(
               ^^^^^^^^^^^^^^^^^^^^^^
-  File "/projects/bfdz/zluo8/tool_and_judge/tool_main.py", line 249, in get_or_create_backend
-    return create_backend(
-           ^^^^^^^^^^^^^^^
+  File "/projects/bfdz/zluo8/tool_and_judge/judge_run.py", line 51, in get_or_create_backend
+    backend = create_backend(
+              ^^^^^^^^^^^^^^^
   File "/projects/bfdz/zluo8/tool_and_judge/models/model_factory.py", line 497, in create_backend
     return _global_backend_cache.get_or_create(config, creator_func, instance_name=instance_name)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

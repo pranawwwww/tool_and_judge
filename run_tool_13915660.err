@@ -1,22 +1,0 @@
-Lmod has detected the following error: The following module(s) are unknown:
-"python/3.12.1"
-
-Please check the spelling or version number. Also try "module spider ..."
-It is also possible your cache file is out-of-date; it may help to try:
-  $ module --ignore_cache load "python/3.12.1"
-
-Also make sure that all modulefiles written in TCL start with the string
-#%Module
-
-
-
-`torch_dtype` is deprecated! Use `dtype` instead!
-Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
-Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:02,  1.79it/s]
-Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:02<00:03,  1.09s/it]
-Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:03<00:02,  1.46s/it]
-Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:05<00:01,  1.63s/it]
-Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:07<00:00,  1.74s/it]
-Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:07<00:00,  1.55s/it]
-
-[2025-12-01 21:24:50] INFO _client.py:1740: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"

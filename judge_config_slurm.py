@@ -28,7 +28,7 @@ configs = [
         model=LocalModel.QWEN3_8B,
         lang1="zh_cn",
         lang2="en",
-        result_type=ResultType.PREFERENCE_DIRECT
+        result_type=ResultType.PREFERENCE_COT,
     )
 ]
 

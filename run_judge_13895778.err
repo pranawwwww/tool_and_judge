@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "/projects/bfdz/zluo8/tool_and_judge/judge_run.py", line 289, in <module>
-    sorted_langs = sorted([config.lang1, config.lang2])
-                           ^^^^^^^^^^^^
-AttributeError: 'ToolConfig' object has no attribute 'lang1'

@@ -1,3 +1,0 @@
-Loading configs from: judge_config_slurm.py
-Using 1 GPU(s)
-Processing configuration:  ToolConfig(model=<LocalModel.QWEN3_8B: 'Qwen/Qwen3-8B'>, translate_mode=Translated(language=<Language.CHINESE: 1>, option=<TranslateOption.FULLY_TRANSLATED: 1>), add_noise_mode=<AddNoiseMode.NO_NOISE: 1>)
