@@ -1094,15 +1094,27 @@ async def process_all_configs():
 
                 async def categorize_samples_async():
                     """Categorize error samples asynchronously."""
+                    async def categorize_with_sample(sample):
+                        """Wrapper to return both sample and its category."""
+                        category_enum = await categorize_single_sample_async(sample)
+                        return sample, category_enum
+
                     # Create all categorization tasks
-                    tasks = [categorize_single_sample_async(sample) for sample in samples_to_categorize]
+                    tasks = [categorize_with_sample(sample) for sample in samples_to_categorize]
 
                     # Process results as they complete
                     categorize_results = []
                     completed_count = 0
                     for coro in asyncio.as_completed(tasks):
-                        categorized_sample = await coro
+                        sample, category_enum = await coro
                         completed_count += 1
+
+                        # Assemble the result dict (assembly logic in tool_main.py)
+                        categorized_sample = {
+                            "id": sample["id"],
+                            "category": category_enum.value,  # Store enum value as string
+                            "evaluation_entry": sample
+                        }
 
                         print(f"[{completed_count}/{len(samples_to_categorize)}] Categorized sample {categorized_sample['id']}: {categorized_sample['category']}")
 

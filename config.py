@@ -104,7 +104,7 @@ class ToolErrorCategory(Enum):
     LANGUAGE_MISMATCH = "language_mismatch"
     RELEVANT_BUT_INCORRECT = "relevant_but_incorrect"
     EXACTLY_SAME_MEANING = "exactly_same_meaning"
-
+    OTHER_ERRORS = "other_errors"
 
 
 # ============================================================================
