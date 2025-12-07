@@ -14,6 +14,7 @@ from allow_synonym import (
     save_cache,
     process_allow_synonym_sample_async
 )
+from tool_categorize import categorize_single_sample_async
 from models.name_mapping import get_global_name_mapper
 
 from dotenv import load_dotenv
@@ -439,6 +440,10 @@ async def process_all_configs():
         score_input_path = evaluation_output_path
         # assign score_output_path
         score_output_path = f"tool/result/score/{model_dir_name}/{allow_synonym_output_combined_tags}.json"
+        # assign categorize_input_path
+        categorize_input_path = score_output_path
+        # assign categorize_output_path
+        categorize_output_path = f"tool/result/categorize/{model_dir_name}/{allow_synonym_output_combined_tags}.json"
 
         test_cases, _ = load_json_lines_from_file(unpretranslated_dataset_path)
         ground_truths, _ = load_json_lines_from_file(ground_truth_path)
@@ -1060,6 +1065,85 @@ async def process_all_configs():
         # Write all results to file
         write_json_lines_to_file(score_output_path, score_results)
         print(f"Score result written to {score_output_path}: {score_result}")
+
+        # ═══════════════════════════════════════════════════════════════════════
+        # PASS 8: Categorize
+        # ═══════════════════════════════════════════════════════════════════════
+        # Categorizes evaluation errors into different types and aggregates statistics.
+        # Input: tool/result/score/{model}/{filename}.json
+        # Output: tool/result/categorize/{model}/{filename}.json
+        # ═══════════════════════════════════════════════════════════════════════
+        # Check if categorize output file already exists
+        if os.path.exists(categorize_output_path):
+            print(f"Categorization file already exists at {categorize_output_path}. Skipping categorization pass.")
+        else:
+            # Load evaluation results for categorization
+            try:
+                evaluation_entries, _ = load_json_lines_from_file(score_input_path)
+            except FileNotFoundError:
+                print(f"File {score_input_path} not found. Skipping categorization.")
+                evaluation_entries = []
+
+            # Filter out the summary entry (first line in score file)
+            samples_to_categorize = [entry for entry in evaluation_entries if 'accuracy' not in entry]
+
+            if len(samples_to_categorize) == 0:
+                print(f"No samples to categorize. Skipping categorization pass.")
+            else:
+                print(f"Categorizing {len(samples_to_categorize)} error samples...")
+
+                async def categorize_samples_async():
+                    """Categorize error samples asynchronously."""
+                    # Create all categorization tasks
+                    tasks = [categorize_single_sample_async(sample) for sample in samples_to_categorize]
+
+                    # Process results as they complete
+                    categorize_results = []
+                    completed_count = 0
+                    for coro in asyncio.as_completed(tasks):
+                        categorized_sample = await coro
+                        completed_count += 1
+
+                        print(f"[{completed_count}/{len(samples_to_categorize)}] Categorized sample {categorized_sample['id']}: {categorized_sample['category']}")
+
+                        categorize_results.append(categorized_sample)
+
+                        # Write to file immediately
+                        write_json_lines_to_file(categorize_output_path, categorize_results)
+
+                    return categorize_results
+
+                # Run the async categorization
+                categorize_results = await categorize_samples_async()
+
+                print(f"All {len(samples_to_categorize)} samples categorized.")
+
+                # Aggregate statistics by category
+                category_counts = {}
+                category_samples = {}
+                for result in categorize_results:
+                    category = result['category']
+                    if category not in category_counts:
+                        category_counts[category] = 0
+                        category_samples[category] = []
+                    category_counts[category] += 1
+                    category_samples[category].append(result)
+
+                # Prepare final output with summary and samples
+                final_output = {
+                    "summary": category_counts,
+                    "samples": category_samples
+                }
+
+                # Write final aggregated results
+                with open(categorize_output_path, 'w', encoding='utf-8') as f:
+                    json.dump(final_output, f, ensure_ascii=False, indent=2)
+
+                print(f"Categorization results written to {categorize_output_path}")
+                print("\nError Category Summary:")
+                for category, count in sorted(category_counts.items(), key=lambda x: x[1], reverse=True):
+                    print(f"  {category}: {count}")
+
         print(f"Completed processing for config: {config}")
             # Run all configs in a single event loop
 asyncio.run(process_all_configs())

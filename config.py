@@ -97,6 +97,15 @@ class ToolConfig:
 # Tool processing configuration
 evaluation_caching = False
 
+class ToolErrorCategory(Enum):
+    SYNTAX_ERROR = "syntax_error"
+    MISC_ERRORS = "misc_errors"
+    WRONG_VALUES = "wrong_values"
+    LANGUAGE_MISMATCH = "language_mismatch"
+    RELEVANT_BUT_INCORRECT = "relevant_but_incorrect"
+    EXACTLY_SAME_MEANING = "exactly_same_meaning"
+
+
 
 # ============================================================================
 # Judge Project Configuration
