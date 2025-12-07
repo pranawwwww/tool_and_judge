@@ -1,9 +1,8 @@
 {
   "summary": {
     "misc_errors": 6,
-    "relevant_but_incorrect": 10,
-    "wrong_values": 12,
-    "exactly_same_meaning": 1
+    "relevant_but_incorrect": 8,
+    "wrong_values": 15
   },
   "samples": {
     "misc_errors": [
@@ -396,101 +395,6 @@
         }
       },
       {
-        "id": "multiple_53",
-        "category": "relevant_but_incorrect",
-        "raw_llm_response": "\\boxed{relevant_but_incorrect}",
-        "evaluation_entry": {
-          "id": "multiple_53",
-          "valid": false,
-          "error": [
-            "Invalid value for parameter 'dependent_var': 'residence_costs'. Expected one of ['house_price', 'house price']."
-          ],
-          "error_type": "value_error:others",
-          "model_result_decoded": [
-            {
-              "linear_regression": {
-                "independent_var": [
-                  "interest_rate",
-                  "unemployment_rate"
-                ],
-                "dependent_var": "residence_costs",
-                "forecast_period": 5
-              }
-            }
-          ],
-          "possible_answer": {
-            "linear_regression": {
-              "independent_var": [
-                [
-                  "interest rates",
-                  "unemployment rates"
-                ],
-                [
-                  "interest_rate",
-                  "unemployment_rate"
-                ],
-                [
-                  "interest rate",
-                  "unemployment rate"
-                ]
-              ],
-              "dependent_var": [
-                "house_price",
-                "house price"
-              ],
-              "forecast_period": [
-                5
-              ]
-            }
-          }
-        }
-      },
-      {
-        "id": "multiple_80",
-        "category": "relevant_but_incorrect",
-        "raw_llm_response": "\\boxed{relevant_but_incorrect}",
-        "evaluation_entry": {
-          "id": "multiple_80",
-          "valid": false,
-          "error": [
-            "Invalid value for parameter 'services': ['Guitar Lessons', 'Violin Lessons']. Expected one of [['Violin Lessons']]."
-          ],
-          "error_type": "value_error:others",
-          "model_result_decoded": [
-            {
-              "music_shop.find_nearby": {
-                "location": "Nashville, TN",
-                "services": [
-                  "Guitar Lessons",
-                  "Violin Lessons"
-                ],
-                "instruments": [
-                  "Guitars"
-                ]
-              }
-            }
-          ],
-          "possible_answer": {
-            "music_shop.find_nearby": {
-              "location": [
-                "Nashville, TN",
-                "Nashville"
-              ],
-              "services": [
-                [
-                  "Violin Lessons"
-                ]
-              ],
-              "instruments": [
-                [
-                  "Guitars"
-                ]
-              ]
-            }
-          }
-        }
-      },
-      {
         "id": "multiple_93",
         "category": "relevant_but_incorrect",
         "raw_llm_response": "\\boxed{relevant_but_incorrect}",
@@ -602,49 +506,6 @@
         }
       },
       {
-        "id": "multiple_136",
-        "category": "relevant_but_incorrect",
-        "raw_llm_response": "\\boxed{relevant_but_incorrect}",
-        "evaluation_entry": {
-          "id": "multiple_136",
-          "valid": false,
-          "error": [
-            "Invalid value for parameter 'type': 'aggressive crime'. Expected one of ['violent', 'Violent']."
-          ],
-          "error_type": "value_error:others",
-          "model_result_decoded": [
-            {
-              "get_crime_rate": {
-                "city": "San Francisco",
-                "state": "California",
-                "type": "aggressive crime",
-                "year": 2020
-              }
-            }
-          ],
-          "possible_answer": {
-            "get_crime_rate": {
-              "city": [
-                "San Francisco",
-                "San Francisco, CA",
-                "SF"
-              ],
-              "state": [
-                "California",
-                "CA"
-              ],
-              "type": [
-                "violent",
-                "Violent"
-              ],
-              "year": [
-                2020
-              ]
-            }
-          }
-        }
-      },
-      {
         "id": "multiple_153",
         "category": "relevant_but_incorrect",
         "raw_llm_response": "\\boxed{relevant_but_incorrect}",
@@ -729,35 +590,86 @@
         }
       },
       {
-        "id": "multiple_186",
+        "id": "multiple_164",
         "category": "relevant_but_incorrect",
         "raw_llm_response": "\\boxed{relevant_but_incorrect}",
         "evaluation_entry": {
-          "id": "multiple_186",
+          "id": "multiple_164",
           "valid": false,
           "error": [
-            "Invalid value for parameter 'recipe_type': 'brownies'. Expected one of ['dessert']."
+            "Invalid value for parameter 'finish': 'Rosewood Finish'. Expected one of ['Rosewood']."
           ],
           "error_type": "value_error:others",
           "model_result_decoded": [
             {
-              "find_recipe": {
-                "dietary_restrictions": "vegan",
-                "recipe_type": "brownies",
-                "time": 30
+              "instrument_price.get": {
+                "brand": "Fender",
+                "model": "American Professional II Stratocaster",
+                "finish": "Rosewood Finish"
               }
             }
           ],
           "possible_answer": {
-            "find_recipe": {
-              "dietary_restrictions": [
-                "vegan"
+            "instrument_price.get": {
+              "brand": [
+                "Fender"
               ],
-              "recipe_type": [
-                "dessert"
+              "model": [
+                "American Professional II Stratocaster"
               ],
-              "time": [
-                30
+              "finish": [
+                "Rosewood"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": "multiple_184",
+        "category": "relevant_but_incorrect",
+        "raw_llm_response": "\\boxed{relevant_but_incorrect}",
+        "evaluation_entry": {
+          "id": "multiple_184",
+          "valid": false,
+          "error": [
+            "Invalid value for parameter 'ingredients': ['pasta', 'parmesan cheese', 'cream', 'garlic', 'butter', 'olive oil', 'salt', 'black pepper']. Expected one of [['pasta', 'cheese'], ['cheese', 'pasta']]."
+          ],
+          "error_type": "value_error:others",
+          "model_result_decoded": [
+            {
+              "recipe_search": {
+                "dietary_restriction": "Vegetarian",
+                "ingredients": [
+                  "pasta",
+                  "parmesan cheese",
+                  "cream",
+                  "garlic",
+                  "butter",
+                  "olive oil",
+                  "salt",
+                  "black pepper"
+                ],
+                "servings": 2
+              }
+            }
+          ],
+          "possible_answer": {
+            "recipe_search": {
+              "dietary_restriction": [
+                "Vegetarian"
+              ],
+              "ingredients": [
+                [
+                  "pasta",
+                  "cheese"
+                ],
+                [
+                  "cheese",
+                  "pasta"
+                ]
+              ],
+              "servings": [
+                2
               ]
             }
           }
@@ -917,6 +829,56 @@
         }
       },
       {
+        "id": "multiple_53",
+        "category": "wrong_values",
+        "raw_llm_response": "\\boxed{wrong_values}",
+        "evaluation_entry": {
+          "id": "multiple_53",
+          "valid": false,
+          "error": [
+            "Invalid value for parameter 'dependent_var': 'residence_costs'. Expected one of ['house_price', 'house price']."
+          ],
+          "error_type": "value_error:others",
+          "model_result_decoded": [
+            {
+              "linear_regression": {
+                "independent_var": [
+                  "interest_rate",
+                  "unemployment_rate"
+                ],
+                "dependent_var": "residence_costs",
+                "forecast_period": 5
+              }
+            }
+          ],
+          "possible_answer": {
+            "linear_regression": {
+              "independent_var": [
+                [
+                  "interest rates",
+                  "unemployment rates"
+                ],
+                [
+                  "interest_rate",
+                  "unemployment_rate"
+                ],
+                [
+                  "interest rate",
+                  "unemployment rate"
+                ]
+              ],
+              "dependent_var": [
+                "house_price",
+                "house price"
+              ],
+              "forecast_period": [
+                5
+              ]
+            }
+          }
+        }
+      },
+      {
         "id": "multiple_54",
         "category": "wrong_values",
         "raw_llm_response": "\\boxed{wrong_values}",
@@ -949,6 +911,51 @@
               "frequency": [
                 "",
                 "annually"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": "multiple_80",
+        "category": "wrong_values",
+        "raw_llm_response": "\\boxed{wrong_values}",
+        "evaluation_entry": {
+          "id": "multiple_80",
+          "valid": false,
+          "error": [
+            "Invalid value for parameter 'services': ['Guitar Lessons', 'Violin Lessons']. Expected one of [['Violin Lessons']]."
+          ],
+          "error_type": "value_error:others",
+          "model_result_decoded": [
+            {
+              "music_shop.find_nearby": {
+                "location": "Nashville, TN",
+                "services": [
+                  "Guitar Lessons",
+                  "Violin Lessons"
+                ],
+                "instruments": [
+                  "Guitars"
+                ]
+              }
+            }
+          ],
+          "possible_answer": {
+            "music_shop.find_nearby": {
+              "location": [
+                "Nashville, TN",
+                "Nashville"
+              ],
+              "services": [
+                [
+                  "Violin Lessons"
+                ]
+              ],
+              "instruments": [
+                [
+                  "Guitars"
+                ]
               ]
             }
           }
@@ -1060,6 +1067,49 @@
               ],
               "info_type": [
                 "victim"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": "multiple_136",
+        "category": "wrong_values",
+        "raw_llm_response": "\\boxed{wrong_values}",
+        "evaluation_entry": {
+          "id": "multiple_136",
+          "valid": false,
+          "error": [
+            "Invalid value for parameter 'type': 'aggressive crime'. Expected one of ['violent', 'Violent']."
+          ],
+          "error_type": "value_error:others",
+          "model_result_decoded": [
+            {
+              "get_crime_rate": {
+                "city": "San Francisco",
+                "state": "California",
+                "type": "aggressive crime",
+                "year": 2020
+              }
+            }
+          ],
+          "possible_answer": {
+            "get_crime_rate": {
+              "city": [
+                "San Francisco",
+                "San Francisco, CA",
+                "SF"
+              ],
+              "state": [
+                "California",
+                "CA"
+              ],
+              "type": [
+                "violent",
+                "Violent"
+              ],
+              "year": [
+                2020
               ]
             }
           }
@@ -1262,88 +1312,35 @@
         }
       },
       {
-        "id": "multiple_184",
+        "id": "multiple_186",
         "category": "wrong_values",
         "raw_llm_response": "\\boxed{wrong_values}",
         "evaluation_entry": {
-          "id": "multiple_184",
+          "id": "multiple_186",
           "valid": false,
           "error": [
-            "Invalid value for parameter 'ingredients': ['pasta', 'parmesan cheese', 'cream', 'garlic', 'butter', 'olive oil', 'salt', 'black pepper']. Expected one of [['pasta', 'cheese'], ['cheese', 'pasta']]."
+            "Invalid value for parameter 'recipe_type': 'brownies'. Expected one of ['dessert']."
           ],
           "error_type": "value_error:others",
           "model_result_decoded": [
             {
-              "recipe_search": {
-                "dietary_restriction": "Vegetarian",
-                "ingredients": [
-                  "pasta",
-                  "parmesan cheese",
-                  "cream",
-                  "garlic",
-                  "butter",
-                  "olive oil",
-                  "salt",
-                  "black pepper"
-                ],
-                "servings": 2
+              "find_recipe": {
+                "dietary_restrictions": "vegan",
+                "recipe_type": "brownies",
+                "time": 30
               }
             }
           ],
           "possible_answer": {
-            "recipe_search": {
-              "dietary_restriction": [
-                "Vegetarian"
+            "find_recipe": {
+              "dietary_restrictions": [
+                "vegan"
               ],
-              "ingredients": [
-                [
-                  "pasta",
-                  "cheese"
-                ],
-                [
-                  "cheese",
-                  "pasta"
-                ]
+              "recipe_type": [
+                "dessert"
               ],
-              "servings": [
-                2
-              ]
-            }
-          }
-        }
-      }
-    ],
-    "exactly_same_meaning": [
-      {
-        "id": "multiple_164",
-        "category": "exactly_same_meaning",
-        "raw_llm_response": "\\boxed{exactly_same_meaning}",
-        "evaluation_entry": {
-          "id": "multiple_164",
-          "valid": false,
-          "error": [
-            "Invalid value for parameter 'finish': 'Rosewood Finish'. Expected one of ['Rosewood']."
-          ],
-          "error_type": "value_error:others",
-          "model_result_decoded": [
-            {
-              "instrument_price.get": {
-                "brand": "Fender",
-                "model": "American Professional II Stratocaster",
-                "finish": "Rosewood Finish"
-              }
-            }
-          ],
-          "possible_answer": {
-            "instrument_price.get": {
-              "brand": [
-                "Fender"
-              ],
-              "model": [
-                "American Professional II Stratocaster"
-              ],
-              "finish": [
-                "Rosewood"
+              "time": [
+                30
               ]
             }
           }

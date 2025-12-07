@@ -1,8 +1,8 @@
 {
   "summary": {
     "misc_errors": 6,
-    "relevant_but_incorrect": 3,
-    "wrong_values": 8
+    "relevant_but_incorrect": 2,
+    "wrong_values": 9
   },
   "samples": {
     "misc_errors": [
@@ -460,100 +460,43 @@
         }
       },
       {
-        "id": "multiple_151",
+        "id": "multiple_80",
         "category": "relevant_but_incorrect",
         "raw_llm_response": "\\boxed{relevant_but_incorrect}",
         "evaluation_entry": {
-          "id": "multiple_151",
+          "id": "multiple_80",
           "valid": false,
           "error": [
-            "Invalid value for parameter 'sub_topics': ['behaviour', 'behavior', 'group dynamics']. Expected one of [['behaviour', 'group dynamics'], ['group dynamics', 'behaviour']]."
+            "Invalid value for parameter 'services': ['Guitar Lessons', 'Violin Lessons']. Expected one of [['Violin Lessons']]."
           ],
           "error_type": "value_error:others",
           "model_result_decoded": [
             {
-              "social_media_analytics.most_followed": {
-                "topic": "psychology",
-                "sub_topics": [
-                  "behaviour",
-                  "behavior",
-                  "group dynamics"
+              "music_shop.find_nearby": {
+                "location": "Nashville, TN",
+                "services": [
+                  "Guitar Lessons",
+                  "Violin Lessons"
                 ],
-                "region": "global"
+                "instruments": []
               }
             }
           ],
           "possible_answer": {
-            "social_media_analytics.most_followed": {
-              "topic": [
-                "psychology",
-                "Psychology"
+            "music_shop.find_nearby": {
+              "location": [
+                "Nashville, TN",
+                "Nashville"
               ],
-              "sub_topics": [
+              "services": [
                 [
-                  "behaviour",
-                  "group dynamics"
-                ],
-                [
-                  "group dynamics",
-                  "behaviour"
+                  "Violin Lessons"
                 ]
               ],
-              "region": [
-                "",
-                "global"
-              ]
-            }
-          }
-        }
-      },
-      {
-        "id": "multiple_184",
-        "category": "relevant_but_incorrect",
-        "raw_llm_response": "\\boxed{relevant_but_incorrect}",
-        "evaluation_entry": {
-          "id": "multiple_184",
-          "valid": false,
-          "error": [
-            "Invalid value for parameter 'ingredients': ['pasta', 'cheese', 'garlic', 'olive oil', 'spinach', 'cream', 'parmesan', 'salt', 'pepper']. Expected one of [['pasta', 'cheese'], ['cheese', 'pasta']]."
-          ],
-          "error_type": "value_error:others",
-          "model_result_decoded": [
-            {
-              "recipe_search": {
-                "dietary_restriction": "Vegetarian",
-                "ingredients": [
-                  "pasta",
-                  "cheese",
-                  "garlic",
-                  "olive oil",
-                  "spinach",
-                  "cream",
-                  "parmesan",
-                  "salt",
-                  "pepper"
-                ],
-                "servings": 2
-              }
-            }
-          ],
-          "possible_answer": {
-            "recipe_search": {
-              "dietary_restriction": [
-                "Vegetarian"
-              ],
-              "ingredients": [
+              "instruments": [
                 [
-                  "pasta",
-                  "cheese"
-                ],
-                [
-                  "cheese",
-                  "pasta"
+                  "Guitars"
                 ]
-              ],
-              "servings": [
-                2
               ]
             }
           }
@@ -678,49 +621,6 @@
         }
       },
       {
-        "id": "multiple_80",
-        "category": "wrong_values",
-        "raw_llm_response": "\\boxed{wrong_values}",
-        "evaluation_entry": {
-          "id": "multiple_80",
-          "valid": false,
-          "error": [
-            "Invalid value for parameter 'services': ['Guitar Lessons', 'Violin Lessons']. Expected one of [['Violin Lessons']]."
-          ],
-          "error_type": "value_error:others",
-          "model_result_decoded": [
-            {
-              "music_shop.find_nearby": {
-                "location": "Nashville, TN",
-                "services": [
-                  "Guitar Lessons",
-                  "Violin Lessons"
-                ],
-                "instruments": []
-              }
-            }
-          ],
-          "possible_answer": {
-            "music_shop.find_nearby": {
-              "location": [
-                "Nashville, TN",
-                "Nashville"
-              ],
-              "services": [
-                [
-                  "Violin Lessons"
-                ]
-              ],
-              "instruments": [
-                [
-                  "Guitars"
-                ]
-              ]
-            }
-          }
-        }
-      },
-      {
         "id": "multiple_104",
         "category": "wrong_values",
         "raw_llm_response": "\\boxed{wrong_values}",
@@ -795,6 +695,54 @@
         }
       },
       {
+        "id": "multiple_151",
+        "category": "wrong_values",
+        "raw_llm_response": "\\boxed{wrong_values}",
+        "evaluation_entry": {
+          "id": "multiple_151",
+          "valid": false,
+          "error": [
+            "Invalid value for parameter 'sub_topics': ['behaviour', 'behavior', 'group dynamics']. Expected one of [['behaviour', 'group dynamics'], ['group dynamics', 'behaviour']]."
+          ],
+          "error_type": "value_error:others",
+          "model_result_decoded": [
+            {
+              "social_media_analytics.most_followed": {
+                "topic": "psychology",
+                "sub_topics": [
+                  "behaviour",
+                  "behavior",
+                  "group dynamics"
+                ],
+                "region": "global"
+              }
+            }
+          ],
+          "possible_answer": {
+            "social_media_analytics.most_followed": {
+              "topic": [
+                "psychology",
+                "Psychology"
+              ],
+              "sub_topics": [
+                [
+                  "behaviour",
+                  "group dynamics"
+                ],
+                [
+                  "group dynamics",
+                  "behaviour"
+                ]
+              ],
+              "region": [
+                "",
+                "global"
+              ]
+            }
+          }
+        }
+      },
+      {
         "id": "multiple_178",
         "category": "wrong_values",
         "raw_llm_response": "\\boxed{wrong_values}",
@@ -859,6 +807,58 @@
               ],
               "genre": [
                 ""
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": "multiple_184",
+        "category": "wrong_values",
+        "raw_llm_response": "\\boxed{wrong_values}",
+        "evaluation_entry": {
+          "id": "multiple_184",
+          "valid": false,
+          "error": [
+            "Invalid value for parameter 'ingredients': ['pasta', 'cheese', 'garlic', 'olive oil', 'spinach', 'cream', 'parmesan', 'salt', 'pepper']. Expected one of [['pasta', 'cheese'], ['cheese', 'pasta']]."
+          ],
+          "error_type": "value_error:others",
+          "model_result_decoded": [
+            {
+              "recipe_search": {
+                "dietary_restriction": "Vegetarian",
+                "ingredients": [
+                  "pasta",
+                  "cheese",
+                  "garlic",
+                  "olive oil",
+                  "spinach",
+                  "cream",
+                  "parmesan",
+                  "salt",
+                  "pepper"
+                ],
+                "servings": 2
+              }
+            }
+          ],
+          "possible_answer": {
+            "recipe_search": {
+              "dietary_restriction": [
+                "Vegetarian"
+              ],
+              "ingredients": [
+                [
+                  "pasta",
+                  "cheese"
+                ],
+                [
+                  "cheese",
+                  "pasta"
+                ]
+              ],
+              "servings": [
+                2
               ]
             }
           }

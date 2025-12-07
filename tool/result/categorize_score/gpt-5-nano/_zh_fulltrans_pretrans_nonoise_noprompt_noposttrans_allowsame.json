@@ -1,8 +1,8 @@
 {
   "summary": {
-    "misc_errors": 8,
-    "relevant_but_incorrect": 2,
-    "wrong_values": 13
+    "misc_errors": 6,
+    "relevant_but_incorrect": 4,
+    "wrong_values": 10
   },
   "samples": {
     "misc_errors": [
@@ -21,15 +21,15 @@
             {
               "wildlife_population.assess_growth": {
                 "species": "deer",
-                "location": "Washington state",
+                "location": "Washington State",
                 "duration": 10
               }
             },
             {
               "ecological_impact.analyze": {
                 "species": "deer",
-                "ecosystem": "woodlands",
-                "location": "Washington state",
+                "ecosystem": "forest land",
+                "location": "Washington State",
                 "timeframe": 10
               }
             }
@@ -106,8 +106,8 @@
           "model_result_decoded": [
             {
               "database.create_backup": {
-                "db_name": "employees",
-                "backup_location": "/backups/employees_backup.db",
+                "db_name": "employee",
+                "backup_location": "/backups/employee/employee_personal_data_backup.sql",
                 "timestamp": true
               }
             }
@@ -154,53 +154,6 @@
         }
       },
       {
-        "id": "multiple_25",
-        "category": "misc_errors",
-        "raw_llm_response": "\\boxed{misc_errors}",
-        "evaluation_entry": {
-          "id": "multiple_25",
-          "valid": false,
-          "error": [
-            "Expected exactly one AST entry, but got 2."
-          ],
-          "error_type": "ast_checker:invalid_entry_count",
-          "model_result_decoded": [
-            {
-              "video_games.store_price": {
-                "game_title": "Assassins Creed Valhalla",
-                "platform": "PlayStation",
-                "region": "United States"
-              }
-            },
-            {
-              "video_games.on_sale": {
-                "game_title": "Assassins Creed Valhalla",
-                "platform": "PlayStation",
-                "region": "United States"
-              }
-            }
-          ],
-          "possible_answer": [
-            {
-              "video_games.store_price": {
-                "game_title": [
-                  "Assassins Creed Valhalla"
-                ],
-                "platform": [
-                  "PlayStation",
-                  "PS"
-                ],
-                "region": [
-                  "United States",
-                  "US",
-                  ""
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
         "id": "multiple_26",
         "category": "misc_errors",
         "raw_llm_response": "\\boxed{misc_errors}",
@@ -231,43 +184,6 @@
                 ""
               ],
               "trophy": [
-                ""
-              ]
-            }
-          }
-        }
-      },
-      {
-        "id": "multiple_40",
-        "category": "misc_errors",
-        "raw_llm_response": "\\boxed{misc_errors}",
-        "evaluation_entry": {
-          "id": "multiple_40",
-          "valid": false,
-          "error": [
-            "Function name mismatch. Expected 'electromagnetism.biot_savart_law', but got 'electromagnetism.ampere_law'."
-          ],
-          "error_type": "simple_function_checker:wrong_func_name",
-          "model_result_decoded": [
-            {
-              "electromagnetism.ampere_law": {
-                "enclosed_current": 12,
-                "radius": 8,
-                "mu0": 0
-              }
-            }
-          ],
-          "possible_answer": {
-            "electromagnetism.biot_savart_law": {
-              "current": [
-                12
-              ],
-              "distance": [
-                8
-              ],
-              "mu0": [
-                1.256e-06,
-                1.256e-06,
                 ""
               ]
             }
@@ -338,67 +254,50 @@
         }
       },
       {
-        "id": "multiple_76",
+        "id": "multiple_92",
         "category": "misc_errors",
         "raw_llm_response": "\\boxed{misc_errors}",
         "evaluation_entry": {
-          "id": "multiple_76",
+          "id": "multiple_92",
           "valid": false,
           "error": [
-            "Expected exactly one AST entry, but got 5."
+            "Expected exactly one AST entry, but got 2."
           ],
           "error_type": "ast_checker:invalid_entry_count",
           "model_result_decoded": [
             {
-              "sculpture.create_custom": {
-                "item": "Horse",
-                "material": "Bronze",
-                "size": 12
+              "walmart.vegan_products": {
+                "location": "Denver, CO",
+                "categories": [
+                  "vegan"
+                ]
               }
             },
             {
-              "sculpture.create_custom": {
-                "item": "Horse",
-                "material": "Marble",
-                "size": 12
-              }
-            },
-            {
-              "sculpture.create_custom": {
-                "item": "Horse",
-                "material": "Terracotta",
-                "size": 12
-              }
-            },
-            {
-              "sculpture.create_custom": {
-                "item": "Horse",
-                "material": "Wood",
-                "size": 12
-              }
-            },
-            {
-              "sculpture.create_custom": {
-                "item": "Horse",
-                "material": "Stone",
-                "size": 12
+              "walmart.vegan_products": {
+                "location": "Denver, CO",
+                "categories": [
+                  "gluten-free"
+                ]
               }
             }
           ],
           "possible_answer": [
             {
-              "sculpture.create_custom": {
-                "item": [
-                  "horse",
-                  "Horse"
+              "walmart.vegan_products": {
+                "location": [
+                  "Denver, CO",
+                  "Denver"
                 ],
-                "material": [
-                  "Bronze",
-                  "bronze"
-                ],
-                "size": [
-                  "",
-                  12
+                "categories": [
+                  [
+                    "vegan",
+                    "gluten-free"
+                  ],
+                  [
+                    "gluten-free",
+                    "vegan"
+                  ]
                 ]
               }
             }
@@ -415,7 +314,7 @@
           "id": "multiple_23",
           "valid": false,
           "error": [
-            "Invalid value for parameter 'stats_fields': ['points_per_game', 'assists_per_game', 'minutes_per_game']. Expected one of [['points per game', 'assists', 'minutes per game'], ['points per game', 'minutes per game', 'assists'], ['assists', 'points per game', 'minutes per game'], ['assists', 'minutes per game', 'points per game'], ['minutes per game', 'points per game', 'assists'], ['minutes per game', 'assists', 'points per game'], ['points', 'assists', 'minutes'], ['points', 'minutes', 'assists'], ['assists', 'points', 'minutes'], ['assists', 'minutes', 'points'], ['minutes', 'points', 'assists'], ['minutes', 'assists', 'points'], ['points_per_game', 'assists', 'minutes_per_game'], ['points_per_game', 'minutes_per_game', 'assists'], ['assists', 'points_per_game', 'minutes_per_game'], ['assists', 'minutes_per_game', 'points_per_game'], ['minutes_per_game', 'points_per_game', 'assists'], ['minutes_per_game', 'assists', 'points_per_game']]."
+            "Invalid value for parameter 'stats_fields': ['points per game', 'assists per game', 'minutes per game']. Expected one of [['points per game', 'assists', 'minutes per game'], ['points per game', 'minutes per game', 'assists'], ['assists', 'points per game', 'minutes per game'], ['assists', 'minutes per game', 'points per game'], ['minutes per game', 'points per game', 'assists'], ['minutes per game', 'assists', 'points per game'], ['points', 'assists', 'minutes'], ['points', 'minutes', 'assists'], ['assists', 'points', 'minutes'], ['assists', 'minutes', 'points'], ['minutes', 'points', 'assists'], ['minutes', 'assists', 'points'], ['points_per_game', 'assists', 'minutes_per_game'], ['points_per_game', 'minutes_per_game', 'assists'], ['assists', 'points_per_game', 'minutes_per_game'], ['assists', 'minutes_per_game', 'points_per_game'], ['minutes_per_game', 'points_per_game', 'assists'], ['minutes_per_game', 'assists', 'points_per_game']]."
           ],
           "error_type": "value_error:others",
           "model_result_decoded": [
@@ -423,9 +322,9 @@
               "basketball.player_stats.get": {
                 "player_name": "LeBron James",
                 "stats_fields": [
-                  "points_per_game",
-                  "assists_per_game",
-                  "minutes_per_game"
+                  "points per game",
+                  "assists per game",
+                  "minutes per game"
                 ]
               }
             }
@@ -539,7 +438,7 @@
           "id": "multiple_119",
           "valid": false,
           "error": [
-            "Invalid value for parameter 'conditions': [{'field': 'age', 'operation': '>', 'value': '25'}, {'field': 'job_title', 'operation': '=', 'value': 'engineer'}]. Expected one of [[{'field': ['age'], 'operation': ['>'], 'value': ['25']}, {'field': ['job'], 'operation': ['='], 'value': ['engineer']}]]."
+            "Invalid value for parameter 'conditions': [{'field': 'age', 'operation': '>', 'value': '25'}, {'field': 'occupation', 'operation': '=', 'value': 'engineer'}]. Expected one of [[{'field': ['age'], 'operation': ['>'], 'value': ['25']}, {'field': ['job'], 'operation': ['='], 'value': ['engineer']}]]."
           ],
           "error_type": "value_error:others",
           "model_result_decoded": [
@@ -553,7 +452,7 @@
                     "value": "25"
                   },
                   {
-                    "field": "job_title",
+                    "field": "occupation",
                     "operation": "=",
                     "value": "engineer"
                   }
@@ -595,45 +494,121 @@
             }
           }
         }
-      }
-    ],
-    "wrong_values": [
+      },
       {
-        "id": "multiple_32",
-        "category": "wrong_values",
-        "raw_llm_response": "\\boxed{wrong_values}",
+        "id": "multiple_122",
+        "category": "relevant_but_incorrect",
+        "raw_llm_response": "\\boxed{relevant_but_incorrect}",
         "evaluation_entry": {
-          "id": "multiple_32",
+          "id": "multiple_122",
           "valid": false,
           "error": [
-            "Invalid value for parameter 'round_off': 2. Expected one of ['', 0]."
+            "Invalid value for parameter 'predictors': ['age', 'income', 'education level']. Expected one of [['Age', 'Income', 'Education'], ['Age', 'Education', 'Income'], ['Income', 'Age', 'Education'], ['Income', 'Education', 'Age'], ['Education', 'Age', 'Income'], ['Education', 'Income', 'Age']]."
           ],
           "error_type": "value_error:others",
           "model_result_decoded": [
             {
-              "geometry.calculate_cone_volume": {
-                "radius": 4,
-                "height": 7,
-                "round_off": 2
+              "run_linear_regression": {
+                "predictors": [
+                  "age",
+                  "income",
+                  "education level"
+                ],
+                "target": "Purchase_Amount",
+                "standardize": true
               }
             }
           ],
           "possible_answer": {
-            "geometry.calculate_cone_volume": {
-              "radius": [
-                4
+            "run_linear_regression": {
+              "predictors": [
+                [
+                  "Age",
+                  "Income",
+                  "Education"
+                ],
+                [
+                  "Age",
+                  "Education",
+                  "Income"
+                ],
+                [
+                  "Income",
+                  "Age",
+                  "Education"
+                ],
+                [
+                  "Income",
+                  "Education",
+                  "Age"
+                ],
+                [
+                  "Education",
+                  "Age",
+                  "Income"
+                ],
+                [
+                  "Education",
+                  "Income",
+                  "Age"
+                ]
               ],
-              "height": [
-                7
+              "target": [
+                "Purchase_Amount"
               ],
-              "round_off": [
-                "",
-                0
+              "standardize": [
+                true
               ]
             }
           }
         }
       },
+      {
+        "id": "multiple_178",
+        "category": "relevant_but_incorrect",
+        "raw_llm_response": "\\boxed{relevant_but_incorrect}",
+        "evaluation_entry": {
+          "id": "multiple_178",
+          "valid": false,
+          "error": [
+            "Invalid value for parameter 'deck': [{'rank': 'Ace', 'suit': 'Hearts'}, {'rank': 'Two', 'suit': 'Hearts'}]. Expected one of ['']."
+          ],
+          "error_type": "value_error:others",
+          "model_result_decoded": [
+            {
+              "find_card_in_deck": {
+                "rank": "Queen",
+                "suit": "Hearts",
+                "deck": [
+                  {
+                    "rank": "Ace",
+                    "suit": "Hearts"
+                  },
+                  {
+                    "rank": "Two",
+                    "suit": "Hearts"
+                  }
+                ]
+              }
+            }
+          ],
+          "possible_answer": {
+            "find_card_in_deck": {
+              "rank": [
+                "Queen"
+              ],
+              "suit": [
+                "Hearts"
+              ],
+              "deck": [
+                ""
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "wrong_values": [
       {
         "id": "multiple_38",
         "category": "wrong_values",
@@ -679,58 +654,6 @@
         }
       },
       {
-        "id": "multiple_47",
-        "category": "wrong_values",
-        "raw_llm_response": "\\boxed{wrong_values}",
-        "evaluation_entry": {
-          "id": "multiple_47",
-          "valid": false,
-          "error": [
-            "Invalid value for parameter 'rounding': 6. Expected one of ['', 0]."
-          ],
-          "error_type": "value_error:others",
-          "model_result_decoded": [
-            {
-              "cosine_similarity.calculate": {
-                "vector1": [
-                  3,
-                  2,
-                  1
-                ],
-                "vector2": [
-                  1,
-                  2,
-                  3
-                ],
-                "rounding": 6
-              }
-            }
-          ],
-          "possible_answer": {
-            "cosine_similarity.calculate": {
-              "vector1": [
-                [
-                  3,
-                  2,
-                  1
-                ]
-              ],
-              "vector2": [
-                [
-                  1,
-                  2,
-                  3
-                ]
-              ],
-              "rounding": [
-                "",
-                0
-              ]
-            }
-          }
-        }
-      },
-      {
         "id": "multiple_54",
         "category": "wrong_values",
         "raw_llm_response": "\\boxed{wrong_values}",
@@ -769,91 +692,44 @@
         }
       },
       {
-        "id": "multiple_89",
+        "id": "multiple_80",
         "category": "wrong_values",
         "raw_llm_response": "\\boxed{wrong_values}",
         "evaluation_entry": {
-          "id": "multiple_89",
+          "id": "multiple_80",
           "valid": false,
           "error": [
-            "Invalid value for parameter 'calories': 499. Expected one of [500]."
+            "Invalid value for parameter 'services': ['Guitar Lessons', 'Violin Lessons']. Expected one of [['Violin Lessons']]."
           ],
           "error_type": "value_error:others",
           "model_result_decoded": [
             {
-              "recipe_search": {
-                "ingredients": [
-                  "chicken",
-                  "mushrooms"
+              "music_shop.find_nearby": {
+                "location": "Nashville, TN",
+                "services": [
+                  "Guitar Lessons",
+                  "Violin Lessons"
                 ],
-                "calories": 499,
-                "meal": "lunch"
-              }
-            }
-          ],
-          "possible_answer": {
-            "recipe_search": {
-              "ingredients": [
-                [
-                  "chicken",
-                  "mushrooms"
-                ],
-                [
-                  "mushrooms",
-                  "chicken"
-                ]
-              ],
-              "calories": [
-                500
-              ],
-              "meal": [
-                "lunch",
-                ""
-              ]
-            }
-          }
-        }
-      },
-      {
-        "id": "multiple_93",
-        "category": "wrong_values",
-        "raw_llm_response": "\\boxed{wrong_values}",
-        "evaluation_entry": {
-          "id": "multiple_93",
-          "valid": false,
-          "error": [
-            "Invalid value for parameter 'location': 'New York - Marriott'. Expected one of ['New York', 'New York, NY', 'NYC']."
-          ],
-          "error_type": "value_error:others",
-          "model_result_decoded": [
-            {
-              "hotel.book": {
-                "location": "New York - Marriott",
-                "roomType": "deluxe",
-                "nights": 2,
-                "additional_services": [
-                  "breakfast"
+                "instruments": [
+                  "Guitars"
                 ]
               }
             }
           ],
           "possible_answer": {
-            "hotel.book": {
+            "music_shop.find_nearby": {
               "location": [
-                "New York",
-                "New York, NY",
-                "NYC"
+                "Nashville, TN",
+                "Nashville"
               ],
-              "roomType": [
-                "deluxe",
-                "Deluxe"
-              ],
-              "nights": [
-                2
-              ],
-              "additional_services": [
+              "services": [
                 [
-                  "breakfast"
+                  "Violin Lessons"
+                ]
+              ],
+              "instruments": [
+                [
+                  "Guitars"
                 ]
               ]
             }
@@ -900,114 +776,66 @@
         }
       },
       {
-        "id": "multiple_123",
+        "id": "multiple_172",
         "category": "wrong_values",
         "raw_llm_response": "\\boxed{wrong_values}",
         "evaluation_entry": {
-          "id": "multiple_123",
+          "id": "multiple_172",
           "valid": false,
           "error": [
-            "Invalid value for parameter 'round_to': 4. Expected one of ['', 2]."
+            "Invalid value for parameter 'team': 'Los Angeles Lakers'. Expected one of ['']."
           ],
           "error_type": "value_error:others",
           "model_result_decoded": [
             {
-              "calculate_probability": {
-                "total_outcomes": 52,
-                "favorable_outcomes": 4,
-                "round_to": 4
+              "sports_db.find_athlete": {
+                "name": "Lebron James",
+                "team": "Los Angeles Lakers",
+                "sport": "Basketball"
               }
             }
           ],
           "possible_answer": {
-            "calculate_probability": {
-              "total_outcomes": [
-                52
+            "sports_db.find_athlete": {
+              "name": [
+                "Lebron James"
               ],
-              "favorable_outcomes": [
-                4
+              "sport": [
+                "Basketball"
               ],
-              "round_to": [
-                "",
-                2
+              "team": [
+                ""
               ]
             }
           }
         }
       },
       {
-        "id": "multiple_139",
+        "id": "multiple_173",
         "category": "wrong_values",
         "raw_llm_response": "\\boxed{wrong_values}",
         "evaluation_entry": {
-          "id": "multiple_139",
+          "id": "multiple_173",
           "valid": false,
           "error": [
-            "Invalid value for parameter 'case_type': 'all'. Expected one of ['Patent']."
+            "Invalid value for parameter 'top': 10. Expected one of [1, '']."
           ],
           "error_type": "value_error:others",
           "model_result_decoded": [
             {
-              "lawsuit_details.find": {
-                "company_name": "Apple Inc.",
-                "year": 2010,
-                "case_type": "all"
+              "get_defense_ranking": {
+                "season": 2021,
+                "top": 10
               }
             }
           ],
           "possible_answer": {
-            "lawsuit_details.find": {
-              "company_name": [
-                "Apple Inc."
+            "get_defense_ranking": {
+              "season": [
+                2021
               ],
-              "year": [
-                2010
-              ],
-              "case_type": [
-                "Patent"
-              ]
-            }
-          }
-        }
-      },
-      {
-        "id": "multiple_178",
-        "category": "wrong_values",
-        "raw_llm_response": "\\boxed{wrong_values}",
-        "evaluation_entry": {
-          "id": "multiple_178",
-          "valid": false,
-          "error": [
-            "Invalid value for parameter 'deck': [{'rank': 'Ace', 'suit': 'Spades'}, {'rank': 'Two', 'suit': 'Spades'}]. Expected one of ['']."
-          ],
-          "error_type": "value_error:others",
-          "model_result_decoded": [
-            {
-              "find_card_in_deck": {
-                "rank": "Queen",
-                "suit": "Hearts",
-                "deck": [
-                  {
-                    "rank": "Ace",
-                    "suit": "Spades"
-                  },
-                  {
-                    "rank": "Two",
-                    "suit": "Spades"
-                  }
-                ]
-              }
-            }
-          ],
-          "possible_answer": {
-            "find_card_in_deck": {
-              "rank": [
-                "Queen"
-              ],
-              "suit": [
-                "Hearts"
-              ],
-              "deck": [
+              "top": [
+                1,
                 ""
               ]
             }
@@ -1057,7 +885,7 @@
           "id": "multiple_184",
           "valid": false,
           "error": [
-            "Invalid value for parameter 'ingredients': ['pasta', 'cheese', 'garlic', 'olive oil', 'tomatoes', 'basil', 'parmesan']. Expected one of [['pasta', 'cheese'], ['cheese', 'pasta']]."
+            "Invalid value for parameter 'ingredients': ['pasta', 'cheese', 'milk', 'butter', 'garlic', 'salt', 'pepper']. Expected one of [['pasta', 'cheese'], ['cheese', 'pasta']]."
           ],
           "error_type": "value_error:others",
           "model_result_decoded": [
@@ -1067,11 +895,11 @@
                 "ingredients": [
                   "pasta",
                   "cheese",
+                  "milk",
+                  "butter",
                   "garlic",
-                  "olive oil",
-                  "tomatoes",
-                  "basil",
-                  "parmesan"
+                  "salt",
+                  "pepper"
                 ],
                 "servings": 2
               }
@@ -1100,35 +928,74 @@
         }
       },
       {
-        "id": "multiple_186",
+        "id": "multiple_187",
         "category": "wrong_values",
         "raw_llm_response": "\\boxed{wrong_values}",
         "evaluation_entry": {
-          "id": "multiple_186",
+          "id": "multiple_187",
           "valid": false,
           "error": [
-            "Invalid value for parameter 'time': 25. Expected one of [30]."
+            "Invalid value for parameter 'location': 'Los Angeles Whole Foods Market'. Expected one of ['Los Angeles', 'LA']."
           ],
           "error_type": "value_error:others",
           "model_result_decoded": [
             {
-              "find_recipe": {
-                "dietary_restrictions": "vegan",
-                "recipe_type": "dessert",
-                "time": 25
+              "whole_foods.check_price": {
+                "location": "Los Angeles Whole Foods Market",
+                "items": [
+                  "tomatoes",
+                  "lettuce"
+                ]
               }
             }
           ],
           "possible_answer": {
-            "find_recipe": {
-              "dietary_restrictions": [
-                "vegan"
+            "whole_foods.check_price": {
+              "location": [
+                "Los Angeles",
+                "LA"
               ],
-              "recipe_type": [
-                "dessert"
+              "items": [
+                [
+                  "tomatoes",
+                  "lettuce"
+                ],
+                [
+                  "lettuce",
+                  "tomatoes"
+                ]
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": "multiple_196",
+        "category": "wrong_values",
+        "raw_llm_response": "\\boxed{wrong_values}",
+        "evaluation_entry": {
+          "id": "multiple_196",
+          "valid": false,
+          "error": [
+            "Invalid value for parameter 'include_description': True. Expected one of ['', False]."
+          ],
+          "error_type": "value_error:others",
+          "model_result_decoded": [
+            {
+              "cellbio.get_proteins": {
+                "cell_compartment": "plasma membrane",
+                "include_description": true
+              }
+            }
+          ],
+          "possible_answer": {
+            "cellbio.get_proteins": {
+              "cell_compartment": [
+                "plasma membrane"
               ],
-              "time": [
-                30
+              "include_description": [
+                "",
+                false
               ]
             }
           }
