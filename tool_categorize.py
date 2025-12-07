@@ -6,12 +6,13 @@ This module provides functions to categorize evaluation errors into different ty
 """
 
 import json
-from typing import Any, Dict
+import re
+from typing import Any, Dict, Tuple
 from config import ToolErrorCategory
 from allow_synonym import _get_allow_synonym_backend
 
 
-async def categorize_single_sample_async(evaluation_entry: Dict[str, Any]) -> ToolErrorCategory:
+async def categorize_single_sample_async(evaluation_entry: Dict[str, Any]) -> Tuple[ToolErrorCategory, str]:
     """
     Asynchronously categorize a single evaluation sample to determine error type using LLM.
 
@@ -19,35 +20,30 @@ async def categorize_single_sample_async(evaluation_entry: Dict[str, Any]) -> To
         evaluation_entry: Evaluation result entry with 'id', 'valid', and error details
 
     Returns:
-        ToolErrorCategory enum indicating the type of error
+        Tuple of (ToolErrorCategory enum, raw_llm_response string)
     """
     # If the sample is valid, it's not an error
     is_valid = evaluation_entry.get("valid", False)
     # if is_valid:
-    #     return ToolErrorCategory.EXACTLY_SAME_MEANING
+    #     return ToolErrorCategory.EXACTLY_SAME_MEANING, ""
     assert not is_valid, "Expected invalid sample for categorization"
 
     # Prepare the prompt for LLM categorization
     system_prompt = """You are an error categorization system. Given an evaluation error entry, determine which category the error belongs to.
 
-CRITICAL: You must respond with EXACTLY one of these category strings (lowercase, no punctuation, no explanation):
-- syntax_error
-- misc_errors
-- wrong_values
-- language_mismatch
-- relevant_but_incorrect
-- exactly_same_meaning
-- other_errors
-
-Here are the definitions of each category:
+Here are the available categories and their definitions:
 1. syntax_error: The output contains syntax errors or is not well-formed.
 2. misc_errors: This error is specific to the following scenarios: function name mismatch, wrong number of functions and missing required arguments.
-3. wrong_values: The output contains completely incorrect values, calculations, or factual inaccuracies.
+3. wrong_values: The output contains COMPLETELY incorrect values, calculations, or factual inaccuracies.
 4. language_mismatch: The answer contains text that is not in English.
 5. relevant_but_incorrect: The arguments are in English and relevant to the ground truth but not exactly the same in meaning.
 6. exactly_same_meaning: The output is in English, and conveys the exact same meaning as the ground truth, though does not match the ground truth verbatim.
 7. other_errors: The error does not fit into any of the above categories. Please try your best to avoid using this category.
-Do not include any other text, explanation, or punctuation."""
+
+For an "invalid value" error, you need to be careful about which sub-category it belongs to, since it can be one of wrong_values, language_mismatch, relevant_but_incorrect, or exactly_same_meaning.
+
+CRITICAL: You must put your final decision inside \\boxed{} like this: \\boxed{category_name}
+where category_name is exactly one of: syntax_error, misc_errors, wrong_values, language_mismatch, relevant_but_incorrect, exactly_same_meaning, or other_errors (lowercase, no extra punctuation)."""
 
     # Format the evaluation entry for the user prompt
     error_details = json.dumps(evaluation_entry, ensure_ascii=False, indent=2)
@@ -56,7 +52,7 @@ Do not include any other text, explanation, or punctuation."""
 {error_details}
 
 Based on the error details above, which category does this error belong to?
-Respond with exactly one of: syntax_error, misc_errors, wrong_values, language_mismatch, relevant_but_incorrect, exactly_same_meaning, or other_errors."""
+Put your final answer in \\boxed{{category_name}}."""
 
     # Get backend
     backend = _get_allow_synonym_backend()
@@ -83,18 +79,31 @@ Respond with exactly one of: syntax_error, misc_errors, wrong_values, language_m
         # Extract and validate response content
         if not response.choices or len(response.choices) == 0:
             print(f"Warning: LLM returned no choices for sample {evaluation_entry.get('id')}. Defaulting to other_errors.")
-            return ToolErrorCategory.OTHER_ERRORS
+            return ToolErrorCategory.OTHER_ERRORS, "Error: No choices returned"
 
         content = response.choices[0].message.content
         if content is None:
             print(f"Warning: LLM returned None content for sample {evaluation_entry.get('id')}. Defaulting to other_errors.")
-            return ToolErrorCategory.OTHER_ERRORS
+            return ToolErrorCategory.OTHER_ERRORS, "Error: None content"
 
-        raw_output = content.strip().lower()
-
-        if not raw_output:
+        if not content.strip():
             print(f"Warning: LLM returned empty response for sample {evaluation_entry.get('id')}. Defaulting to other_errors.")
-            return ToolErrorCategory.OTHER_ERRORS
+            return ToolErrorCategory.OTHER_ERRORS, "Error: Empty response"
+
+        # Store the raw response for output
+        raw_response = content
+
+        # Extract category from \boxed{category_name} using regex
+        # Pattern matches \boxed{content} and captures the content
+        boxed_pattern = r'\\boxed\{([^}]+)\}'
+        match = re.search(boxed_pattern, content)
+
+        if not match:
+            print(f"Warning: LLM response did not contain \\boxed{{}} for sample {evaluation_entry.get('id')}. Response: {content[:100]}... Defaulting to other_errors.")
+            return ToolErrorCategory.OTHER_ERRORS, raw_response
+
+        # Extract and normalize the category name
+        raw_category = match.group(1).strip().lower()
 
         # Map the output to ToolErrorCategory enum
         category_map = {
@@ -107,12 +116,12 @@ Respond with exactly one of: syntax_error, misc_errors, wrong_values, language_m
             "other_errors": ToolErrorCategory.OTHER_ERRORS,
         }
 
-        if raw_output in category_map:
-            return category_map[raw_output]
+        if raw_category in category_map:
+            return category_map[raw_category], raw_response
         else:
-            print(f"Warning: LLM returned invalid category '{raw_output}' for sample {evaluation_entry.get('id')}. Defaulting to other_errors.")
-            return ToolErrorCategory.OTHER_ERRORS
+            print(f"Warning: LLM returned invalid category '{raw_category}' in \\boxed{{}} for sample {evaluation_entry.get('id')}. Defaulting to other_errors.")
+            return ToolErrorCategory.OTHER_ERRORS, raw_response
 
     except Exception as e:
         print(f"Error: Failed to categorize sample {evaluation_entry.get('id')}: {e}. Defaulting to other_errors.")
-        return ToolErrorCategory.OTHER_ERRORS
+        return ToolErrorCategory.OTHER_ERRORS, f"Error: {str(e)}"

@@ -87,7 +87,7 @@ else:
 
 # File operation helper functions
 
-def load_json_lines_from_file(file_path: str) -> tuple[list, set]:
+def load_json_lines_with_id(file_path: str) -> tuple[list, set]:
     """
     Load JSON lines from a file and extract existing IDs.
 
@@ -108,6 +108,25 @@ def load_json_lines_from_file(file_path: str) -> tuple[list, set]:
                 results.append(line_json)
                 existing_ids.add(id)
     return results, existing_ids
+
+def load_json_lines(file_path: str) -> list:
+    """
+    Load JSON lines from a file and extract existing IDs.
+
+    Args:
+        file_path: Path to the JSON lines file
+
+    Returns:
+        Tuple of (results_list, existing_ids_set)
+    """
+    results = []
+
+    with open(file_path, 'r', encoding='utf-8') as f:
+        if f.readable():
+            for line in f:
+                line_json = json.loads(line)
+                results.append(line_json)
+    return results
 
 
 def write_json_lines_to_file(file_path: str, results: list) -> None:
@@ -449,8 +468,8 @@ async def process_all_configs():
         # assign categorize_score_output_path
         categorize_score_output_path = f"tool/result/categorize_score/{model_dir_name}/{allow_synonym_output_combined_tags}.json"
 
-        test_cases, _ = load_json_lines_from_file(unpretranslated_dataset_path)
-        ground_truths, _ = load_json_lines_from_file(ground_truth_path)
+        test_cases = load_json_lines(unpretranslated_dataset_path)
+        ground_truths = load_json_lines(ground_truth_path)
 
         # ═══════════════════════════════════════════════════════════════════════
         # PASS 1: Translated Questions (Pre-Translation)
@@ -465,7 +484,7 @@ async def process_all_configs():
         else:
             assert pre_translate_tag == "_pretrans"
             try:
-                pre_translate_results, existing_pre_translate_ids = load_json_lines_from_file(pre_translate_output_path)
+                pre_translate_results, existing_pre_translate_ids = load_json_lines_with_id(pre_translate_output_path)
                 existing_pre_translate_ids = {entry["id"] for entry in pre_translate_results}
             except FileNotFoundError:
                 print(f"File {pre_translate_output_path} not found. It will be created.")
@@ -540,7 +559,7 @@ async def process_all_configs():
         # Output: tool/result/inference_raw/{model}/{filename}.json
         # ═══════════════════════════════════════════════════════════════════════
         try:
-            inference_json_inputs, existing_inference_ids = load_json_lines_from_file(inference_raw_output_path)
+            inference_json_inputs, existing_inference_ids = load_json_lines_with_id(inference_raw_output_path)
             # Filter out entries with error results
             inference_json_inputs = [
                 entry for entry in inference_json_inputs
@@ -555,7 +574,7 @@ async def process_all_configs():
         printed_warning = False
 
         # load the input dataset
-        preprocessed_test_cases, _ = load_json_lines_from_file(inference_raw_input_path)
+        preprocessed_test_cases = load_json_lines(inference_raw_input_path)
         # Filter cases that haven't been processed yet
         cases_to_process = [case for case in preprocessed_test_cases if case['id'] not in existing_inference_ids]
         if not printed_warning and len(cases_to_process) < len(preprocessed_test_cases):
@@ -663,7 +682,7 @@ async def process_all_configs():
         # ═══════════════════════════════════════════════════════════════════════
         # reload inference raw results
         try:
-            inference_json_inputs, _ = load_json_lines_from_file(inference_json_input_path)
+            inference_json_inputs = load_json_lines(inference_json_input_path)
         except FileNotFoundError:
             print(f"Error: File {inference_json_input_path} not found.")
             exit(1)
@@ -704,13 +723,13 @@ async def process_all_configs():
             assert post_translate_tag == "_posttrans"
             # Load inference json results
             try:
-                inference_json_results, _ = load_json_lines_from_file(post_translate_input_path)
+                inference_json_results = load_json_lines(post_translate_input_path)
             except FileNotFoundError:
                 print(f"Error: File {post_translate_input_path} not found.")
                 exit(1)
 
             try:
-                translated_answers_results, existing_translated_answers_ids = load_json_lines_from_file(post_translate_output_path)
+                translated_answers_results, existing_translated_answers_ids = load_json_lines_with_id(post_translate_output_path)
                 existing_translated_answers_ids = {entry["id"] for entry in translated_answers_results}
             except FileNotFoundError:
                 print(f"File {post_translate_output_path} not found. It will be created.")
@@ -937,7 +956,7 @@ async def process_all_configs():
                 allow_synonym_option = AllowSynonymOption.ALLOW_SYNONYM_DIFFERENT_LANGUAGE
             else:
                 raise ValueError(f"Unsupported allow synonym tag: {allow_synonym_tag}")
-            source_results, _ = load_json_lines_from_file(allow_synonym_input_path)
+            source_results = load_json_lines(allow_synonym_input_path)
 
             print(f"Processing {len(source_results)} samples with allow_synonym in parallel...")
 
@@ -1004,7 +1023,7 @@ async def process_all_configs():
         # ═══════════════════════════════════════════════════════════════════════
         # reload allow synonym results
         try:
-            allow_synonym_results, _ = load_json_lines_from_file(evaluation_input_path)
+            allow_synonym_results = load_json_lines(evaluation_input_path)
         except FileNotFoundError:
             print(f"File {evaluation_input_path} not found. Skipping evaluation.")
             exit(1)
@@ -1037,7 +1056,7 @@ async def process_all_configs():
         # ═══════════════════════════════════════════════════════════════════════
         # reload evaluation results
         try:
-            evaluation_entries, _ = load_json_lines_from_file(score_input_path)
+            evaluation_entries = load_json_lines(score_input_path)
         except FileNotFoundError:
             print(f"File {score_input_path} not found. Skipping scoring.")
             exit(1)
@@ -1079,7 +1098,7 @@ async def process_all_configs():
         # Output: tool/result/categorize/{model}/{filename}.json
         # ═══════════════════════════════════════════════════════════════════════
         try:
-            categorize_results, existing_categorize_ids = load_json_lines_from_file(categorize_output_path)
+            categorize_results, existing_categorize_ids = load_json_lines_with_id(categorize_output_path)
             existing_categorize_ids = {entry["id"] for entry in categorize_results}
         except FileNotFoundError:
             print(f"File {categorize_output_path} not found. It will be created.")
@@ -1088,7 +1107,7 @@ async def process_all_configs():
 
         # Load error samples from score file
         try:
-            score_entries, _ = load_json_lines_from_file(categorize_input_path)
+            score_entries = load_json_lines(categorize_input_path)
         except FileNotFoundError:
             print(f"File {categorize_input_path} not found. Skipping categorization.")
             score_entries = []
@@ -1107,9 +1126,9 @@ async def process_all_configs():
             async def categorize_samples_async():
                 """Categorize error samples asynchronously."""
                 async def categorize_with_sample(sample):
-                    """Wrapper to return both sample and its category."""
-                    category_enum = await categorize_single_sample_async(sample)
-                    return sample, category_enum
+                    """Wrapper to return sample, category, and raw response."""
+                    category_enum, raw_response = await categorize_single_sample_async(sample)
+                    return sample, category_enum, raw_response
 
                 # Create all categorization tasks
                 tasks = [categorize_with_sample(sample) for sample in samples_to_categorize]
@@ -1117,13 +1136,14 @@ async def process_all_configs():
                 # Process results as they complete
                 completed_count = 0
                 for coro in asyncio.as_completed(tasks):
-                    sample, category_enum = await coro
+                    sample, category_enum, raw_response = await coro
                     completed_count += 1
 
                     # Assemble the result dict (assembly logic in tool_main.py)
                     categorized_sample = {
                         "id": sample["id"],
                         "category": category_enum.value,  # Store enum value as string
+                        "raw_llm_response": raw_response,  # Store raw LLM response
                         "evaluation_entry": sample
                     }
 
@@ -1153,7 +1173,7 @@ async def process_all_configs():
         # ═══════════════════════════════════════════════════════════════════════
         # Load categorized results
         try:
-            categorized_samples, _ = load_json_lines_from_file(categorize_score_input_path)
+            categorized_samples = load_json_lines(categorize_score_input_path)
         except FileNotFoundError:
             print(f"File {categorize_score_input_path} not found. Skipping categorize scoring.")
             categorized_samples = []
@@ -1177,6 +1197,11 @@ async def process_all_configs():
                 "summary": category_counts,
                 "samples": category_samples
             }
+
+            # Create parent directory if it doesn't exist
+            parent_dir = os.path.dirname(categorize_score_output_path)
+            if parent_dir:
+                os.makedirs(parent_dir, exist_ok=True)
 
             # Write final aggregated results (single write, overwrites existing)
             with open(categorize_score_output_path, 'w', encoding='utf-8') as f:
