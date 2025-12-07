@@ -12,6 +12,7 @@ from pathlib import Path
 # -----------------------------
 translate_modes = [
     "NT", # Not Translated
+    "NT_ASS", # Not Translated + Allow-Synonym Same
     "PAR", # Partially Translated
     "FT", # Fully Translated
     "PT", # Fully Translated + Prompt Translate
@@ -112,8 +113,10 @@ def generate_heatmap(model_name: str, output_dir: str, result_dir: str) -> None:
 
                 # Map combination of tags to translate_mode
                 # NT = en + na
-                if language_tag == "en" and translate_level_tag == "na":
+                if language_tag == "en" and translate_level_tag == "na" and allow_synonym_tag == "noallow":
                     translate_mode = "NT"
+                elif language_tag == "en" and translate_level_tag == "na" and allow_synonym_tag == "allowsame":
+                    translate_mode = "NT_ASS"
                 # PAR = (zh or hi) + parttrans
                 elif language_tag in ["zh", "hi"] and translate_level_tag == "parttrans":
                     translate_mode = "PAR"
@@ -160,9 +163,9 @@ def generate_heatmap(model_name: str, output_dir: str, result_dir: str) -> None:
                         print(f"  Tags: pre={pre_translate_tag}, prompt={prompt_translate_tag}, post={post_translate_tag}, allow={allow_synonym_tag}")
                         continue
                 else:
-                    print(f"Warning: Unknown language/translate_level combination in {score_file.name}")
+                    print(f"Error: Unknown language/translate_level combination in {score_file.name}")
                     print(f"  language={language_tag}, translate_level={translate_level_tag}")
-                    continue
+                    exit(1)
 
                 # Store the accuracy
                 data_dict[translate_mode][noise_mode] = accuracy
@@ -237,8 +240,8 @@ if __name__ == "__main__":
     # Generate heatmaps for different models
     # Model names should match the directory names in result/score/
     # Examples: "gpt-5", "gpt-5-mini", "gpt-5-nano"
-    # models = ["gpt-5-nano"]
-    models = ['Qwen-Qwen3-30B-A3B', 'Qwen-Qwen3-8B']
+    models = ["gpt-5-nano"]
+    # models = ['Qwen-Qwen3-30B-A3B', 'Qwen-Qwen3-8B']
 
     for model in models:
         print(f"\n{'='*60}")

@@ -357,13 +357,13 @@ async def process_all_configs():
                         allow_synonym_tag = "_allowsame"
                     case _:
                         raise ValueError(f"Unsupported translate option: {option}")
-            case NotTranslated():
+            case NotTranslated(allow_synonym_same_language):
                 language_tag = "_en"
                 translate_level_tag = "_na"
                 pre_translate_tag = "_nopretrans"
                 prompt_translate_tag = "_noprompt"
                 post_translate_tag = "_noposttrans"
-                allow_synonym_tag = "_noallow"
+                allow_synonym_tag = "_allowsame" if allow_synonym_same_language else "_noallow"
         match config.add_noise_mode:
             case AddNoiseMode.NO_NOISE:
                 noise_tag = "_nonoise" # no noise

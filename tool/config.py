@@ -48,6 +48,7 @@ class Language(Enum):
 
 class TranslateOption(Enum):
     FULLY_TRANSLATED = auto()
+    FULLY_TRANSLATED_POST_PROCESS_SAME = auto()
     FULLY_TRANSLATED_PROMPT_TRANSLATE = auto()
     PARTIALLY_TRANSLATED = auto()
     FULLY_TRANSLATED_POST_PROCESS_DIFFERENT = auto()

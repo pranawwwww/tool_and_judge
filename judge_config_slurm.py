@@ -25,7 +25,7 @@ from config import (
 # Example configurations
 configs = [    
     JudgeConfig(
-        model=LocalModel.QWEN3_8B,
+        model=LocalModel.QWEN3_30B_A3B,
         lang1="zh_cn",
         lang2="en",
         result_type=ResultType.PREFERENCE_COT,

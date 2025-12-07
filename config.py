@@ -79,7 +79,7 @@ class Translated:
 
 @dataclass(frozen=True)
 class NotTranslated:
-    pass
+    allow_synonym_same_language: bool
 
 TranslateMode = Union[Translated, NotTranslated]
 
