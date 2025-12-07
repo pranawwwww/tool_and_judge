@@ -34,7 +34,7 @@ async def categorize_single_sample_async(evaluation_entry: Dict[str, Any]) -> Tu
 Here are the available categories and their definitions:
 1. syntax_error: The output contains syntax errors or is not well-formed.
 2. misc_errors: This error is specific to the following scenarios: function name mismatch, wrong number of functions and missing required arguments.
-3. wrong_values: The output contains COMPLETELY incorrect values, calculations, or factual inaccuracies.
+3. wrong_values: The output contains COMPLETELY incorrect values, calculations, or factual inaccuracies. Format and expression convention errors are NOT included in this category. If the answer is not related to math, quantity or time, and some of the words or meanings in the output overlap with the ground truth, select relevant_but_incorrect instead.
 4. language_mismatch: The answer contains text that is not in English.
 5. relevant_but_incorrect: The arguments are in English and relevant to the ground truth but not exactly the same in meaning.
 6. exactly_same_meaning: The output is in English, and conveys the exact same meaning as the ground truth, though does not match the ground truth verbatim.
@@ -43,7 +43,8 @@ Here are the available categories and their definitions:
 For an "invalid value" error, you need to be careful about which sub-category it belongs to, since it can be one of wrong_values, language_mismatch, relevant_but_incorrect, or exactly_same_meaning.
 
 CRITICAL: You must put your final decision inside \\boxed{} like this: \\boxed{category_name}
-where category_name is exactly one of: syntax_error, misc_errors, wrong_values, language_mismatch, relevant_but_incorrect, exactly_same_meaning, or other_errors (lowercase, no extra punctuation)."""
+where category_name is exactly one of: syntax_error, misc_errors, wrong_values, language_mismatch, relevant_but_incorrect, exactly_same_meaning, or other_errors (lowercase, no extra punctuation).
+If the decision is non-trivial, you can do simple reasoning before the final answer if you wish."""
 
     # Format the evaluation entry for the user prompt
     error_details = json.dumps(evaluation_entry, ensure_ascii=False, indent=2)
