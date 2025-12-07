@@ -23,8 +23,9 @@ async def categorize_single_sample_async(evaluation_entry: Dict[str, Any]) -> To
     """
     # If the sample is valid, it's not an error
     is_valid = evaluation_entry.get("valid", False)
-    if is_valid:
-        return ToolErrorCategory.EXACTLY_SAME_MEANING
+    # if is_valid:
+    #     return ToolErrorCategory.EXACTLY_SAME_MEANING
+    assert not is_valid, "Expected invalid sample for categorization"
 
     # Prepare the prompt for LLM categorization
     system_prompt = """You are an error categorization system. Given an evaluation error entry, determine which category the error belongs to.
@@ -38,6 +39,14 @@ CRITICAL: You must respond with EXACTLY one of these category strings (lowercase
 - exactly_same_meaning
 - other_errors
 
+Here are the definitions of each category:
+1. syntax_error: The output contains syntax errors or is not well-formed.
+2. misc_errors: This error is specific to the following scenarios: function name mismatch, wrong number of functions and missing required arguments.
+3. wrong_values: The output contains completely incorrect values, calculations, or factual inaccuracies.
+4. language_mismatch: The answer contains text that is not in English.
+5. relevant_but_incorrect: The arguments are in English and relevant to the ground truth but not exactly the same in meaning.
+6. exactly_same_meaning: The output is in English, and conveys the exact same meaning as the ground truth, though does not match the ground truth verbatim.
+7. other_errors: The error does not fit into any of the above categories. Please try your best to avoid using this category.
 Do not include any other text, explanation, or punctuation."""
 
     # Format the evaluation entry for the user prompt

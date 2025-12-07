@@ -1225,6 +1225,20 @@
     "\"Behavioral Psychology\"|||\"Psychology\"": false,
     "\"The Alchemist (Paulo Coelho)\"|||\"The Alchemist\"": true,
     "\"New York City, NY, USA\"|||\"New York City\"": true,
-    "\"Washington, DC, USA\"|||\"Washington D.C.\"": true
+    "\"Washington, DC, USA\"|||\"Washington D.C.\"": true,
+    "\"employee\"|||\"employees\"": true,
+    "\"Purchase Amount\"|||\"Purchase_Amount\"": true,
+    "\"wise human\"|||\"\"": false,
+    "\"Starry night\"|||\"Starry Night\"": true,
+    "\"wise human\"|||\"Homo sapiens\"": false,
+    "\"thousands\"|||\"miles\"": false,
+    "\"Employee database\"|||\"employees\"": false,
+    "\"wise human\"|||\"Homo Sapiens\"": false,
+    "\"thousands\"|||\"\"": false,
+    "\"Rosewood decor edition\"|||\"Rosewood\"": false,
+    "\"Courtyard\"|||\"Patio\"": false,
+    "\"Employee Database\"|||\"employees\"": false,
+    "\"Peace be upon you.\"|||\"asc\"": false,
+    "\"Peace be upon you.\"|||\"\"": false
   }
 }
