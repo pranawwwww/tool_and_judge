@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --job-name=run_tool       # Job name
-#SBATCH --output=run_tool_%j.out        # Standard output log (%j = job ID)
-#SBATCH --error=run_tool_%j.err         # Error log
-#SBATCH --time=00:45:00                 # Max runtime (HH:MM:SS)
+#SBATCH --job-name=run_tool3       # Job name
+#SBATCH --output=run_tool3_%j.out        # Standard output log (%j = job ID)
+#SBATCH --error=run_tool3_%j.err         # Error log
+#SBATCH --time=00:30:00                 # Max runtime (HH:MM:SS)
 # #SBATCH --partition=gpu                  # Partition/queue with GPU
 # #SBATCH --mail-type=BEGIN,END,FAIL
 # #SBATCH --mail-user=luozheng@usc.edu
@@ -25,4 +25,4 @@ export HF_HOME=/work/nvme/bfdz/zluo8/huggingface
 
 # Run the training script
 
-python tool_main.py --config tool_config_slurm.py --num-gpus 4
+python tool_main.py --config tool_config_slurm3.py --num-gpus 4

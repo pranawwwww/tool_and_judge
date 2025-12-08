@@ -6,7 +6,11 @@
       "Bash(cat:*)",
       "WebFetch(domain:qwen.readthedocs.io)",
       "Bash(git checkout:*)",
-      "mcp__ide__getDiagnostics"
+      "mcp__ide__getDiagnostics",
+      "Bash(paste:*)",
+      "Bash(for file in gpt5_interface.py qwen3_interface.py deepseek_interface.py granite4_interface.py)",
+      "Bash(do echo \"=== $file ===\" grep \"async def generate_tool_call_async\\|def preprocess_functions\\|def postprocess_tool_calls\\|async def translate_tool_question_async\\|async def translate_tool_answer_async\\|async def compare_directly_async\\|async def compare_thinking_async\\|async def forward_for_logits_async\" models/$file)",
+      "Bash(done)"
     ],
     "deny": [],
     "ask": []
