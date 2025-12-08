@@ -203,8 +203,8 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
     print(f"\nError distribution for model '{model_name}':")
     print(df)
 
-    # Plot stacked bar chart
-    fig, ax = plt.subplots(figsize=(12, 6))
+    # Plot stacked bar chart (reduced width to accommodate legend)
+    fig, ax = plt.subplots(figsize=(10, 6))
 
     # Convert counts to rates by dividing by 200
     df_rate = df / 200.0
@@ -221,7 +221,7 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
     totals = df_rate.sum(axis=1).values
 
     # Add total numbers on top of each bar
-    for i, (label, total) in enumerate(zip(bar_labels, totals)):
+    for i, total in enumerate(totals):
         if total > 0:  # Only annotate if there's data
             ax.text(i, total, f'{total:.3f}',
                    ha='center', va='bottom', fontsize=9, fontweight='bold')
@@ -235,7 +235,9 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
     ax.set_xlabel('Configuration', fontsize=12)
     ax.set_ylabel('Error Rate', fontsize=12)
     ax.set_title(title, fontsize=14, fontweight='bold')
-    ax.legend(loc='upper right', bbox_to_anchor=(1.15, 1), fontsize=10)
+
+    # Place legend outside plot area on the right with smaller font
+    ax.legend(loc='center left', bbox_to_anchor=(1.02, 0.5), fontsize=9)
 
     # Rotate x-axis labels if there are many bars
     if len(bar_labels) > 10:
