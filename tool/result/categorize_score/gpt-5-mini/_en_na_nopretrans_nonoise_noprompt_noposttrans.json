@@ -1,13 +1,14 @@
 {
   "summary": {
-    "relevant_but_incorrect": 11,
+    "relevant_but_incorrect": 12,
     "misc_errors": 10,
     "exactly_same_meaning": 14,
-    "wrong_values": 4
+    "wrong_values": 3
   },
   "samples": {
     "relevant_but_incorrect": [
       "multiple_3",
+      "multiple_32",
       "multiple_33",
       "multiple_38",
       "multiple_54",
@@ -48,7 +49,6 @@
       "multiple_193"
     ],
     "wrong_values": [
-      "multiple_32",
       "multiple_47",
       "multiple_156",
       "multiple_178"

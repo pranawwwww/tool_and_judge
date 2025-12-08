@@ -25,22 +25,26 @@ noise_modes = ["NO_NOISE", "PARAPHRASE", "SYNONYM"]
 error_categories = [
     "syntax_error",
     "misc_errors",
+    "language_mismatch_wrong_values",
+    "language_mismatch_relevant_but_incorrect",
+    "language_mismatch_exactly_same_meaning",
     "wrong_values",
-    "language_mismatch",
     "relevant_but_incorrect",
-    "exactly_same_meaning",
+    "exactly_same_meaning",    
     "other_errors",
 ]
 
-# Color map for each error category
+# Color map for each error category (darker, uniform brightness)
 category_colors = {
-    "syntax_error": "#e74c3c",  # Red
-    "misc_errors": "#e67e22",  # Orange
-    "wrong_values": "#f39c12",  # Yellow-orange
-    "language_mismatch": "#9b59b6",  # Purple
-    "relevant_but_incorrect": "#3498db",  # Blue
-    "exactly_same_meaning": "#2ecc71",  # Green
-    "other_errors": "#95a5a6",  # Gray
+    "syntax_error": "#b30000",  # Dark red
+    "misc_errors": "#b35900",  # Dark orange
+    "language_mismatch_wrong_values": "#5a1585", # Dark purple
+    "language_mismatch_relevant_but_incorrect": "#7a1aa0",  # Medium purple
+    "language_mismatch_exactly_same_meaning": "#9060b0",  # Light purple
+    "wrong_values": "#b3b300",  # Dark yellow
+    "relevant_but_incorrect": "#88b300",  # Dark yellow-green
+    "exactly_same_meaning": "#269900",  # Dark green
+    "other_errors": "#707070",  # Dark gray
 }
 
 
@@ -253,7 +257,7 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
 # Example usage
 if __name__ == "__main__":
     # Generate stacked bar charts for different models
-    models = ["gpt-5-nano"]  # Add more models as needed
+    models = ["gpt-5-nano", "gpt-5-mini", "gpt-5"]  # Add more models as needed
 
     for model in models:
         print(f"\n{'='*60}")

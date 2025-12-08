@@ -233,7 +233,7 @@ class GPT5Interface(JudgeModelInterface, ToolModelInterface):
                 function_calls = response_data
             # Handle case where response_data is a dict with error
             elif isinstance(response_data, dict) and "error" in response_data:
-                print("Error: Unreachable!")
+                print("Error: Unreachable! gpt5_interface line 236")
                 exit(1)
                 # return (EvaluationError.MODEL_ERROR, {
                 #     "error_message": response_data['error'],
@@ -244,14 +244,15 @@ class GPT5Interface(JudgeModelInterface, ToolModelInterface):
                 function_calls = response_data["function_calls"]
             # Fallback: no function calls
             elif isinstance(response_data, dict) and "output_text" in response_data:
-                print("Error: Unreachable!")
-                exit(1)
+                return (EvaluationError.NO_FUNCTION_CALLS_FOUND, {
+                    "raw_output": raw_output
+                })
                 # return (EvaluationError.TEXT_INSTEAD_OF_FUNCTION_CALLS, {
                 #     "output_text": str(response_data['output_text'])[:200],
                 #     "raw_output": raw_output
                 # })
             else:
-                print("Error: Unreachable!")
+                print("Error: Unreachable! gpt5_interface line 254")
                 exit(1)
                 # return (EvaluationError.UNEXPECTED_RESPONSE_FORMAT, {
                 #     "response_preview": json.dumps(response_data)[:200],
