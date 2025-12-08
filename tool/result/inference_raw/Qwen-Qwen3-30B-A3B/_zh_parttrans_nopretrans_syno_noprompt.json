@@ -73,7 +73,7 @@
 {"id": "multiple_72", "result": "<tool_call>\n{\"name\": \"us_history.population_by_state_year\", \"arguments\": {\"state\": \"California\", \"year\": 1970}}\n</tool_call>"}
 {"id": "multiple_73", "result": "<tool_call>\n{\"name\": \"religion.get_origin\", \"arguments\": {\"religion\": \"Buddhism\"}}\n</tool_call>"}
 {"id": "multiple_74", "result": "<tool_call>\n{\"name\": \"art_auction.fetch_artwork_price\", \"arguments\": {\"artwork_name\": \"Starry Night\", \"artist\": \"Van Gogh\", \"platform\": \"all\"}}\n</tool_call>"}
-{"id": "multiple_75", "result": "<tool_call>\n{\"name\": \"paint_color.trends\", \"arguments\": {\"room\": \"sitting room\"}}\n</tool_call>"}
+{"id": "multiple_75", "result": "<tool_call>\n{\"name\": \"paint_color.trends\", \"arguments\": {\"room\": \"sitting room\", \"period\": \"Monthly\"}}\n</tool_call>"}
 {"id": "multiple_76", "result": "<tool_call>\n{\"name\": \"sculpture.create_custom\", \"arguments\": {\"item\": \"horse\", \"material\": \"Bronze\"}}\n</tool_call>"}
 {"id": "multiple_77", "result": "<tool_call>\n{\"name\": \"artwork_search.find\", \"arguments\": {\"type\": \"sculpture\", \"location\": \"New York\", \"era\": \"contemporary\"}}\n</tool_call>"}
 {"id": "multiple_78", "result": "<tool_call>\n{\"name\": \"museum_info\", \"arguments\": {\"museum\": \"Natural History Museum\", \"city\": \"London\", \"features\": [\"hours\", \"expositions\", \"accessibility\"]}}\n</tool_call>"}
@@ -106,7 +106,7 @@
 {"id": "multiple_105", "result": "<tool_call>\n{\"name\": \"calculate_magnetic_field\", \"arguments\": {\"current\": 5, \"radius\": 4}}\n</tool_call>"}
 {"id": "multiple_106", "result": "<tool_call>\n{\"name\": \"calculate_electric_field_strength\", \"arguments\": {\"charge\": 0.01, \"distance\": 4}}\n</tool_call>"}
 {"id": "multiple_107", "result": "<tool_call>\n{\"name\": \"calculate_density\", \"arguments\": {\"mass\": 45, \"volume\": 15}}\n</tool_call>"}
-{"id": "multiple_108", "result": "<tool_call>\n{\"name\": \"calc_heat_capacity\", \"arguments\": {\"temp\": 298, \"volume\": 10}}\n</tool_call>"}
+{"id": "multiple_108", "result": "<tool_call>\n{\"name\": \"calc_heat_capacity\", \"arguments\": {\"temp\": 298, \"volume\": 10, \"gas\": \"air\"}}\n</tool_call>"}
 {"id": "multiple_109", "result": "<tool_call>\n{\"name\": \"cellbio.get_proteins\", \"arguments\": {\"cell_compartment\": \"plasma membrane\", \"include_description\": true}}\n</tool_call>"}
 {"id": "multiple_110", "result": "<tool_call>\n{\"name\": \"mutation_type.find\", \"arguments\": {\"snp_id\": \"rs6034464\"}}\n</tool_call>"}
 {"id": "multiple_111", "result": "<tool_call>\n{\"name\": \"calculate_genotype_frequency\", \"arguments\": {\"allele_frequency\": 0.3, \"genotype\": \"AA\"}}\n</tool_call>"}
@@ -129,7 +129,7 @@
 {"id": "multiple_128", "result": "<tool_call>\n{\"name\": \"calculate_return_on_equity\", \"arguments\": {\"net_income\": 2000000, \"shareholder_equity\": 10000000, \"dividends_paid\": 200000}}\n</tool_call>"}
 {"id": "multiple_129", "result": "<tool_call>\n{\"name\": \"compound_interest\", \"arguments\": {\"principal\": 10000, \"annual_rate\": 5, \"compounding_freq\": \"monthly\", \"time_in_years\": 5}}\n</tool_call>"}
 {"id": "multiple_130", "result": "<tool_call>\n{\"name\": \"calculate_cagr\", \"arguments\": {\"initial_value\": 2000, \"final_value\": 3000, \"period_in_years\": 4}}\n</tool_call>"}
-{"id": "multiple_131", "result": "<tool_call>\n{\"name\": \"market_performance.get_data\", \"arguments\": {\"indexes\": [\"S&P 500\", \"Dow Jones\"], \"days\": 5, \"detailed\": false}}\n</tool_call>"}
+{"id": "multiple_131", "result": "<tool_call>\n{\"name\": \"market_performance.get_data\", \"arguments\": {\"indexes\": [\"S&P 500\", \"Dow Jones\"], \"days\": 5}}\n</tool_call>"}
 {"id": "multiple_132", "result": "<tool_call>\n{\"name\": \"finance.calculate_future_value\", \"arguments\": {\"initial_investment\": 20000, \"rate_of_return\": 0.08, \"years\": 5}}\n</tool_call>"}
 {"id": "multiple_133", "result": "<tool_call>\n{\"name\": \"calculate_mutual_fund_balance\", \"arguments\": {\"investment_amount\": 50000, \"annual_yield\": 0.05, \"years\": 3}}\n</tool_call>"}
 {"id": "multiple_134", "result": "<tool_call>\n{\"name\": \"crime_record.get_record\", \"arguments\": {\"case_number\": \"CA123456\", \"county\": \"San Diego County\", \"details\": true}}\n</tool_call>"}
@@ -182,7 +182,7 @@
 {"id": "multiple_181", "result": "<tool_call>\n{\"name\": \"soccer.get_last_match\", \"arguments\": {\"team_name\": \"Liverpool F.C.\", \"include_stats\": true}}\n</tool_call>"}
 {"id": "multiple_182", "result": "<tool_call>\n{\"name\": \"multiplayer_game_finder\", \"arguments\": {\"platform\": \"Windows 10\", \"rating\": 4.5}}\n</tool_call>"}
 {"id": "multiple_183", "result": "<tool_call>\n{\"name\": \"recipe_info.get_calories\", \"arguments\": {\"website\": \"Foodnetwork.com\", \"recipe\": \"Beef Lasagna Recipe\"}}\n</tool_call>"}
-{"id": "multiple_184", "result": "<tool_call>\n{\"name\": \"recipe_search\", \"arguments\": {\"dietary_restriction\": \"Vegetarian\", \"ingredients\": [\"noodles\", \"cheese\"], \"servings\": 2}}\n</tool_call>"}
+{"id": "multiple_184", "result": "<tool_call>\n{\"name\": \"recipe_search\", \"arguments\": {\"dietary_restriction\": \"Meatless\", \"ingredients\": [\"noodles\", \"cheese\"], \"servings\": 2}}\n</tool_call>"}
 {"id": "multiple_185", "result": "<tool_call>\n{\"name\": \"restaurant_search.find_closest\", \"arguments\": {\"location\": \"Boston\", \"cuisine\": \"Sushi\", \"amenities\": [\"Patio\"]}}\n</tool_call>"}
 {"id": "multiple_186", "result": "<tool_call>\n{\"name\": \"find_recipe\", \"arguments\": {\"dietary_restrictions\": \"vegan\", \"recipe_type\": \"dessert\", \"time\": 30}}\n</tool_call>"}
 {"id": "multiple_187", "result": "<tool_call>\n{\"name\": \"whole_foods.check_price\", \"arguments\": {\"location\": \"Los Angeles\", \"items\": [\"番茄\", \"生菜\"]}}\n</tool_call>"}

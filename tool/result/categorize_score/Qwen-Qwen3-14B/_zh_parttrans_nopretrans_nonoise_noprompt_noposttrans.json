@@ -1,0 +1,32 @@
+{
+  "summary": {
+    "relevant_but_incorrect": 5,
+    "misc_errors": 1,
+    "exactly_same_meaning": 3,
+    "language_mismatch_exactly_same_meaning": 1,
+    "wrong_values": 1
+  },
+  "samples": {
+    "relevant_but_incorrect": [
+      "multiple_10",
+      "multiple_47",
+      "multiple_61",
+      "multiple_91",
+      "multiple_99"
+    ],
+    "misc_errors": [
+      "multiple_13"
+    ],
+    "exactly_same_meaning": [
+      "multiple_29",
+      "multiple_33",
+      "multiple_149"
+    ],
+    "language_mismatch_exactly_same_meaning": [
+      "multiple_152"
+    ],
+    "wrong_values": [
+      "multiple_156"
+    ]
+  }
+}

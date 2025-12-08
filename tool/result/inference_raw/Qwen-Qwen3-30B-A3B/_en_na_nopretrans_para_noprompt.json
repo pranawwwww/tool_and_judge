@@ -1,4 +1,4 @@
-{"id": "multiple_0", "result": "<tool_call>\n{\"name\": \"triangle_properties.get\", \"arguments\": {\"side1\": 5, \"side2\": 4, \"side3\": 3, \"get_area\": true, \"get_perimeter\": true, \"get_angles\": true}}\n</tool_call>"}
+{"id": "multiple_0", "result": "<tool_call>\n{\"name\": \"triangle_properties.get\", \"arguments\": {\"side1\": 5, \"side2\": 4, \"side3\": 3}}\n</tool_call>"}
 {"id": "multiple_1", "result": "<tool_call>\n{\"name\": \"math.triangle_area_heron\", \"arguments\": {\"side1\": 3, \"side2\": 4, \"side3\": 5}}\n</tool_call>"}
 {"id": "multiple_2", "result": "<tool_call>\n{\"name\": \"country_info.capital\", \"arguments\": {\"country\": \"Brazil\"}}\n</tool_call>"}
 {"id": "multiple_3", "result": "<tool_call>\n{\"name\": \"EuclideanDistance.calculate\", \"arguments\": {\"pointA\": [3, 4], \"pointB\": [1, 2], \"rounding\": 0}}\n</tool_call>"}
@@ -24,7 +24,7 @@
 {"id": "multiple_23", "result": "<tool_call>\n{\"name\": \"basketball.player_stats.get\", \"arguments\": {\"player_name\": \"LeBron James\", \"stats_fields\": [\"points\", \"assists\", \"minutes\"]}}\n</tool_call>"}
 {"id": "multiple_24", "result": "<tool_call>\n{\"name\": \"route_planner.calculate_route\", \"arguments\": {\"start\": \"London\", \"destination\": \"Edinburgh\", \"method\": \"fastest\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"chess_club_details.find\", \"arguments\": {\"name\": \"chess championship\", \"city\": \"Edinburgh\"}}\n</tool_call>"}
 {"id": "multiple_25", "result": "<tool_call>\n{\"name\": \"video_games.store_price\", \"arguments\": {\"game_title\": \"Assassins Creed Valhalla\", \"platform\": \"PlayStation\", \"region\": \"United States\"}}\n</tool_call>"}
-{"id": "multiple_26", "result": "<tool_call>\n{\"name\": \"game_rewards.get\", \"arguments\": {\"game\": \"Fortnite\", \"platform\": \"Playstation\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"game_missions.list\", \"arguments\": {\"game\": \"Fortnite\"}}\n</tool_call>"}
+{"id": "multiple_26", "result": "<tool_call>\n{\"name\": \"game_rewards.get\", \"arguments\": {\"game\": \"Fortnite\", \"platform\": \"Playstation\"}}\n</tool_call>"}
 {"id": "multiple_27", "result": "<tool_call>\n{\"name\": \"maps.shortest_path\", \"arguments\": {\"start_location\": \"Paris, France\", \"end_location\": \"Rome, Italy\", \"mode\": \"transit\"}}\n</tool_call>"}
 {"id": "multiple_28", "result": "<tool_call>\n{\"name\": \"solve.quadratic_equation\", \"arguments\": {\"a\": 2, \"b\": 3, \"c\": -4}}\n</tool_call>"}
 {"id": "multiple_29", "result": "<tool_call>\n{\"name\": \"functions.intersect\", \"arguments\": {\"function1\": \"3x+2\", \"function2\": \"2x+3\"}}\n</tool_call>"}
@@ -45,7 +45,7 @@
 {"id": "multiple_44", "result": "<tool_call>\n{\"name\": \"calculate.weight_in_space\", \"arguments\": {\"weight_earth_kg\": 70, \"planet\": \"Mars\"}}\n</tool_call>"}
 {"id": "multiple_45", "result": "<tool_call>\n{\"name\": \"geology.get_era\", \"arguments\": {\"era_name\": \"Ice Age\", \"calculate_years_ago\": true}}\n</tool_call>"}
 {"id": "multiple_46", "result": "<tool_call>\n{\"name\": \"sort_list\", \"arguments\": {\"elements\": [\"Sam\", \"Alice\", \"Jack\"], \"order\": \"asc\"}}\n</tool_call>"}
-{"id": "multiple_47", "result": "<tool_call>\n{\"name\": \"cosine_similarity.calculate\", \"arguments\": {\"vector1\": [3, 2, 1], \"vector2\": [1, 2, 3], \"rounding\": 2}}\n</tool_call>"}
+{"id": "multiple_47", "result": "<tool_call>\n{\"name\": \"cosine_similarity.calculate\", \"arguments\": {\"vector1\": [3, 2, 1], \"vector2\": [1, 2, 3], \"rounding\": 3}}\n</tool_call>"}
 {"id": "multiple_48", "result": "<tool_call>\n{\"name\": \"library.find_nearby\", \"arguments\": {\"location\": \"New York City, NY\", \"preferences\": [\"Pet-friendly\", \"Disabled Access\"]}}\n</tool_call>"}
 {"id": "multiple_49", "result": "<tool_call>\n{\"name\": \"calc_Compound_Interest\", \"arguments\": {\"principle_amount\": 1500, \"duration\": 2, \"annual_rate\": 2.5, \"compound_freq\": 1}}\n</tool_call>"}
 {"id": "multiple_50", "result": "<tool_call>\n{\"name\": \"house_price_forecast\", \"arguments\": {\"location\": \"New York\", \"months\": 1}}\n</tool_call>"}
@@ -90,7 +90,7 @@
 {"id": "multiple_89", "result": "<tool_call>\n{\"name\": \"recipe_search\", \"arguments\": {\"ingredients\": [\"chicken\", \"mushrooms\"], \"calories\": 500, \"meal\": \"lunch\"}}\n</tool_call>"}
 {"id": "multiple_90", "result": "<tool_call>\n{\"name\": \"restaurant.find_group\", \"arguments\": {\"location\": \"Seattle, WA\", \"cuisine\": [\"Seafood\"], \"group_size\": 5}}\n</tool_call>"}
 {"id": "multiple_91", "result": "<tool_call>\n{\"name\": \"recipe.find\", \"arguments\": {\"mainIngredient\": \"apple\", \"ingredientLimit\": 5}}\n</tool_call>"}
-{"id": "multiple_92", "result": "<tool_call>\n{\"name\": \"walmart.vegan_products\", \"arguments\": {\"location\": \"Denver, CO\", \"categories\": [\"vegan\", \"gluten-free\"]}}\n</tool_call>"}
+{"id": "multiple_92", "result": "<tool_call>\n{\"name\": \"walmart.vegan_products\", \"arguments\": {\"location\": \"Denver, CO\", \"categories\": [\"vegetarian\", \"gluten-free\"]}}\n</tool_call>"}
 {"id": "multiple_93", "result": "<tool_call>\n{\"name\": \"hotel.book\", \"arguments\": {\"location\": \"New York\", \"roomType\": \"deluxe\", \"nights\": 2, \"additional_services\": [\"breakfast\"]}}\n</tool_call>"}
 {"id": "multiple_94", "result": "<tool_call>\n{\"name\": \"hotel_room_pricing.get\", \"arguments\": {\"hotelName\": \"Hilton New York\", \"roomType\": \"suite with a queen size bed\", \"nights\": 3}}\n</tool_call>"}
 {"id": "multiple_95", "result": "<tool_call>\n{\"name\": \"currency_exchange.convert\", \"arguments\": {\"amount\": 200, \"from_currency\": \"EUR\", \"to_currency\": \"USD\", \"live_conversion\": true}}\n</tool_call>"}
@@ -114,12 +114,12 @@
 {"id": "multiple_113", "result": "<tool_call>\n{\"name\": \"calculate_fitness\", \"arguments\": {\"trait_values\": [0.8, 0.7], \"trait_contributions\": [0.4, 0.6]}}\n</tool_call>"}
 {"id": "multiple_114", "result": "<tool_call>\n{\"name\": \"prediction.evolution\", \"arguments\": {\"species\": \"Homo Sapiens\", \"years\": 50, \"model\": \"Darwin\"}}\n</tool_call>"}
 {"id": "multiple_115", "result": "<tool_call>\n{\"name\": \"find_restaurants\", \"arguments\": {\"location\": \"Manhattan\", \"food_type\": \"Thai\", \"number\": 5, \"dietary_requirements\": [\"vegan\"]}}\n</tool_call>"}
-{"id": "multiple_116", "result": "<tool_call>\n{\"name\": \"calculate_bmi\", \"arguments\": {\"weight\": 85, \"height\": 180}}\n</tool_call>"}
+{"id": "multiple_116", "result": "<tool_call>\n{\"name\": \"calculate_bmi\", \"arguments\": {\"weight\": 85, \"height\": 180, \"unit\": \"metric\"}}\n</tool_call>"}
 {"id": "multiple_117", "result": "<tool_call>\n{\"name\": \"calculate_BMI\", \"arguments\": {\"weight_kg\": 70, \"height_m\": 1.75}}\n</tool_call>"}
 {"id": "multiple_118", "result": "<tool_call>\n{\"name\": \"imdb.find_movies_by_actor\", \"arguments\": {\"actor_name\": \"Leonardo DiCaprio\", \"year\": 2010}}\n</tool_call>"}
 {"id": "multiple_119", "result": "<tool_call>\n{\"name\": \"database.query\", \"arguments\": {\"table\": \"user\", \"conditions\": [{\"field\": \"age\", \"operation\": \">\", \"value\": \"25\"}, {\"field\": \"job_title\", \"operation\": \"=\", \"value\": \"engineer\"}]}}\n</tool_call>"}
 {"id": "multiple_120", "result": "<tool_call>\n{\"name\": \"light_travel_time\", \"arguments\": {\"distance_in_light_years\": 4}}\n</tool_call>"}
-{"id": "multiple_121", "result": "<tool_call>\n{\"name\": \"geometry.area_triangle\", \"arguments\": {\"base\": 6, \"height\": 10, \"unit\": \"square meters\"}}\n</tool_call>"}
+{"id": "multiple_121", "result": "<tool_call>\n{\"name\": \"geometry.area_triangle\", \"arguments\": {\"base\": 6, \"height\": 10}}\n</tool_call>"}
 {"id": "multiple_122", "result": "<tool_call>\n{\"name\": \"run_linear_regression\", \"arguments\": {\"predictors\": [\"Age\", \"Income\", \"Education\"], \"target\": \"Purchase_Amount\", \"standardize\": true}}\n</tool_call>"}
 {"id": "multiple_123", "result": "<tool_call>\n{\"name\": \"calculate_probability\", \"arguments\": {\"total_outcomes\": 52, \"favorable_outcomes\": 4, \"round_to\": 2}}\n</tool_call>"}
 {"id": "multiple_124", "result": "<tool_call>\n{\"name\": \"probabilities.calculate_single\", \"arguments\": {\"total_outcomes\": 52, \"event_outcomes\": 4, \"round\": 2}}\n</tool_call>"}
@@ -136,7 +136,7 @@
 {"id": "multiple_135", "result": "<tool_call>\n{\"name\": \"get_case_info\", \"arguments\": {\"docket\": \"2022/AL2562\", \"court\": \"California\", \"info_type\": \"victim\"}}\n</tool_call>"}
 {"id": "multiple_136", "result": "<tool_call>\n{\"name\": \"get_crime_rate\", \"arguments\": {\"city\": \"San Francisco\", \"state\": \"California\", \"type\": \"violent\", \"year\": 2020}}\n</tool_call>"}
 {"id": "multiple_137", "result": "<tool_call>\n{\"name\": \"lawsuit_search\", \"arguments\": {\"company\": \"Google\", \"start_date\": \"2021-01-01\", \"location\": \"California\", \"status\": \"ongoing\"}}\n</tool_call>"}
-{"id": "multiple_138", "result": "To acquire detailed case information for the R vs Adams legal case, you need to call the function \"legal_case.fetch\" with the case_id as \"R vs Adams\" and details as true."}
+{"id": "multiple_138", "result": "The available tools do not support fetching detailed case information for the R vs Adams legal case."}
 {"id": "multiple_139", "result": "<tool_call>\n{\"name\": \"lawsuit_details.find\", \"arguments\": {\"company_name\": \"Apple Inc.\", \"year\": 2010, \"case_type\": \"Patent\"}}\n</tool_call>"}
 {"id": "multiple_140", "result": "<tool_call>\n{\"name\": \"lawsuits_search\", \"arguments\": {\"company_name\": \"Google\", \"location\": \"California\", \"year\": 2020, \"case_type\": \"all\"}}\n</tool_call>"}
 {"id": "multiple_141", "result": "<tool_call>\n{\"name\": \"lawsuit.check_case\", \"arguments\": {\"case_id\": 1234, \"closed_status\": true}}\n</tool_call>"}
@@ -154,7 +154,7 @@
 {"id": "multiple_153", "result": "<tool_call>\n{\"name\": \"get_event_date\", \"arguments\": {\"event\": \"Treaty of Lisbon\"}}\n</tool_call>"}
 {"id": "multiple_154", "result": "<tool_call>\n{\"name\": \"US_president.in_year\", \"arguments\": {\"year\": 1861, \"full_name\": true}}\n</tool_call>"}
 {"id": "multiple_155", "result": "<tool_call>\n{\"name\": \"get_discoverer\", \"arguments\": {\"discovery\": \"neutron\", \"detail\": true}}\n</tool_call>"}
-{"id": "multiple_156", "result": "<tool_call>\n{\"name\": \"historical_contrib.get_contrib\", \"arguments\": {\"scientist\": \"Albert Einstein\", \"date\": \"1915-03-17\", \"category\": \"Physics\"}}\n</tool_call>"}
+{"id": "multiple_156", "result": "<tool_call>\n{\"name\": \"historical_contrib.get_contrib\", \"arguments\": {\"scientist\": \"Albert Einstein\", \"date\": \"1915-03-17\"}}\n</tool_call>"}
 {"id": "multiple_157", "result": "<tool_call>\n{\"name\": \"get_earliest_reference\", \"arguments\": {\"name\": \"Jesus Christ\", \"source\": \"historical records\"}}\n</tool_call>"}
 {"id": "multiple_158", "result": "<tool_call>\n{\"name\": \"religious_history.get_papal_biography\", \"arguments\": {\"papal_name\": \"Innocent III\", \"include_contributions\": true}}\n</tool_call>"}
 {"id": "multiple_159", "result": "<tool_call>\n{\"name\": \"calculate_paint_needed\", \"arguments\": {\"coverage_rate\": 400, \"length\": 30, \"height\": 12}}\n</tool_call>"}
@@ -163,7 +163,7 @@
 {"id": "multiple_162", "result": "<tool_call>\n{\"name\": \"analyze_structure\", \"arguments\": {\"building_id\": \"B1004\", \"floors\": [2, 3, 4], \"mode\": \"dynamic\"}}\n</tool_call>"}
 {"id": "multiple_163", "result": "<tool_call>\n{\"name\": \"metropolitan_museum.get_top_artworks\", \"arguments\": {\"number\": 5, \"sort_by\": \"popularity\"}}\n</tool_call>"}
 {"id": "multiple_164", "result": "<tool_call>\n{\"name\": \"instrument_price.get\", \"arguments\": {\"brand\": \"Fender\", \"model\": \"American Professional II Stratocaster\", \"finish\": \"Rosewood\"}}\n</tool_call>"}
-{"id": "multiple_165", "result": "<tool_call>\n{\"name\": \"guitar_price.find\", \"arguments\": {\"model\": \"Gibson Les Paul\", \"condition\": \"Excellent\", \"location\": \"Chicago area\"}}\n</tool_call>"}
+{"id": "multiple_165", "result": "<tool_call>\n{\"name\": \"guitar_price.find\", \"arguments\": {\"model\": \"Gibson Les Paul\", \"condition\": \"Excellent\", \"location\": \"Chicago\"}}\n</tool_call>"}
 {"id": "multiple_166", "result": "<tool_call>\n{\"name\": \"concert.search\", \"arguments\": {\"genre\": \"classical\", \"location\": \"Los Angeles\", \"date\": \"this weekend\", \"price_range\": \"cheap\"}}\n</tool_call>"}
 {"id": "multiple_167", "result": "<tool_call>\n{\"name\": \"music_generator.generate_melody\", \"arguments\": {\"key\": \"C\", \"start_note\": \"C4\", \"length\": 16, \"tempo\": 120}}\n</tool_call>"}
 {"id": "multiple_168", "result": "<tool_call>\n{\"name\": \"get_song_lyrics\", \"arguments\": {\"song_title\": \"Bohemian Rhapsody\", \"artist_name\": \"Queen\"}}\n</tool_call>"}
@@ -191,10 +191,10 @@
 {"id": "multiple_190", "result": "<tool_call>\n{\"name\": \"book_hotel\", \"arguments\": {\"hotel_name\": \"Hilton Hotel\", \"location\": \"Chicago\", \"room_type\": \"single\", \"start_date\": \"2022-12-10\", \"nights\": 2}}\n</tool_call>"}
 {"id": "multiple_191", "result": "<tool_call>\n{\"name\": \"book_hotel\", \"arguments\": {\"hotel_name\": \"Hotel Paradise\", \"location\": \"Las Vegas\", \"room_type\": \"luxury\", \"start_date\": \"05-12-2022\", \"stay_duration\": 3, \"view\": \"city\"}}\n</tool_call>"}
 {"id": "multiple_192", "result": "<tool_call>\n{\"name\": \"currency_conversion.convert\", \"arguments\": {\"amount\": 150, \"from_currency\": \"EUR\", \"to_currency\": \"CAD\"}}\n</tool_call>"}
-{"id": "multiple_193", "result": "<tool_call>\n{\"name\": \"maps.get_distance_duration\", \"arguments\": {\"start_location\": \"Eiffel Tower\", \"end_location\": \"Louvre Museum\", \"traffic\": false}}\n</tool_call>"}
+{"id": "multiple_193", "result": "<tool_call>\n{\"name\": \"maps.get_distance_duration\", \"arguments\": {\"start_location\": \"Eiffel Tower\", \"end_location\": \"Louvre Museum\"}}\n</tool_call>"}
 {"id": "multiple_194", "result": "<tool_call>\n{\"name\": \"get_museum_hours\", \"arguments\": {\"museum_name\": \"Metropolitan Museum of Art\", \"day\": \"Saturday\"}}\n</tool_call>"}
 {"id": "multiple_195", "result": "<tool_call>\n{\"name\": \"calc_heat_capacity\", \"arguments\": {\"temp\": 298, \"volume\": 10, \"gas\": \"air\"}}\n</tool_call>"}
-{"id": "multiple_196", "result": "<tool_call>\n{\"name\": \"cellbio.get_proteins\", \"arguments\": {\"cell_compartment\": \"plasma membrane\", \"include_description\": true}}\n</tool_call>"}
+{"id": "multiple_196", "result": "<tool_call>\n{\"name\": \"cellbio.get_proteins\", \"arguments\": {\"cell_compartment\": \"plasma membrane\", \"include_description\": false}}\n</tool_call>"}
 {"id": "multiple_197", "result": "<tool_call>\n{\"name\": \"mutation_type.find\", \"arguments\": {\"snp_id\": \"rs6034464\"}}\n</tool_call>"}
 {"id": "multiple_198", "result": "<tool_call>\n{\"name\": \"calculate_genotype_frequency\", \"arguments\": {\"allele_frequency\": 0.3, \"genotype\": \"AA\"}}\n</tool_call>"}
 {"id": "multiple_199", "result": "<tool_call>\n{\"name\": \"forest_growth_forecast\", \"arguments\": {\"location\": \"Yellowstone\", \"years\": 5, \"include_human_impact\": true}}\n</tool_call>"}

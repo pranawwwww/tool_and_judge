@@ -19,7 +19,7 @@
 {"id": "multiple_18", "result": "<tool_call>\n{\"name\": \"european_history.battle_details\", \"arguments\": {\"battle\": \"Battle of Stalingrad\"}}\n</tool_call>"}
 {"id": "multiple_19", "result": "<tool_call>\n{\"name\": \"religion_history.get_schisms\", \"arguments\": {\"religion\": \"Christianity\", \"count\": 3}}\n</tool_call>"}
 {"id": "multiple_20", "result": "<tool_call>\n{\"name\": \"sculpture_price.calculate\", \"arguments\": {\"material\": \"marble\", \"size\": 3}}\n</tool_call>"}
-{"id": "multiple_21", "result": "<tool_call>\n{\"name\": \"generate_sound_wave\", \"arguments\": {\"frequency\": 440, \"duration\": 5, \"wave_type\": \"sine\"}}\n</tool_call>"}
+{"id": "multiple_21", "result": "<tool_call>\n{\"name\": \"generate_sound_wave\", \"arguments\": {\"frequency\": 440, \"duration\": 5}}\n</tool_call>"}
 {"id": "multiple_22", "result": "<tool_call>\n{\"name\": \"sports_data.basketball.most_points_single_game\", \"arguments\": {\"league\": \"NBA\"}}\n</tool_call>"}
 {"id": "multiple_23", "result": "<tool_call>\n{\"name\": \"basketball.player_stats.get\", \"arguments\": {\"player_name\": \"LeBron James\", \"stats_fields\": [\"points\", \"assists\", \"minutes\"]}}\n</tool_call>"}
 {"id": "multiple_24", "result": "<tool_call>\n{\"name\": \"route_planner.calculate_route\", \"arguments\": {\"start\": \"London\", \"destination\": \"Edinburgh\", \"method\": \"fastest\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"chess_club_details.find\", \"arguments\": {\"name\": \"chess championship\", \"city\": \"Edinburgh\"}}\n</tool_call>"}
@@ -89,7 +89,7 @@
 {"id": "multiple_88", "result": "<tool_call>\n{\"name\": \"video_games.get_player_count\", \"arguments\": {\"game_title\": \"World of Warcraft\", \"year\": 2020}}\n</tool_call>"}
 {"id": "multiple_89", "result": "<tool_call>\n{\"name\": \"restaurant_search\", \"arguments\": {\"ingredients\": [\"chicken\", \"mushrooms\"], \"calories\": 500, \"meal\": \"lunch\"}}\n</tool_call>"}
 {"id": "multiple_90", "result": "<tool_call>\n{\"name\": \"restaurant.find_group\", \"arguments\": {\"location\": \"Seattle, WA\", \"cuisine\": [\"Seafood\"], \"group_size\": 5}}\n</tool_call>"}
-{"id": "multiple_91", "result": "<tool_call>\n{\"name\": \"recipe.find\", \"arguments\": {\"mainIngredient\": \"apple\", \"ingredientLimit\": 5}}\n</tool_call>"}
+{"id": "multiple_91", "result": "<tool_call>\n{\"name\": \"recipe.find\", \"arguments\": {\"mainIngredient\": \"apple\", \"ingredientLimit\": 4}}\n</tool_call>"}
 {"id": "multiple_92", "result": "<tool_call>\n{\"name\": \"walmart.vegan_products\", \"arguments\": {\"location\": \"Denver, CO\", \"categories\": [\"vegan\", \"gluten-free\"]}}\n</tool_call>"}
 {"id": "multiple_93", "result": "<tool_call>\n{\"name\": \"hotel.book\", \"arguments\": {\"location\": \"New York\", \"roomType\": \"deluxe chamber\", \"nights\": 2, \"additional_services\": [\"breakfast\"]}}\n</tool_call>"}
 {"id": "multiple_94", "result": "<tool_call>\n{\"name\": \"hotel_room_pricing.get\", \"arguments\": {\"hotelName\": \"Hilton New York\", \"roomType\": \"suite with queen size bed\", \"nights\": 3}}\n</tool_call>"}
@@ -117,12 +117,12 @@
 {"id": "multiple_116", "result": "<tool_call>\n{\"name\": \"calculate_bmi\", \"arguments\": {\"weight\": 85, \"height\": 180}}\n</tool_call>"}
 {"id": "multiple_117", "result": "<tool_call>\n{\"name\": \"calculate_BMI\", \"arguments\": {\"weight_kg\": 70, \"height_m\": 1.75}}\n</tool_call>"}
 {"id": "multiple_118", "result": "<tool_call>\n{\"name\": \"imdb.find_movies_by_actor\", \"arguments\": {\"actor_name\": \"Leonardo DiCaprio\", \"year\": 2010}}\n</tool_call>"}
-{"id": "multiple_119", "result": "<tool_call>\n{\"name\": \"database.query\", \"arguments\": {\"table\": \"user\", \"conditions\": [{\"field\": \"age\", \"operation\": \">\", \"value\": \"25\"}, {\"field\": \"occupation\", \"operation\": \"=\", \"value\": \"engineer\"}]}}\n</tool_call>"}
+{"id": "multiple_119", "result": "<tool_call>\n{\"name\": \"database.query\", \"arguments\": {\"table\": \"user\", \"conditions\": [{\"field\": \"age\", \"operation\": \">\", \"value\": \"25\"}, {\"field\": \"occupation\", \"operation\": \"=\", \"value\": \"'engineer'\"}]}}\n</tool_call>"}
 {"id": "multiple_120", "result": "<tool_call>\n{\"name\": \"light_travel_time\", \"arguments\": {\"distance_in_light_years\": 4}}\n</tool_call>"}
 {"id": "multiple_121", "result": "<tool_call>\n{\"name\": \"geometry.area_triangle\", \"arguments\": {\"base\": 6, \"height\": 10}}\n</tool_call>"}
 {"id": "multiple_122", "result": "<tool_call>\n{\"name\": \"run_linear_regression\", \"arguments\": {\"predictors\": [\"Age\", \"Income\", \"Education\"], \"target\": \"Purchase_Amount\", \"standardize\": true}}\n</tool_call>"}
 {"id": "multiple_123", "result": "<tool_call>\n{\"name\": \"calculate_probability\", \"arguments\": {\"total_outcomes\": 52, \"favorable_outcomes\": 4, \"round_to\": 2}}\n</tool_call>"}
-{"id": "multiple_124", "result": "<tool_call>\n{\"name\": \"probabilities.calculate_single\", \"arguments\": {\"total_outcomes\": 52, \"event_outcomes\": 4}}\n</tool_call>"}
+{"id": "multiple_124", "result": "<tool_call>\n{\"name\": \"probabilities.calculate_single\", \"arguments\": {\"total_outcomes\": 52, \"event_outcomes\": 4, \"round\": 2}}\n</tool_call>"}
 {"id": "multiple_125", "result": "<tool_call>\n{\"name\": \"run_two_sample_ttest\", \"arguments\": {\"group1\": [3, 4, 5, 6, 4], \"group2\": [7, 8, 9, 8, 7], \"equal_variance\": true}}\n</tool_call>"}
 {"id": "multiple_126", "result": "<tool_call>\n{\"name\": \"t_test\", \"arguments\": {\"dataset_A\": [12, 24, 36], \"dataset_B\": [15, 30, 45], \"alpha\": 0.05}}\n</tool_call>"}
 {"id": "multiple_127", "result": "<tool_call>\n{\"name\": \"finance.calculate_quarterly_dividend_per_share\", \"arguments\": {\"total_payout\": 50000000, \"outstanding_shares\": 100000000}}\n</tool_call>"}
@@ -131,7 +131,7 @@
 {"id": "multiple_130", "result": "<tool_call>\n{\"name\": \"calculate_cagr\", \"arguments\": {\"initial_value\": 2000, \"final_value\": 3000, \"period_in_years\": 4}}\n</tool_call>"}
 {"id": "multiple_131", "result": "<tool_call>\n{\"name\": \"market_performance.get_data\", \"arguments\": {\"indexes\": [\"S&P 500\", \"Dow Jones\"], \"days\": 5}}\n</tool_call>"}
 {"id": "multiple_132", "result": "<tool_call>\n{\"name\": \"finance.calculate_future_value\", \"arguments\": {\"initial_investment\": 20000, \"rate_of_return\": 0.08, \"years\": 5}}\n</tool_call>"}
-{"id": "multiple_133", "result": "The question is not clear about what is meant by \"equilibrium\" in the context of a mutual fund. Please provide more information or clarify the term you are using."}
+{"id": "multiple_133", "result": "The question is not applicable as there is no function provided to calculate the equilibrium of a mutual fund."}
 {"id": "multiple_134", "result": "<tool_call>\n{\"name\": \"crime_record.get_record\", \"arguments\": {\"case_number\": \"CA123456\", \"county\": \"San Diego County\", \"details\": true}}\n</tool_call>"}
 {"id": "multiple_135", "result": "<tool_call>\n{\"name\": \"get_case_info\", \"arguments\": {\"docket\": \"2022/AL2562\", \"court\": \"California\", \"info_type\": \"casualty\"}}\n</tool_call>"}
 {"id": "multiple_136", "result": "<tool_call>\n{\"name\": \"get_crime_rate\", \"arguments\": {\"city\": \"San Francisco\", \"state\": \"California\", \"type\": \"aggressive\", \"year\": 2020}}\n</tool_call>"}
@@ -193,7 +193,7 @@
 {"id": "multiple_192", "result": "<tool_call>\n{\"name\": \"currency_conversion.convert\", \"arguments\": {\"amount\": 150, \"from_currency\": \"EUR\", \"to_currency\": \"CAD\"}}\n</tool_call>"}
 {"id": "multiple_193", "result": "<tool_call>\n{\"name\": \"maps.get_distance_duration\", \"arguments\": {\"start_location\": \"Eiffel Tower\", \"end_location\": \"Louvre Museum\"}}\n</tool_call>"}
 {"id": "multiple_194", "result": "<tool_call>\n{\"name\": \"get_museum_hours\", \"arguments\": {\"museum_name\": \"Metropolitan Museum of Art\", \"day\": \"Saturday\"}}\n</tool_call>"}
-{"id": "multiple_195", "result": "<tool_call>\n{\"name\": \"calc_heat_capacity\", \"arguments\": {\"temp\": 298, \"volume\": 10}}\n</tool_call>"}
+{"id": "multiple_195", "result": "<tool_call>\n{\"name\": \"calc_heat_capacity\", \"arguments\": {\"temp\": 298, \"volume\": 10, \"gas\": \"air\"}}\n</tool_call>"}
 {"id": "multiple_196", "result": "<tool_call>\n{\"name\": \"cellbio.get_proteins\", \"arguments\": {\"cell_compartment\": \"plasma membrane\", \"include_description\": false}}\n</tool_call>"}
 {"id": "multiple_197", "result": "<tool_call>\n{\"name\": \"mutation_type.find\", \"arguments\": {\"snp_id\": \"rs6034464\"}}\n</tool_call>"}
 {"id": "multiple_198", "result": "<tool_call>\n{\"name\": \"calculate_genotype_frequency\", \"arguments\": {\"allele_frequency\": 0.3, \"genotype\": \"AA\"}}\n</tool_call>"}

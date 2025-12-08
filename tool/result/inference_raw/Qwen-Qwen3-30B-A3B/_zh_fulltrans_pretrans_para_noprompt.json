@@ -45,7 +45,7 @@
 {"id": "multiple_44", "result": "<tool_call>\n{\"name\": \"calculate.weight_in_space\", \"arguments\": {\"weight_earth_kg\": 70, \"planet\": \"Mars\"}}\n</tool_call>"}
 {"id": "multiple_45", "result": "<tool_call>\n{\"name\": \"geology.get_era\", \"arguments\": {\"era_name\": \"Ice Age\", \"calculate_years_ago\": true}}\n</tool_call>"}
 {"id": "multiple_46", "result": "<tool_call>\n{\"name\": \"sort_list\", \"arguments\": {\"elements\": [\"Sam\", \"Alice\", \"Jack\"], \"order\": \"asc\"}}\n</tool_call>"}
-{"id": "multiple_47", "result": "<tool_call>\n{\"name\": \"cosine_similarity.calculate\", \"arguments\": {\"vector1\": [3, 2, 1], \"vector2\": [1, 2, 3], \"rounding\": 2}}\n</tool_call>"}
+{"id": "multiple_47", "result": "<tool_call>\n{\"name\": \"cosine_similarity.calculate\", \"arguments\": {\"vector1\": [3, 2, 1], \"vector2\": [1, 2, 3], \"rounding\": 3}}\n</tool_call>"}
 {"id": "multiple_48", "result": "<tool_call>\n{\"name\": \"library.find_nearby\", \"arguments\": {\"location\": \"New York City, NY\", \"preferences\": [\"Pet-friendly\", \"Disabled Access\"]}}\n</tool_call>"}
 {"id": "multiple_49", "result": "<tool_call>\n{\"name\": \"calc_Compound_Interest\", \"arguments\": {\"principle_amount\": 1500, \"duration\": 2, \"annual_rate\": 2.5, \"compound_freq\": 1}}\n</tool_call>"}
 {"id": "multiple_50", "result": "<tool_call>\n{\"name\": \"house_price_forecast\", \"arguments\": {\"location\": \"New York City\", \"months\": 1}}\n</tool_call>"}
@@ -114,7 +114,7 @@
 {"id": "multiple_113", "result": "<tool_call>\n{\"name\": \"calculate_fitness\", \"arguments\": {\"trait_values\": [0.8, 0.7], \"trait_contributions\": [0.4, 0.6]}}\n</tool_call>"}
 {"id": "multiple_114", "result": "<tool_call>\n{\"name\": \"prediction.evolution\", \"arguments\": {\"species\": \"human\", \"years\": 50, \"model\": \"Darwin\"}}\n</tool_call>"}
 {"id": "multiple_115", "result": "<tool_call>\n{\"name\": \"find_restaurants\", \"arguments\": {\"location\": \"Manhattan\", \"food_type\": \"Thai\", \"number\": 5, \"dietary_requirements\": [\"vegetarian\"]}}\n</tool_call>"}
-{"id": "multiple_116", "result": "<tool_call>\n{\"name\": \"calculate_bmi\", \"arguments\": {\"weight\": 85, \"height\": 180, \"unit\": \"metric\"}}\n</tool_call>"}
+{"id": "multiple_116", "result": "<tool_call>\n{\"name\": \"calculate_bmi\", \"arguments\": {\"weight\": 85, \"height\": 180}}\n</tool_call>"}
 {"id": "multiple_117", "result": "<tool_call>\n{\"name\": \"calculate_BMI\", \"arguments\": {\"weight_kg\": 70, \"height_m\": 1.75}}\n</tool_call>"}
 {"id": "multiple_118", "result": "<tool_call>\n{\"name\": \"imdb.find_movies_by_actor\", \"arguments\": {\"actor_name\": \"Leonardo DiCaprio\", \"year\": 2010}}\n</tool_call>"}
 {"id": "multiple_119", "result": "<tool_call>\n{\"name\": \"database.query\", \"arguments\": {\"table\": \"user\", \"conditions\": [{\"field\": \"age\", \"operation\": \">\", \"value\": \"25\"}, {\"field\": \"occupation\", \"operation\": \"=\", \"value\": \"engineer\"}]}}\n</tool_call>"}
@@ -122,7 +122,7 @@
 {"id": "multiple_121", "result": "<tool_call>\n{\"name\": \"geometry.area_triangle\", \"arguments\": {\"base\": 6, \"height\": 10}}\n</tool_call>"}
 {"id": "multiple_122", "result": "<tool_call>\n{\"name\": \"run_linear_regression\", \"arguments\": {\"predictors\": [\"age\", \"income\", \"education level\"], \"target\": \"purchase amount\", \"standardize\": true}}\n</tool_call>"}
 {"id": "multiple_123", "result": "<tool_call>\n{\"name\": \"calculate_probability\", \"arguments\": {\"total_outcomes\": 52, \"favorable_outcomes\": 4, \"round_to\": 2}}\n</tool_call>"}
-{"id": "multiple_124", "result": "<tool_call>\n{\"name\": \"probabilities.calculate_single\", \"arguments\": {\"total_outcomes\": 52, \"event_outcomes\": 4, \"round\": 2}}\n</tool_call>"}
+{"id": "multiple_124", "result": "<tool_call>\n{\"name\": \"probabilities.calculate_single\", \"arguments\": {\"total_outcomes\": 52, \"event_outcomes\": 4}}\n</tool_call>"}
 {"id": "multiple_125", "result": "<tool_call>\n{\"name\": \"run_two_sample_ttest\", \"arguments\": {\"group1\": [3, 4, 5, 6, 4], \"group2\": [7, 8, 9, 8, 7], \"equal_variance\": true}}\n</tool_call>"}
 {"id": "multiple_126", "result": "<tool_call>\n{\"name\": \"t_test\", \"arguments\": {\"dataset_A\": [12, 24, 36], \"dataset_B\": [15, 30, 45], \"alpha\": 0.05}}\n</tool_call>"}
 {"id": "multiple_127", "result": "<tool_call>\n{\"name\": \"finance.calculate_quarterly_dividend_per_share\", \"arguments\": {\"total_payout\": 50000000, \"outstanding_shares\": 100000000}}\n</tool_call>"}
@@ -162,7 +162,7 @@
 {"id": "multiple_161", "result": "<tool_call>\n{\"name\": \"find_exhibition\", \"arguments\": {\"location\": \"New York, NY\", \"art_form\": \"sculpture\", \"month\": \"next month\", \"user_ratings\": \"high\"}}\n</tool_call>"}
 {"id": "multiple_162", "result": "<tool_call>\n{\"name\": \"analyze_structure\", \"arguments\": {\"building_id\": \"B1004\", \"floors\": [2, 3, 4], \"mode\": \"dynamic\"}}\n</tool_call>"}
 {"id": "multiple_163", "result": "<tool_call>\n{\"name\": \"metropolitan_museum.get_top_artworks\", \"arguments\": {\"number\": 5, \"sort_by\": \"popularity\"}}\n</tool_call>"}
-{"id": "multiple_164", "result": "<tool_call>\n{\"name\": \"instrument_price.get\", \"arguments\": {\"brand\": \"Fender\", \"model\": \"American Professional II Stratocaster\", \"finish\": \"rosewood\"}}\n</tool_call>"}
+{"id": "multiple_164", "result": "<tool_call>\n{\"name\": \"instrument_price.get\", \"arguments\": {\"brand\": \"Fender\", \"model\": \"American Professional II Stratocaster\", \"finish\": \"rosewood fretboard\"}}\n</tool_call>"}
 {"id": "multiple_165", "result": "<tool_call>\n{\"name\": \"guitar_price.find\", \"arguments\": {\"model\": \"Gibson Les Paul\", \"condition\": \"Good\", \"location\": \"Chicago\"}}\n</tool_call>"}
 {"id": "multiple_166", "result": "<tool_call>\n{\"name\": \"concert.search\", \"arguments\": {\"genre\": \"classical\", \"location\": \"Los Angeles\", \"date\": \"this weekend\", \"price_range\": \"cheap\"}}\n</tool_call>"}
 {"id": "multiple_167", "result": "<tool_call>\n{\"name\": \"music_generator.generate_melody\", \"arguments\": {\"key\": \"C\", \"start_note\": \"C4\", \"length\": 16, \"tempo\": 120}}\n</tool_call>"}
@@ -173,7 +173,7 @@
 {"id": "multiple_172", "result": "<tool_call>\n{\"name\": \"sports_db.find_athlete\", \"arguments\": {\"name\": \"LeBron James\", \"sport\": \"Basketball\"}}\n</tool_call>"}
 {"id": "multiple_173", "result": "<tool_call>\n{\"name\": \"get_defense_ranking\", \"arguments\": {\"season\": 2021, \"top\": 5}}\n</tool_call>"}
 {"id": "multiple_174", "result": "<tool_call>\n{\"name\": \"sports_ranking\", \"arguments\": {\"team\": \"Manchester United\", \"league\": \"Premier League\"}}\n</tool_call>"}
-{"id": "multiple_175", "result": "<tool_call>\n{\"name\": \"sports_ranking.get_top_player\", \"arguments\": {\"sport\": \"tennis\", \"gender\": \"women\"}}\n</tool_call>"}
+{"id": "multiple_175", "result": "<tool_call>\n{\"name\": \"sports_ranking.get_top_player\", \"arguments\": {\"sport\": \"tennis\", \"gender\": \"female\"}}\n</tool_call>"}
 {"id": "multiple_176", "result": "<tool_call>\n{\"name\": \"sports_team.get_schedule\", \"arguments\": {\"team_name\": \"Manchester United\", \"num_of_games\": 6, \"league\": \"Premier League\"}}\n</tool_call>"}
 {"id": "multiple_177", "result": "<tool_call>\n{\"name\": \"board_game.chess.get_top_players\", \"arguments\": {\"location\": \"New York City\", \"minimum_rating\": 2300}}\n</tool_call>"}
 {"id": "multiple_178", "result": "<tool_call>\n{\"name\": \"find_card_in_deck\", \"arguments\": {\"rank\": \"Queen\", \"suit\": \"Hearts\"}}\n</tool_call>"}

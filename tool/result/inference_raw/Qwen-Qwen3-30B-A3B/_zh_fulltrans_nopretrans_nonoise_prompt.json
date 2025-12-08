@@ -30,7 +30,7 @@
 {"id": "multiple_29", "result": "<tool_call>\n{\"name\": \"functions.intersect\", \"arguments\": {\"function1\": \"3x+2\", \"function2\": \"2x+3\"}}\n</tool_call>"}
 {"id": "multiple_30", "result": "<tool_call>\n{\"name\": \"rectangle.area\", \"arguments\": {\"length\": 12, \"width\": 5}}\n</tool_call>"}
 {"id": "multiple_31", "result": "<tool_call>\n{\"name\": \"geometry_rectangle.calculate\", \"arguments\": {\"width\": 7, \"length\": 10}}\n</tool_call>"}
-{"id": "multiple_32", "result": "<tool_call>\n{\"name\": \"geometry.calculate_cone_volume\", \"arguments\": {\"radius\": 4, \"height\": 7, \"round_off\": 0}}\n</tool_call>"}
+{"id": "multiple_32", "result": "<tool_call>\n{\"name\": \"geometry.calculate_cone_volume\", \"arguments\": {\"radius\": 4, \"height\": 7}}\n</tool_call>"}
 {"id": "multiple_33", "result": "<tool_call>\n{\"name\": \"calculate_integral\", \"arguments\": {\"func\": \"3x^2\", \"a\": 1, \"b\": 2}}\n</tool_call>"}
 {"id": "multiple_34", "result": "<tool_call>\n{\"name\": \"math.lcm\", \"arguments\": {\"num1\": 18, \"num2\": 12}}\n</tool_call>"}
 {"id": "multiple_35", "result": "<tool_call>\n{\"name\": \"calculate_gcd\", \"arguments\": {\"num1\": 128, \"num2\": 256, \"algorithm\": \"euclidean\"}}\n</tool_call>"}
@@ -41,9 +41,9 @@
 {"id": "multiple_40", "result": "<tool_call>\n{\"name\": \"electromagnetism.biot_savart_law\", \"arguments\": {\"current\": 12, \"distance\": 8}}\n</tool_call>"}
 {"id": "multiple_41", "result": "<tool_call>\n{\"name\": \"magnetic_field.calculate\", \"arguments\": {\"I\": 10, \"r\": 0.01}}\n</tool_call>"}
 {"id": "multiple_42", "result": "<tool_call>\n{\"name\": \"calculate_final_temperature\", \"arguments\": {\"quantity1\": 2, \"temperature1\": 300, \"quantity2\": 3, \"temperature2\": 400}}\n</tool_call>"}
-{"id": "multiple_43", "result": "<tool_call>\n{\"name\": \"biological.calc_energy\", \"arguments\": {\"mols\": 5, \"substance\": \"C6H12O6\"}}\n</tool_call>"}
+{"id": "multiple_43", "result": "<tool_call>\n{\"name\": \"biological.calc_energy\", \"arguments\": {\"mols\": 5, \"substance\": \"C6H12O6\", \"joules_per_mol\": 2800}}\n</tool_call>"}
 {"id": "multiple_44", "result": "<tool_call>\n{\"name\": \"calculate.weight_in_space\", \"arguments\": {\"weight_earth_kg\": 70, \"planet\": \"火星\"}}\n</tool_call>"}
-{"id": "multiple_45", "result": "<tool_call>\n{\"name\": \"geology.get_era\", \"arguments\": {\"era_name\": \"Ice age\", \"calculate_years_ago\": true}}\n</tool_call>"}
+{"id": "multiple_45", "result": "<tool_call>\n{\"name\": \"geology.get_era\", \"arguments\": {\"era_name\": \"冰河时代\", \"calculate_years_ago\": true}}\n</tool_call>"}
 {"id": "multiple_46", "result": "<tool_call>\n{\"name\": \"sort_list\", \"arguments\": {\"elements\": [\"Sam\", \"Alice\", \"Jack\"], \"order\": \"asc\"}}\n</tool_call>"}
 {"id": "multiple_47", "result": "<tool_call>\n{\"name\": \"cosine_similarity.calculate\", \"arguments\": {\"vector1\": [3, 2, 1], \"vector2\": [1, 2, 3], \"rounding\": 2}}\n</tool_call>"}
 {"id": "multiple_48", "result": "<tool_call>\n{\"name\": \"library.find_nearby\", \"arguments\": {\"location\": \"New York City, NY\", \"preferences\": [\"Pet-friendly\", \"Disabled Access\"]}}\n</tool_call>"}
@@ -62,13 +62,13 @@
 {"id": "multiple_61", "result": "<tool_call>\n{\"name\": \"landscape_architect.find_specialty\", \"arguments\": {\"location\": \"Portland, OR\", \"specialization\": \"small space garden design\", \"years_experience\": 5}}\n</tool_call>"}
 {"id": "multiple_62", "result": "<tool_call>\n{\"name\": \"nature_park.find_nearby\", \"arguments\": {\"location\": \"波士顿, MA\", \"features\": [\"Camping\", \"Scenic View\"]}}\n</tool_call>"}
 {"id": "multiple_63", "result": "<tool_call>\n{\"name\": \"air_quality_forecast\", \"arguments\": {\"location\": \"纽约\", \"days\": 7}}\n</tool_call>"}
-{"id": "multiple_64", "result": "<tool_call>\n{\"name\": \"uv_index.get_future\", \"arguments\": {\"location\": \"东京\", \"date\": \"06-02-2023\"}}\n</tool_call>"}
+{"id": "multiple_64", "result": "<tool_call>\n{\"name\": \"uv_index.get_future\", \"arguments\": {\"location\": \"东京\", \"date\": \"06-01-2023\"}}\n</tool_call>"}
 {"id": "multiple_65", "result": "<tool_call>\n{\"name\": \"geodistance.find\", \"arguments\": {\"origin\": \"New York City\", \"destination\": \"Los Angeles\"}}\n</tool_call>"}
-{"id": "multiple_66", "result": "<tool_call>\n{\"name\": \"traffic_estimate\", \"arguments\": {\"start_location\": \"拉斯维加斯\", \"end_location\": \"洛杉矶\", \"time_period\": \"weekend\"}}\n</tool_call>"}
+{"id": "multiple_66", "result": "<tool_call>\n{\"name\": \"traffic_estimate\", \"arguments\": {\"start_location\": \"Las Vegas\", \"end_location\": \"Los Angeles\", \"time_period\": \"weekend\"}}\n</tool_call>"}
 {"id": "multiple_67", "result": "<tool_call>\n{\"name\": \"translate\", \"arguments\": {\"text\": \"Hello, how are you?\", \"source_language\": \"English\", \"target_language\": \"French\"}}\n</tool_call>"}
 {"id": "multiple_68", "result": "<tool_call>\n{\"name\": \"library.search_books\", \"arguments\": {\"location\": \"纽约公共图书馆\", \"genre\": \"历史小说\"}}\n</tool_call>"}
 {"id": "multiple_69", "result": "<tool_call>\n{\"name\": \"five_factor_model.analyse\", \"arguments\": {\"talkative\": true, \"nervous\": true, \"artistic_interests\": false, \"lazy\": true, \"forgiving\": true}}\n</tool_call>"}
-{"id": "multiple_70", "result": "<tool_call>\n{\"name\": \"european_history.get_monarchs\", \"arguments\": {\"country\": \"France\", \"century\": 18}}\n</tool_call>"}
+{"id": "multiple_70", "result": "<tool_call>\n{\"name\": \"european_history.get_monarchs\", \"arguments\": {\"country\": \"法国\", \"century\": 18}}\n</tool_call>"}
 {"id": "multiple_71", "result": "<tool_call>\n{\"name\": \"get_population\", \"arguments\": {\"year\": 1954, \"category\": \"veterans\"}}\n</tool_call>"}
 {"id": "multiple_72", "result": "<tool_call>\n{\"name\": \"us_history.population_by_state_year\", \"arguments\": {\"state\": \"California\", \"year\": 1970}}\n</tool_call>"}
 {"id": "multiple_73", "result": "<tool_call>\n{\"name\": \"religion.get_origin\", \"arguments\": {\"religion\": \"佛教\"}}\n</tool_call>"}
@@ -78,7 +78,7 @@
 {"id": "multiple_77", "result": "<tool_call>\n{\"name\": \"artwork_search.find\", \"arguments\": {\"type\": \"sculpture\", \"location\": \"纽约\", \"era\": \"contemporary\"}}\n</tool_call>"}
 {"id": "multiple_78", "result": "<tool_call>\n{\"name\": \"museum_info\", \"arguments\": {\"museum\": \"自然历史博物馆\", \"city\": \"伦敦\", \"features\": [\"timings\", \"exhibitions\", \"accessibility\"]}}\n</tool_call>"}
 {"id": "multiple_79", "result": "<tool_call>\n{\"name\": \"exhibition_info\", \"arguments\": {\"museum_name\": \"纽约现代艺术博物馆\", \"month\": 1}}\n</tool_call>"}
-{"id": "multiple_80", "result": "<tool_call>\n{\"name\": \"music_shop.find_nearby\", \"arguments\": {\"location\": \"Nashville, TN\", \"services\": [\"Violin Lessons\"], \"instruments\": [\"Guitars\"]}}\n</tool_call>"}
+{"id": "multiple_80", "result": "<tool_call>\n{\"name\": \"music_shop.find_nearby\", \"arguments\": {\"location\": \"Nashville, TN\", \"services\": [\"Violin Lessons\"]}}\n</tool_call>"}
 {"id": "multiple_81", "result": "<tool_call>\n{\"name\": \"concert.book_ticket\", \"arguments\": {\"artist\": \"Eminem\", \"location\": \"New York City\", \"add_ons\": [\"Backstage Pass\"]}}\n</tool_call>"}
 {"id": "multiple_82", "result": "<tool_call>\n{\"name\": \"music.generate\", \"arguments\": {\"key\": \"C Major\", \"tempo\": 120}}\n</tool_call>"}
 {"id": "multiple_83", "result": "<tool_call>\n{\"name\": \"player_stats.get_all_time_goals\", \"arguments\": {\"player_name\": \"莱昂内尔·梅西\", \"team_name\": \"巴塞罗那队\"}}\n</tool_call>"}
@@ -168,13 +168,13 @@
 {"id": "multiple_167", "result": "<tool_call>\n{\"name\": \"music_generator.generate_melody\", \"arguments\": {\"key\": \"C\", \"start_note\": \"C4\", \"length\": 16, \"tempo\": 120}}\n</tool_call>"}
 {"id": "multiple_168", "result": "<tool_call>\n{\"name\": \"get_song_lyrics\", \"arguments\": {\"song_title\": \"Bohemian Rhapsody\", \"artist_name\": \"Queen\", \"lang\": \"English\"}}\n</tool_call>"}
 {"id": "multiple_169", "result": "<tool_call>\n{\"name\": \"musical_scale\", \"arguments\": {\"key\": \"C\", \"scale_type\": \"major\"}}\n</tool_call>"}
-{"id": "multiple_170", "result": "<tool_call>\n{\"name\": \"soccer_stat.get_player_stats\", \"arguments\": {\"player_name\": \"克里斯蒂亚诺·罗纳尔多\", \"season\": \"2019-2020\", \"league\": \"all\"}}\n</tool_call>"}
+{"id": "multiple_170", "result": "<tool_call>\n{\"name\": \"soccer_stat.get_player_stats\", \"arguments\": {\"player_name\": \"克里斯蒂亚诺·罗纳尔多\", \"season\": \"2019-2020\"}}\n</tool_call>"}
 {"id": "multiple_171", "result": "<tool_call>\n{\"name\": \"game_result.get_winner\", \"arguments\": {\"teams\": [\"湖人队\", \"快船队\"], \"date\": \"2021-01-28\", \"venue\": \"\"}}\n</tool_call>"}
 {"id": "multiple_172", "result": "<tool_call>\n{\"name\": \"sports_db.find_athlete\", \"arguments\": {\"name\": \"勒布朗·詹姆斯\", \"team\": \"\", \"sport\": \"Basketball\"}}\n</tool_call>"}
 {"id": "multiple_173", "result": "<tool_call>\n{\"name\": \"get_defense_ranking\", \"arguments\": {\"season\": 2021}}\n</tool_call>"}
 {"id": "multiple_174", "result": "<tool_call>\n{\"name\": \"sports_ranking\", \"arguments\": {\"team\": \"曼联\", \"league\": \"英超联赛\"}}\n</tool_call>"}
 {"id": "multiple_175", "result": "<tool_call>\n{\"name\": \"sports_ranking.get_top_player\", \"arguments\": {\"sport\": \"tennis\", \"gender\": \"women\"}}\n</tool_call>"}
-{"id": "multiple_176", "result": "<tool_call>\n{\"name\": \"sports_team.get_schedule\", \"arguments\": {\"team_name\": \"曼联\", \"num_of_games\": 6, \"league\": \"英超\"}}\n</tool_call>"}
+{"id": "multiple_176", "result": "<tool_call>\n{\"name\": \"sports_team.get_schedule\", \"arguments\": {\"team_name\": \"Manchester United\", \"num_of_games\": 6, \"league\": \"Premier League\"}}\n</tool_call>"}
 {"id": "multiple_177", "result": "<tool_call>\n{\"name\": \"board_game.chess.get_top_players\", \"arguments\": {\"location\": \"纽约市\", \"minimum_rating\": 2300, \"number_of_players\": 10}}\n</tool_call>"}
 {"id": "multiple_178", "result": "<tool_call>\n{\"name\": \"find_card_in_deck\", \"arguments\": {\"rank\": \"Queen\", \"suit\": \"Hearts\"}}\n</tool_call>"}
 {"id": "multiple_179", "result": "<tool_call>\n{\"name\": \"poker_probability.full_house\", \"arguments\": {\"deck_size\": 52, \"hand_size\": 5}}\n</tool_call>"}
@@ -193,7 +193,7 @@
 {"id": "multiple_192", "result": "<tool_call>\n{\"name\": \"currency_conversion.convert\", \"arguments\": {\"amount\": 150, \"from_currency\": \"EUR\", \"to_currency\": \"CAD\"}}\n</tool_call>"}
 {"id": "multiple_193", "result": "<tool_call>\n{\"name\": \"maps.get_distance_duration\", \"arguments\": {\"start_location\": \"埃菲尔铁塔\", \"end_location\": \"卢浮宫\", \"traffic\": false}}\n</tool_call>"}
 {"id": "multiple_194", "result": "<tool_call>\n{\"name\": \"get_museum_hours\", \"arguments\": {\"museum_name\": \"大都会艺术博物馆\", \"day\": \"Saturday\"}}\n</tool_call>"}
-{"id": "multiple_195", "result": "<tool_call>\n{\"name\": \"calc_heat_capacity\", \"arguments\": {\"temp\": 298, \"volume\": 10, \"gas\": \"air\"}}\n</tool_call>"}
+{"id": "multiple_195", "result": "<tool_call>\n{\"name\": \"calc_heat_capacity\", \"arguments\": {\"temp\": 298, \"volume\": 10}}\n</tool_call>"}
 {"id": "multiple_196", "result": "<tool_call>\n{\"name\": \"cellbio.get_proteins\", \"arguments\": {\"cell_compartment\": \"血浆膜\", \"include_description\": false}}\n</tool_call>"}
 {"id": "multiple_197", "result": "<tool_call>\n{\"name\": \"mutation_type.find\", \"arguments\": {\"snp_id\": \"rs6034464\"}}\n</tool_call>"}
 {"id": "multiple_198", "result": "<tool_call>\n{\"name\": \"calculate_genotype_frequency\", \"arguments\": {\"allele_frequency\": 0.3, \"genotype\": \"AA\"}}\n</tool_call>"}

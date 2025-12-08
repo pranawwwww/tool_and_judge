@@ -3,7 +3,7 @@
 {"id": "multiple_2", "result": "<tool_call>\n{\"name\": \"country_info.capital\", \"arguments\": {\"country\": \"巴西\"}}\n</tool_call>"}
 {"id": "multiple_3", "result": "<tool_call>\n{\"name\": \"EuclideanDistance.calculate\", \"arguments\": {\"pointA\": [3, 4], \"pointB\": [1, 2], \"rounding\": 2}}\n</tool_call>"}
 {"id": "multiple_4", "result": "<tool_call>\n{\"name\": \"kinematics.calculate_displacement\", \"arguments\": {\"initial_speed\": 20, \"acceleration\": 10, \"time\": 5, \"rounding\": 2}}\n</tool_call>"}
-{"id": "multiple_5", "result": "<tool_call>\n{\"name\": \"weather.get_by_coordinates_date\", \"arguments\": {\"coordinates\": [46.603354, 1.8883340], \"date\": \"2019-12-13\"}}\n</tool_call>"}
+{"id": "multiple_5", "result": "<tool_call>\n{\"name\": \"weather.get_by_coordinates_date\", \"arguments\": {\"coordinates\": [46.603354, 1.888334], \"date\": \"2019-12-13\"}}\n</tool_call>"}
 {"id": "multiple_6", "result": "<tool_call>\n{\"name\": \"capacitance_calculator.calculate\", \"arguments\": {\"A\": 10, \"d\": 0.01, \"K\": 1.0}}\n</tool_call>"}
 {"id": "multiple_7", "result": "<tool_call>\n{\"name\": \"wildlife_population.assess_growth\", \"arguments\": {\"species\": \"deer\", \"location\": \"Washington state\", \"duration\": 10}}\n</tool_call>\n<tool_call>\n{\"name\": \"ecological_impact.analyze\", \"arguments\": {\"species\": \"deer\", \"ecosystem\": \"forest\", \"location\": \"Washington state\", \"timeframe\": 10}}\n</tool_call>"}
 {"id": "multiple_8", "result": "<tool_call>\n{\"name\": \"realestate.find_properties\", \"arguments\": {\"location\": \"San Diego\", \"propertyType\": \"villa\", \"bedrooms\": 3, \"budget\": {\"min\": 300000, \"max\": 400000}}}\n</tool_call>"}
@@ -52,7 +52,7 @@
 {"id": "multiple_51", "result": "<tool_call>\n{\"name\": \"dice_roll_probability\", \"arguments\": {\"desired_sum\": 7, \"n_rolls\": 2, \"sides_per_die\": 6}}\n</tool_call>"}
 {"id": "multiple_52", "result": "<tool_call>\n{\"name\": \"currency_conversion\", \"arguments\": {\"amount\": 100, \"from_currency\": \"EUR\", \"to_currency\": \"USD\"}}\n</tool_call>"}
 {"id": "multiple_53", "result": "<tool_call>\n{\"name\": \"linear_regression\", \"arguments\": {\"independent_var\": [\"interest rates\", \"unemployment rates\"], \"dependent_var\": \"house price\", \"forecast_period\": 5}}\n</tool_call>\n<tool_call>\n{\"name\": \"random_forest_regression\", \"arguments\": {\"independent_var\": [\"interest rates\", \"unemployment rates\"], \"dependent_var\": \"house price\", \"forecast_period\": 5}}\n</tool_call>"}
-{"id": "multiple_54", "result": "<tool_call>\n{\"name\": \"corporate_finance.dividend_data\", \"arguments\": {\"company\": \"Apple Inc\", \"years\": 5}}\n</tool_call>"}
+{"id": "multiple_54", "result": "<tool_call>\n{\"name\": \"corporate_finance.dividend_data\", \"arguments\": {\"company\": \"Apple Inc\", \"years\": 5, \"frequency\": \"annually\"}}\n</tool_call>"}
 {"id": "multiple_55", "result": "<tool_call>\n{\"name\": \"stock_forecast\", \"arguments\": {\"company\": \"Google\", \"days\": 3}}\n</tool_call>"}
 {"id": "multiple_56", "result": "<tool_call>\n{\"name\": \"avg_closing_price\", \"arguments\": {\"company\": \"Apple\", \"days\": 60}}\n</tool_call>"}
 {"id": "multiple_57", "result": "<tool_call>\n{\"name\": \"financial.compound_interest\", \"arguments\": {\"principle\": 1000, \"rate\": 0.05, \"time\": 10, \"n\": 4}}\n</tool_call>"}
@@ -74,8 +74,8 @@
 {"id": "multiple_73", "result": "<tool_call>\n{\"name\": \"religion.get_origin\", \"arguments\": {\"religion\": \"佛教\"}}\n</tool_call>"}
 {"id": "multiple_74", "result": "<tool_call>\n{\"name\": \"art_auction.fetch_artwork_price\", \"arguments\": {\"artwork_name\": \"Starry Night\", \"artist\": \"Van Gogh\", \"platform\": \"all\"}}\n</tool_call>"}
 {"id": "multiple_75", "result": "<tool_call>\n{\"name\": \"paint_color.trends\", \"arguments\": {\"room\": \"living room\"}}\n</tool_call>"}
-{"id": "multiple_76", "result": "<tool_call>\n{\"name\": \"sculpture.create_custom\", \"arguments\": {\"item\": \"horse\", \"material\": \"Bronze\"}}\n</tool_call>"}
-{"id": "multiple_77", "result": "<tool_call>\n{\"name\": \"artwork_search.find\", \"arguments\": {\"type\": \"sculpture\", \"location\": \"纽约\", \"era\": \"contemporary\"}}\n</tool_call>"}
+{"id": "multiple_76", "result": "提供的工具中没有关于材料选择的信息。"}
+{"id": "multiple_77", "result": "<tool_call>\n{\"name\": \"artwork_search.find\", \"arguments\": {\"type\": \"sculpture\", \"location\": \"New York\", \"era\": \"contemporary\"}}\n</tool_call>"}
 {"id": "multiple_78", "result": "<tool_call>\n{\"name\": \"museum_info\", \"arguments\": {\"museum\": \"Natural History Museum\", \"city\": \"London\", \"features\": [\"timings\", \"exhibitions\", \"accessibility\"]}}\n</tool_call>"}
 {"id": "multiple_79", "result": "<tool_call>\n{\"name\": \"exhibition_info\", \"arguments\": {\"museum_name\": \"Museum of Modern Art, New York\", \"month\": 1}}\n</tool_call>"}
 {"id": "multiple_80", "result": "<tool_call>\n{\"name\": \"music_shop.find_nearby\", \"arguments\": {\"location\": \"Nashville, TN\", \"instruments\": [\"Guitars\"], \"services\": [\"Violin Lessons\"]}}\n</tool_call>"}
@@ -88,7 +88,7 @@
 {"id": "multiple_87", "result": "<tool_call>\n{\"name\": \"games.update.find\", \"arguments\": {\"game\": \"Cyberpunk 2077\", \"platform\": \"Xbox\"}}\n</tool_call>"}
 {"id": "multiple_88", "result": "<tool_call>\n{\"name\": \"video_games.get_player_count\", \"arguments\": {\"game_title\": \"World of Warcraft\", \"year\": 2020}}\n</tool_call>"}
 {"id": "multiple_89", "result": "<tool_call>\n{\"name\": \"recipe_search\", \"arguments\": {\"ingredients\": [\"chicken\", \"mushrooms\"], \"calories\": 500, \"meal\": \"lunch\"}}\n</tool_call>"}
-{"id": "multiple_90", "result": "<tool_call>\n{\"name\": \"restaurant.find_group\", \"arguments\": {\"location\": \"Seattle, WA\", \"cuisine\": [\"Seafood\"], \"group_size\": 5}}\n</tool_call>"}
+{"id": "multiple_90", "result": "<tool_call>\n{\"name\": \"restaurant.find_group\", \"arguments\": {\"location\": \"Seattle\", \"cuisine\": [\"Seafood\"], \"group_size\": 5}}\n</tool_call>"}
 {"id": "multiple_91", "result": "<tool_call>\n{\"name\": \"recipe.find\", \"arguments\": {\"mainIngredient\": \"apple\", \"ingredientLimit\": 5}}\n</tool_call>"}
 {"id": "multiple_92", "result": "<tool_call>\n{\"name\": \"walmart.vegan_products\", \"arguments\": {\"location\": \"Denver, CO\", \"categories\": [\"vegan\", \"gluten-free\"]}}\n</tool_call>"}
 {"id": "multiple_93", "result": "<tool_call>\n{\"name\": \"hotel.book\", \"arguments\": {\"location\": \"New York\", \"roomType\": \"deluxe\", \"nights\": 2, \"additional_services\": [\"breakfast\"]}}\n</tool_call>"}
@@ -119,7 +119,7 @@
 {"id": "multiple_118", "result": "<tool_call>\n{\"name\": \"imdb.find_movies_by_actor\", \"arguments\": {\"actor_name\": \"Leonardo DiCaprio\", \"year\": 2010}}\n</tool_call>"}
 {"id": "multiple_119", "result": "<tool_call>\n{\"name\": \"database.query\", \"arguments\": {\"table\": \"user\", \"conditions\": [{\"field\": \"age\", \"operation\": \">\", \"value\": \"25\"}, {\"field\": \"job\", \"operation\": \"=\", \"value\": \"engineer\"}]}}\n</tool_call>"}
 {"id": "multiple_120", "result": "<tool_call>\n{\"name\": \"light_travel_time\", \"arguments\": {\"distance_in_light_years\": 4}}\n</tool_call>"}
-{"id": "multiple_121", "result": "<tool_call>\n{\"name\": \"geometry.area_triangle\", \"arguments\": {\"base\": 6, \"height\": 10}}\n</tool_call>"}
+{"id": "multiple_121", "result": "<tool_call>\n{\"name\": \"geometry.area_triangle\", \"arguments\": {\"base\": 6, \"height\": 10, \"unit\": \"square meters\"}}\n</tool_call>"}
 {"id": "multiple_122", "result": "<tool_call>\n{\"name\": \"run_linear_regression\", \"arguments\": {\"predictors\": [\"Age\", \"Income\", \"Education\"], \"target\": \"Purchase_Amount\", \"standardize\": true}}\n</tool_call>"}
 {"id": "multiple_123", "result": "<tool_call>\n{\"name\": \"calculate_probability\", \"arguments\": {\"total_outcomes\": 52, \"favorable_outcomes\": 4, \"round_to\": 2}}\n</tool_call>"}
 {"id": "multiple_124", "result": "<tool_call>\n{\"name\": \"probabilities.calculate_single\", \"arguments\": {\"total_outcomes\": 52, \"event_outcomes\": 4, \"round\": 2}}\n</tool_call>"}

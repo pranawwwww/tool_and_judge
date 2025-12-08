@@ -8,7 +8,7 @@
 {"id": "multiple_7", "result": "<tool_call>\n{\"name\": \"wildlife_population.assess_growth\", \"arguments\": {\"species\": \"鹿\", \"location\": \"华盛顿州\", \"duration\": 10}}\n</tool_call>\n<tool_call>\n{\"name\": \"ecological_impact.analyze\", \"arguments\": {\"species\": \"鹿\", \"ecosystem\": \"林地\", \"location\": \"华盛顿州\", \"timeframe\": 10}}\n</tool_call>"}
 {"id": "multiple_8", "result": "<tool_call>\n{\"name\": \"realestate.find_properties\", \"arguments\": {\"location\": \"圣地亚哥, CA\", \"propertyType\": \"住宅\", \"bedrooms\": 3, \"budget\": {\"min\": 300000, \"max\": 400000}}}\n</tool_call>"}
 {"id": "multiple_9", "result": "<tool_call>\n{\"name\": \"calculate_average\", \"arguments\": {\"gradeDict\": {\"数学\": 90, \"科学\": 75, \"历史\": 82, \"音乐\": 89}}}\n</tool_call>"}
-{"id": "multiple_10", "result": "<tool_call>\n{\"name\": \"database.create_backup\", \"arguments\": {\"db_name\": \"员工数据库\", \"backup_location\": \"/backups/employee_db_backup.sql\", \"timestamp\": true}}\n</tool_call>\n<tool_call>\n{\"name\": \"database.modify_columns\", \"arguments\": {\"db_name\": \"员工数据库\", \"table\": \"personal_data\", \"operation\": \"delete\", \"columns\": [\"电子邮件地址\", \"社会安全号码\"]}}\n</tool_call>"}
+{"id": "multiple_10", "result": "<tool_call>\n{\"name\": \"database.create_backup\", \"arguments\": {\"db_name\": \"employee_database\", \"backup_location\": \"/backups/employee_database_backup.sql\", \"timestamp\": true}}\n</tool_call>\n<tool_call>\n{\"name\": \"database.modify_columns\", \"arguments\": {\"db_name\": \"employee_database\", \"table\": \"personal_data\", \"operation\": \"delete\", \"columns\": [\"email_address\", \"social_security_number\"]}}\n</tool_call>"}
 {"id": "multiple_11", "result": "<tool_call>\n{\"name\": \"math_roots.quadratic\", \"arguments\": {\"a\": 5, \"b\": 20, \"c\": -25}}\n</tool_call>"}
 {"id": "multiple_12", "result": "<tool_call>\n{\"name\": \"corporate_finance.calculate_YOY_growth_rate\", \"arguments\": {\"company_name\": \"Tech Inc\", \"year1\": 2019, \"year1_revenue\": 1000000, \"year2\": 2020, \"year2_revenue\": 1200000}}\n</tool_call>"}
 {"id": "multiple_13", "result": "<tool_call>\n{\"name\": \"corporate_finance.product_price\", \"arguments\": {\"company\": \"XYZ\", \"product\": \"A\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"corporate_finance.revenue_forecast\", \"arguments\": {\"company\": \"XYZ\", \"product\": \"A\", \"sales_units_increase_percentage\": 10}}\n</tool_call>"}
@@ -22,16 +22,16 @@
 {"id": "multiple_21", "result": "<tool_call>\n{\"name\": \"generate_sound_wave\", \"arguments\": {\"frequency\": 440, \"duration\": 5, \"wave_type\": \"sine\"}}\n</tool_call>"}
 {"id": "multiple_22", "result": "<tool_call>\n{\"name\": \"sports_data.basketball.most_points_single_game\", \"arguments\": {\"league\": \"NBA\"}}\n</tool_call>"}
 {"id": "multiple_23", "result": "<tool_call>\n{\"name\": \"basketball.player_stats.get\", \"arguments\": {\"player_name\": \"勒布朗·詹姆斯\", \"stats_fields\": [\"points\", \"assists\", \"minutes\"]}}\n</tool_call>"}
-{"id": "multiple_24", "result": "<tool_call>\n{\"name\": \"route_planner.calculate_route\", \"arguments\": {\"start\": \"London\", \"destination\": \"Edinburgh\", \"method\": \"shortest\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"chess_club_details.find\", \"arguments\": {\"name\": \"International Chess Competition\", \"city\": \"Edinburgh\"}}\n</tool_call>"}
+{"id": "multiple_24", "result": "<tool_call>\n{\"name\": \"route_planner.calculate_route\", \"arguments\": {\"start\": \"London\", \"destination\": \"Edinburgh\", \"method\": \"shortest\"}}\n</tool_call>"}
 {"id": "multiple_25", "result": "<tool_call>\n{\"name\": \"video_games.store_price\", \"arguments\": {\"game_title\": \"刺客信条：英灵殿\", \"platform\": \"PlayStation\", \"region\": \"United States\"}}\n</tool_call>"}
 {"id": "multiple_26", "result": "<tool_call>\n{\"name\": \"game_rewards.get\", \"arguments\": {\"game\": \"堡垒之夜\", \"platform\": \"Playstation\"}}\n</tool_call>"}
-{"id": "multiple_27", "result": "<tool_call>\n{\"name\": \"maps.shortest_path\", \"arguments\": {\"start_location\": \"法国巴黎\", \"end_location\": \"意大利罗马\", \"mode\": \"transit\"}}\n</tool_call>"}
+{"id": "multiple_27", "result": "<tool_call>\n{\"name\": \"maps.shortest_path\", \"arguments\": {\"start_location\": \"巴黎\", \"end_location\": \"罗马\", \"mode\": \"transit\"}}\n</tool_call>"}
 {"id": "multiple_28", "result": "<tool_call>\n{\"name\": \"solve.quadratic_equation\", \"arguments\": {\"a\": 2, \"b\": 3, \"c\": -4}}\n</tool_call>"}
 {"id": "multiple_29", "result": "<tool_call>\n{\"name\": \"functions.intersect\", \"arguments\": {\"function1\": \"3x+2\", \"function2\": \"2x+3\"}}\n</tool_call>"}
 {"id": "multiple_30", "result": "<tool_call>\n{\"name\": \"rectangle.area\", \"arguments\": {\"length\": 12, \"width\": 5}}\n</tool_call>"}
 {"id": "multiple_31", "result": "<tool_call>\n{\"name\": \"geometry_rectangle.calculate\", \"arguments\": {\"width\": 7, \"length\": 10}}\n</tool_call>"}
 {"id": "multiple_32", "result": "<tool_call>\n{\"name\": \"geometry.calculate_cone_volume\", \"arguments\": {\"radius\": 4, \"height\": 7}}\n</tool_call>"}
-{"id": "multiple_33", "result": "<tool_call>\n{\"name\": \"calculate_integral\", \"arguments\": {\"func\": \"3x**2\", \"a\": 1, \"b\": 2}}\n</tool_call>"}
+{"id": "multiple_33", "result": "<tool_call>\n{\"name\": \"calculate_integral\", \"arguments\": {\"func\": \"3x^2\", \"a\": 1, \"b\": 2}}\n</tool_call>"}
 {"id": "multiple_34", "result": "<tool_call>\n{\"name\": \"math.lcm\", \"arguments\": {\"num1\": 18, \"num2\": 12}}\n</tool_call>"}
 {"id": "multiple_35", "result": "<tool_call>\n{\"name\": \"calculate_gcd\", \"arguments\": {\"num1\": 128, \"num2\": 256, \"algorithm\": \"euclidean\"}}\n</tool_call>"}
 {"id": "multiple_36", "result": "<tool_call>\n{\"name\": \"kinematics.calculate_speed_from_rest\", \"arguments\": {\"distance\": 20, \"time\": 4, \"initial_speed\": 0}}\n</tool_call>"}
@@ -60,7 +60,7 @@
 {"id": "multiple_59", "result": "<tool_call>\n{\"name\": \"lawyer_finder\", \"arguments\": {\"location\": \"纽约\", \"specialization\": [\"刑法\"]}}\n</tool_call>"}
 {"id": "multiple_60", "result": "<tool_call>\n{\"name\": \"humidity_temperature_forecast\", \"arguments\": {\"location\": \"纽约市\", \"days\": 7}}\n</tool_call>"}
 {"id": "multiple_61", "result": "<tool_call>\n{\"name\": \"landscape_architect.find_specialty\", \"arguments\": {\"location\": \"Portland, OR\", \"specialization\": \"small area gardening\", \"years_experience\": 5}}\n</tool_call>"}
-{"id": "multiple_62", "result": "<tool_call>\n{\"name\": \"nature_park.find_nearby\", \"arguments\": {\"location\": \"波士顿, MA\", \"features\": [\"Camping\", \"Scenic View\"]}}\n</tool_call>"}
+{"id": "multiple_62", "result": "<tool_call>\n{\"name\": \"nature_park.find_nearby\", \"arguments\": {\"location\": \"Boston, MA\", \"features\": [\"Camping\", \"Scenic View\"]}}\n</tool_call>"}
 {"id": "multiple_63", "result": "<tool_call>\n{\"name\": \"air_quality_forecast\", \"arguments\": {\"location\": \"纽约\", \"days\": 7}}\n</tool_call>"}
 {"id": "multiple_64", "result": "<tool_call>\n{\"name\": \"uv_index.get_future\", \"arguments\": {\"location\": \"东京\", \"date\": \"06-02-2023\"}}\n</tool_call>"}
 {"id": "multiple_65", "result": "<tool_call>\n{\"name\": \"geodistance.find\", \"arguments\": {\"origin\": \"纽约市\", \"destination\": \"洛杉矶\"}}\n</tool_call>"}
@@ -73,7 +73,7 @@
 {"id": "multiple_72", "result": "<tool_call>\n{\"name\": \"us_history.population_by_state_year\", \"arguments\": {\"state\": \"California\", \"year\": 1970}}\n</tool_call>"}
 {"id": "multiple_73", "result": "<tool_call>\n{\"name\": \"religion.get_origin\", \"arguments\": {\"religion\": \"佛教\"}}\n</tool_call>"}
 {"id": "multiple_74", "result": "<tool_call>\n{\"name\": \"art_auction.fetch_artwork_price\", \"arguments\": {\"artwork_name\": \"星夜\", \"artist\": \"梵高\", \"platform\": \"all\"}}\n</tool_call>"}
-{"id": "multiple_75", "result": "<tool_call>\n{\"name\": \"paint_color.trends\", \"arguments\": {\"room\": \"客厅\"}}\n</tool_call>"}
+{"id": "multiple_75", "result": "<tool_call>\n{\"name\": \"paint_color.trends\", \"arguments\": {\"room\": \"Living room\"}}\n</tool_call>"}
 {"id": "multiple_76", "result": "可用的材料包括青铜、大理石、陶土、木材和石头。"}
 {"id": "multiple_77", "result": "<tool_call>\n{\"name\": \"artwork_search.find\", \"arguments\": {\"type\": \"sculpture\", \"location\": \"纽约\", \"era\": \"modern\"}}\n</tool_call>"}
 {"id": "multiple_78", "result": "<tool_call>\n{\"name\": \"museum_info\", \"arguments\": {\"museum\": \"伦敦自然历史博物馆\", \"city\": \"伦敦\", \"features\": [\"timings\", \"exhibitions\", \"accessibility\"]}}\n</tool_call>"}
@@ -122,7 +122,7 @@
 {"id": "multiple_121", "result": "<tool_call>\n{\"name\": \"geometry.area_triangle\", \"arguments\": {\"base\": 6, \"height\": 10}}\n</tool_call>"}
 {"id": "multiple_122", "result": "<tool_call>\n{\"name\": \"run_linear_regression\", \"arguments\": {\"predictors\": [\"年龄\", \"收入\", \"教育程度\"], \"target\": \"购买金额\", \"standardize\": true}}\n</tool_call>"}
 {"id": "multiple_123", "result": "<tool_call>\n{\"name\": \"calculate_probability\", \"arguments\": {\"total_outcomes\": 52, \"favorable_outcomes\": 4, \"round_to\": 2}}\n</tool_call>"}
-{"id": "multiple_124", "result": "<tool_call>\n{\"name\": \"probabilities.calculate_single\", \"arguments\": {\"total_outcomes\": 52, \"event_outcomes\": 4}}\n</tool_call>"}
+{"id": "multiple_124", "result": "<tool_call>\n{\"name\": \"probabilities.calculate_single\", \"arguments\": {\"total_outcomes\": 52, \"event_outcomes\": 4, \"round\": 2}}\n</tool_call>"}
 {"id": "multiple_125", "result": "<tool_call>\n{\"name\": \"run_two_sample_ttest\", \"arguments\": {\"group1\": [3, 4, 5, 6, 4], \"group2\": [7, 8, 9, 8, 7], \"equal_variance\": true}}\n</tool_call>"}
 {"id": "multiple_126", "result": "<tool_call>\n{\"name\": \"t_test\", \"arguments\": {\"dataset_A\": [12, 24, 36], \"dataset_B\": [15, 30, 45], \"alpha\": 0.05}}\n</tool_call>"}
 {"id": "multiple_127", "result": "<tool_call>\n{\"name\": \"finance.calculate_quarterly_dividend_per_share\", \"arguments\": {\"total_payout\": 50000000, \"outstanding_shares\": 100000000}}\n</tool_call>"}
@@ -133,7 +133,7 @@
 {"id": "multiple_132", "result": "<tool_call>\n{\"name\": \"finance.calculate_future_value\", \"arguments\": {\"initial_investment\": 20000, \"rate_of_return\": 0.08, \"years\": 5}}\n</tool_call>"}
 {"id": "multiple_133", "result": "<tool_call>\n{\"name\": \"calculate_mutual_fund_balance\", \"arguments\": {\"investment_amount\": 50000, \"annual_yield\": 0.05, \"years\": 3}}\n</tool_call>"}
 {"id": "multiple_134", "result": "<tool_call>\n{\"name\": \"crime_record.get_record\", \"arguments\": {\"case_number\": \"CA123456\", \"county\": \"圣地亚哥县\", \"details\": true}}\n</tool_call>"}
-{"id": "multiple_135", "result": "<tool_call>\n{\"name\": \"get_case_info\", \"arguments\": {\"docket\": \"2022/AL2562\", \"court\": \"加利福尼亚州\", \"info_type\": \"受害者\"}}\n</tool_call>"}
+{"id": "multiple_135", "result": "<tool_call>\n{\"name\": \"get_case_info\", \"arguments\": {\"docket\": \"2022/AL2562\", \"court\": \"加利福尼亚州\", \"info_type\": \"victim\"}}\n</tool_call>"}
 {"id": "multiple_136", "result": "<tool_call>\n{\"name\": \"get_crime_rate\", \"arguments\": {\"city\": \"San Francisco\", \"state\": \"California\", \"type\": \"violent\", \"year\": 2020}}\n</tool_call>"}
 {"id": "multiple_137", "result": "<tool_call>\n{\"name\": \"lawsuit_search\", \"arguments\": {\"company\": \"谷歌\", \"start_date\": \"2021-01-01\", \"location\": \"加利福尼亚州\", \"status\": \"ongoing\"}}\n</tool_call>"}
 {"id": "multiple_138", "result": "<tool_call>\n{\"name\": \"legal_case.fetch\", \"arguments\": {\"case_id\": \"R诉亚当斯\", \"details\": true}}\n</tool_call>"}
@@ -142,9 +142,9 @@
 {"id": "multiple_141", "result": "<tool_call>\n{\"name\": \"lawsuit.check_case\", \"arguments\": {\"case_id\": 1234, \"closed_status\": true}}\n</tool_call>"}
 {"id": "multiple_142", "result": "<tool_call>\n{\"name\": \"weather.humidity_forecast\", \"arguments\": {\"location\": \"佛罗里达州迈阿密\", \"days\": 7}}\n</tool_call>"}
 {"id": "multiple_143", "result": "<tool_call>\n{\"name\": \"calculate_slope_gradient\", \"arguments\": {\"point1\": [40.7128, -74.0060], \"point2\": [34.0522, -118.2437], \"unit\": \"degree\"}}\n</tool_call>"}
-{"id": "multiple_144", "result": "<tool_call>\n{\"name\": \"air_quality\", \"arguments\": {\"location\": \"伦敦\", \"date\": \"2022-08-16\"}}\n</tool_call>"}
+{"id": "multiple_144", "result": "<tool_call>\n{\"name\": \"air_quality\", \"arguments\": {\"location\": \"伦敦\", \"date\": \"2022年8月16日\"}}\n</tool_call>"}
 {"id": "multiple_145", "result": "<tool_call>\n{\"name\": \"calculate_emissions\", \"arguments\": {\"distance\": 12000, \"fuel_type\": \"gasoline\", \"fuel_efficiency\": 20}}\n</tool_call>"}
-{"id": "multiple_146", "result": "<tool_call>\n{\"name\": \"restaurant.find_nearby\", \"arguments\": {\"location\": \"西雅图, WA\", \"cuisine\": \"中餐\", \"max_distance\": 10}}\n</tool_call>"}
+{"id": "multiple_146", "result": "<tool_call>\n{\"name\": \"restaurant.find_nearby\", \"arguments\": {\"location\": \"Seattle, WA\", \"cuisine\": \"Chinese\", \"max_distance\": 10}}\n</tool_call>"}
 {"id": "multiple_147", "result": "<tool_call>\n{\"name\": \"map_service.get_directions\", \"arguments\": {\"start\": \"纽约\", \"end\": \"洛杉矶\", \"avoid\": [\"highways\", \"tolls\"]}}\n</tool_call>"}
 {"id": "multiple_148", "result": "<tool_call>\n{\"name\": \"get_stock_info\", \"arguments\": {\"company_name\": \"苹果公司\", \"detail_level\": \"detailed\", \"market\": \"NASDAQ\"}}\n</tool_call>"}
 {"id": "multiple_149", "result": "<tool_call>\n{\"name\": \"sentiment_analysis\", \"arguments\": {\"text\": \"I love the food here! It's always fresh and delicious.\", \"language\": \"en\"}}\n</tool_call>"}
@@ -155,7 +155,7 @@
 {"id": "multiple_154", "result": "<tool_call>\n{\"name\": \"US_president.in_year\", \"arguments\": {\"year\": 1861, \"full_name\": true}}\n</tool_call>"}
 {"id": "multiple_155", "result": "<tool_call>\n{\"name\": \"get_discoverer\", \"arguments\": {\"discovery\": \"中子\", \"detail\": true}}\n</tool_call>"}
 {"id": "multiple_156", "result": "<tool_call>\n{\"name\": \"historical_contrib.get_contrib\", \"arguments\": {\"scientist\": \"阿尔伯特·爱因斯坦\", \"date\": \"1915-03-17\", \"category\": \"Physics\"}}\n</tool_call>"}
-{"id": "multiple_157", "result": "<tool_call>\n{\"name\": \"get_earliest_reference\", \"arguments\": {\"name\": \"耶稣基督\", \"source\": \"historical records\"}}\n</tool_call>"}
+{"id": "multiple_157", "result": "<tool_call>\n{\"name\": \"get_earliest_reference\", \"arguments\": {\"name\": \"耶稣基督\", \"source\": \"scriptures\"}}\n</tool_call>"}
 {"id": "multiple_158", "result": "<tool_call>\n{\"name\": \"religious_history.get_papal_biography\", \"arguments\": {\"papal_name\": \"Innocent III\", \"include_contributions\": true}}\n</tool_call>"}
 {"id": "multiple_159", "result": "<tool_call>\n{\"name\": \"calculate_paint_needed\", \"arguments\": {\"coverage_rate\": 400, \"length\": 30, \"height\": 12}}\n</tool_call>"}
 {"id": "multiple_160", "result": "<tool_call>\n{\"name\": \"get_sculpture_info\", \"arguments\": {\"artist_name\": \"詹姆斯·普伦萨\", \"detail\": true}}\n</tool_call>"}
@@ -166,7 +166,7 @@
 {"id": "multiple_165", "result": "<tool_call>\n{\"name\": \"guitar_price.find\", \"arguments\": {\"model\": \"Gibson Les Paul\", \"condition\": \"Excellent\", \"location\": \"芝加哥\"}}\n</tool_call>"}
 {"id": "multiple_166", "result": "<tool_call>\n{\"name\": \"concert.search\", \"arguments\": {\"genre\": \"古典式\", \"location\": \"洛杉矶\", \"date\": \"这个周末\", \"price_range\": \"cheap\"}}\n</tool_call>"}
 {"id": "multiple_167", "result": "<tool_call>\n{\"name\": \"music_generator.generate_melody\", \"arguments\": {\"key\": \"C\", \"start_note\": \"C4\", \"length\": 16, \"tempo\": 120}}\n</tool_call>"}
-{"id": "multiple_168", "result": "<tool_call>\n{\"name\": \"get_song_lyrics\", \"arguments\": {\"song_title\": \"Bohemian Rhapsody\", \"artist_name\": \"Queen\", \"lang\": \"English\"}}\n</tool_call>"}
+{"id": "multiple_168", "result": "<tool_call>\n{\"name\": \"get_song_lyrics\", \"arguments\": {\"song_title\": \"Bohemian Rhapsody\", \"artist_name\": \"Queen\"}}\n</tool_call>"}
 {"id": "multiple_169", "result": "<tool_call>\n{\"name\": \"musical_scale\", \"arguments\": {\"key\": \"C\", \"scale_type\": \"major\"}}\n</tool_call>"}
 {"id": "multiple_170", "result": "<tool_call>\n{\"name\": \"soccer_stat.get_player_stats\", \"arguments\": {\"player_name\": \"克里斯蒂亚诺·罗纳尔多\", \"season\": \"2019-2020\"}}\n</tool_call>"}
 {"id": "multiple_171", "result": "<tool_call>\n{\"name\": \"game_result.get_winner\", \"arguments\": {\"teams\": [\"湖人队\", \"快船队\"], \"date\": \"2021-01-28\"}}\n</tool_call>"}
@@ -175,7 +175,7 @@
 {"id": "multiple_174", "result": "<tool_call>\n{\"name\": \"sports_ranking\", \"arguments\": {\"team\": \"曼联\", \"league\": \"英超联赛\"}}\n</tool_call>"}
 {"id": "multiple_175", "result": "<tool_call>\n{\"name\": \"sports_ranking.get_top_player\", \"arguments\": {\"sport\": \"tennis\", \"gender\": \"women\"}}\n</tool_call>"}
 {"id": "multiple_176", "result": "<tool_call>\n{\"name\": \"sports_team.get_schedule\", \"arguments\": {\"team_name\": \"曼联\", \"num_of_games\": 6, \"league\": \"英超\"}}\n</tool_call>"}
-{"id": "multiple_177", "result": "<tool_call>\n{\"name\": \"board_game.chess.get_top_players\", \"arguments\": {\"location\": \"纽约市\", \"minimum_rating\": 2300, \"number_of_players\": 10}}\n</tool_call>"}
+{"id": "multiple_177", "result": "<tool_call>\n{\"name\": \"board_game.chess.get_top_players\", \"arguments\": {\"location\": \"纽约市\", \"minimum_rating\": 2300}}\n</tool_call>"}
 {"id": "multiple_178", "result": "<tool_call>\n{\"name\": \"find_card_in_deck\", \"arguments\": {\"rank\": \"Queen\", \"suit\": \"Hearts\"}}\n</tool_call>"}
 {"id": "multiple_179", "result": "<tool_call>\n{\"name\": \"poker_probability.full_house\", \"arguments\": {\"deck_size\": 52, \"hand_size\": 5}}\n</tool_call>"}
 {"id": "multiple_180", "result": "<tool_call>\n{\"name\": \"game_stats.fetch_player_statistics\", \"arguments\": {\"game\": \"Zelda\", \"username\": \"Sam\", \"platform\": \"Switch\"}}\n</tool_call>"}
@@ -188,7 +188,7 @@
 {"id": "multiple_187", "result": "<tool_call>\n{\"name\": \"whole_foods.check_price\", \"arguments\": {\"location\": \"洛杉矶\", \"items\": [\"番茄\", \"生菜\"]}}\n</tool_call>"}
 {"id": "multiple_188", "result": "<tool_call>\n{\"name\": \"grocery_store.find_best\", \"arguments\": {\"my_location\": \"伯克利\", \"rating\": 4.5, \"products\": [\"番茄\", \"宠物食品\"]}}\n</tool_call>"}
 {"id": "multiple_189", "result": "<tool_call>\n{\"name\": \"timezone.convert\", \"arguments\": {\"time\": \"3pm\", \"from_timezone\": \"America/New_York\", \"to_timezone\": \"Europe/London\"}}\n</tool_call>"}
-{"id": "multiple_190", "result": "<tool_call>\n{\"name\": \"book_hotel\", \"arguments\": {\"hotel_name\": \"芝加哥希尔顿旅馆\", \"location\": \"芝加哥\", \"room_type\": \"单人房间\", \"start_date\": \"2022-12-10\", \"nights\": 2}}\n</tool_call>"}
+{"id": "multiple_190", "result": "<tool_call>\n{\"name\": \"book_hotel\", \"arguments\": {\"hotel_name\": \"芝加哥希尔顿旅馆\", \"location\": \"芝加哥\", \"room_type\": \"单人房间\", \"start_date\": \"2022年12月10日\", \"nights\": 2}}\n</tool_call>"}
 {"id": "multiple_191", "result": "<tool_call>\n{\"name\": \"book_hotel\", \"arguments\": {\"hotel_name\": \"天堂酒店\", \"location\": \"拉斯维加斯\", \"room_type\": \"奢华客房\", \"start_date\": \"05-12-2022\", \"stay_duration\": 3, \"view\": \"都市风景\"}}\n</tool_call>"}
 {"id": "multiple_192", "result": "<tool_call>\n{\"name\": \"currency_conversion.convert\", \"arguments\": {\"amount\": 150, \"from_currency\": \"EUR\", \"to_currency\": \"CAD\"}}\n</tool_call>"}
 {"id": "multiple_193", "result": "<tool_call>\n{\"name\": \"maps.get_distance_duration\", \"arguments\": {\"start_location\": \"埃菲尔铁塔\", \"end_location\": \"卢浮宫\", \"traffic\": false}}\n</tool_call>"}

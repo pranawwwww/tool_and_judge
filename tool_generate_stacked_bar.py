@@ -259,8 +259,9 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
 # Example usage
 if __name__ == "__main__":
     # Generate stacked bar charts for different models
-    models = ["gpt-5-nano", "gpt-5-mini", "gpt-5"]  # Add more models as needed
-
+    # models = ["gpt-5-nano", "gpt-5-mini", "gpt-5"]  # Add more models as needed
+    models = ['Qwen-Qwen3-14B']
+    
     for model in models:
         print(f"\n{'='*60}")
         print(f"Generating stacked bar charts for {model}")

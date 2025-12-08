@@ -19,7 +19,7 @@
 {"id": "multiple_18", "result": "<tool_call>\n{\"name\": \"european_history.battle_details\", \"arguments\": {\"battle\": \"Battle of Stalingrad\"}}\n</tool_call>"}
 {"id": "multiple_19", "result": "<tool_call>\n{\"name\": \"religion_history.get_schisms\", \"arguments\": {\"religion\": \"Christianity\", \"count\": 3}}\n</tool_call>"}
 {"id": "multiple_20", "result": "<tool_call>\n{\"name\": \"sculpture_price.calculate\", \"arguments\": {\"material\": \"marble\", \"size\": 3}}\n</tool_call>"}
-{"id": "multiple_21", "result": "The function you should use is \"generate_sound_wave\". You should use it by specifying the frequency as 440 Hz, the duration as 5 seconds, and optionally the wave_type, which defaults to \"sine\"."}
+{"id": "multiple_21", "result": "The function you should use is \"generate_sound_wave\". You should use it by specifying the frequency as 440 Hz, the duration as 5 seconds, and optionally the wave_type, which defaults to \"sine\" if not specified."}
 {"id": "multiple_22", "result": "<tool_call>\n{\"name\": \"sports_data.basketball.most_points_single_game\", \"arguments\": {\"league\": \"NBA\"}}\n</tool_call>"}
 {"id": "multiple_23", "result": "<tool_call>\n{\"name\": \"basketball.player_stats.get\", \"arguments\": {\"player_name\": \"LeBron James\", \"stats_fields\": [\"points\", \"assists\", \"minutes\"]}}\n</tool_call>"}
 {"id": "multiple_24", "result": "<tool_call>\n{\"name\": \"route_planner.calculate_route\", \"arguments\": {\"start\": \"London\", \"destination\": \"Edinburgh\", \"method\": \"shortest\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"chess_club_details.find\", \"arguments\": {\"name\": \"international chess competition\", \"city\": \"Edinburgh\"}}\n</tool_call>"}
@@ -52,7 +52,7 @@
 {"id": "multiple_51", "result": "<tool_call>\n{\"name\": \"dice_roll_probability\", \"arguments\": {\"desired_sum\": 7, \"n_rolls\": 2, \"sides_per_die\": 6}}\n</tool_call>"}
 {"id": "multiple_52", "result": "<tool_call>\n{\"name\": \"currency_conversion\", \"arguments\": {\"amount\": 100, \"from_currency\": \"EUR\", \"to_currency\": \"USD\"}}\n</tool_call>"}
 {"id": "multiple_53", "result": "<tool_call>\n{\"name\": \"linear_regression\", \"arguments\": {\"independent_var\": [\"interest rates\", \"unemployment rates\"], \"dependent_var\": \"housing prices\", \"forecast_period\": 5}}\n</tool_call>\n<tool_call>\n{\"name\": \"random_forest_regression\", \"arguments\": {\"independent_var\": [\"interest rates\", \"unemployment rates\"], \"dependent_var\": \"housing prices\", \"forecast_period\": 5}}\n</tool_call>"}
-{"id": "multiple_54", "result": "<tool_call>\n{\"name\": \"corporate_finance.dividend_data\", \"arguments\": {\"company\": \"Apple Inc.\", \"years\": 5, \"frequency\": \"annually\"}}\n</tool_call>"}
+{"id": "multiple_54", "result": "<tool_call>\n{\"name\": \"corporate_finance.dividend_data\", \"arguments\": {\"company\": \"Apple Inc.\", \"years\": 5}}\n</tool_call>"}
 {"id": "multiple_55", "result": "<tool_call>\n{\"name\": \"stock_forecast\", \"arguments\": {\"company\": \"Google\", \"days\": 3}}\n</tool_call>"}
 {"id": "multiple_56", "result": "<tool_call>\n{\"name\": \"avg_closing_price\", \"arguments\": {\"company\": \"Apple\", \"days\": 60}}\n</tool_call>"}
 {"id": "multiple_57", "result": "<tool_call>\n{\"name\": \"financial.compound_interest\", \"arguments\": {\"principle\": 1000, \"rate\": 0.05, \"time\": 10, \"n\": 4}}\n</tool_call>"}
@@ -62,7 +62,7 @@
 {"id": "multiple_61", "result": "<tool_call>\n{\"name\": \"landscape_architect.find_specialty\", \"arguments\": {\"location\": \"Portland, OR\", \"specialization\": \"small-scale regional garden design\", \"years_experience\": 5}}\n</tool_call>"}
 {"id": "multiple_62", "result": "<tool_call>\n{\"name\": \"nature_park.find_nearby\", \"arguments\": {\"location\": \"Boston, MA\", \"features\": [\"Camping\", \"Scenic View\"]}}\n</tool_call>"}
 {"id": "multiple_63", "result": "<tool_call>\n{\"name\": \"air_quality_forecast\", \"arguments\": {\"location\": \"New York\", \"days\": 7}}\n</tool_call>"}
-{"id": "multiple_64", "result": "<tool_call>\n{\"name\": \"uv_index.get_future\", \"arguments\": {\"location\": \"Tokyo\", \"date\": \"06-01-2023\"}}\n</tool_call>"}
+{"id": "multiple_64", "result": "<tool_call>\n{\"name\": \"uv_index.get_future\", \"arguments\": {\"location\": \"Tokyo\", \"date\": \"06-02-2023\"}}\n</tool_call>"}
 {"id": "multiple_65", "result": "<tool_call>\n{\"name\": \"geodistance.find\", \"arguments\": {\"origin\": \"New York City\", \"destination\": \"Los Angeles\"}}\n</tool_call>"}
 {"id": "multiple_66", "result": "<tool_call>\n{\"name\": \"traffic_estimate\", \"arguments\": {\"start_location\": \"Las Vegas\", \"end_location\": \"Los Angeles\", \"time_period\": \"weekend\"}}\n</tool_call>"}
 {"id": "multiple_67", "result": "<tool_call>\n{\"name\": \"translate\", \"arguments\": {\"text\": \"Hello, how are you?\", \"source_language\": \"English\", \"target_language\": \"French\"}}\n</tool_call>"}
@@ -88,7 +88,7 @@
 {"id": "multiple_87", "result": "<tool_call>\n{\"name\": \"games.update.find\", \"arguments\": {\"game\": \"Cyberpunk 2077\", \"platform\": \"Xbox\"}}\n</tool_call>"}
 {"id": "multiple_88", "result": "<tool_call>\n{\"name\": \"video_games.get_player_count\", \"arguments\": {\"game_title\": \"World of Warcraft\", \"year\": 2020}}\n</tool_call>"}
 {"id": "multiple_89", "result": "<tool_call>\n{\"name\": \"restaurant_search\", \"arguments\": {\"ingredients\": [\"chicken\", \"mushrooms\"], \"calories\": 500, \"meal\": \"lunch\"}}\n</tool_call>"}
-{"id": "multiple_90", "result": "<tool_call>\n{\"name\": \"restaurant.find_group\", \"arguments\": {\"location\": \"Seattle, WA\", \"cuisine\": [\"Seafood\"], \"group_size\": 5}}\n</tool_call>"}
+{"id": "multiple_90", "result": "<tool_call>\n{\"name\": \"restaurant.find_group\", \"arguments\": {\"location\": \"Seattle\", \"cuisine\": [\"Seafood\"], \"group_size\": 5}}\n</tool_call>"}
 {"id": "multiple_91", "result": "<tool_call>\n{\"name\": \"recipe.find\", \"arguments\": {\"mainIngredient\": \"apple\", \"ingredientLimit\": 5}}\n</tool_call>"}
 {"id": "multiple_92", "result": "<tool_call>\n{\"name\": \"walmart.vegan_products\", \"arguments\": {\"location\": \"Denver, CO\", \"categories\": [\"vegetarian\", \"gluten-free\"]}}\n</tool_call>"}
 {"id": "multiple_93", "result": "<tool_call>\n{\"name\": \"hotel.book\", \"arguments\": {\"location\": \"New York Marriott\", \"roomType\": \"luxury\", \"nights\": 2, \"additional_services\": [\"breakfast\"]}}\n</tool_call>"}
@@ -162,7 +162,7 @@
 {"id": "multiple_161", "result": "<tool_call>\n{\"name\": \"find_exhibition\", \"arguments\": {\"location\": \"New York, NY\", \"art_form\": \"sculpture\", \"month\": \"next\", \"user_ratings\": \"high\"}}\n</tool_call>"}
 {"id": "multiple_162", "result": "<tool_call>\n{\"name\": \"analyze_structure\", \"arguments\": {\"building_id\": \"B1004\", \"floors\": [2, 3, 4], \"mode\": \"dynamic\"}}\n</tool_call>"}
 {"id": "multiple_163", "result": "<tool_call>\n{\"name\": \"metropolitan_museum.get_top_artworks\", \"arguments\": {\"number\": 5, \"sort_by\": \"popularity\"}}\n</tool_call>"}
-{"id": "multiple_164", "result": "<tool_call>\n{\"name\": \"instrument_price.get\", \"arguments\": {\"brand\": \"Fender\", \"model\": \"American Professional II Stratocaster\", \"finish\": \"rosewood\"}}\n</tool_call>"}
+{"id": "multiple_164", "result": "<tool_call>\n{\"name\": \"instrument_price.get\", \"arguments\": {\"brand\": \"Fender\", \"model\": \"American Professional II Stratocaster\", \"finish\": \"rosewood inlay\"}}\n</tool_call>"}
 {"id": "multiple_165", "result": "<tool_call>\n{\"name\": \"guitar_price.find\", \"arguments\": {\"model\": \"Gibson Les Paul\", \"condition\": \"Excellent\", \"location\": \"Chicago\"}}\n</tool_call>"}
 {"id": "multiple_166", "result": "<tool_call>\n{\"name\": \"concert.search\", \"arguments\": {\"genre\": \"classical\", \"location\": \"Los Angeles\", \"date\": \"this weekend\", \"price_range\": \"affordable\"}}\n</tool_call>"}
 {"id": "multiple_167", "result": "<tool_call>\n{\"name\": \"music_generator.generate_melody\", \"arguments\": {\"key\": \"C\", \"start_note\": \"C4\", \"length\": 16, \"tempo\": 120}}\n</tool_call>"}

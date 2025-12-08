@@ -170,8 +170,8 @@
 {"id": "multiple_169", "result": "<tool_call>\n{\"name\": \"musical_scale\", \"arguments\": {\"key\": \"C sharp\", \"scale_type\": \"major\"}}\n</tool_call>"}
 {"id": "multiple_170", "result": "<tool_call>\n{\"name\": \"soccer_stat.get_player_stats\", \"arguments\": {\"player_name\": \"Cristiano Ronaldo\", \"season\": \"2019-2020\"}}\n</tool_call>"}
 {"id": "multiple_171", "result": "<tool_call>\n{\"name\": \"game_result.get_winner\", \"arguments\": {\"teams\": [\"Lakers\", \"Clippers\"], \"date\": \"2021-01-28\"}}\n</tool_call>"}
-{"id": "multiple_172", "result": "<tool_call>\n{\"name\": \"sports_db.find_athlete\", \"arguments\": {\"name\": \"Lebron James\", \"sport\": \"Basketball\"}}\n</tool_call>"}
-{"id": "multiple_173", "result": "<tool_call>\n{\"name\": \"get_defense_ranking\", \"arguments\": {\"season\": 2021, \"top\": 5}}\n</tool_call>"}
+{"id": "multiple_172", "result": "<tool_call>\n{\"name\": \"sports_db.find_athlete\", \"arguments\": {\"name\": \"Lebron James\", \"team\": \"\", \"sport\": \"Basketball\"}}\n</tool_call>"}
+{"id": "multiple_173", "result": "<tool_call>\n{\"name\": \"get_defense_ranking\", \"arguments\": {\"season\": 2021}}\n</tool_call>"}
 {"id": "multiple_174", "result": "<tool_call>\n{\"name\": \"sports_ranking\", \"arguments\": {\"team\": \"Manchester United\", \"league\": \"Premier League\"}}\n</tool_call>"}
 {"id": "multiple_175", "result": "<tool_call>\n{\"name\": \"sports_ranking.get_top_player\", \"arguments\": {\"sport\": \"tennis\", \"gender\": \"women\"}}\n</tool_call>"}
 {"id": "multiple_176", "result": "<tool_call>\n{\"name\": \"sports_team.get_schedule\", \"arguments\": {\"team_name\": \"Manchester United\", \"num_of_games\": 6, \"league\": \"Premier League\"}}\n</tool_call>"}

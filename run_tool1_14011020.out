@@ -1,0 +1,2 @@
+Loading configs from: tool_config_slurm1.py
+Processing config: ToolConfig(model=<LocalModel.QWEN3_8B: 'Qwen/Qwen3-8B'>, translate_mode=NotTranslated(), add_noise_mode=<AddNoiseMode.NO_NOISE: 1>)

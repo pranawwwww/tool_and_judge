@@ -8,7 +8,7 @@
 {"id": "multiple_7", "result": "<tool_call>\n{\"name\": \"wildlife_population.assess_growth\", \"arguments\": {\"species\": \"鹿\", \"location\": \"华盛顿州\", \"duration\": 10}}\n</tool_call>\n<tool_call>\n{\"name\": \"ecological_impact.analyze\", \"arguments\": {\"species\": \"鹿\", \"ecosystem\": \"森林\", \"location\": \"华盛顿州\", \"timeframe\": 10}}\n</tool_call>"}
 {"id": "multiple_8", "result": "<tool_call>\n{\"name\": \"realestate.find_properties\", \"arguments\": {\"location\": \"圣地亚哥, CA\", \"propertyType\": \"别墅\", \"bedrooms\": 3, \"budget\": {\"min\": 300000, \"max\": 400000}}}\n</tool_call>"}
 {"id": "multiple_9", "result": "<tool_call>\n{\"name\": \"calculate_average\", \"arguments\": {\"gradeDict\": {\"数学\": 90, \"科学\": 75, \"历史\": 82, \"音乐\": 89}}}\n</tool_call>"}
-{"id": "multiple_10", "result": "<tool_call>\n{\"name\": \"database.create_backup\", \"arguments\": {\"db_name\": \"员工数据库\", \"backup_location\": \"/backups/employee_database_backup.sql\", \"timestamp\": true}}\n</tool_call>\n<tool_call>\n{\"name\": \"database.modify_columns\", \"arguments\": {\"db_name\": \"员工数据库\", \"table\": \"personal_data\", \"operation\": \"delete\", \"columns\": [\"电子邮件地址\", \"社会安全号码\"]}}\n</tool_call>"}
+{"id": "multiple_10", "result": "<tool_call>\n{\"name\": \"database.create_backup\", \"arguments\": {\"db_name\": \"员工数据库\", \"backup_location\": \"/backups/employee_db_backup.sql\", \"timestamp\": true}}\n</tool_call>\n<tool_call>\n{\"name\": \"database.modify_columns\", \"arguments\": {\"db_name\": \"员工数据库\", \"table\": \"personal_data\", \"operation\": \"delete\", \"columns\": [\"电子邮件地址\", \"社会安全号码\"]}}\n</tool_call>"}
 {"id": "multiple_11", "result": "<tool_call>\n{\"name\": \"math_roots.quadratic\", \"arguments\": {\"a\": 5, \"b\": 20, \"c\": -25}}\n</tool_call>"}
 {"id": "multiple_12", "result": "<tool_call>\n{\"name\": \"corporate_finance.calculate_YOY_growth_rate\", \"arguments\": {\"company_name\": \"Tech Inc\", \"year1\": 2019, \"year1_revenue\": 1000000, \"year2\": 2020, \"year2_revenue\": 1200000}}\n</tool_call>"}
 {"id": "multiple_13", "result": "<tool_call>\n{\"name\": \"corporate_finance.product_price\", \"arguments\": {\"company\": \"XYZ\", \"product\": \"A\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"corporate_finance.revenue_forecast\", \"arguments\": {\"company\": \"XYZ\", \"product\": \"A\", \"sales_units_increase_percentage\": 10}}\n</tool_call>"}
@@ -36,9 +36,9 @@
 {"id": "multiple_35", "result": "<tool_call>\n{\"name\": \"calculate_gcd\", \"arguments\": {\"num1\": 128, \"num2\": 256, \"algorithm\": \"euclidean\"}}\n</tool_call>"}
 {"id": "multiple_36", "result": "<tool_call>\n{\"name\": \"kinematics.calculate_speed_from_rest\", \"arguments\": {\"distance\": 20, \"time\": 4, \"initial_speed\": 0}}\n</tool_call>"}
 {"id": "multiple_37", "result": "<tool_call>\n{\"name\": \"kinematics.final_velocity\", \"arguments\": {\"initial_velocity\": 40, \"time\": 6, \"acceleration\": -9.81}}\n</tool_call>"}
-{"id": "multiple_38", "result": "<tool_call>\n{\"name\": \"library.search_book\", \"arguments\": {\"book_name\": \"牧羊少年奇幻之旅\", \"city\": \"纽约市\"}}\n</tool_call>"}
+{"id": "multiple_38", "result": "<tool_call>\n{\"name\": \"library.search_book\", \"arguments\": {\"book_name\": \"《牧羊少年奇幻之旅》\", \"city\": \"纽约市\"}}\n</tool_call>"}
 {"id": "multiple_39", "result": "<tool_call>\n{\"name\": \"ride_hailing.get_rides\", \"arguments\": {\"source\": \"纽约\", \"destination\": \"费城\", \"max_cost\": 50}}\n</tool_call>"}
-{"id": "multiple_40", "result": "<tool_call>\n{\"name\": \"electromagnetism.ampere_law\", \"arguments\": {\"enclosed_current\": 12, \"radius\": 8}}\n</tool_call>"}
+{"id": "multiple_40", "result": "<tool_call>\n{\"name\": \"electromagnetism.biot_savart_law\", \"arguments\": {\"current\": 12, \"distance\": 8}}\n</tool_call>"}
 {"id": "multiple_41", "result": "<tool_call>\n{\"name\": \"magnetic_field.calculate\", \"arguments\": {\"I\": 10, \"r\": 0.01}}\n</tool_call>"}
 {"id": "multiple_42", "result": "<tool_call>\n{\"name\": \"calculate_final_temperature\", \"arguments\": {\"quantity1\": 2, \"temperature1\": 300, \"quantity2\": 3, \"temperature2\": 400}}\n</tool_call>"}
 {"id": "multiple_43", "result": "<tool_call>\n{\"name\": \"biological.calc_energy\", \"arguments\": {\"mols\": 5, \"substance\": \"C6H12O6\", \"joules_per_mol\": 2800}}\n</tool_call>"}
@@ -48,7 +48,7 @@
 {"id": "multiple_47", "result": "<tool_call>\n{\"name\": \"cosine_similarity.calculate\", \"arguments\": {\"vector1\": [3, 2, 1], \"vector2\": [1, 2, 3], \"rounding\": 2}}\n</tool_call>"}
 {"id": "multiple_48", "result": "<tool_call>\n{\"name\": \"library.find_nearby\", \"arguments\": {\"location\": \"New York City, NY\", \"preferences\": [\"Pet-friendly\", \"Disabled Access\"]}}\n</tool_call>"}
 {"id": "multiple_49", "result": "<tool_call>\n{\"name\": \"calc_Compound_Interest\", \"arguments\": {\"principle_amount\": 1500, \"duration\": 2, \"annual_rate\": 2.5, \"compound_freq\": 1}}\n</tool_call>"}
-{"id": "multiple_50", "result": "<tool_call>\n{\"name\": \"house_price_forecast\", \"arguments\": {\"location\": \"纽约市\", \"months\": 1}}\n</tool_call>"}
+{"id": "multiple_50", "result": "<tool_call>\n{\"name\": \"house_price_forecast\", \"arguments\": {\"location\": \"New York\", \"months\": 1}}\n</tool_call>"}
 {"id": "multiple_51", "result": "<tool_call>\n{\"name\": \"dice_roll_probability\", \"arguments\": {\"desired_sum\": 7, \"n_rolls\": 2, \"sides_per_die\": 6}}\n</tool_call>"}
 {"id": "multiple_52", "result": "<tool_call>\n{\"name\": \"currency_conversion\", \"arguments\": {\"amount\": 100, \"from_currency\": \"EUR\", \"to_currency\": \"USD\"}}\n</tool_call>"}
 {"id": "multiple_53", "result": "<tool_call>\n{\"name\": \"linear_regression\", \"arguments\": {\"independent_var\": [\"利率\", \"失业率\"], \"dependent_var\": \"房价\", \"forecast_period\": 5}}\n</tool_call>\n<tool_call>\n{\"name\": \"random_forest_regression\", \"arguments\": {\"independent_var\": [\"利率\", \"失业率\"], \"dependent_var\": \"房价\", \"forecast_period\": 5}}\n</tool_call>"}
@@ -73,7 +73,7 @@
 {"id": "multiple_72", "result": "<tool_call>\n{\"name\": \"us_history.population_by_state_year\", \"arguments\": {\"state\": \"California\", \"year\": 1970}}\n</tool_call>"}
 {"id": "multiple_73", "result": "<tool_call>\n{\"name\": \"religion.get_origin\", \"arguments\": {\"religion\": \"佛教\"}}\n</tool_call>"}
 {"id": "multiple_74", "result": "<tool_call>\n{\"name\": \"art_auction.fetch_artwork_price\", \"arguments\": {\"artwork_name\": \"星夜\", \"artist\": \"梵高\", \"platform\": \"all\"}}\n</tool_call>"}
-{"id": "multiple_75", "result": "<tool_call>\n{\"name\": \"paint_color.trends\", \"arguments\": {\"room\": \"客厅\"}}\n</tool_call>"}
+{"id": "multiple_75", "result": "<tool_call>\n{\"name\": \"paint_color.trends\", \"arguments\": {\"room\": \"Living room\"}}\n</tool_call>"}
 {"id": "multiple_76", "result": "<tool_call>\n{\"name\": \"sculpture.create_custom\", \"arguments\": {\"item\": \"horse\", \"material\": \"Bronze\"}}\n</tool_call>"}
 {"id": "multiple_77", "result": "<tool_call>\n{\"name\": \"artwork_search.find\", \"arguments\": {\"type\": \"sculpture\", \"location\": \"纽约\", \"era\": \"modern\"}}\n</tool_call>"}
 {"id": "multiple_78", "result": "<tool_call>\n{\"name\": \"museum_info\", \"arguments\": {\"museum\": \"伦敦自然历史博物馆\", \"city\": \"伦敦\", \"features\": [\"timings\", \"exhibitions\", \"accessibility\"]}}\n</tool_call>"}
@@ -87,7 +87,7 @@
 {"id": "multiple_86", "result": "<tool_call>\n{\"name\": \"BoardGameGeek.recommend\", \"arguments\": {\"numPlayers\": 2, \"category\": \"strategy\"}}\n</tool_call>"}
 {"id": "multiple_87", "result": "<tool_call>\n{\"name\": \"games.update.find\", \"arguments\": {\"game\": \"赛博朋克2077\", \"platform\": \"Xbox\"}}\n</tool_call>"}
 {"id": "multiple_88", "result": "<tool_call>\n{\"name\": \"video_games.get_player_count\", \"arguments\": {\"game_title\": \"魔兽世界\", \"year\": 2020}}\n</tool_call>"}
-{"id": "multiple_89", "result": "<tool_call>\n{\"name\": \"recipe_search\", \"arguments\": {\"ingredients\": [\"鸡肉\", \"蘑菇\"], \"calories\": 500, \"meal\": \"午餐\"}}\n</tool_call>"}
+{"id": "multiple_89", "result": "<tool_call>\n{\"name\": \"recipe_search\", \"arguments\": {\"ingredients\": [\"鸡肉\", \"蘑菇\"], \"calories\": 500, \"meal\": \"lunch\"}}\n</tool_call>"}
 {"id": "multiple_90", "result": "<tool_call>\n{\"name\": \"restaurant.find_group\", \"arguments\": {\"location\": \"Seattle, WA\", \"cuisine\": [\"Seafood\"], \"group_size\": 5}}\n</tool_call>"}
 {"id": "multiple_91", "result": "<tool_call>\n{\"name\": \"recipe.find\", \"arguments\": {\"mainIngredient\": \"apple\", \"ingredientLimit\": 5}}\n</tool_call>"}
 {"id": "multiple_92", "result": "<tool_call>\n{\"name\": \"walmart.vegan_products\", \"arguments\": {\"location\": \"Denver, CO\", \"categories\": [\"vegan\", \"gluten-free\"]}}\n</tool_call>"}
@@ -151,7 +151,7 @@
 {"id": "multiple_150", "result": "<tool_call>\n{\"name\": \"calculate_neuronal_activity\", \"arguments\": {\"input_synaptic_rate\": 200, \"weight\": 0.5, \"decay_rate\": 0.1}}\n</tool_call>"}
 {"id": "multiple_151", "result": "<tool_call>\n{\"name\": \"social_media_analytics.most_followed\", \"arguments\": {\"topic\": \"行为心理学和群体动力学\"}}\n</tool_call>"}
 {"id": "multiple_152", "result": "<tool_call>\n{\"name\": \"history.get_key_events\", \"arguments\": {\"country\": \"Germany\", \"start_year\": 1871, \"end_year\": 1945, \"event_type\": [\"War\"]}}\n</tool_call>"}
-{"id": "multiple_153", "result": "<tool_call>\n{\"name\": \"get_event_date\", \"arguments\": {\"event\": \"《里斯本条约》\"}}\n</tool_call>"}
+{"id": "multiple_153", "result": "<tool_call>\n{\"name\": \"get_event_date\", \"arguments\": {\"event\": \"里斯本条约\"}}\n</tool_call>"}
 {"id": "multiple_154", "result": "<tool_call>\n{\"name\": \"US_president.in_year\", \"arguments\": {\"year\": 1861, \"full_name\": true}}\n</tool_call>"}
 {"id": "multiple_155", "result": "<tool_call>\n{\"name\": \"get_discoverer\", \"arguments\": {\"discovery\": \"中子\", \"detail\": true}}\n</tool_call>"}
 {"id": "multiple_156", "result": "<tool_call>\n{\"name\": \"historical_contrib.get_contrib\", \"arguments\": {\"scientist\": \"阿尔伯特·爱因斯坦\", \"date\": \"1915-03-17\", \"category\": \"Physics\"}}\n</tool_call>"}
@@ -169,13 +169,13 @@
 {"id": "multiple_168", "result": "<tool_call>\n{\"name\": \"get_song_lyrics\", \"arguments\": {\"song_title\": \"Bohemian Rhapsody\", \"artist_name\": \"Queen\", \"lang\": \"English\"}}\n</tool_call>"}
 {"id": "multiple_169", "result": "<tool_call>\n{\"name\": \"musical_scale\", \"arguments\": {\"key\": \"C\", \"scale_type\": \"major\"}}\n</tool_call>"}
 {"id": "multiple_170", "result": "<tool_call>\n{\"name\": \"soccer_stat.get_player_stats\", \"arguments\": {\"player_name\": \"克里斯蒂亚诺·罗纳尔多\", \"season\": \"2019-2020\"}}\n</tool_call>"}
-{"id": "multiple_171", "result": "<tool_call>\n{\"name\": \"game_result.get_winner\", \"arguments\": {\"teams\": [\"洛杉矶湖人队\", \"洛杉矶快船队\"], \"date\": \"2021-01-28\", \"venue\": \"\"}}\n</tool_call>"}
+{"id": "multiple_171", "result": "<tool_call>\n{\"name\": \"game_result.get_winner\", \"arguments\": {\"teams\": [\"洛杉矶湖人队\", \"洛杉矶快船队\"], \"date\": \"2021-01-28\", \"venue\": \"洛杉矶\"}}\n</tool_call>"}
 {"id": "multiple_172", "result": "<tool_call>\n{\"name\": \"sports_db.find_athlete\", \"arguments\": {\"name\": \"勒布朗·詹姆斯\", \"sport\": \"Basketball\"}}\n</tool_call>"}
 {"id": "multiple_173", "result": "<tool_call>\n{\"name\": \"get_defense_ranking\", \"arguments\": {\"season\": 2021}}\n</tool_call>"}
 {"id": "multiple_174", "result": "<tool_call>\n{\"name\": \"sports_ranking\", \"arguments\": {\"team\": \"曼联\", \"league\": \"英超联赛\"}}\n</tool_call>"}
 {"id": "multiple_175", "result": "<tool_call>\n{\"name\": \"sports_ranking.get_top_player\", \"arguments\": {\"sport\": \"tennis\", \"gender\": \"women\"}}\n</tool_call>"}
 {"id": "multiple_176", "result": "<tool_call>\n{\"name\": \"sports_team.get_schedule\", \"arguments\": {\"team_name\": \"曼联\", \"num_of_games\": 6, \"league\": \"英超联赛\"}}\n</tool_call>"}
-{"id": "multiple_177", "result": "<tool_call>\n{\"name\": \"board_game.chess.get_top_players\", \"arguments\": {\"location\": \"纽约市\", \"minimum_rating\": 2300}}\n</tool_call>"}
+{"id": "multiple_177", "result": "<tool_call>\n{\"name\": \"board_game.chess.get_top_players\", \"arguments\": {\"location\": \"纽约市\", \"minimum_rating\": 2300, \"number_of_players\": 10}}\n</tool_call>"}
 {"id": "multiple_178", "result": "<tool_call>\n{\"name\": \"find_card_in_deck\", \"arguments\": {\"rank\": \"Queen\", \"suit\": \"Hearts\"}}\n</tool_call>"}
 {"id": "multiple_179", "result": "<tool_call>\n{\"name\": \"poker_probability.full_house\", \"arguments\": {\"deck_size\": 52, \"hand_size\": 5}}\n</tool_call>"}
 {"id": "multiple_180", "result": "<tool_call>\n{\"name\": \"game_stats.fetch_player_statistics\", \"arguments\": {\"game\": \"Zelda\", \"username\": \"Sam\", \"platform\": \"Switch\"}}\n</tool_call>"}
