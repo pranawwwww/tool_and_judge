@@ -23,43 +23,43 @@ from config import (
 
 # Example configurations
 configs = [
-    # ToolConfig(
-    #     model=ApiModel.GPT_5_NANO,
-    #     translate_mode=Translated(
-    #         language=Language.CHINESE,
-    #         option=TranslateOption.FULLY_TRANSLATED_POST_TRANSLATE_ALLOW_SYNONYM_SAME_LANGUAGE
-    #     ),
-    #     # translate_mode=NotTranslated(),
-    #     add_noise_mode=AddNoiseMode.NO_NOISE
-    # ),
+    ToolConfig(
+        model=ApiModel.GPT_5_NANO,
+        translate_mode=Translated(
+            language=Language.CHINESE,
+            option=TranslateOption.FULLY_TRANSLATED
+        ),
+        # translate_mode=NotTranslated(),
+        add_noise_mode=AddNoiseMode.NO_NOISE
+    ),
 ]
 
 # Uncomment to generate all combinations programmatically
-for model in [ApiModel.GPT_5_NANO, ApiModel.GPT_5_MINI, ApiModel.GPT_5]:
-    for translate_mode in [
-        NotTranslated(allow_synonym_same_language=False),
-        NotTranslated(allow_synonym_same_language=True),
-        Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED),
-        Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED_ALLOW_SYNONYM_SAME_LANGUAGE),
-        Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED_PROMPT_TRANSLATE),
-        Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED_ALLOW_SYNONYM_DIFFERENT_LANGUAGE),
-        Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED_ALLOW_SYNONYM_SAME_LANGUAGE),
-        Translated(language=Language.CHINESE, option=TranslateOption.PARTIALLY_TRANSLATED),
-        Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED_PROMPT_TRANSLATE_ALLOW_SYNONYM_SAME_LANGUAGE),
-        Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED_PRE_TRANSLATE),
-        Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED_POST_TRANSLATE),
-        Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED_PRE_TRANSLATE_ALLOW_SYNONYM_SAME_LANGUAGE),
-        Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED_POST_TRANSLATE_ALLOW_SYNONYM_SAME_LANGUAGE),
-    ]:
-        for add_noise_mode in [
-            AddNoiseMode.NO_NOISE,
-            AddNoiseMode.SYNONYM,
-            AddNoiseMode.PARAPHRASE,
-        ]:
-            configs.append(
-                ToolConfig(
-                    model=model,
-                    translate_mode=translate_mode,
-                    add_noise_mode=add_noise_mode,
-                )
-            )
+# for model in [ApiModel.GPT_5_NANO, ApiModel.GPT_5_MINI, ApiModel.GPT_5]:
+#     for translate_mode in [
+#         NotTranslated(allow_synonym_same_language=False),
+#         NotTranslated(allow_synonym_same_language=True),
+#         Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED),
+#         Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED_ALLOW_SYNONYM_SAME_LANGUAGE),
+#         Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED_PROMPT_TRANSLATE),
+#         Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED_ALLOW_SYNONYM_DIFFERENT_LANGUAGE),
+#         Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED_ALLOW_SYNONYM_SAME_LANGUAGE),
+#         Translated(language=Language.CHINESE, option=TranslateOption.PARTIALLY_TRANSLATED),
+#         Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED_PROMPT_TRANSLATE_ALLOW_SYNONYM_SAME_LANGUAGE),
+#         Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED_PRE_TRANSLATE),
+#         Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED_POST_TRANSLATE),
+#         Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED_PRE_TRANSLATE_ALLOW_SYNONYM_SAME_LANGUAGE),
+#         Translated(language=Language.CHINESE, option=TranslateOption.FULLY_TRANSLATED_POST_TRANSLATE_ALLOW_SYNONYM_SAME_LANGUAGE),
+#     ]:
+#         for add_noise_mode in [
+#             AddNoiseMode.NO_NOISE,
+#             AddNoiseMode.SYNONYM,
+#             AddNoiseMode.PARAPHRASE,
+#         ]:
+#             configs.append(
+#                 ToolConfig(
+#                     model=model,
+#                     translate_mode=translate_mode,
+#                     add_noise_mode=add_noise_mode,
+#                 )
+#             )

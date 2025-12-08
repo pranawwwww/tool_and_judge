@@ -288,6 +288,25 @@ def get_or_create_model_interface(model: Model):
 
 async def process_all_configs():
     """Process all configs within a single event loop to allow backend reuse."""
+    # Load global category cache from JSON file (one entry per line)
+    category_cache_path = "tool_category_cache.json"
+    category_cache = {}
+    try:
+        with open(category_cache_path, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                # Each line is a [key, value] pair
+                item = json.loads(line)
+                key_tuple = (item[0][0], tuple(item[0][1]))
+                category_cache[key_tuple] = item[1]
+    except FileNotFoundError:
+        print(f"Category cache file not found. Creating new cache.")
+    except json.JSONDecodeError as e:
+        print(f"Error decoding category cache: {e}. Creating new cache.")
+        category_cache = {}
+
     for config in configs:
         print(f"Processing config: {config}", flush=True)
 
@@ -1010,9 +1029,9 @@ async def process_all_configs():
             async def categorize_samples_async():
                 """Categorize error samples asynchronously."""
                 async def categorize_with_sample(sample):
-                    """Wrapper to return sample, category, and raw response."""
-                    category_enum, raw_response = await categorize_single_sample_async(sample)
-                    return sample, category_enum, raw_response
+                    """Wrapper to return sample and category."""
+                    category_enum = await categorize_single_sample_async(sample, category_cache)
+                    return sample, category_enum
 
                 # Create all categorization tasks
                 tasks = [categorize_with_sample(sample) for sample in samples_to_categorize]
@@ -1020,14 +1039,13 @@ async def process_all_configs():
                 # Process results as they complete
                 completed_count = 0
                 for coro in asyncio.as_completed(tasks):
-                    sample, category_enum, raw_response = await coro
+                    sample, category_enum = await coro
                     completed_count += 1
 
                     # Assemble the result dict (assembly logic in tool_main.py)
                     categorized_sample = {
                         "id": sample["id"],
                         "category": category_enum.value,  # Store enum value as string
-                        "raw_llm_response": raw_response,  # Store raw LLM response
                         "evaluation_entry": sample
                     }
 
@@ -1046,6 +1064,13 @@ async def process_all_configs():
             # Final sort and write
             if len(categorize_results) > 0:
                 append_and_rewrite_json_lines(categorize_output_path, categorize_results)
+
+            # Save category cache to JSON file (one entry per line)
+            # Convert dict with tuple keys to list of [key, value] pairs for JSON compatibility
+            with open(category_cache_path, 'w', encoding='utf-8') as f:
+                for key, value in category_cache.items():
+                    cache_entry = [[key[0], list(key[1])], value]
+                    f.write(json.dumps(cache_entry, ensure_ascii=False) + '\n')
 
         # ═══════════════════════════════════════════════════════════════════════
         # PASS 8: Categorize Score
@@ -1074,7 +1099,7 @@ async def process_all_configs():
                     category_counts[category] = 0
                     category_samples[category] = []
                 category_counts[category] += 1
-                category_samples[category].append(result)
+                category_samples[category].append(result['id'])
 
             # Prepare final output with summary and samples
             final_output = {

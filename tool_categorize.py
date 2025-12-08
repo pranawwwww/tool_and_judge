@@ -9,14 +9,42 @@ import json
 import re
 from typing import Any, Dict, Tuple, List
 from config import ToolErrorCategory, EvaluationError
-from allow_synonym import _get_allow_synonym_backend
+
+from models import create_backend, create_interface
+
+_allow_synonym_model_name = "gpt-5"  # Default model for allow_synonym
+
+_allow_synonym_backend = None  # Global backend for allow_synonym processing
+
+# temp code copied from allow_synonym.py
+def _get_allow_synonym_backend():
+    """
+    Get or create the global allow_synonym backend.
+
+    This backend is cached separately from the experiment backend,
+    allowing both to be loaded simultaneously.
+
+    Returns:
+        The backend for allow_synonym processing
+    """
+    global _allow_synonym_backend
+
+    if _allow_synonym_backend is None:
+        # Create backend with instance_name="allow_synonym" for separate caching
+        _allow_synonym_backend = create_backend(
+            backend_type="api",
+            model_name=_allow_synonym_model_name,
+            instance_name="allow_synonym"  # Separate cache from experiment backend
+        )
+
+    return _allow_synonym_backend
 
 
 async def _categorize_parameter_value_async(
     param_name: str,
     actual_value: Any,
     expected_values: List[Any]
-) -> Tuple[ToolErrorCategory, str]:
+) -> ToolErrorCategory:
     """
     Use LLM to categorize a single parameter value mismatch into one of 6 categories.
 
@@ -26,7 +54,7 @@ async def _categorize_parameter_value_async(
         expected_values: List of expected values from ground truth
 
     Returns:
-        Tuple of (ToolErrorCategory enum, raw_llm_response string)
+        ToolErrorCategory enum
     """
     system_prompt = """You are a parameter value categorization system. Given a parameter with its actual value and expected values, determine which category the mismatch belongs to.
 
@@ -72,20 +100,18 @@ Put your final answer in \\boxed{{category_name}}."""
 
         # Extract and validate response content
         if not response.choices or len(response.choices) == 0:
-            return ToolErrorCategory.OTHER_ERRORS, "Error: No choices returned"
+            return ToolErrorCategory.OTHER_ERRORS
 
         content = response.choices[0].message.content
         if content is None or not content.strip():
-            return ToolErrorCategory.OTHER_ERRORS, "Error: Empty response"
-
-        raw_response = content
+            return ToolErrorCategory.OTHER_ERRORS
 
         # Extract category from \boxed{category_name}
         boxed_pattern = r'\\boxed\{([^}]+)\}'
         match = re.search(boxed_pattern, content)
 
         if not match:
-            return ToolErrorCategory.OTHER_ERRORS, raw_response
+            return ToolErrorCategory.OTHER_ERRORS
 
         raw_category = match.group(1).strip().lower()
 
@@ -100,15 +126,18 @@ Put your final answer in \\boxed{{category_name}}."""
         }
 
         if raw_category in category_map:
-            return category_map[raw_category], raw_response
+            return category_map[raw_category]
         else:
-            return ToolErrorCategory.OTHER_ERRORS, raw_response
+            return ToolErrorCategory.OTHER_ERRORS
 
     except Exception as e:
-        return ToolErrorCategory.OTHER_ERRORS, f"Error: {str(e)}"
+        return ToolErrorCategory.OTHER_ERRORS
 
 
-async def categorize_single_sample_async(evaluation_entry: Dict[str, Any]) -> Tuple[ToolErrorCategory, str]:
+async def categorize_single_sample_async(
+    evaluation_entry: Dict[str, Any],
+    category_cache: Dict[Tuple[str, Tuple], str]
+) -> ToolErrorCategory:
     """
     Asynchronously categorize a single evaluation sample to determine error type.
 
@@ -120,9 +149,10 @@ async def categorize_single_sample_async(evaluation_entry: Dict[str, Any]) -> Tu
 
     Args:
         evaluation_entry: Evaluation result entry with 'id', 'valid', 'error', and 'error_meta'
+        category_cache: Dict mapping (actual_value, expected_values_tuple) to category name
 
     Returns:
-        Tuple of (ToolErrorCategory enum, raw_llm_response string)
+        ToolErrorCategory enum
     """
     # If the sample is valid, it shouldn't be categorized
     is_valid = evaluation_entry.get("valid", False)
@@ -133,21 +163,21 @@ async def categorize_single_sample_async(evaluation_entry: Dict[str, Any]) -> Tu
 
     # Map postprocess errors to categories directly (no LLM needed)
     if error_type == EvaluationError.NO_FUNCTION_CALLS_FOUND.value:
-        return ToolErrorCategory.SYNTAX_ERROR, "Postprocess error: no function calls found"
+        return ToolErrorCategory.SYNTAX_ERROR
     elif error_type == EvaluationError.JSON_DECODE_ERROR.value:
-        return ToolErrorCategory.SYNTAX_ERROR, "Postprocess error: JSON decode error"
+        return ToolErrorCategory.SYNTAX_ERROR
     elif error_type == EvaluationError.PARSING_ERROR.value:
-        return ToolErrorCategory.SYNTAX_ERROR, "Postprocess error: parsing error"
+        return ToolErrorCategory.SYNTAX_ERROR
 
     # Map evaluation errors to categories
     elif error_type == EvaluationError.INVALID_ENTRY_COUNT.value:
-        return ToolErrorCategory.MISC_ERRORS, "Evaluation error: invalid entry count"
+        return ToolErrorCategory.MISC_ERRORS
     elif error_type == EvaluationError.WRONG_FUNC_NAME.value:
-        return ToolErrorCategory.MISC_ERRORS, "Evaluation error: wrong function name"
+        return ToolErrorCategory.MISC_ERRORS
     elif error_type == EvaluationError.MISSING_REQUIRED_PARAM.value:
-        return ToolErrorCategory.MISC_ERRORS, "Evaluation error: missing required parameter"
+        return ToolErrorCategory.MISC_ERRORS
     elif error_type == EvaluationError.UNEXPECTED_PARAM.value:
-        return ToolErrorCategory.MISC_ERRORS, "Evaluation error: unexpected parameter"
+        return ToolErrorCategory.MISC_ERRORS
 
     # For INVALID_PARAM_VALUE, use LLM to categorize the specific parameter
     elif error_type == EvaluationError.INVALID_PARAM_VALUE.value:
@@ -156,12 +186,39 @@ async def categorize_single_sample_async(evaluation_entry: Dict[str, Any]) -> Tu
         actual_value = error_meta.get("actual_value")
         expected_values = error_meta.get("expected_values", [])
 
+        # Create cache key: (actual_value_str, expected_values_tuple)
+        # Convert actual_value to JSON string for consistent hashing
+        actual_value_key = json.dumps(actual_value, ensure_ascii=False, sort_keys=True)
+        expected_values_key = tuple(json.dumps(v, ensure_ascii=False, sort_keys=True) for v in expected_values)
+        cache_key = (actual_value_key, expected_values_key)
+
+        # Check cache first
+        if cache_key in category_cache:
+            category_name = category_cache[cache_key]
+            # Convert category name back to enum
+            category_map = {
+                "wrong_values": ToolErrorCategory.WRONG_VALUES,
+                "relevant_but_incorrect": ToolErrorCategory.RELEVANT_BUT_INCORRECT,
+                "exactly_same_meaning": ToolErrorCategory.EXACTLY_SAME_MEANING,
+                "language_mismatch_wrong_values": ToolErrorCategory.LANGUAGE_MISMATCH_WRONG_VALUES,
+                "language_mismatch_relevant_but_incorrect": ToolErrorCategory.LANGUAGE_MISMATCH_RELEVANT_BUT_INCORRECT,
+                "language_mismatch_exactly_same_meaning": ToolErrorCategory.LANGUAGE_MISMATCH_EXACTLY_SAME_MEANING,
+                "syntax_error": ToolErrorCategory.SYNTAX_ERROR,
+                "misc_errors": ToolErrorCategory.MISC_ERRORS,
+                "other_errors": ToolErrorCategory.OTHER_ERRORS,
+            }
+            return category_map.get(category_name, ToolErrorCategory.OTHER_ERRORS)
+
         # Call LLM to categorize this specific parameter value
-        category, llm_response = await _categorize_parameter_value_async(
+        category = await _categorize_parameter_value_async(
             param, actual_value, expected_values
         )
-        return category, llm_response
+
+        # Store result in cache
+        category_cache[cache_key] = category.value
+
+        return category
 
     else:
         # Unknown error type
-        return ToolErrorCategory.OTHER_ERRORS, f"Unknown error type: {error_type}"
+        return ToolErrorCategory.OTHER_ERRORS

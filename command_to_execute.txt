@@ -1,0 +1,4 @@
+Now, I would like to get rid of the "raw response" output of _categorize_parameter_value_async function and any other 
+occurrences. Then, I would like to maintain a global cache in tool_main.py called "category_cache" that is a dict that matches 
+(actual_value, expected_values) to the category name. It is backed up at "tool_category_cache.json" at the root directory. The 
+category_cache variable should be passed in to categorize_single_sample_async function.
