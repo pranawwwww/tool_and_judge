@@ -14,7 +14,7 @@ DeepSeek models:
 
 import ast
 import json
-from typing import List, Dict, Any, Union, Optional, TYPE_CHECKING
+from typing import List, Dict, Any, Union, Optional, TYPE_CHECKING, Tuple
 
 from models.api_backend import APIBackend
 from .base import (
@@ -26,6 +26,7 @@ from .base import (
 )
 
 from models.name_mapping import FunctionNameMapper
+from config import EvaluationError
 
 
 class DeepSeekInterface(JudgeModelInterface, ToolModelInterface):
@@ -123,12 +124,30 @@ class DeepSeekInterface(JudgeModelInterface, ToolModelInterface):
 
         return response.choices[0].message.content
 
+    def preprocess_functions(
+        self,
+        functions: List[Dict[str, Any]],
+        name_mapper: Optional['FunctionNameMapper']
+    ) -> List[Dict[str, Any]]:
+        """
+        Preprocess function definitions for DeepSeek.
+
+        DeepSeek doesn't require name sanitization, so this returns functions unchanged.
+
+        Args:
+            functions: List of function definitions
+            name_mapper: External name mapper (unused for DeepSeek)
+
+        Returns:
+            Preprocessed function definitions (unchanged for DeepSeek)
+        """
+        return functions
 
     def postprocess_tool_calls(
         self,
         raw_output: str,
         name_mapper: Optional['FunctionNameMapper'] = None
-    ) -> Union[List[Dict[str, Dict[str, Any]]], str]:
+    ) -> Union[List[Dict[str, Dict[str, Any]]], Tuple[EvaluationError, Dict[str, Any]]]:
         """
         Postprocess raw output from DeepSeek model to extract function calls.
 
@@ -142,8 +161,8 @@ class DeepSeekInterface(JudgeModelInterface, ToolModelInterface):
             name_mapper: Unused for DeepSeek (no name sanitization needed)
 
         Returns:
-            List of function call dictionaries in format: [{func_name: {arguments}}, ...]
-            Returns error string if parsing fails
+            On success: List of function calls
+            On error: Tuple of (EvaluationError, metadata dict with error details)
         """
         # Strip backticks and whitespace
         raw_output = raw_output.strip("`\n ")
@@ -160,20 +179,146 @@ class DeepSeekInterface(JudgeModelInterface, ToolModelInterface):
         try:
             # Parse as Python AST
             parsed = ast.parse(cleaned_input, mode="eval")
-        except SyntaxError:
-            return f"Failed to decode AST: Invalid syntax. Raw string: {cleaned_input}"
+        except SyntaxError as e:
+            return (EvaluationError.PARSING_ERROR, {
+                "error_message": f"Invalid Python syntax: {str(e)}",
+                "raw_output": raw_output
+            })
 
         # Extract function calls from AST
         extracted = []
-        if isinstance(parsed.body, ast.Call):
-            extracted.append(self._resolve_ast_call(parsed.body))
-        else:
-            for elem in parsed.body.elts:
-                if not isinstance(elem, ast.Call):
-                    return f"Failed to decode AST: Expected AST Call node, but got {type(elem)}. Raw string: {cleaned_input}"
-                extracted.append(self._resolve_ast_call(elem))
+        try:
+            if isinstance(parsed.body, ast.Call):
+                extracted.append(self._resolve_ast_call(parsed.body))
+            else:
+                for elem in parsed.body.elts:
+                    if not isinstance(elem, ast.Call):
+                        return (EvaluationError.PARSING_ERROR, {
+                            "error_message": f"Expected AST Call node, but got {type(elem)}",
+                            "raw_output": raw_output
+                        })
+                    extracted.append(self._resolve_ast_call(elem))
+        except Exception as e:
+            return (EvaluationError.PARSING_ERROR, {
+                "error_message": str(e),
+                "exception_type": type(e).__name__,
+                "raw_output": raw_output
+            })
 
-        return extracted
+        if extracted:
+            return extracted
+        else:
+            return (EvaluationError.NO_FUNCTION_CALLS_FOUND, {
+                "raw_output": raw_output
+            })
+
+    async def translate_tool_question_async(
+        self,
+        backend: ModelBackend,
+        question: str,
+        max_new_tokens: int = 512,
+        temperature: float = 0.0,
+    ) -> str:
+        """
+        Translate a user question to English using DeepSeek.
+
+        Args:
+            backend: The backend (OpenAI-compatible client) to use for inference
+            question: The question text to translate
+            max_new_tokens: Maximum number of tokens to generate (unused for DeepSeek)
+            temperature: Sampling temperature
+
+        Returns:
+            Translated question as a string
+        """
+        messages = [
+            {
+                "role": "system",
+                "content": "You are a professional translator. Translate the given text to English accurately. If the given text is already in English or is language agnostic, return it unchanged."
+            },
+            {
+                "role": "user",
+                "content": f"Translate the following question to English. Only output the translated question, nothing else:\n\n{question}"
+            }
+        ]
+
+        # Get the OpenAI-compatible client from the backend
+        if isinstance(backend, APIBackend):
+            client = backend.client
+        else:
+            # Fallback: assume backend is an OpenAI client directly (backward compatibility)
+            client = backend
+
+        # Note: Using sync API in async method (OpenAI client doesn't require await for sync)
+        # If the client is async, this will work; if sync, it will also work
+        if hasattr(client.chat.completions, 'acreate'):
+            response = await client.chat.completions.acreate(
+                model=self.model_name,
+                messages=messages,
+                temperature=temperature,
+            )
+        else:
+            response = client.chat.completions.create(
+                model=self.model_name,
+                messages=messages,
+                temperature=temperature,
+            )
+
+        return response.choices[0].message.content.strip()
+
+    async def translate_tool_answer_async(
+        self,
+        backend: ModelBackend,
+        parameter_value: str,
+        max_new_tokens: int = 256,
+        temperature: float = 0.0,
+    ) -> str:
+        """
+        Translate a single function parameter value to English using DeepSeek.
+
+        Args:
+            backend: The backend (OpenAI-compatible client) to use for inference
+            parameter_value: The parameter value to translate
+            max_new_tokens: Maximum number of tokens to generate (unused for DeepSeek)
+            temperature: Sampling temperature
+
+        Returns:
+            Translated parameter value as a string
+        """
+        messages = [
+            {
+                "role": "system",
+                "content": "You are a professional translator. Translate the given text to English accurately. If the given text is already in English or is language agnostic, return it unchanged."
+            },
+            {
+                "role": "user",
+                "content": f"Translate the following text to English. Only output the translated text, nothing else:\n\n{parameter_value}"
+            }
+        ]
+
+        # Get the OpenAI-compatible client from the backend
+        if isinstance(backend, APIBackend):
+            client = backend.client
+        else:
+            # Fallback: assume backend is an OpenAI client directly (backward compatibility)
+            client = backend
+
+        # Note: Using sync API in async method (OpenAI client doesn't require await for sync)
+        # If the client is async, this will work; if sync, it will also work
+        if hasattr(client.chat.completions, 'acreate'):
+            response = await client.chat.completions.acreate(
+                model=self.model_name,
+                messages=messages,
+                temperature=temperature,
+            )
+        else:
+            response = client.chat.completions.create(
+                model=self.model_name,
+                messages=messages,
+                temperature=temperature,
+            )
+
+        return response.choices[0].message.content.strip()
 
     # =========================================================================
     # JudgeModelInterface Methods

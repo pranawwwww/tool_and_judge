@@ -13,7 +13,7 @@ Qwen3 models use ChatML format with:
 
 import json
 import re
-from typing import List, Dict, Any, Union, Optional, TYPE_CHECKING
+from typing import List, Dict, Any, Union, Optional, TYPE_CHECKING, Tuple
 from .base import (
     JudgeModelInterface,
     ToolModelInterface,
@@ -25,6 +25,7 @@ from .base import (
 )
 
 from models.name_mapping import FunctionNameMapper
+from config import EvaluationError
 
 
 class Qwen3Interface(JudgeModelInterface, ToolModelInterface):
@@ -163,15 +164,30 @@ class Qwen3Interface(JudgeModelInterface, ToolModelInterface):
 
         return result.generated_text
     
-    def preprocess_functions(self, functions, name_mapper):
-        # Preprocess function definitions for Qwen3 (no sanitization needed).
+    def preprocess_functions(
+        self,
+        functions: List[Dict[str, Any]],
+        name_mapper: Optional['FunctionNameMapper']
+    ) -> List[Dict[str, Any]]:
+        """
+        Preprocess function definitions for Qwen3.
+
+        Qwen3 doesn't require name sanitization, so this returns functions unchanged.
+
+        Args:
+            functions: List of function definitions
+            name_mapper: External name mapper (unused for Qwen3)
+
+        Returns:
+            Preprocessed function definitions (unchanged for Qwen3)
+        """
         return functions
 
     def postprocess_tool_calls(
         self,
         raw_output: str,
         name_mapper: Optional['FunctionNameMapper'] = None
-    ) -> Union[List[Dict[str, Dict[str, Any]]], str]:
+    ) -> Union[List[Dict[str, Dict[str, Any]]], Tuple[EvaluationError, Dict[str, Any]]]:
         """
         Postprocess raw output from Qwen3 model to extract function calls.
 
@@ -187,8 +203,8 @@ class Qwen3Interface(JudgeModelInterface, ToolModelInterface):
             name_mapper: Unused for Qwen3 (no name sanitization needed)
 
         Returns:
-            List of function call dictionaries in format: [{func_name: {arguments}}, ...]
-            Returns error string if parsing fails
+            On success: List of function calls
+            On error: Tuple of (EvaluationError, metadata dict with error details)
         """
         # Parse Qwen3 model's output format: <tool_call>{...}</tool_call>
         model_result_raw = raw_output.strip()
@@ -224,8 +240,11 @@ class Qwen3Interface(JudgeModelInterface, ToolModelInterface):
         try:
             # Parse the JSON array
             tool_calls = json.loads(model_result_raw)
-        except json.JSONDecodeError:
-            return f"Failed to decode JSON: Invalid JSON format. Raw string: {model_result_raw}"
+        except json.JSONDecodeError as e:
+            return (EvaluationError.JSON_DECODE_ERROR, {
+                "error_message": str(e),
+                "raw_output": raw_output
+            })
 
         # Convert Qwen3 format to desired format
         extracted = []
@@ -236,11 +255,22 @@ class Qwen3Interface(JudgeModelInterface, ToolModelInterface):
                     func_args = tool_call["arguments"]
                     extracted.append({func_name: func_args})
                 else:
-                    return f"Failed to decode JSON: Invalid tool call structure. Raw string: {model_result_raw}"
+                    return (EvaluationError.PARSING_ERROR, {
+                        "error_message": "Invalid tool call structure",
+                        "raw_output": raw_output
+                    })
         else:
-            return f"Failed to decode JSON: Expected a list of tool calls. Raw string: {model_result_raw}"
+            return (EvaluationError.PARSING_ERROR, {
+                "error_message": "Expected a list of tool calls",
+                "raw_output": raw_output
+            })
 
-        return extracted
+        if extracted:
+            return extracted
+        else:
+            return (EvaluationError.NO_FUNCTION_CALLS_FOUND, {
+                "raw_output": raw_output
+            })
 
     async def translate_tool_question_async(
         self,
