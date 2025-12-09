@@ -154,7 +154,34 @@ class GPT5Interface(JudgeModelInterface, ToolModelInterface):
                 "Got: " + str(type(backend))
             )
 
-        response = await client.responses.create(**api_params)
+        # Call Responses API; some organizations may not have access to the
+        # reasoning.summary feature. If the API rejects the reasoning param
+        # with a BadRequestError about unsupported_value, retry without it.
+        try:
+            response = await client.responses.create(**api_params)
+        except Exception as e:
+            # Try to detect OpenAI BadRequestError about reasoning access
+            retried = False
+            try:
+                import openai
+                if isinstance(e, openai.BadRequestError) and (
+                    "reasoning.summary" in str(e) or "Your organization must be verified" in str(e) or "unsupported_value" in str(e)
+                ):
+                    # Remove reasoning-related params and retry once
+                    api_params.pop("reasoning", None)
+                    api_params.pop("include", None)
+                    retried = True
+                    response = await client.responses.create(**api_params)
+                else:
+                    raise
+            except ImportError:
+                # openai not available to introspect exception type; re-raise original
+                raise
+            except Exception:
+                # If retry fails or exception wasn't the specific BadRequestError,
+                # re-raise the original exception to surface the real issue.
+                if not retried:
+                    raise
 
         # Parse response
         model_responses = []

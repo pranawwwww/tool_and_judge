@@ -58,6 +58,25 @@ class APIBackend(ModelBackend):
 
         self.client = AsyncOpenAI(**client_kwargs)
 
+        # Sanity-check: ensure the installed OpenAI client exposes the Responses API
+        # If not present, provide a clear, actionable error message so users can
+        # install the preview release that includes the Responses API.
+        if not hasattr(self.client, 'responses'):
+            raise RuntimeError(
+                "The installed OpenAI client does not expose the 'responses' API.\n"
+                "This project expects the OpenAI Responses API (preview).\n"
+                "To enable it, install the OpenAI pre-release that contains Responses: \n"
+                "  pip install --upgrade --pre openai\n\n"
+                "After installing, verify the client exposes 'responses' by running:\n"
+                "  python - <<PY\n"
+                "import os\n"
+                "from openai import AsyncOpenAI\n"
+                "c = AsyncOpenAI(api_key=os.environ.get('OPENAI_API_KEY'))\n"
+                "print('has responses:', hasattr(c, 'responses'))\n"
+                "PY\n\n"
+                "If the check still prints False, consult the OpenAI SDK release notes or use the stable chat completions API instead."
+            )
+
     async def forward_async(
         self,
         prompt: str,

@@ -20,7 +20,7 @@ configs = [
     Config(
         model=ApiModel.GPT_5,
         translate_mode=Translated(
-            language=Language.CHINESE,
+            language=Language.HINDI,
             option=TranslateOption.FULLY_TRANSLATED
         ),
         add_noise_mode=AddNoiseMode.NO_NOISE
