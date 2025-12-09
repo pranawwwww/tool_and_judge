@@ -20,7 +20,7 @@ from config import (
 # Qwen local model variations to run locally
 # Choose whichever Qwen variants are available on your system or in the LocalModel enum
 qwen_models = [
-    LocalModel.QWEN3_8B,
+    LocalModel.QWEN3_30B_A3B,
     # LocalModel.QWEN3_14B,  # enable if you have this model locally
 ]
 
