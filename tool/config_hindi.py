@@ -13,15 +13,15 @@ Usage:
 """
 
 from config import (
-    Config, ApiModel, Language, TranslateOption, AddNoiseMode,
+    Config, ApiModel, LocalModel, Language, TranslateOption, AddNoiseMode,
     Translated, NotTranslated
 )
 
-# All GPT model variations
-gpt_models = [
-    ApiModel.GPT_5,
-    ApiModel.GPT_5_MINI,
-    ApiModel.GPT_5_NANO,
+# Qwen local model variations to run locally
+# Choose whichever Qwen variants are available on your system or in the LocalModel enum
+qwen_models = [
+    LocalModel.QWEN3_8B,
+    # LocalModel.QWEN3_14B,  # enable if you have this model locally
 ]
 
 # All dataset combinations (6 total)
@@ -36,7 +36,7 @@ dataset_combinations = [
 
 # Generate configs for each model and dataset combination
 configs = []
-for model in gpt_models:
+for model in qwen_models:
     for translate_option, noise_mode in dataset_combinations:
         configs.append(
             Config(
